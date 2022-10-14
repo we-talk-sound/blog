@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import Twitter from 'assets/svg/social/Twitter.svg';
+import Twitter from 'assets/svg/social/twitter.svg';
 import Instagram from 'assets/svg/social/instagram.svg';
 import LinkedIn from 'assets/svg/social/linkedin.svg';
 import { FooterIconSet } from 'components';
