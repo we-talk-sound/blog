@@ -15,7 +15,7 @@ const generateUrlParams = (item: { [key: string]: string } | ParsedUrlQuery) => 
 
 }
 
-export const queries = (router: NextRouter, modalUniqueId: string, remove = false) => {
+export const queries = (router: NextRouter, modalUniqueId: string) => {
 
     const currentPath = router?.pathname || "";
 

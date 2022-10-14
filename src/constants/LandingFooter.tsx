@@ -1,4 +1,3 @@
-import Twitter from 'assets/svg/social/Twitter.svg';
 import Wetalksound from 'assets/logo/wts_white.png';
 
 interface FooterTypes {

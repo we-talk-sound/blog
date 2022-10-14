@@ -2,7 +2,7 @@ import { totp } from 'service/totp';
 import CryptoJS from 'crypto-js';
 
 export function verifyCSRF(req: any, res: any) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
 
         const decryptedToken = CryptoJS.AES.decrypt(req.headers["csrf-token"], process.env.NEXT_PUBLIC_REF_ENCRYPTION_KEY);
 

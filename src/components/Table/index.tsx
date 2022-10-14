@@ -3,11 +3,7 @@ import { FormField } from 'components/FormField';
 
 const TableData: React.FC<TableDataProp> = ({ item }) => {
 
-    console.log(item);
-
     if ( typeof item === "object") {
-
-        console.log(item)
 
         if (item?.["status"]) {
             const statusItem = String(item?.status || "").replace(" ", "-");

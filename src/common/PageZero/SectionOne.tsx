@@ -1,5 +1,5 @@
 import React from 'react';
-import { Arrow, ComponentHolder } from 'components';
+import { ComponentHolder } from 'components';
 import { Header } from 'layout/LandingLayout/header';
 import { ExpandedButton } from 'components/ExpandButton';
 
