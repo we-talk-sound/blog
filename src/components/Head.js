@@ -2,24 +2,22 @@ import React from 'react';
 import Head from 'next/head';
 
 export const HtmlHead = ({ title }) => {
-  const description =
-    'Stellas digital bank is your true mobile bank to spend, save, earn interest, ' +
-    'anonymous transfer: ghost mode, automobile loans and more. Licensed & insured with NDIC.';
-  const link = 'http://stellasbank.com';
-  const logo = 'http://stellasbank.com/assets/Stellas-logo.png';
+  const description = '';
+  const link = '';
+  const logo = '';
 
   const seoAttributes = `{
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Stellas Digital Bank ",
-    "alternateName": ["Stellas Bank", "Stellas", "stellas mfb"],
-    "url": "http://www.stellasbank.com",
-    "sameAs": ["http://www.facebook.com/stellasbank", "http://www.twitter.com/stellasbank"],
+    "name": "",
+    "alternateName": [""],
+    "url": "",
+    "sameAs": ["", ""],
 
-    "logo": "https://www.stellasbank.com/assets/Stellas-logo.png",
+    "logo": "",
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "09087339788",
+      "telephone": "",
       "contactType": "customer service"
     }
   }`;
@@ -50,23 +48,6 @@ export const HtmlHead = ({ title }) => {
           ? 'window.__REACT_DEVTOOLS_GLOBAL_HOOK__.inject = function(){}'
           : ''}
       </script>
-
-      <script>
-        {process.env.NEXT_PUBLIC_NODE_ENV === 'production'
-          ? `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-TZNQKVQ');`
-          : ''}
-      </script>
-
-      <noscript>
-        {process.env.NEXT_PUBLIC_NODE_ENV === 'production'
-          ? `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TZNQKVQ" 
-          height="0" width="0" style="display:none;visibility:hidden"></iframe>`
-          : ''}
-      </noscript>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: seoAttributes }} />
 

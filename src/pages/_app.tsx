@@ -108,7 +108,7 @@ function App({ Component, pageProps }: AppProps) {
         (redirectCondition || !clientMode) ?
 
           <HtmlHead
-            title={"Stellas"}
+            title={"Wetalksound"}
           />
 
           :

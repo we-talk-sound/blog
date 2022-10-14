@@ -79,7 +79,7 @@ export const TimeOutBox: React.FC<Props> = ({ trigger }) => {
 
                     <p className="mb-4 mt-3">
 
-                        Session has expired, please login to continue using Stellas.
+                        Session has expired, please login to continue using Wetalksound.
 
                     </p>
 
