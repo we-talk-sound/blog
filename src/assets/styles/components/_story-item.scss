@@ -1,0 +1,49 @@
+.story-item {
+
+    border-bottom: 1px solid color(story-border);
+    padding: 16px;
+    max-width: 450px;
+    color: color(white);
+
+    &-active {
+
+        border-top: 2px solid color(active-story-item-border);
+        background: url(/assets/background/story-item-background.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+    }
+
+    &-heading {
+
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+
+    }
+
+    &-category {
+
+        @include font-size(x-small);
+        margin-right: 8px;
+        padding: 4px;
+        background: color(primary);
+
+    }
+
+    &-author {
+
+        margin-top: 8px;
+        text-transform: uppercase;
+
+    }
+
+    &-title {
+
+        @include font-size(large);
+        font-family: $main-font;
+
+
+    }
+
+}

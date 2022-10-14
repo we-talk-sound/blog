@@ -1,0 +1,80 @@
+.newsletter {
+
+    background: url(/assets/background/newsletter-background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &-body {
+
+        @extend %body-width-and-padding;
+        padding-top: 90px;
+        padding-bottom: 90px;
+        max-width: 1400px;
+
+    }
+
+    &-header {
+
+        @include font-size(large);
+        padding-bottom: 0 !important;
+        font-weight: 300;
+        color: color(white);
+
+    }
+
+    &-form-box {
+
+        display: flex;
+        flex-grow: 1;
+        align-items: flex-end;
+
+    }
+
+    .form-field {
+
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        margin-bottom: 0;
+
+        &-title {
+
+            @include font-size(xxx-large);
+            margin: 0;
+            width: max-content;
+            height: 100%;
+            font-family: $header-font;
+
+        }
+
+        input {
+
+            @include font-size(xxx-large);
+            border-radius: 0;
+            border: 0;
+            border-bottom: 1.5px solid color(white);
+            padding-bottom: 5px;
+            height: unset;
+            background: unset;
+            font-family: $header-font;
+
+        }
+
+        input::placeholder {
+
+            @include font-size(xxx-large);
+            font-family: $header-font;
+            color: color(input-placeholder);
+
+        }
+
+    }
+
+    h1 {
+
+        @include font-size(xxx-large);
+        margin-top: 16px;
+
+    }
+
+}

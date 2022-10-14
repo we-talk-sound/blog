@@ -1,0 +1,7 @@
+@font-face {
+  text-rendering: optimizeLegibility;
+  font-family: 'Epilogue';
+  font-weight: 500;
+  font-style: normal;
+  src: url('./Epilogue-500.ttf') format('truetype');
+}

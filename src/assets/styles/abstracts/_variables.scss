@@ -1,0 +1,104 @@
+:root {
+  --primary-color: #FBCA01;
+}
+
+$colors: (
+  primary: #FBCA01,
+  secondary-text: #e0e3e5,
+  red: #ea3223,
+  white: #ffffff,
+  footer: #18191f,
+  footer-icon-bg: #303135,
+  footer-text: rgba(217, 219, 225, 1),
+  dark: rgba(24, 25, 31, 1),
+  faux-blue: rgba(22, 22, 168, 0.814),
+  input-border: #e0e3e5,
+  input-bg: #f3f3f3,
+  input-placeholder: rgba(35, 35, 34, 0.6),
+  modal-overlay: rgba(0, 0, 0, 0.2),
+  success: rgba(75, 222, 151, 1),
+  empty-item: rgba(241, 90, 1, 0.5),
+  progression: #6A6A6A,
+  background: #20201f,
+  grey: #B8C9D3,
+  active-item: #1F162B,
+  story-border: #483A58,
+  active-story-item-border: #9747FF
+);
+
+$shadows: (
+  card: 0 16px 24px rgba(0, 0, 0, 0.06) 0 2px 6px rgba(0, 0, 0, 0.04) 0 0 1px rgba(0, 0, 0, 0.04)
+);
+
+$header-shadow: 0 16px 24px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.04), 0 0 1px rgba(0, 0, 0, 0.04);
+
+$main-font: 'Epilogue', sans-serif;
+$header-font: 'Druk-wide', sans-serif;
+$aux-font: 'Epilogue', 'sans-serif';
+
+$default-font-size: 14px;
+
+$inputBorder: 1px solid map-get($colors, input-bg);
+
+$checkBoxBorder: 1px solid rgba(0, 0, 0, 0.1);
+
+$normal-font-sizes: (
+  xx-small: 9px,
+  x-small: 12px,
+  small: 14px,
+  regular: 16px,
+  medium: 18px,
+  large: 22.5px,
+  l-large: 24px,
+  m-large: 26px,
+  x-large: 35px,
+  xx-large: 40px,
+  xxx-large: 50px,
+  mmm-large: 56px,
+  xxxx-large: 64px,
+  xta-large: 94px
+);
+
+$small-font-sizes: (
+  xx-small: 8px,
+  x-small: 10px,
+  small: 12.5px,
+  regular: 14px,
+  medium: 16px,
+  large: 20.5px,
+  l-large: 22.5px,
+  m-large: 25.5px,
+  x-large: 29.5px,
+  xx-large: 32px,
+  xxx-large: 40px,
+  mmm-large: 46px,
+  xxxx-large: 53px,
+  xta-large: 84px
+);
+
+$small-tab-font-sizes: (
+  xx-small: 7px,
+  x-small: 9px,
+  small: 11px,
+  regular: 12.5px,
+  medium: 14px,
+  large: 16px,
+  l-large: 20.5px,
+  m-large: 21px,
+  x-large: 24px,
+  xx-large: 30px,
+  xxx-large: 37px,
+  mmm-large: 40x,
+  xxxx-large: 44px,
+  xta-large: 74px
+);
+
+$font-weights: (
+  extra-light: 200,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  semi-bold: 600,
+  bold: 700,
+  black: 900
+);
