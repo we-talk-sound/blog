@@ -2,14 +2,29 @@ import React from 'react';
 import { ComponentHolder } from 'components';
 import { Header } from 'layout/LandingLayout/header';
 import { ExpandedButton } from 'components/ExpandButton';
+import { classnames } from 'utils';
 
-export const SectionOne: React.FC<Props> = ({ isMobile, deviceWidth }) => {
+export const SectionOne: React.FC<Props> = ({
+
+    isMobile,
+
+    deviceWidth,
+
+    title,
+
+    text,
+
+    className,
+
+    buttonInfo
+
+}) => {
 
     return (
 
         <ComponentHolder
 
-            className='page-zero no-border'
+            className={classnames('page-zero no-border', className)}
 
             bodyClass='page-zero-content'>
 
@@ -19,38 +34,59 @@ export const SectionOne: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
                 <h1 className='color-white'>
 
-                    Elevate your
+                    {!title ?
 
-                    <span className='color-primary'> career </span>
+                        <>
+
+                            Elevate your
+
+                            <span className='color-primary'> career </span>
+
+                        </>
+
+                        :
+
+                        title
+
+                    }
 
                 </h1>
 
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiaum lorem.
-                    Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.
+                    {text || `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiaum lorem.
+                    Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.`}
                 </p>
 
-            </div>
-
-            <div className='page-zero-navigation'>
-
-                <ExpandedButton />
-
-                <ExpandedButton />
+                {buttonInfo && <ExpandedButton label={buttonInfo.title} /> }
 
             </div>
 
-            <div className='page-zero-progression'>
+            {!buttonInfo &&
 
-                <span />
+                <div className='page-zero-navigation'>
 
-                <span className='page-zero-progression-active' />
+                    <ExpandedButton />
 
-                <span />
+                    <ExpandedButton />
 
-                <span />
+                </div>
 
-            </div>
+            }
+
+            {!buttonInfo &&
+
+                <div className='page-zero-progression'>
+
+                    <span />
+
+                    <span className='page-zero-progression-active' />
+
+                    <span />
+
+                    <span />
+
+                </div>
+            }
 
         </ComponentHolder >
 
@@ -59,5 +95,11 @@ export const SectionOne: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
 interface Props {
     isMobile: boolean,
-    deviceWidth: number
+    deviceWidth: number,
+    title?: string,
+    text?: string,
+    className?: string,
+    buttonInfo?: {
+        title?: string
+    }
 }

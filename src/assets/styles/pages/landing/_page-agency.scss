@@ -1,0 +1,135 @@
+.page-agency {
+
+    background: url(/assets/background/plain-background.png), #000000 !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+
+    .view-formatter {
+
+        &-wrapper-box {
+
+            margin: auto;
+            // max-width: 1300px;
+
+        }
+
+        &-title-box p {
+
+            @include font-size(regular);
+            margin-bottom: 20px;
+
+        }
+
+        span p {
+
+            @include font-size(xx-large);
+            line-height: 1.5;
+            font-family: $header-font;
+            color: color(white);
+
+        }
+
+    }
+
+    &-section-two {
+
+        // .page-zero-content {
+
+        //     display: flex;
+        //     align-items: center;
+        //     justify-content: center;
+        // }
+
+        .view-formatter {
+
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+
+        }
+
+        .view-formatter-wrapper-box {
+
+            margin: auto 0 !important;
+
+        }
+
+        .view-formatter-title-box p {
+
+            display: block;
+            margin-left: 160px;
+            max-width: 500px;
+
+        }
+
+    }
+
+    &-section-three {
+
+        padding-top: 137px;
+        background: url(/assets/background/plain-background.png), #ffffff !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+
+        &-header {
+
+            margin-right: auto;
+
+            margin-bottom: 30px;
+
+        }
+
+        .page-zero-section-four-blog {
+
+            justify-content: space-between;
+            max-width: unset;
+
+
+            &-item {
+
+                max-width: 273px !important;
+
+                &:hover {
+
+                    max-width: 600px !important;
+
+                }
+
+            }
+
+        }
+
+    }
+
+    &-section-four {
+
+        color: color(white);
+
+        &-content-body {
+
+            display: flex;
+            flex-direction: column;
+            margin: auto 0;
+
+        }
+
+        &-partner-box {
+
+            display: flex;
+            justify-content: space-between;
+
+            &:not(:last-child) {
+
+                margin-bottom: 118px;
+
+            }
+
+        }
+
+        h1 {
+            margin-bottom: 45.5px;
+        }
+
+    }
+
+}

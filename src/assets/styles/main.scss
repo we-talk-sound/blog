@@ -21,6 +21,7 @@
 @import 'components/button';
 @import 'components/component-header';
 @import 'components/component-holder';
+@import 'components/event-item';
 @import 'components/footer';
 @import 'components/form-field/custom-checkbox';
 @import 'components/form-field/image';
@@ -48,6 +49,8 @@
 @import 'vendors/lite-picker';
 
 // 8. Pages
+@import 'pages/landing/page-agency';
+@import 'pages/landing/page-events';
 @import 'pages/landing/page-zero';
 
 // 9. Common
