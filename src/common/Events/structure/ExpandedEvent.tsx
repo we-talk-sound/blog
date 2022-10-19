@@ -20,9 +20,19 @@ export const ExpandedEvent: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
                 text={"OCT 21, 2022"}
 
-                buttonInfo={{
+                controls={{
 
-                    title: "Register Here"
+                    navSwitcher: false,
+
+                    dotSwitcher: false,
+
+                    button: {
+
+                        display: false,
+                    
+                        title: "Register Here"
+
+                    },
 
                 }}
 

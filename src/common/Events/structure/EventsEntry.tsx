@@ -24,6 +24,22 @@ export const EventsEntry: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
                 text={eventHeroText}
 
+                controls={{
+
+                    navSwitcher: true,
+
+                    dotSwitcher: true,
+
+                    button: {
+
+                        display: false,
+                    
+                        title: ""
+
+                    },
+
+                }}
+
             />
 
             <EventsSectionTwo />

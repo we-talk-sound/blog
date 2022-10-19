@@ -111,15 +111,15 @@ interface Props {
     className?: string,
     controls?: {
 
-        navSwitcher: false,
+        navSwitcher: boolean,
 
-        dotSwitcher: false,
+        dotSwitcher: boolean,
 
         button: {
 
-            display: false
+            display: boolean
 
-            title: ""
+            title: string
 
         },
 

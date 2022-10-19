@@ -20,7 +20,29 @@ const Home: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
         >
 
-            <SectionOne isMobile={isMobile} deviceWidth={deviceWidth} />
+            <SectionOne 
+                
+                isMobile={isMobile} 
+                
+                deviceWidth={deviceWidth}
+                
+                controls={{
+
+                    navSwitcher: true,
+
+                    dotSwitcher: true,
+
+                    button: {
+
+                        display: false,
+                    
+                        title: ""
+
+                    },
+
+                }}
+                
+            />
 
             <SectionTwo />
 
