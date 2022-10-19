@@ -16,7 +16,7 @@ export const SectionOne: React.FC<Props> = ({
 
     className,
 
-    buttonInfo
+    controls
 
 }) => {
 
@@ -57,11 +57,21 @@ export const SectionOne: React.FC<Props> = ({
                     Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.`}
                 </p>
 
-                {buttonInfo && <ExpandedButton label={buttonInfo.title} /> }
+                {
+                    controls?.button &&
+                    controls?.button?.title &&
+
+                    <ExpandedButton
+
+                        label={controls?.button?.title}
+
+                    />
+
+                }
 
             </div>
 
-            {!buttonInfo &&
+            {controls?.navSwitcher &&
 
                 <div className='page-zero-navigation'>
 
@@ -73,7 +83,7 @@ export const SectionOne: React.FC<Props> = ({
 
             }
 
-            {!buttonInfo &&
+            {controls?.dotSwitcher &&
 
                 <div className='page-zero-progression'>
 
@@ -99,7 +109,19 @@ interface Props {
     title?: string,
     text?: string,
     className?: string,
-    buttonInfo?: {
-        title?: string
+    controls?: {
+
+        navSwitcher: false,
+
+        dotSwitcher: false,
+
+        button: {
+
+            display: false
+
+            title: ""
+
+        },
+
     }
 }

@@ -1,0 +1,21 @@
+.page-labels {
+
+    &-expanded {
+
+        &-hero {
+
+            background: url(/assets/background/labels-expanded-background.png) !important;
+
+            .page-zero-caption  p {
+
+                @include font-size-override(medium);
+
+                max-width: 700px;
+
+            }
+
+        }
+
+    }
+
+}
