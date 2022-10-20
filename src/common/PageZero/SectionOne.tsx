@@ -6,6 +6,8 @@ import { classnames } from 'utils';
 
 export const SectionOne: React.FC<Props> = ({
 
+    dangerousTitle,
+
     isMobile,
 
     deviceWidth,
@@ -32,25 +34,33 @@ export const SectionOne: React.FC<Props> = ({
 
             <div className='page-zero-caption'>
 
-                <h1 className='color-white'>
+                {dangerousTitle &&
 
-                    {!title ?
+                    <h1 className='color-white' dangerouslySetInnerHTML={{ __html: dangerousTitle }} />
 
-                        <>
+                }
 
-                            Elevate your
+                {!dangerousTitle &&
 
-                            <span className='color-primary'> career </span>
+                    <h1 className='color-white'>
 
-                        </>
+                        {!title ?
 
-                        :
+                            <>
 
-                        title
+                                Elevate your
 
-                    }
+                                <span className='color-primary'> career </span>
 
-                </h1>
+                            </>
+
+                            :
+
+                            title
+
+                        }
+
+                    </h1>}
 
                 <p>
                     {text || `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiaum lorem.
@@ -71,31 +81,39 @@ export const SectionOne: React.FC<Props> = ({
 
             </div>
 
-            {controls?.navSwitcher &&
+            {(controls?.navSwitcher || controls?.navSwitcher) &&
 
-                <div className='page-zero-navigation'>
+                <div className='page-zero-switcher-holder'>
 
-                    <ExpandedButton />
+                    {controls?.navSwitcher &&
 
-                    <ExpandedButton />
+                        <div className='page-zero-navigation'>
+
+                            <ExpandedButton />
+
+                            <ExpandedButton />
+
+                        </div>
+
+                    }
+
+                    {controls?.dotSwitcher &&
+
+                        <div className='page-zero-progression'>
+
+                            <span />
+
+                            <span className='page-zero-progression-active' />
+
+                            <span />
+
+                            <span />
+
+                        </div>
+                    }
 
                 </div>
 
-            }
-
-            {controls?.dotSwitcher &&
-
-                <div className='page-zero-progression'>
-
-                    <span />
-
-                    <span className='page-zero-progression-active' />
-
-                    <span />
-
-                    <span />
-
-                </div>
             }
 
         </ComponentHolder >
@@ -109,6 +127,7 @@ interface Props {
     title?: string,
     text?: string,
     className?: string,
+    dangerousTitle?: any,
     controls?: {
 
         navSwitcher: boolean,

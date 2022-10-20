@@ -13,7 +13,7 @@ import ArtistTen from "assets/png/landing/artists/artist-ten.png";
 import ArtistEleven from "assets/png/landing/artists/artist-eleven.png";
 import ArtistTwelve from "assets/png/landing/artists/artist-twelve.png";
 
-export const Artists: React.FC = ({ }) => {
+export const Artists:React.FC<Props> = ({ title }) => {
 
     const data = [
         { image: ArtistOne, title: "Vader" },
@@ -38,7 +38,7 @@ export const Artists: React.FC = ({ }) => {
 
             <div className='page-agency-section-three-content-body'>
 
-                <h2 className='artists-block-header'> Similar Artists </h2>
+                <h2 className='artists-block-header'> { title || "Similar Artists"} </h2>
 
                 <div className='discography-block-slider'>
 
@@ -65,3 +65,8 @@ export const Artists: React.FC = ({ }) => {
     );
 }
 
+interface Props {
+
+    title?: string
+
+}

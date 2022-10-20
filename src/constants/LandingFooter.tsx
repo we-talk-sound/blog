@@ -50,7 +50,7 @@ export const LandingFooterLinks: Array<FooterTypes> = [
 ];
 
 export const FooterAddress = {
-    title : "16 ABUDU STREET,",
-    value: "OSAPA LEKKI, lAGOS NIGERIA "
+    title : "16 ABUDU STREET, OSAPA LEKKI, lAGOS NIGERIA ",
+    value: ""
 };
 

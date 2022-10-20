@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { FooterLogoField, ViewFormatter } from 'components';
-import { FooterAddress, FooterLogo, LandingFooterLinks, LandingFooterServices } from 'constants/index';
-import { LinkWrapper } from 'components/LinkWrapper';
+import { FooterAddress, FooterLogo, LandingFooterServices } from 'constants/index';
 import LandingLayoutFooterCr from '../LandingLayoutFooterCr';
 
 const LandingLayoutFooter: FunctionComponent = () => {
@@ -39,22 +38,6 @@ const LandingLayoutFooter: FunctionComponent = () => {
                             <ViewFormatter withButton={true} {...item} />
 
                         </div>
-
-                    )}
-
-                </div>
-
-                <div className='landingLayout-footer-links'>
-
-                    {LandingFooterLinks.map((item, index) =>
-
-                        <LinkWrapper link={item.link} key={`footer-link-${index}`}>
-
-
-                            <h1> {item.title} </h1>
-
-                        </LinkWrapper>
-
 
                     )}
 

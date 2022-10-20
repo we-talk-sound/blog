@@ -1,5 +1,65 @@
 .page-labels {
 
+    &-base {
+
+        &-hero .page-zero-caption {
+
+            margin-top: 120px;
+
+        }
+
+        &-hero {
+
+            background: url(/assets/background/labels-hero.png) no-repeat !important;
+            background-size: cover !important;
+
+        }
+
+        &-hero .page-zero-switcher-holder {
+
+            flex-direction: row-reverse !important;
+            align-items: center;
+            justify-content: space-between;
+
+            .page-zero-progression {
+
+                margin-top: auto;
+
+            }
+
+            .button-expand-arrow {
+
+                
+                border-width: 0 0 0 3px;
+                width: 50px;
+                height: 50px;
+
+            }
+
+            .page-zero-navigation {
+
+                margin-top: auto;
+                margin-right: 0;
+                margin-bottom: 0;
+                margin-left: auto;
+                max-width: 300px;
+
+            }
+
+        }
+
+        &-hero .page-zero-caption h1,
+        &-hero .page-zero-caption p {
+
+            margin-right: auto;
+            margin-left: 0;
+            max-width: 800px;
+            text-align: left;
+
+        }
+
+    }
+
     &-expanded {
 
         &-hero {

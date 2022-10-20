@@ -21,7 +21,11 @@ export const ExpandedButton: React.FC<Props> = ({
 
                     <div className="button-expand-text-block">
 
-                        <p className={classnames(textClass)}> {label} </p>
+                        <div className="button-expand-text-block-holder">
+
+                            <p className={classnames(textClass)}> {label} </p>
+
+                        </div>
 
                         <span />
 

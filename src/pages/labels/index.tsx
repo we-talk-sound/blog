@@ -2,6 +2,7 @@ import React from 'react';
 import { LandingLayout } from 'layout';
 import { useRouter } from 'next/router';
 import { LabelsExpanded } from 'common/Labels/expanded/LabelsExpanded';
+import { BaseLabels } from 'common/Labels/base/BaseLabels';
 
 const Labels: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
@@ -20,11 +21,11 @@ const Labels: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
         >
 
-            {!slug && <React.Fragment
+            {!slug && <BaseLabels
 
-                // isMobile={isMobile}
+                isMobile={isMobile}
 
-                // deviceWidth={deviceWidth}
+                deviceWidth={deviceWidth}
 
             />}
 
