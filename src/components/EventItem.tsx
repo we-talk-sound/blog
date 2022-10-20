@@ -1,16 +1,18 @@
 import React from "react";
+import { classnames } from "utils";
 
 export const EventItem:React.FC<Props> = ({
 
     image,
     title,
-    subtitle
+    subtitle,
+    className
         
 }) => {
 
  return (
 
-    <div className="event-item">
+    <div className={classnames("event-item", className)}>
 
         <img src={image} alt={"event"} />
 
@@ -30,6 +32,8 @@ interface Props {
 
     title: string,
 
-    subtitle: string
+    subtitle?: string,
+
+    className?: string
 
 }

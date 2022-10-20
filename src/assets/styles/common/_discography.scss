@@ -1,0 +1,29 @@
+.discography {
+
+    &-block {
+
+        padding-top: 137px;
+        background: url(/assets/background/plain-background.png), #141313;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: color(white);
+
+    }
+
+    &-block-slider {
+
+        display: flex;
+        flex-wrap: nowrap;
+        max-width: unset;
+
+
+        .discography-item {
+
+            margin-right: 30px;
+            min-width: 407px;
+
+        }
+
+    }
+
+}

@@ -1,6 +1,8 @@
 import React from 'react';
 import { SectionOne } from 'common/PageZero/SectionOne';
 import { LabelsExpandedContent } from './LabelsExpandedContent';
+import { Discography } from '../Discography';
+import { Artists } from '../Artists';
 
 export const LabelsExpanded: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
@@ -42,6 +44,10 @@ export const LabelsExpanded: React.FC<Props> = ({ isMobile, deviceWidth }) => {
             />
 
             <LabelsExpandedContent />
+
+            <Discography />
+
+            <Artists />
 
         </ >
 

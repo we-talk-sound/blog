@@ -14,7 +14,7 @@ export const EventsSectionTwo: React.FC = ({}) => {
 
         <ComponentHolder
 
-            className='page-zero no-border page-agency page-agency-section-three'
+            className='page-zero no-border page-agency-section-three'
 
             bodyClass='page-zero-content'>
 

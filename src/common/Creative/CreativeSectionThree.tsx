@@ -22,7 +22,7 @@ export const CreativeSectionThree: React.FC<{ withHeader ?: boolean }> = ({ with
 
         <ComponentHolder
 
-            className='page-zero no-border page-agency page-agency-section-three'
+            className='page-zero no-border page-agency-section-three'
 
             bodyClass='page-zero-content'>
 

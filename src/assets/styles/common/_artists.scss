@@ -1,0 +1,25 @@
+.artists {
+
+    &-block {
+
+        padding: 64px 0;
+        min-height: 464px;
+        max-height: 464px;
+
+        .artist-item {
+
+            margin-right: 16px;
+
+        }
+
+        &-header {
+
+            @extend %body-width-and-padding;
+            padding-top: 0;
+            padding-bottom: 48px;
+
+        }
+
+    }
+
+}
