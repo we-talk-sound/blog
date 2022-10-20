@@ -1,6 +1,5 @@
 import React from 'react';
 import { SectionOne } from 'common/PageZero/SectionOne';
-import { Discography } from '../Discography';
 import { Artists } from '../Artists';
 import { NewsLetter } from 'common/NewsLetter';
 import { LatestReleases } from '../LatestReleases';

@@ -4,15 +4,15 @@ export const leftLinks: typeOfHeaderItem[] = [];
 export const rightLinks: typeOfHeaderItem[] = [
     {
         "title": "CREATIVE AGENCY",
-        "link": "/*"
+        "link": "/creative"
     },
     {
         "title": "LABELS",
-        "link": "/*"
+        "link": "/labels"
     },
     {
         "title": "EVENTS",
-        "link": "/*"
+        "link": "/events"
     },
     {
         "title": "BLOG",
