@@ -31,7 +31,9 @@ export const BlogBannerArticles: React.FC<Props> = ({ bannerMode, withoutArticle
 
                         <StoryItem
 
-                            story={item} key={item.title}
+                            story={item} 
+                            
+                            key={item.title}
 
                         />
 
@@ -41,7 +43,7 @@ export const BlogBannerArticles: React.FC<Props> = ({ bannerMode, withoutArticle
 
             }
 
-            <img src={StoryImage} alt={`blog-image-item`} />
+            <img src={StoryImage || blogData?.[0]?.image} alt={`blog-image-item`} />
 
         </ComponentHolder>
 

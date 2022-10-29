@@ -10,7 +10,8 @@ const link = (item: string, params?: string): { type: "post" | "get" | "patch", 
         case "retrieve":
         case "retrieve-story":
         case "retrieve-category-stories":
-            return { type: "get", Link: `posts?${params}` };
+            
+            return { type: "get", Link: `posts?${params}&_fields=author,id,category,excerpt,date,slug,title,link,content&_embed` };
 
         case "retrieve-categories":
             return { type: "get", Link: `categories?${params}` };

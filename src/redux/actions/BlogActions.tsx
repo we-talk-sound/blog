@@ -63,6 +63,7 @@ export const blogProcess = (
         slug?: string,
         tags?: string,
         category?: number,
+        _fields?: string,
         order?: "desc" | "asc"
     } = {},
 ) =>

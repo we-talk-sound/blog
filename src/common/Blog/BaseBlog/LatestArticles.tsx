@@ -1,5 +1,4 @@
 import React from "react";
-import BlogImage from "assets/png/landing/blog-section/scope-image.jpeg";
 import { Button, ComponentHeader, ComponentHolder, StoryItem } from "components";
 import { classnames, transformStory } from "utils";
 import { storeInterface } from "types";
@@ -42,7 +41,7 @@ export const LatestArticles = () => {
 
                                 key={`blog-story-item-${index}`}
 
-                                story={{ ...transformStory(item) , image: BlogImage }}
+                                story={{ ...transformStory(item) }}
 
                             />
 

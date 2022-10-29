@@ -2,7 +2,6 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import { ComponentHolder } from 'components';
 import { Header } from 'layout/LandingLayout/header';
-import BlogImage from "assets/png/landing/blog-section/blog-image.png";
 import { BaseBlogHeading } from 'common/Blog/BaseBlog/BaseBlogHeading';
 import { BlogBanner } from 'common/PageZero/BlogBanner';
 import { transformStory } from 'utils/blog';
@@ -14,7 +13,7 @@ export const BlogPageBanner: React.FC<Props> = ({ isMobile, deviceWidth , story 
 
     const { slug } = router.query;
 
-    const story_ = story ? { ...transformStory(story , false) , image : BlogImage } : undefined;
+    const story_ = story ? { ...transformStory(story , false) } : undefined;
 
     return (
 

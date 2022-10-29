@@ -1,5 +1,4 @@
 import React from "react";
-import BlogImage from "assets/png/landing/blog-section/scope-image.jpeg";
 import { ComponentHolder, StoryItem } from "components";
 import { storeInterface } from "types";
 import { useSelector } from "react-redux";
@@ -37,7 +36,7 @@ export const TopReads = () => {
 
                                 key={`blog-top-read-item-${index}`}
 
-                                story={{ ...transformStory(item) , image : BlogImage }}
+                                story={{ ...transformStory(item) }}
 
                             />
 

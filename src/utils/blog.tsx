@@ -14,6 +14,8 @@ export const transformStory = (item : blogItemType , withLink? : boolean ) => ({
     
     date: DD_MM_YY_HH_mm_a(item.date),
 
-    item
+    item,
+
+    image: item?._embedded?.["wp:featuredmedia"]?.[0]?.source_url
 
 });

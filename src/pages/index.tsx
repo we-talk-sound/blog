@@ -16,7 +16,7 @@ const Home: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
     const dispatch = useDispatch();
 
-    const { blog: { dashboardBlogs , categories } }: storeInterface = useSelector((store: storeInterface) => store);
+    const { blog: { dashboardBlogs, categories } }: storeInterface = useSelector((store: storeInterface) => store);
 
     const safeParams = ["page", "category", "per_page"];
 
@@ -26,7 +26,13 @@ const Home: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
             Promise.all([
 
-                dashboardBlogs?.data?.length < 1 && dispatch(blogProcess("retrieve", "dashboardBlogs", { per_page: 3 })),
+                dashboardBlogs?.data?.length < 1 && 
+                
+                dispatch(blogProcess( 
+                    
+                    "retrieve", "dashboardBlogs", {  per_page: 3 }
+                    
+                )),
 
                 categories?.data?.length < 1 && dispatch(blogProcess("retrieve-categories", "categories"))
 
@@ -77,7 +83,7 @@ const Home: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
             <SectionFour />
 
-            <BlogBanner dataSource={dashboardBlogs?.data.filter((item , index )=> index < 3) || []} />
+            <BlogBanner dataSource={dashboardBlogs?.data.filter((item, index) => index < 3) || []} />
 
             <NewsLetter />
 

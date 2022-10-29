@@ -12,7 +12,7 @@ import { BlogStory } from 'common/Blog/BlogStory';
 import { storeInterface } from 'types';
 import { useSelector } from 'react-redux';
 
-const Labels: React.FC<Props> = ({ isMobile, deviceWidth }) => {
+const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
     const router = useRouter();
 
@@ -109,7 +109,7 @@ const Labels: React.FC<Props> = ({ isMobile, deviceWidth }) => {
     )
 }
 
-export default Labels;
+export default Blog;
 
 interface Props {
     isMobile: boolean,
