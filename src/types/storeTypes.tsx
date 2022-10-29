@@ -65,7 +65,9 @@ export type blogItemType = {
 
     categories: number[],
 
-    content: { rendered : string }
+    content: { rendered : string },
+
+    _embedded: { "wp:featuredmedia" : [ {"source_url" : string }] }
 
 };
 

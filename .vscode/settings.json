@@ -5,6 +5,7 @@
         "behaviour",
         "chartjs",
         "csrf",
+        "featuredmedia",
         "firstname",
         "lastname",
         "litepicker",
