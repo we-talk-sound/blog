@@ -53,8 +53,60 @@ export type utilType = {
     }
 }
 
+export type blogEntryTypes = "dashboardBlogs" | "categories" | "blogSingleStories" | "blogCategoryStories";
+
+export type blogItemType = {
+
+    title: { rendered: string },
+
+    date: string,
+
+    slug: string,
+
+    categories: number[],
+
+    content: { rendered : string }
+
+};
+
+type blogEntryType = {
+
+    data: Array<blogItemType>,
+    queryParam: { [key: string]: any },
+    perPage: number,
+    loader: boolean,
+    page: number,
+    pageCount: number,
+    error: boolean
+
+};
+
+export type blogCategoryItemType = { id: number, description: string, name: string, slug: string };
+
+export type storeBlogEntry = {
+
+    dashboardBlogs: blogEntryType,
+
+    blogCategoryStories: blogEntryType,
+
+    blogSingleStories: { [key: string | number]: blogItemType },
+
+    categories: {
+        data: Array<blogCategoryItemType>,
+        pairs: { [key: number | string]: blogCategoryItemType }
+        queryParam: { [key: string]: any },
+        perPage: number,
+        loader: boolean,
+        page: number,
+        pageCount: number,
+        error: boolean
+    },
+
+};
+
 export interface storeInterface {
     auth: authType,
+    blog: storeBlogEntry,
     route: routeType
     toast: toastType,
     util: utilType,

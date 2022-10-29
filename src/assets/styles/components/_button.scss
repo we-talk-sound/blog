@@ -34,10 +34,17 @@
     }
   }
 
+  &.max {
+
+    padding: 11px 16px;
+    width: max-content;
+
+  }
+
   &.no-bg {
-    border: 1px solid color(primary);
+    border: 1px solid color(dark);
     background: transparent;
-    color: color(primary);
+    color: color(dark);
 
     &-dark {
       border: 1px solid #d7d7d7;

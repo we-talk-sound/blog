@@ -1,10 +1,20 @@
 .component {
   &-header {
+    @extend %body-width-and-padding;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding: 18px 9px 10px;
+
+    h4 {
+
+      @include font-size(regular);
+      margin-top: 8px;
+      font-family: $main-font;
+      color: color(subtitle);
+
+    }
 
     .form-field {
       width: 70%;

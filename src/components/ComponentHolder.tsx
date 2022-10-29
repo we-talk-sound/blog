@@ -8,7 +8,7 @@ export const ComponentHolder: React.FC<Props> = ({ visibility, ...props }) => {
         <>
             {(visibility === false ? visibility : true) &&
 
-                <div className={`component-holder ${props.className || ""}`}>
+                <div className={classnames(`component-holder`, props.className )}>
 
                     {(props.title || props.customHeader || props.control) &&
 
@@ -25,7 +25,7 @@ export const ComponentHolder: React.FC<Props> = ({ visibility, ...props }) => {
                         </>
                     }
 
-                    <div className={classnames("component-holder-body", props.bodyClass)}>
+                    <div className={classnames("component-holder-body", props.bodyClass , props.align && "component-holder-align")}>
                         {props.children && props.children}
                     </div>
                 </div>
@@ -42,5 +42,6 @@ interface Props {
     customHeader?: React.FC,
     className?: string,
     bodyClass?: string,
-    headerClass?: string
+    headerClass?: string,
+    align?: boolean
 }

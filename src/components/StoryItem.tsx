@@ -1,38 +1,82 @@
 import React from "react";
 import { classnames } from "utils";
+import { Button } from "./Button";
+import { LinkWrapper } from "./LinkWrapper";
+import * as He from "he";
+import { useDispatch } from "react-redux";
 
-export const StoryItem: React.FC<Props> = ({ story }) => {
+export const StoryItem: React.FC<Props> = ({ story, mode, viewButton }) => {
+
+    const dispatch = useDispatch();
 
     return (
-        <div 
-        
-            className={classnames("story-item", story.isActive && "story-item-active")}
-            tabIndex={0}
-            role={"button"}
+
+        <LinkWrapper
+
+            className={classnames("story-item", story.isActive && "story-item-active", mode && `story-item-${mode}`)}
+
+            link={story?.link}
+
+            preClick={() => {
+
+                story?.item && dispatch({
+
+                    type: "RETRIEVE_STORY_SUCCESS",
+
+                    payload: {
+
+                        ref: "blogSingleStories",
+
+                        items: [story?.item]
+
+                    }
+
+                })
+
+            }}
+
         >
 
-            <div className="story-item-heading">
+            <>
 
-                <span className="story-item-category">
+                {mode && story?.image && <img src={story.image} alt={`story-image`} />}
 
-                    {story?.category}
+                <div className="story-item-body">
 
-                </span>
+                    <div className="story-item-heading">
 
-                <p className="story-item-date"> {story?.date} </p>
+                        <span className="story-item-category">
 
-            </div>
+                            {story?.category}
 
-            <p className="story-item-author"> BY {story?.author} </p>
+                        </span>
 
-            <h3 className="story-item-title"> {story.title} </h3>
+                        <p className="story-item-date"> {story?.date} </p>
 
-        </div>
+                    </div>
+
+                    <p className="story-item-author"> BY {story?.author} </p>
+
+                    <h3 className="story-item-title"> {He.unescape(story.title)} </h3>
+
+                    {story.sub && <p className="story-item-sub"> {story.sub} </p>}
+
+                    {viewButton && <Button label="Read More" className="no-bg" />}
+
+                </div>
+
+            </>
+
+        </LinkWrapper>
     );
 
 }
 
 interface Props {
+
+    mode?: "article" | "category",
+
+    viewButton?: boolean,
 
     story: {
 
@@ -41,7 +85,10 @@ interface Props {
         author: string,
         title: string,
         image?: string,
-        isActive?: boolean
+        isActive?: boolean,
+        sub?: string,
+        link?: string,
+        item?: any
 
     }
 

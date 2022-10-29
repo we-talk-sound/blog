@@ -16,7 +16,7 @@ export const rightLinks: typeOfHeaderItem[] = [
     },
     {
         "title": "BLOG",
-        "link": "/*"
+        "link": "/blog"
     },
     {
         "title": "SHOP",

@@ -22,11 +22,15 @@ $colors: (
   progression: #6A6A6A,
   background: #20201f,
   grey: #B8C9D3,
+  grey-80: #373636,
   active-item: #1F162B,
   story-border: #483A58,
   active-story-item-border: #9747FF,
   text-70: #5A5955,
-  text-30: #C3C2BF
+  text-30: #C3C2BF,
+  text-40: #AFAEAA,
+  text-80:  #444340,
+  subtitle: #878580
 );
 
 $shadows: (
@@ -54,11 +58,13 @@ $normal-font-sizes: (
   large: 22.5px,
   l-large: 24px,
   m-large: 26px,
+  p-large: 28px,
   x-large: 35px,
   xx-large: 40px,
   xxx-large: 50px,
   mmm-large: 56px,
   xxxx-large: 64px,
+  quite-large: 72px,
   xta-large: 94px
 );
 
@@ -71,11 +77,13 @@ $small-font-sizes: (
   large: 20.5px,
   l-large: 22.5px,
   m-large: 25.5px,
+  p-large: 27.5px,
   x-large: 29.5px,
   xx-large: 32px,
   xxx-large: 40px,
   mmm-large: 46px,
   xxxx-large: 53px,
+  quite-large: 62px,
   xta-large: 84px
 );
 
@@ -88,11 +96,13 @@ $small-tab-font-sizes: (
   large: 16px,
   l-large: 20.5px,
   m-large: 21px,
+  p-large: 22.8px,
   x-large: 24px,
   xx-large: 30px,
   xxx-large: 37px,
   mmm-large: 40x,
   xxxx-large: 44px,
+  quite-large: 53px,
   xta-large: 74px
 );
 

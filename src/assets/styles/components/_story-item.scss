@@ -5,6 +5,13 @@
     max-width: 450px;
     color: color(white);
 
+    &-body {
+
+        display: flex;
+        flex-direction: column;
+
+    }
+
     &-active {
 
         border-top: 2px solid color(active-story-item-border);
@@ -43,6 +50,13 @@
         @include font-size(large);
         font-family: $main-font;
 
+
+    }
+
+    p,
+    h3 {
+
+        white-space: pre-line;
 
     }
 

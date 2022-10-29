@@ -300,17 +300,36 @@
 
     }
 
-    &-section-five {
+    &-blog-banner {
 
         &-body {
 
             max-width: 1400px;
+
+            .story-item:first-child {
+
+                padding-top: 0;
+
+            }
+
+            .story-item {
+
+                padding-left: 0;
+
+            }
 
             &-header {
 
                 @include font-size(x-large);
                 padding-bottom: 24px;
                 padding-left: 0;
+
+                h2 {
+
+                    @include font-size(m-large);
+                    margin-right: auto;
+
+                }
 
             }
 
@@ -324,7 +343,9 @@
             img {
 
                 margin-left: 71px;
-                max-width: 50%;
+                max-width: calc(100% - 400px);
+                max-height: 500px;
+                object-fit: cover;
 
             }
 

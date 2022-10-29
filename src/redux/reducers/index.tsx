@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import auth from './authReducer';
+import blog from './blogReducer';
 import route from './routerReducer';
 import user from './userReducer';
 import toast from './toastReducer';
@@ -8,6 +9,7 @@ import worker from './workerReducer';
 
 const allReducers = combineReducers({
   auth,
+  blog,
   route,
   user,
   toast,

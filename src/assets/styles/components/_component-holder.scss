@@ -12,11 +12,9 @@
     height: 100%;
   }
 
-  &.with-chart {
-    background: color(white);
+  &-align {
 
-    .component-holder-body {
-      min-height: 400px;
-    }
+    @extend %body-width-and-padding;
+
   }
 }

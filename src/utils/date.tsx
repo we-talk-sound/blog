@@ -76,3 +76,5 @@ export const dateDifference = (date1 : Date, date2 : Date) => {
     });
 
 }
+
+export const DD_MM_YY_HH_mm_a = (date_: string) => dayjs(new Date(safariDateFix(date_))).format("dddd, MMMM DD, YYYY")

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { classnames } from 'utils';
 
 
-export const LinkWrapper: React.FC<Props> = ({ children, link, externalLink, className }) => {
+export const LinkWrapper: React.FC<Props> = ({ children, link, externalLink, className , preClick }) => {
 
     return (
 
@@ -11,12 +11,25 @@ export const LinkWrapper: React.FC<Props> = ({ children, link, externalLink, cla
 
             {(link || externalLink) ?
 
-                <Link href={String(link || externalLink)}>
+                <Link 
+                
+                    href={String(link || externalLink)}
+                    
+                    >
+
                     <a
+    
                         target={externalLink && "_blank"}
+    
                         className={classnames(className || "", "link-wrapper")}
+    
                         tabIndex={0}
+    
                         role="button"
+
+                        onClick={()=> preClick ? preClick() : null }
+    
+
                     >
                         {children}
                     </a>
@@ -40,5 +53,6 @@ interface Props {
     children: React.ReactChild,
     link?: string,
     externalLink?: string,
-    className?: string
+    className?: string,
+    preClick?(): void
 }
