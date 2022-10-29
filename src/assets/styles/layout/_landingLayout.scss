@@ -2,9 +2,7 @@
     position: relative;
     min-height: 100vh;
 
-
     &-body {
-      @extend %body-width-and-padding;
 
       &.default {
         margin: unset !important;
@@ -12,6 +10,7 @@
         width: unset !important;
         max-width: unset !important;
       }
+
     }
 
     &-header {
@@ -94,10 +93,11 @@
 
     &-header-mobile {
         z-index: 1;
-        position: fixed;
+        position: absolute;
         top: 0;
+        margin-left: -18px;
         width: 100%;
-        background: white;
+        background: transparent;
 
         &-exp {
           @include media-query(tablet) {
@@ -129,7 +129,7 @@
 
           i {
             font-size: 20px;
-            color: color(dark);
+            color: color(white);
           }
         }
 

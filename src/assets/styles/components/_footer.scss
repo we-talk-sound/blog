@@ -2,6 +2,13 @@
   color: color(footer-text);
 
   &-logo {
+
+    @include media-query(mobile) {
+
+      margin: auto;
+
+    }
+
     width: 171px;
     height: 26px;
 
@@ -38,6 +45,7 @@
 
     div {
       display: flex;
+      flex-direction: row;
       align-items: center;
       justify-content: center;
     }

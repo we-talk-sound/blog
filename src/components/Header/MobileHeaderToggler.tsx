@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import WeTalkSound from 'assets/logo/wts_white.png';
 
 export const MobileHeaderToggler: React.FC<Props> = ({ setExpansion, isExpanded }): JSX.Element => {
 
@@ -9,7 +10,7 @@ export const MobileHeaderToggler: React.FC<Props> = ({ setExpansion, isExpanded 
 
             <Link href={"/"}>
                 <a>
-                    {/* <img src={StellasLogo} alt={"stellas"} /> */}
+                    <img src={WeTalkSound} alt={"Wetalksound"} />
                 </a>
             </Link>
 

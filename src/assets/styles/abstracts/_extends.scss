@@ -31,7 +31,6 @@
   }
 
   @include media-query(mobile) {
-    box-shadow: $header-shadow;
     padding: 33px 32px;
   }
 

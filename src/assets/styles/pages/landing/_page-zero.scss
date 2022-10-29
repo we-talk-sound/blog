@@ -1,13 +1,52 @@
 .page-zero {
 
-    min-height: 100vh;
-    max-height: 1300px;
+    @media only screen and (max-height: 600px) {
+
+        min-height: 600px;
+
+    }
+
+    @media only screen and (min-height: 600px) and (max-height: 1300px) and (max-width: 1440px) and (min-width: 600px) {
+
+        max-height: 800px !important;
+
+        // background: red !important;
+
+    }
+
+    @include media-query(mobile) {
+
+        max-height: 950px;
+        background-image: url(/assets/background/hero_mobile.png);
+
+    }
+
+    @include media-query(pc-low-resolution) {
+
+        max-height: 950px;
+
+    }
+
+    height: 100vh;
+    max-height: 1200px;
     background-image: url(/assets/background/hero.png);
     background-repeat: no-repeat;
     background-size: cover;
+    transition: 0.2s ease;
 
     &-content {
+
         @extend %body-width-and-padding;
+
+        @include media-query(mobile) {
+
+            display: flex;
+            justify-content: center;
+            margin-top: 0;
+
+        }
+
+        position: relative;
         display: flex;
         flex-direction: column;
         flex-grow: 1;
@@ -21,6 +60,13 @@
     }
 
     &-caption {
+
+        @include media-query(mobile) {
+
+            margin: 0;
+            padding-bottom: 70px;
+
+        }
 
         margin: 15% 0 0;
 
@@ -44,6 +90,12 @@
 
     &-navigation {
 
+        @include media-query(mobile) {
+
+            margin: 0;
+
+        }
+
         display: flex;
         justify-content: space-between;
         margin: 32px auto auto;
@@ -66,6 +118,12 @@
 
     &-switcher-holder {
 
+        @include media-query(mobile) {
+
+            flex-grow: 0;
+
+        }
+
         display: flex;
         flex-direction: column;
         flex-grow: 1;
@@ -73,6 +131,16 @@
     }
 
     &-progression {
+
+        @include media-query(mobile) {
+
+            position: absolute;
+            bottom: 75px;
+            justify-content: center;
+            margin-left: -19px;
+            width: 100%;
+
+        }
 
         display: flex;
         margin-bottom: 30px;
@@ -85,17 +153,36 @@
             height: 8px;
             background: color(progression);
 
+            &:last-child {
+
+                margin-right: 0;
+
+            }
+
         }
 
     }
 
     &-section-two {
 
+        @media only screen and (max-height: 600px) {
+
+            min-height: 600px;
+
+        }
+
+        @include media-query(mobile) {
+
+            max-height:  600px;
+            background-image: url(/assets/background/hero_mobile.png);
+    
+        }
+
         display: flex;
         flex-direction: column;
         padding: 40px 0;
-        min-height: 100vh;
-        max-height: 1300px;
+        height: 100vh;
+        max-height: 1000px;
         background-image: url(/assets/background/background-grey.png) !important;
         background-repeat: no-repeat;
         background-size: cover;
@@ -148,7 +235,31 @@
 
         &-body {
 
+            .table-component {
+
+                overflow: visible;
+
+            }
+
+            table {
+
+                @include media-query(mobile) {
+                    
+                    display: block;
+
+                }
+
+            }
+
             tr {
+
+                @include media-query(mobile) {
+
+                    display: flex;
+                    flex-wrap: wrap;
+
+                }
+
                 border-bottom: 0;
             }
 
@@ -181,6 +292,13 @@
 
             td:nth-child(2) {
                 @include font-size-override(mmm-large);
+
+                @include media-query(mobile) {
+
+                    @include font-size-override(x-large);
+
+                }
+
                 margin-right: 20px;
                 width: max-content;
                 font-family: $header-font;
@@ -192,9 +310,22 @@
 
     &-section-four {
 
+        @include media-query(mobile) {
+
+            max-height:  840px;
+            background-image: url(/assets/background/hero_mobile.png);
+    
+        }
+
         background-image: url(/assets/background/blog-background.png) !important;
 
         &-body {
+
+            @include media-query(mobile) {
+
+                margin: 0;
+
+            }
 
             margin: auto;
             max-width: 1150px;
@@ -204,9 +335,34 @@
         &-blog {
 
             display: flex;
+            width: 100%;
             max-width: 1150px;
 
             &-item {
+
+                @include media-query(mobile) {
+
+                    margin: 0;
+                    width: 100% !important;
+                    min-width: 100% !important;
+
+                    img {
+
+                        width: 100%;
+                        min-width: 100%;
+                        max-width: 100%;
+                        height: 533px !important;
+                        min-height: 533px !important;
+
+                    }
+
+                    &:not(:first-child) {
+
+                        display: none;
+
+                    }
+
+                }
 
                 position: relative;
                 margin: 10px;
@@ -302,6 +458,14 @@
 
     &-blog-banner {
 
+        @include media-query(mobile) {
+
+            height: unset;
+            min-height: 80vh;
+            max-height: unset;
+
+        }
+
         &-body {
 
             max-width: 1400px;
@@ -320,13 +484,19 @@
 
             &-header {
 
-                @include font-size(x-large);
+                @include media-query(mobile) {
+
+                    margin-bottom: 20px;
+
+                }
+
+                @include font-size-override(x-large);
                 padding-bottom: 24px;
                 padding-left: 0;
 
                 h2 {
 
-                    @include font-size(m-large);
+                    @include font-size-override(m-large);
                     margin-right: auto;
 
                 }
@@ -337,10 +507,25 @@
 
         &-blog {
 
+            @include media-query(mobile) {
+
+                flex-direction: column-reverse;
+
+            }
+
             display: flex;
             justify-content: space-between;
 
             img {
+
+                @include media-query(mobile) {
+
+                    margin-bottom: 18px;
+                    margin-left: 0;
+                    width: 100%;
+                    max-width: unset;
+
+                }
 
                 margin-left: 71px;
                 max-width: calc(100% - 400px);

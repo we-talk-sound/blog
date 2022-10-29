@@ -34,7 +34,7 @@ export const LandingLayout: React.FC<Props> = ({
                 }
 
                 <div
-                    className={classnames("landing-layout-body", bodyAlignment === false && "default", bodyClass && bodyClass)}
+                    className={classnames("landingLayout-body", bodyAlignment === false && "default", bodyClass && bodyClass)}
                     id={"landing-layout-body"}
                 >
                     {props.children}
