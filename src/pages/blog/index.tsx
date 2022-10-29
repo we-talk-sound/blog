@@ -18,7 +18,7 @@ const Labels: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
     const dispatch = useDispatch();
 
-    const { blog : { blogSingleStories } } : storeInterface = useSelector((store : storeInterface) => store);
+    const { blog : { blogSingleStories , dashboardBlogs } } : storeInterface = useSelector((store : storeInterface) => store);
 
     const { category, slug } = router.query;
 
@@ -91,6 +91,8 @@ const Labels: React.FC<Props> = ({ isMobile, deviceWidth }) => {
                 deviceWidth={deviceWidth}
 
                 story={blogSingleStories?.[String(slug || "")]}
+
+                dataSource={(dashboardBlogs?.data || []).filter((item, index) => index < 3)}
 
             />
 
