@@ -9,6 +9,8 @@ export const StoryItem: React.FC<Props> = ({ story, mode, viewButton }) => {
 
     const dispatch = useDispatch();
 
+    const subCondition = mode !== "story" && mode; 
+
     return (
 
         <LinkWrapper
@@ -59,7 +61,7 @@ export const StoryItem: React.FC<Props> = ({ story, mode, viewButton }) => {
 
                     <h3 className="story-item-title"> {He.unescape(story.title)} </h3>
 
-                    {story.sub && mode && <p className="story-item-sub" dangerouslySetInnerHTML={{ __html : story.sub }} />}
+                    {subCondition && story.sub  && <div className="story-item-sub" dangerouslySetInnerHTML={{ __html : story.sub }} />}
 
                     {viewButton && <Button label="Read More" className="no-bg" />}
 
@@ -74,7 +76,7 @@ export const StoryItem: React.FC<Props> = ({ story, mode, viewButton }) => {
 
 interface Props {
 
-    mode?: "article" | "category",
+    mode?: "article" | "category" | "story",
 
     viewButton?: boolean,
 

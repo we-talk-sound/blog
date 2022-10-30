@@ -13,7 +13,7 @@ export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource }) =
             className="no-border"
             bodyClass={classnames(
                 "page-zero-blog-banner page-zero-section-two page-zero-section-three",
-                bannerMode && "page-blog-banner-parent"
+                bannerMode && "page-blog-banner-parent",
             )}
         >
 
@@ -25,7 +25,7 @@ export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource }) =
                 story && "page-blog-banner-holder-with-story"
             )}>
 
-                {story && <StoryItem story={{ ...story , image: undefined }} mode={"article"} />}
+                {story && <StoryItem story={{ ...story , image: undefined }} mode={"story"} />}
 
                 <BlogBannerArticles
                 

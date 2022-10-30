@@ -51,11 +51,11 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
             "blogCategoryStories",
 
-            { category : e.category, per_page: 15 }
+            { category : e.category, per_page: 40 }
 
         ]);
 
-        return ["retrieve", "dashboardBlogs", { per_page: 15 }]
+        return ["retrieve", "dashboardBlogs", { per_page: 40 }]
 
     };
 
