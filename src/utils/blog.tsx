@@ -16,6 +16,8 @@ export const transformStory = (item : blogItemType , withLink? : boolean ) => ({
 
     item,
 
+    sub: item?.excerpt?.rendered,
+
     image: item?._embedded?.["wp:featuredmedia"]?.[0]?.source_url
 
 });

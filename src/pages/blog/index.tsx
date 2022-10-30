@@ -55,7 +55,7 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
         ]);
 
-        return ["retrieve", "dashboardBlogs", { per_page: 40 }]
+        return ["retrieve", "dashboardBlogs", { per_page: 15 }]
 
     };
 

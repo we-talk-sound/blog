@@ -59,7 +59,7 @@ export const StoryItem: React.FC<Props> = ({ story, mode, viewButton }) => {
 
                     <h3 className="story-item-title"> {He.unescape(story.title)} </h3>
 
-                    {story.sub && <p className="story-item-sub"> {story.sub} </p>}
+                    {story.sub && mode && <p className="story-item-sub" dangerouslySetInnerHTML={{ __html : story.sub }} />}
 
                     {viewButton && <Button label="Read More" className="no-bg" />}
 

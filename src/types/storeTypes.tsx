@@ -67,7 +67,9 @@ export type blogItemType = {
 
     content: { rendered : string },
 
-    _embedded: { "wp:featuredmedia" : [ {"source_url" : string }] }
+    _embedded: { "wp:featuredmedia" : [ {"source_url" : string }] },
+
+    excerpt: { rendered : string }
 
 };
 

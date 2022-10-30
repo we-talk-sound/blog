@@ -17,6 +17,8 @@ export const TopReads = () => {
                 className="no-border page-blog-latest-articles-holder"
                 
                 bodyClass="page-blog-top-reads"
+                
+                headerClass="page-blog-top-reads-header"
 
                 title={'TOP READS'}
 
