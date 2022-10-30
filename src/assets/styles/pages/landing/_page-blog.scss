@@ -14,9 +14,9 @@
         }
 
         padding: 0;
-        max-height: 700px;
+        max-height: 720px;
         background: unset !important;
-            
+
     }
 
     &-banner-holder {
@@ -139,7 +139,7 @@
                 height: 617px;
                 min-height: 617px;
                 transition: 0.2s ease;
-                object-fit: cover;
+                object-fit: contain;
 
             }
 

@@ -5,7 +5,7 @@ import { classnames } from 'utils';
 import { blogItemType } from 'types';
 import { transformStory } from 'utils/blog';
 
-export const BlogBannerArticles: React.FC<Props> = ({ bannerMode, withoutArticles, dataSource }) => {
+export const BlogBannerArticles: React.FC<Props> = ({ bannerMode, withoutArticles, dataSource , image }) => {
 
     const blogData = (dataSource || []).map((item) => transformStory(item));
 
@@ -43,7 +43,7 @@ export const BlogBannerArticles: React.FC<Props> = ({ bannerMode, withoutArticle
 
             }
 
-            <img src={StoryImage || blogData?.[0]?.image} alt={`blog-image-item`} />
+            <img src={ image || (StoryImage || blogData?.[0]?.image)} alt={`blog-image-item`} />
 
         </ComponentHolder>
 
@@ -56,6 +56,8 @@ interface Props {
 
     withoutArticles?: boolean,
 
-    dataSource?: blogItemType[]
+    dataSource?: blogItemType[],
+
+    image?: string
 
 }

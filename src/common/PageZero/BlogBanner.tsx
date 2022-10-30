@@ -7,6 +7,7 @@ import { BlogBannerArticles } from 'common/Blog/BlogPageBanner/BlogBannerArticle
 import { blogItemType } from 'types';
 
 export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource }) => {
+
     return (
 
         <ComponentHolder
@@ -39,6 +40,8 @@ export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource }) =
                     withoutArticles={story !== undefined}
 
                     dataSource={dataSource || []}
+
+                    image={story?.image}
 
                 />
 
