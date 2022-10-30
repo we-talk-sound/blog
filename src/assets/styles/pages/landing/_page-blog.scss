@@ -5,19 +5,18 @@
     background-repeat: no-repeat;
     background-size: cover;
 
-    .page-zero-section-two {
+    .blog-banner-background {
 
-        min-height: unset;
+        @include media-query(mobile) {
 
-    }
+            max-height: unset;
 
-    &-banner-parent {
+        }
 
-        padding-top: 0;
-        padding-bottom: 0;
+        padding: 0;
         max-height: 700px;
-        background-image: unset !important;
-
+        background: unset !important;
+            
     }
 
     &-banner-holder {
@@ -121,7 +120,7 @@
 
         }
 
-        .page-zero-blog-banner-blog {
+        .blog-banner-blog {
 
             display: block;
 
@@ -171,19 +170,14 @@
             }
 
             margin-right: 64px;
-            width: 67%;
+            width: 70%;
             max-width: 100%;
             color: color(white);
 
             h1 {
 
-                @include media-query(tablet-and-mobile) {
-
-                    margin-bottom: 20px;
-
-                }
-
                 @include font-size(quite-large);
+                margin-bottom: 20px;
 
             }
 
@@ -245,12 +239,19 @@
             position: relative;
             padding-top: 10px;
 
+            marquee {
+
+                font-family: unset;
+                font-size: unset;
+
+            }
+
         }
 
         &-right {
 
             display: flex;
-            align-items: center;
+            align-items: flex-end;
 
             .button {
 
@@ -292,6 +293,7 @@
         }
 
         flex-direction: row-reverse;
+        padding-top: 44px;
 
         img {
 
@@ -326,6 +328,12 @@
             background: url(/assets/background/plain-background.png), #ffffff;
             background-repeat: no-repeat;
             background-size: cover;
+
+            marquee {
+
+                opacity: 1;
+
+            }
 
         }
 

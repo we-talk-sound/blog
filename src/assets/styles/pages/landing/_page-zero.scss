@@ -167,12 +167,15 @@
 
         @media only screen and (max-height: 600px) {
 
+            height: unset !important;
             min-height: 600px;
 
         }
 
         @include media-query(mobile) {
 
+            height: unset;
+            min-height: unset;
             max-height:  600px;
             background-image: url(/assets/background/hero_mobile.png);
     
@@ -181,34 +184,12 @@
         display: flex;
         flex-direction: column;
         padding: 40px 0;
-        height: 100vh;
+        height: 70vh;
+        min-height: 800px;
         max-height: 1000px;
         background-image: url(/assets/background/background-grey.png) !important;
         background-repeat: no-repeat;
         background-size: cover;
-
-        marquee {
-            @include font-size(xta-large);
-            opacity: 0.6;
-            font-family: $header-font;
-            color: color(white);
-
-            div {
-                display: flex;
-            }
-
-            span {
-                display: flex;
-                margin: auto 41px;
-                border-radius: 100%;
-                width: 16px;
-                min-width: 16px;
-                height: 16px;
-                min-height: 16px;
-                background: color(white);
-            }
-
-        }
 
         &-body {
 
@@ -231,6 +212,9 @@
 
     &-section-three {
 
+        padding: 40px 0;
+        height: 40vh;
+        min-height: 500px;
         background-image: url(/assets/background/background.png) !important;
 
         &-body {
@@ -310,17 +294,14 @@
 
     &-section-four {
 
-        @include media-query(mobile) {
-
-            max-height:  840px;
-            background-image: url(/assets/background/hero_mobile.png);
-    
-        }
-
+        padding: 40px 0;
         background-image: url(/assets/background/blog-background.png) !important;
+        background-repeat: no-repeat;
+        background-size: cover;
 
         &-body {
 
+            @extend %body-width-and-padding;
             @include media-query(mobile) {
 
                 margin: 0;
@@ -458,88 +439,12 @@
 
     &-blog-banner {
 
-        @include media-query(mobile) {
+        padding: 40px 0;
 
-            height: unset;
-            min-height: 80vh;
-            max-height: unset;
+        .blog-banner-body {
 
-        }
-
-        &-body {
-
-            max-width: 1400px;
-
-            .story-item:first-child {
-
-                padding-top: 0;
-
-            }
-
-            .story-item {
-
-                padding-left: 0;
-
-            }
-
-            &-header {
-
-                @include media-query(mobile) {
-
-                    margin-bottom: 20px;
-
-                }
-
-                @include font-size-override(x-large);
-                padding-bottom: 24px;
-                padding-left: 0;
-
-                h2 {
-
-                    @include font-size-override(m-large);
-                    margin-right: auto;
-
-                }
-
-            }
-
-        }
-
-        &-blog {
-
-            @include media-query(mobile) {
-
-                flex-direction: column-reverse;
-
-            }
-
-            display: flex;
-            justify-content: space-between;
-
-            img {
-
-                @include media-query(mobile) {
-
-                    margin-bottom: 18px;
-                    margin-left: 0;
-                    width: 100%;
-                    max-width: unset;
-
-                }
-
-                margin-left: 71px;
-                max-width: calc(100% - 400px);
-                max-height: 500px;
-                object-fit: cover;
-
-            }
-
-        }
-
-        .button-expand {
-
-            margin-top: 32px;
-            margin-left: auto;
+            padding-top: 0;
+            padding-bottom: 0;
 
         }
 

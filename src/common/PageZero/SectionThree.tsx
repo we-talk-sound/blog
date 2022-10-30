@@ -28,7 +28,7 @@ export const SectionThree: React.FC = () => {
 
     return (
 
-        <ComponentHolder bodyClass='no-border page-zero-section-two page-zero-section-three'>
+        <ComponentHolder bodyClass='no-border page-zero-section-three'>
 
             {/* @ts-expect-error */}
             <marquee scrollAmount={20}  >

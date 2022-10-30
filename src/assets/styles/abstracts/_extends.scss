@@ -30,21 +30,16 @@
     padding: 25px 22px;
   }
 
-  @include media-query(mobile) {
-    padding: 33px 32px;
-  }
-
   @include media-query('small-tablet') {
     padding: 20px;
   }
 
   @include media-query('mobile') {
-    margin-top: 75px;
-    padding: 20px;
+    padding: 20px 27px;
   }
 
   margin: auto;
   padding: 50px 124px;
   width: 100%;
-  max-width: 2000px;
+  max-width: 2800px;
 }

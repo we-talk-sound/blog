@@ -12,29 +12,34 @@ export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource }) =
         <ComponentHolder
             className="no-border"
             bodyClass={classnames(
-                "page-zero-blog-banner page-zero-section-two page-zero-section-three",
+                
+                "blog-banner-background",
+                
                 bannerMode && "page-blog-banner-parent",
+
+                !bannerMode && "page-zero-blog-banner"
+                
             )}
         >
 
             {!bannerMode && <BlogMarquee />}
 
-            <div className={classnames(
-                'page-zero-section-two-body page-zero-blog-banner-body',
-                bannerMode && "page-blog-banner-holder",
-                story && "page-blog-banner-holder-with-story"
-            )}>
+            <div className={
 
-                {story && <StoryItem story={{ ...story , image: undefined }} mode={"story"} />}
+                classnames('blog-banner-body', bannerMode && "page-blog-banner-holder", story && "page-blog-banner-holder-with-story")
+
+            }>
+
+                {story && <StoryItem story={{ ...story, image: undefined }} mode={"story"} />}
 
                 <BlogBannerArticles
-                
-                    bannerMode={bannerMode} 
-                    
-                    withoutArticles={story !== undefined} 
+
+                    bannerMode={bannerMode}
+
+                    withoutArticles={story !== undefined}
 
                     dataSource={dataSource || []}
-                    
+
                 />
 
                 {!bannerMode && <ExpandedButton label='Go to blog' textClass='color-white' link={"/blog"} />}
@@ -48,7 +53,7 @@ export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource }) =
 
 interface Props {
 
-    dataSource?: Array< blogItemType >,
+    dataSource?: Array<blogItemType>,
 
     bannerMode?: boolean,
 

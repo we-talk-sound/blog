@@ -27,7 +27,7 @@ export const SectionFour: React.FC = () => {
 
     return (
 
-        <ComponentHolder bodyClass='no-border page-zero-section-two page-zero-section-four'>
+        <ComponentHolder bodyClass='no-border page-zero-section-four'>
 
             {/* @ts-expect-error */}
             <marquee scrollAmount={20}  >
@@ -43,7 +43,7 @@ export const SectionFour: React.FC = () => {
                 {/* @ts-expect-error */}
             </marquee>
 
-            <div className='page-zero-section-two-body page-zero-section-four-body'>
+            <div className='page-zero-section-four-body'>
 
                 <div className='page-zero-section-four-blog'>
 

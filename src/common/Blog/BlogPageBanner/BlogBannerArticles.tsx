@@ -17,9 +17,9 @@ export const BlogBannerArticles: React.FC<Props> = ({ bannerMode, withoutArticle
 
             className={"blog-banner-articles-holder"}
 
-            headerClass={classnames('color-white page-zero-blog-banner-body-header')}
+            headerClass={classnames('color-white blog-banner-body-header')}
 
-            bodyClass={classnames('page-zero-blog-banner-blog', bannerMode && "page-blog-banner-flex")}
+            bodyClass={classnames('blog-banner-blog', bannerMode && "page-blog-banner-flex")}
 
         >
 
