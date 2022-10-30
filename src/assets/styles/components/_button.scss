@@ -132,6 +132,12 @@
 
   &-expand {
 
+    @include media-query(tablet-and-mobile) {
+
+      width: unset;
+
+    }
+
     display: flex;
     width: max-content;
 

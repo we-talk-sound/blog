@@ -101,6 +101,7 @@
             p {
 
                 @include font-size-override(medium);
+                overflow-wrap: anywhere;
 
             }
 
