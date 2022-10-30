@@ -10,7 +10,10 @@ export const SectionFour: React.FC = () => {
 
     const MarQueeTexts = () => (
         <>
-            Projects <span /> Projects <span /> Projects <span /> Projects <span /> Projects <span /> Projects <span /> Projects <span />
+            Projects <span className='marquee-span' /> Projects <span className='marquee-span' /> 
+            Projects <span className='marquee-span' /> Projects <span className='marquee-span' /> 
+            Projects <span className='marquee-span' /> Projects <span className='marquee-span' /> 
+            Projects <span className='marquee-span' />
         </>
     );
 
@@ -32,7 +35,7 @@ export const SectionFour: React.FC = () => {
             {/* @ts-expect-error */}
             <marquee scrollAmount={20}  >
 
-                <div>
+                <div className='marquee-div'>
 
                     <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts />
                     <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts />

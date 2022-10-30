@@ -4,11 +4,11 @@ marquee {
     font-family: $header-font;
     color: color(white);
 
-    div {
+    .marquee-div {
         display: flex;
     }
 
-    span {
+    .marquee-span {
         display: flex;
         margin: auto 41px;
         border-radius: 100%;
