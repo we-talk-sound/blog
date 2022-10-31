@@ -2,6 +2,21 @@
 
     &-block {
 
+        @include media-query(mobile) {
+
+            flex-direction: column;
+
+            .latest-release-item {
+
+                margin-bottom: 56px;
+                padding-right: 0;
+                padding-left: 0;
+                width: 100%;
+
+            }
+
+        }
+
         display: flex;
         flex-wrap: wrap;
 

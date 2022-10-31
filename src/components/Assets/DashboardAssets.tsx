@@ -18,3 +18,14 @@ export const MinusIcon = `<svg width="30" height="2" viewBox="0 0 30 2" fill="no
 <path d="M28.3333 1H1.66663" stroke="black" stroke-width="2" stroke-linecap="round"/>
 </svg>
 `;
+
+export const Circle = `<svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="35" cy="35" r="34" stroke="url(#paint0_linear_1197_358)" stroke-width="2"/>
+<defs>
+<linearGradient id="paint0_linear_1197_358" x1="37" y1="21" x2="25" y2="20.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>
+`;

@@ -1,6 +1,6 @@
 import React from "react";
 import { classnames } from "utils";
-import { Arrow } from "./Assets";
+import { Arrow, Circle } from "./Assets";
 import { LinkWrapper } from "./LinkWrapper";
 
 export const ExpandedButton: React.FC<Props> = ({
@@ -42,13 +42,19 @@ export const ExpandedButton: React.FC<Props> = ({
 
                         <div className="button-expand-arrow-background" />
 
-                        <div
+                        <div className="button-expand-block">
 
-                            className="button-expand-arrow"
+                            <div className="button-expand-circle" dangerouslySetInnerHTML={{ __html: Circle }} />
 
-                            dangerouslySetInnerHTML={{ __html: Arrow }}
+                            <div
 
-                        />
+                                className="button-expand-arrow"
+
+                                dangerouslySetInnerHTML={{ __html: Arrow }}
+
+                            />
+
+                        </div>
 
                     </div>
 

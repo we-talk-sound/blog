@@ -6,6 +6,22 @@
 
             margin-top: 120px;
 
+            .button-expand-wrapper {
+
+                @include media-query(mobile) {
+
+                    margin: auto;
+
+                }
+
+            }
+
+            .button-expand p {
+
+                font-family: $header-font;
+
+            }
+
         }
 
         &-hero {
@@ -23,20 +39,50 @@
 
             .page-zero-progression {
 
+                @include media-query(mobile) {
+
+                    position: absolute;
+                    bottom: 0;
+                    left: 9px;
+                    padding-bottom: 50px;
+                    max-width: 150px;
+
+                    span {
+
+                        width: 5px;
+                        height: 5px;
+
+                    }
+
+                }
+
                 margin-top: auto;
 
             }
 
-            .button-expand-arrow {
+            .button-expand {
 
-                
-                border-width: 0 0 0 3px;
-                width: 50px;
-                height: 50px;
+                @include media-query(mobile) {
+
+                    scale: 0.5;
+
+                }
+
+                scale: 0.76;
 
             }
 
             .page-zero-navigation {
+
+                @include media-query(mobile) {
+
+                    position: absolute;
+                    right: 7px;
+                    bottom: 0;
+                    padding-bottom: 50px;
+                    max-width: 50vw;
+
+                }
 
                 margin-top: auto;
                 margin-right: 0;
@@ -50,6 +96,12 @@
 
         &-hero .page-zero-caption h1,
         &-hero .page-zero-caption p {
+
+            @include media-query(mobile) {
+
+                text-align: center;
+
+            }
 
             margin-right: auto;
             margin-left: 0;

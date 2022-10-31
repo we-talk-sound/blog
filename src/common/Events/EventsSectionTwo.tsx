@@ -14,13 +14,15 @@ export const EventsSectionTwo: React.FC = ({}) => {
 
         <ComponentHolder
 
-            className='page-zero no-border page-agency-section-three'
+            className='no-border page-events-upcoming-block'
 
-            bodyClass='page-zero-content'>
+            bodyClass='page-event-upcoming-content'
+            
+        >
 
             <div className='page-agency-section-three-content-body'>
 
-                <h1 className='page-agency-section-three-header page-events-section-two-header'> Upcoming Events </h1>
+                <h1 className='page-events-upcoming-content-header'> Upcoming Events </h1>
 
                 <div className='page-zero-section-four-blog'>
 

@@ -135,10 +135,11 @@
         @include media-query(mobile) {
 
             position: absolute;
+            right: 0;
             bottom: 75px;
             justify-content: center;
             margin-left: -19px;
-            width: 100%;
+            width: 100vw !important;
 
         }
 

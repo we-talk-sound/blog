@@ -22,7 +22,7 @@ export const LatestReleases: React.FC = ({ }) => {
 
         <ComponentHolder
 
-            className='page-zero no-border discography-block'
+            className='no-border discography-block'
 
             bodyClass='page-zero-content'>
 

@@ -167,9 +167,9 @@
       span {
 
           position: absolute;
-          bottom: 0;
+          bottom: -5px;
           display: block;
-          margin-top: 5px;
+          margin-top: 10px;
           width: 4px;
           height: 2px;
           background: color(white);
@@ -179,21 +179,41 @@
 
     }
 
+    &-block {
+
+      position: relative;
+
+    }
+
     &-arrow {
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 100%;
-      border: 3px solid white;
-      border-width: 5px;
-      border-top-width: 0;
-      border-right-width: 0;
-      border-bottom-width: 0;
-      border-image-slice: 1;
       width: 70px;
       height: 70px;
       transform: rotate(180deg);
       transition: 0.2s ease;
+    }
+
+    &-circle {
+
+      position: absolute;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100%;
+      background: transparent;
+      transition: 0.2s ease;
+
+      svg {
+
+        margin: auto;
+        border-radius: 100%;
+
+      }
+
     }
 
     svg {
@@ -211,14 +231,18 @@
 
         .button-expand-arrow {
 
-          border: 3px solid color(primary);
-          background: color(primary);
+          svg {
+
+            margin-left: 0;
+
+          }
 
         }
 
-        svg {
+        .button-expand-circle circle {
 
-          margin-left: 0;
+          fill: color(primary);
+          stroke: color(primary);
 
         }
 

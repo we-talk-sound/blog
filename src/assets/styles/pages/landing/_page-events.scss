@@ -85,4 +85,60 @@
 
     }
 
+    &-upcoming-block {
+
+        @extend %body-width-and-padding;
+
+        @include media-query(mobile) {
+
+            padding-top: 30px;
+            padding-bottom: 40px;
+
+        }
+
+        padding-top: 64px;
+        padding-bottom: 75px;
+        background: url(/assets/background/plain-background.png), #ffffff !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+
+        .event-item:nth-child(even)  {
+
+            margin-right: 10px;
+            margin-left: 10px;
+
+        }
+
+        .event-item {
+
+            @include media-query(mobile) {
+
+                margin-right: 0 !important;
+                margin-bottom: 40px;
+                margin-left: 0 !important;
+
+
+            }
+
+        }
+
+        .page-zero-section-four-blog {
+
+            @include media-query(mobile) {
+
+                flex-direction: column;
+
+            }
+
+        }
+
+    }
+
+    &-upcoming-content-header {
+
+        @include font-size-override(l-large);
+        margin-bottom: 48px;
+
+    }
+
 }

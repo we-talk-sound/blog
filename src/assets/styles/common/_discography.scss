@@ -2,7 +2,13 @@
 
     &-block {
 
-        padding-top: 137px;
+        @include media-query(mobile) {
+
+            padding-top: 30px;
+
+        }
+
+        padding-top: 64px;
         background: url(/assets/background/plain-background.png), #141313;
         background-repeat: no-repeat;
         background-size: cover;
