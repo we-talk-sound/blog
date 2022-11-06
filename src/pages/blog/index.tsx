@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux';
 import { BlogStory } from 'common/Blog/BlogStory';
 import { storeInterface } from 'types';
 import { useSelector } from 'react-redux';
+import * as He from "he";
 
 const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
@@ -73,10 +74,14 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
     });
 
+    const story = blogSingleStories?.[String(slug || "")];
+
+    const storyTitle = story.title.rendered ? He.unescape(story.title.rendered) : "";
+
     return (
 
         <LandingLayout
-            headTitle={`WETALKSOUND | ${blogSingleStories?.[String(slug || "")]?.title || ""}`}
+            headTitle={ storyTitle || `WETALKSOUND`}
             isMobile={isMobile}
             deviceWidth={deviceWidth}
             showFooter={true}
