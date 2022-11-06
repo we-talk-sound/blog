@@ -76,7 +76,7 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
     const story = blogSingleStories?.[String(slug || "")];
 
-    const storyTitle = story.title.rendered ? He.unescape(story.title.rendered) : "";
+    const storyTitle = story?.title?.rendered ? He.unescape(story.title.rendered) : "";
 
     return (
 
