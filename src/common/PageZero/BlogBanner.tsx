@@ -6,7 +6,7 @@ import { BlogMarquee } from 'common/Blog/BlogPageBanner/BlogMarquee';
 import { BlogBannerArticles } from 'common/Blog/BlogPageBanner/BlogBannerArticles';
 import { blogItemType } from 'types';
 
-export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource }) => {
+export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource, dataSourceLoader }) => {
 
     return (
 
@@ -41,6 +41,8 @@ export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource }) =
 
                     dataSource={dataSource || []}
 
+                    dataSourceLoader={dataSourceLoader}
+
                     image={story?.image}
 
                 />
@@ -57,6 +59,8 @@ export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource }) =
 interface Props {
 
     dataSource?: Array<blogItemType>,
+
+    dataSourceLoader?: boolean,
 
     bannerMode?: boolean,
 

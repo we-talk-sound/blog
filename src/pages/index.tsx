@@ -83,7 +83,13 @@ const Home: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
             <SectionFour />
 
-            <BlogBanner dataSource={dashboardBlogs?.data.filter((item, index) => index < 3) || []} />
+            <BlogBanner 
+            
+                dataSource={dashboardBlogs?.data.filter((item, index) => index < 3) || []} 
+                
+                dataSourceLoader={dashboardBlogs.loader}
+                
+            />
 
             <NewsLetter />
 

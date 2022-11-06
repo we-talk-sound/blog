@@ -76,7 +76,7 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
     return (
 
         <LandingLayout
-            headTitle={"WETALKSOUND | BLOG"}
+            headTitle={`WETALKSOUND | ${slug && slug}`}
             isMobile={isMobile}
             deviceWidth={deviceWidth}
             showFooter={true}

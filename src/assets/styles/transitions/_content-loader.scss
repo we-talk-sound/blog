@@ -2,7 +2,7 @@
   margin: 30px 14px;
   border-radius: 5px;
   height: 45px;
-  background: linear-gradient(242.07deg, #2e2c3326 52.03%, #0807062e 73.09%);
+  background: linear-gradient(242.07deg, #e4e2ea 52.03%, #948a8af2 73.09%);
   background-size: 400% 400%;
   animation-name: content-loader-anim;
   animation-duration: 3s;
@@ -10,15 +10,60 @@
 
   &.modal-subtitle {
     margin: 15px auto 0;
-    width: 40%;
+    width: 100%;
     height: 15px;
   }
 
   &.title {
-    margin: 30px 14px 10px;
-    width: 40%;
+    margin: 5px 0;
+    width: 100%;
     height: 15px;
   }
+
+  &-stories {
+
+    width: 100%;
+
+  }
+
+  &-stories-block {
+
+    border-bottom: 1px solid color(story-border);
+    padding: 16px 0;
+    width: 100%;
+    max-width: 450px;
+
+    &-title {
+
+      display: flex;
+
+    }
+
+    &-title .content-loader-v-item {
+
+      &:first-child {
+
+        margin-right: 10px;
+        border-radius: 0;
+        max-width: 60px;
+        background: color(primary);
+
+      }
+
+      &:not(:first-child) {
+
+        margin-top: 1px;
+
+      }
+
+    }
+
+  }
+
+}
+
+.content-loader-holder {
+  width: 100%;
 }
 
 img.content-loader {
@@ -31,8 +76,8 @@ img.content-loader {
 
 .content-loader-v {
   @extend %box-shadow;
-  margin: 20px 0;
-  padding: 20px;
+  margin: 10px 0;
+  padding: 20px 0 0;
 
   &:first-child {
     margin-top: 0;
@@ -40,12 +85,12 @@ img.content-loader {
 
   &-item {
     @extend .content-loader;
-    margin: 5px;
+    margin: 5px 0;
     width: 50%;
     height: 20px;
 
     &:not(:first-child) {
-      margin: 10px 5px 0;
+      margin: 10px 0;
       width: 30%;
     }
   }
