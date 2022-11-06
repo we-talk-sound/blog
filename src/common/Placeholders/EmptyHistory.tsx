@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentHeader } from 'components';
 // import EmptyIcon from 'assets/svg/empty-transaction.svg';
 
-export const EmptyHistory: React.FC<{ title?: string , subtitle?: string, icon?: boolean }> = ({ title , subtitle, icon }) => {
+export const EmptyHistory: React.FC<{ title?: string , subtitle?: string, icon?: boolean }> = ({ title , subtitle }) => {
 
     return (
         <div className="dashboard-page-history dashboard-page-history-empty">
