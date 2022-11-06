@@ -9,7 +9,7 @@ export const FullHeader: React.FC<Props> = ({ withFrame }): JSX.Element => {
 
     return (
 
-        <div className={classnames( withFrame && 'landingLayout-header-frame')}>
+        <div className={classnames(withFrame && 'landingLayout-header-frame')}>
 
             <div
                 className={classnames('landingLayout-header', 'with-shades')}>
@@ -19,9 +19,7 @@ export const FullHeader: React.FC<Props> = ({ withFrame }): JSX.Element => {
                     <div className="landingLayout-header-left">
 
                         <Link href={"/"}>
-                            <a>
-                                <img src={WeTalkSound} alt={"We Talk Sound"} />
-                            </a>
+                            <img src={WeTalkSound} alt={"We Talk Sound"} />
                         </Link>
 
                     </div>
@@ -32,11 +30,12 @@ export const FullHeader: React.FC<Props> = ({ withFrame }): JSX.Element => {
 
                         {rightLinks.map((item, index) =>
                             <Link
+                                className={item.class}
                                 key={`landingLayout-header-right-item-${index}`}
                                 href={item.link || ""}>
-                                <a className={item.class}>
-                                    {item.title}
-                                </a>
+
+                                {item.title}
+
                             </Link>
 
                         )}
@@ -52,6 +51,6 @@ export const FullHeader: React.FC<Props> = ({ withFrame }): JSX.Element => {
     );
 }
 
-interface Props { 
+interface Props {
     withFrame?: boolean
 }

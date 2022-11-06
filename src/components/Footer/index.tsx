@@ -4,8 +4,10 @@ import Link from 'next/link';
 export const FooterLinks: FC<Props> = ({ title, link }) => {
     return (
         <Link
-            href={link}>
-            <a className="footer-link"> {title} </a>
+            href={link}
+            className="footer-link"
+        >
+            {title}
         </Link>
     );
 }

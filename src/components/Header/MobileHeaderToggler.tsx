@@ -9,9 +9,7 @@ export const MobileHeaderToggler: React.FC<Props> = ({ setExpansion, isExpanded 
         <div className="landingLayout-header-mobile-top">
 
             <Link href={"/"}>
-                <a>
                     <img src={WeTalkSound} alt={"Wetalksound"} />
-                </a>
             </Link>
 
             <i

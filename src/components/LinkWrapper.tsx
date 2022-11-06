@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { classnames } from 'utils';
 
 
-export const LinkWrapper: React.FC<Props> = ({ children, link, externalLink, className , preClick }) => {
+export const LinkWrapper: React.FC<Props> = ({ children, link, externalLink, className, preClick }) => {
 
     return (
 
@@ -11,28 +11,24 @@ export const LinkWrapper: React.FC<Props> = ({ children, link, externalLink, cla
 
             {(link || externalLink) ?
 
-                <Link 
-                
+                <Link
+
                     href={String(link || externalLink)}
-                    
-                    >
 
-                    <a
-    
-                        target={externalLink && "_blank"}
-    
-                        className={classnames(className || "", "link-wrapper")}
-    
-                        tabIndex={0}
-    
-                        role="button"
+                    target={externalLink && "_blank"}
 
-                        onClick={()=> preClick ? preClick() : null }
-    
+                    className={classnames(className || "", "link-wrapper")}
 
-                    >
-                        {children}
-                    </a>
+                    tabIndex={0}
+
+                    role="button"
+
+                    onClick={() => preClick ? preClick() : null}
+
+                >
+
+                    {children}
+
                 </Link>
 
                 :

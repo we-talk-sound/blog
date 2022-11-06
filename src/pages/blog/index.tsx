@@ -81,7 +81,7 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
     return (
 
         <LandingLayout
-            headTitle={ storyTitle || `WETALKSOUND`}
+            headTitle={ String(storyTitle || `WETALKSOUND`)}
             isMobile={isMobile}
             deviceWidth={deviceWidth}
             showFooter={true}
