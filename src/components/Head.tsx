@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-export const HtmlHead:React.FC<{ title : string }> = ({ title }) => {
+export const HtmlHead:React.FC<{ title: any }> = ({ title }) => {
   const description = '';
   const link = '';
   const logo = '';
@@ -24,7 +24,7 @@ export const HtmlHead:React.FC<{ title : string }> = ({ title }) => {
 
   return (
     <Head>
-      <title> {title} </title>
+      <title> {title ? title : ""} </title>
       <meta name="description" content={description} />
       <link rel="icon" href="/favicon.ico" />
       <link href="/fonts/style.css" rel="stylesheet" />

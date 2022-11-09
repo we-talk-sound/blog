@@ -35,7 +35,7 @@ export const BlogPageBanner: React.FC<Props> = ({ isMobile, deviceWidth , story 
                 
                 story={story_}
 
-                slug={slug}
+                slug={slug ? String(slug) : undefined}
             
                 dataSource={dataSource}
 
