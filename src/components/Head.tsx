@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-export const HtmlHead = ({ title }) => {
+export const HtmlHead:React.FC<{ title : string }> = ({ title }) => {
   const description = '';
   const link = '';
   const logo = '';

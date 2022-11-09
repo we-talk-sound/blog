@@ -6,7 +6,21 @@ import { blogItemType } from 'types';
 import { transformStory } from 'utils/blog';
 import { StoriesItemPlaceHolder } from 'common/Placeholders';
 
-export const BlogBannerArticles: React.FC<Props> = ({ bannerMode, withoutArticles, dataSource, image, dataSourceLoader }) => {
+export const BlogBannerArticles: React.FC<Props> = ({
+
+    bannerMode,
+
+    withoutArticles,
+
+    dataSource,
+
+    image,
+
+    dataSourceLoader,
+
+    slug
+
+}) => {
 
     const blogData = (dataSource || []).map((item) => transformStory(item));
 
@@ -30,15 +44,15 @@ export const BlogBannerArticles: React.FC<Props> = ({ bannerMode, withoutArticle
 
                     {(blogData || []).map((item) =>
 
-                            <StoryItem
+                        <StoryItem
 
-                                story={item}
+                            story={item}
 
-                                key={item.title}
+                            key={item.title}
 
-                            />
+                        />
 
-                        )
+                    )
 
 
                     }
@@ -49,7 +63,19 @@ export const BlogBannerArticles: React.FC<Props> = ({ bannerMode, withoutArticle
 
             }
 
-            <img src={image || (StoryImage || blogData?.[0]?.image)} alt={`blog-image-item`} />
+            {(slug ? image !== undefined : true) &&
+
+                <img
+
+                    src={image || (StoryImage || blogData?.[0]?.image)}
+
+                    alt={`blog-image-item`}
+
+                />
+
+            }
+
+            {slug && !image && <div className='content-loader-image content-loader-blog-image' />}
 
         </ComponentHolder>
 
@@ -66,6 +92,8 @@ interface Props {
 
     image?: string,
 
-    dataSourceLoader?: boolean
+    dataSourceLoader?: boolean,
+
+    slug?: string
 
 }

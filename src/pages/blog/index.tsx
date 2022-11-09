@@ -99,6 +99,8 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
                 dataSource={(dashboardBlogs?.data || []).filter((item, index) => index < 3)}
 
+                dataSourceLoader={dashboardBlogs.loader}
+
             />
 
             {!category && !slug && <BaseBlog />}

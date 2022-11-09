@@ -7,7 +7,7 @@ import { BlogBanner } from 'common/PageZero/BlogBanner';
 import { transformStory } from 'utils/blog';
 import { blogItemType } from 'types';
 
-export const BlogPageBanner: React.FC<Props> = ({ isMobile, deviceWidth , story , dataSource }) => {
+export const BlogPageBanner: React.FC<Props> = ({ isMobile, deviceWidth , story , dataSource , dataSourceLoader }) => {
 
     const router = useRouter();
 
@@ -27,15 +27,19 @@ export const BlogPageBanner: React.FC<Props> = ({ isMobile, deviceWidth , story 
 
             <Header withFrame={true} isMobile={isMobile} deviceWidth={deviceWidth} />
 
-            {!(slug && story_) && <BaseBlogHeading />}
+            {(!slug && !story_) && <BaseBlogHeading />}
 
             <BlogBanner 
             
                 bannerMode={true} 
                 
                 story={story_}
+
+                slug={slug}
             
                 dataSource={dataSource}
+
+                dataSourceLoader={dataSourceLoader}
 
             />
 
@@ -50,5 +54,6 @@ interface Props {
     isMobile: boolean,
     deviceWidth: number,
     story: blogItemType,
-    dataSource: blogItemType[]
+    dataSource: blogItemType[],
+    dataSourceLoader?: boolean
 }

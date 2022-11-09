@@ -3,10 +3,11 @@ import { Button, ComponentHeader, ComponentHolder, StoryItem } from "components"
 import { classnames, transformStory } from "utils";
 import { storeInterface } from "types";
 import { useSelector } from "react-redux";
+import { StoriesItemPlaceHolder } from "common/Placeholders";
 
 export const LatestArticles = () => {
 
-    const { blog : { dashboardBlogs } } : storeInterface = useSelector((store: storeInterface) => store);
+    const { blog: { dashboardBlogs } }: storeInterface = useSelector((store: storeInterface) => store);
 
     return (
 
@@ -46,6 +47,16 @@ export const LatestArticles = () => {
                             />
 
                         )}
+
+                        {(dashboardBlogs?.loader && dashboardBlogs?.data?.length < 1) &&
+
+                            <div className="page-blog-latest-articles-content-loader">
+
+                                <StoriesItemPlaceHolder imageBox={true} length={120} />
+                               
+                            </div>
+
+                        }
 
                     </div>
 

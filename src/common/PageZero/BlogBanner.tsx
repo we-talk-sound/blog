@@ -5,21 +5,22 @@ import { classnames } from 'utils';
 import { BlogMarquee } from 'common/Blog/BlogPageBanner/BlogMarquee';
 import { BlogBannerArticles } from 'common/Blog/BlogPageBanner/BlogBannerArticles';
 import { blogItemType } from 'types';
+import { StoriesItemPlaceHolder } from 'common/Placeholders';
 
-export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource, dataSourceLoader }) => {
+export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource, dataSourceLoader, slug }) => {
 
     return (
 
         <ComponentHolder
             className="no-border"
             bodyClass={classnames(
-                
+
                 "blog-banner-background",
-                
+
                 bannerMode && "page-blog-banner-parent",
 
                 !bannerMode && "page-zero-blog-banner"
-                
+
             )}
         >
 
@@ -27,11 +28,25 @@ export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource, dat
 
             <div className={
 
-                classnames('blog-banner-body', bannerMode && "page-blog-banner-holder", story && "page-blog-banner-holder-with-story")
+                classnames('blog-banner-body', bannerMode && "page-blog-banner-holder", (story || slug) && "page-blog-banner-holder-with-story")
 
             }>
 
-                {story && <StoryItem story={{ ...story, image: undefined }} mode={"story"} />}
+                {(story && slug) && <StoryItem story={{ ...story, image: undefined }} mode={"story"} />}
+
+                {(!story && slug) &&
+
+                    <StoriesItemPlaceHolder
+
+                        length={1}
+
+                        holderClass={"page-blog-story-loader"}
+
+                        extraTitle={true} />
+
+                }
+
+                {/* The blog image is contained in the BlogBannerArticles Component */}
 
                 <BlogBannerArticles
 
@@ -44,6 +59,8 @@ export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource, dat
                     dataSourceLoader={dataSourceLoader}
 
                     image={story?.image}
+
+                    slug={slug}
 
                 />
 
@@ -63,6 +80,8 @@ interface Props {
     dataSourceLoader?: boolean,
 
     bannerMode?: boolean,
+
+    slug?: string,
 
     story?: {
 

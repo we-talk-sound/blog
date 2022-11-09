@@ -1,4 +1,5 @@
 import React from 'react';
+import { classnames } from 'utils';
 
 export const BillPlaceHolder: React.FC<{ length?: number }> = ({ length }) => {
     return (
@@ -36,39 +37,63 @@ export const SettingsItemPlaceHolder: React.FC<{ length?: number }> = ({ length 
     )
 }
 
-export const StoriesItemPlaceHolder: React.FC<{ length?: number }> = ({ length }) => {
+export const StoriesItemPlaceHolder: React.FC<Props> = ({ length, imageBox, holderClass, extraTitle }) => {
     return (
-        <div className="strickFadeIn content-loader-holder content-loader-stories">
+        <div className={classnames("strickFadeIn content-loader-holder content-loader-stories", holderClass)}>
 
             {[...Array(length || 3)].map((...args) =>
 
                 <div
 
-                    className='content-loader-stories-block'
+                    className={classnames(`content-loader-stories-block`)}
 
                     key={`placeholder-item-${args[1]}`}
 
                 >
 
-                    <div className="content-loader-v pt-0 mt-0" >
+                    {imageBox && <div className="content-loader-image" />}
 
-                        <div className='content-loader-stories-block-title'>
+                    <div className='content-loader-texts'>
 
-                            <div className="content-loader-v-item" />
+
+
+                        <div className="content-loader-v pt-0 mt-0" >
+
+                            <div className='content-loader-stories-block-title'>
+
+                                <div className="content-loader-v-item" />
+                                <div className="content-loader-v-item" />
+
+                            </div>
+
                             <div className="content-loader-v-item" />
 
                         </div>
 
-                        <div className="content-loader-v-item" />
+
+                        <div className="content-loader title" />
+
+                        <div className="content-loader title" />
+
+                        {extraTitle && <div className="content-loader title" />}
 
                     </div>
-
-                    <div className="content-loader title" />
-                    <div className="content-loader title" />
 
                 </div>
             )}
 
         </div>
     )
+}
+
+interface Props {
+
+    length?: number,
+
+    imageBox?: boolean,
+
+    holderClass?: string,
+
+    extraTitle?: boolean
+
 }
