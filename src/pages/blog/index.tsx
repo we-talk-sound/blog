@@ -19,7 +19,9 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
     const dispatch = useDispatch();
 
-    const { blog: { blogSingleStories, dashboardBlogs, blogCategoryStories } }: storeInterface = useSelector((store: storeInterface) => store);
+    const {
+        blog: { blogSingleStories, dashboardBlogs, blogCategoryStories, categories }
+    }: storeInterface = useSelector((store: storeInterface) => store);
 
     const { category, slug } = router.query;
 
@@ -58,9 +60,11 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
                 per_page: 9,
 
+                categories: categories?.slugPairs?.[e.category]?.id,
+
                 // if page one exists , proceed to page requested from url , else, go to page 1
 
-                page: blogCategoryStories?.categoryData?.[e?.category]?.["1"] ? e?.page : 1
+                page: blogCategoryStories?.categoryData?.[e?.category]?.["1"] ? (e?.page || 1) : 1
 
             }
 
@@ -76,7 +80,7 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
             const arguments_ = determineFetch(arg);
 
-            dispatch(blogProcess(arguments_[0], arguments_[1], arguments_[2] ));
+            dispatch(blogProcess(arguments_[0], arguments_[1], arguments_[2]));
 
         },
 
@@ -87,6 +91,30 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
     const story = blogSingleStories?.[String(slug || "")];
 
     const storyTitle = story?.title?.rendered ? He.unescape(story.title.rendered) : "";
+
+    const blogBannerDataSource = () => {
+
+        if (category && categories?.slugPairs?.[String(category)]) {
+
+            return ({
+
+                source: blogCategoryStories?.categoryData?.[String(category)]?.[1],
+
+                loader: blogCategoryStories?.categoryData?.[String(category)]?.[1] === undefined
+
+            })
+
+        }
+
+        return ({
+
+            source: dashboardBlogs?.data || [],
+
+            loader: dashboardBlogs.loader
+
+        });
+
+    }
 
     return (
 
@@ -107,9 +135,9 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
                 story={blogSingleStories?.[String(slug || "")]}
 
-                dataSource={(dashboardBlogs?.data || []).filter((item, index) => index < 3)}
+                dataSource={(blogBannerDataSource().source || []).filter((item, index) => index < 3)}
 
-                dataSourceLoader={dashboardBlogs.loader}
+                dataSourceLoader={blogBannerDataSource().loader}
 
             />
 

@@ -11,7 +11,7 @@ export const BlogPageBanner: React.FC<Props> = ({ isMobile, deviceWidth , story 
 
     const router = useRouter();
 
-    const { slug } = router.query;
+    const { slug , category } = router.query;
 
     const story_ = story ? { ...transformStory(story , false) } : undefined;
 
@@ -27,7 +27,7 @@ export const BlogPageBanner: React.FC<Props> = ({ isMobile, deviceWidth , story 
 
             <Header withFrame={true} isMobile={isMobile} deviceWidth={deviceWidth} />
 
-            {(!slug && !story_) && <BaseBlogHeading />}
+            {(!slug && !story_) && <BaseBlogHeading category={String(category)} />}
 
             <BlogBanner 
             

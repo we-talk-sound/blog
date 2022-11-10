@@ -100,7 +100,8 @@ export type storeBlogEntry = {
 
     categories: {
         data: Array<blogCategoryItemType>,
-        pairs: { [key: number | string]: blogCategoryItemType }
+        pairs: { [key: number | string]: blogCategoryItemType },
+        slugPairs: { [key: string] : blogCategoryItemType },
         queryParam: { [key: string]: any },
         perPage: number,
         loader: boolean,

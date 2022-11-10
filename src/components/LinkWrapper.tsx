@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { classnames } from 'utils';
 
 
-export const LinkWrapper: React.FC<Props> = ({ children, link, externalLink, className, preClick }) => {
+export const LinkWrapper: React.FC<Props> = ({ children, link, externalLink, className, preClick , scroll }) => {
 
     return (
 
@@ -22,6 +22,8 @@ export const LinkWrapper: React.FC<Props> = ({ children, link, externalLink, cla
                     tabIndex={0}
 
                     role="button"
+
+                    scroll={scroll}
 
                     onClick={() => preClick ? preClick() : null}
 
@@ -50,5 +52,6 @@ interface Props {
     link?: string,
     externalLink?: string,
     className?: string,
+    scroll?: boolean,
     preClick?(): void
 }

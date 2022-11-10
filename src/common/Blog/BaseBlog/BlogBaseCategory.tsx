@@ -10,7 +10,9 @@ export const BlogBaseCategory: React.FC<{ category: string }> = ({ category }) =
 
     const router = useRouter();
 
-    const { blog: { blogCategoryStories } }: storeInterface = useSelector((store: storeInterface) => store);
+    const { blog: { blogCategoryStories , categories  } }: storeInterface = useSelector((store: storeInterface) => store);
+
+    const usableCategory = categories?.slugPairs?.[category?.toLowerCase()];
 
     const storyList = blogCategoryStories?.categoryData?.[category] || {};
 
@@ -30,9 +32,9 @@ export const BlogBaseCategory: React.FC<{ category: string }> = ({ category }) =
 
                 bodyClass="page-blog-active-category-body"
 
-                title={'MUSIC'}
+                title={ (usableCategory?.name || "").toUpperCase() }
 
-                subtitle={'RELEASES, REVIEWS AND MORE. EXPERIENCE THE BEST MUSIC FROM OUR COMMUNITY AND BEYOND.'}
+                subtitle={ (usableCategory?.description || "")?.toUpperCase() }
 
                 align={true}
             >

@@ -1,8 +1,9 @@
 import { Button } from "components";
 import { LinkWrapper } from "components/LinkWrapper";
 import React from "react";
+import { classnames } from "utils";
 
-export const BaseBlogHeading = () => {
+export const BaseBlogHeading : React.FC<{ category?: string }> = ({ category }) => {
 
     const filters = [
         {
@@ -27,7 +28,10 @@ export const BaseBlogHeading = () => {
         }
     ];
 
+    const blogBody = document.getElementsByClassName("page-blog-active-category-holder");
+
     return (
+
         <div className="page-blog-holder-header">
 
             <div className="page-blog-holder-header-left">
@@ -38,9 +42,19 @@ export const BaseBlogHeading = () => {
 
                     {filters.map((item) =>
 
-                        <LinkWrapper link={`/blog?category=${item.link}`} key={`header-item-${item.title}`}>
+                        <LinkWrapper 
+                        
+                            link={`/blog?category=${item.link}`} key={`header-item-${item.title}`}
 
-                            <span>
+                            scroll={false}
+                            
+                            preClick={()=> {
+
+                                blogBody?.[0]?.scrollIntoView?.({behavior: "smooth", block: "nearest", inline: "nearest"});
+
+                            }}>
+
+                            <span className={classnames( item.link === category?.toLowerCase() ? "color-primary" : "" )}>
 
                                 {item.title}
 
