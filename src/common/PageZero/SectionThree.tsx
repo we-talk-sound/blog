@@ -34,7 +34,7 @@ export const SectionThree: React.FC = () => {
         <ComponentHolder bodyClass='no-border page-zero-section-three'>
 
             {/* @ts-expect-error */}
-            <marquee scrollAmount={20}  >
+            <marquee scrollAmount={20} loop={-1} >
 
                 <div className='marquee-div'>
 

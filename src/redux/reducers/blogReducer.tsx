@@ -1,5 +1,5 @@
 import * as blogTypes from 'redux/types/blogTypes';
-import { blogCategoryItemType, blogEntryTypes, storeBlogEntry } from 'types/storeTypes';
+import { blogCategoryItemType, blogEntryTypes, blogPageData, storeBlogEntry } from 'types/storeTypes';
 import { shallowCompare } from 'utils';
 
 const base = {
@@ -13,10 +13,10 @@ const base = {
 };
 
 const initialState: storeBlogEntry = {
-    
+
     dashboardBlogs: base,
 
-    blogCategoryStories: base,
+    blogCategoryStories: { ...base, categoryData: {} },
 
     categories: {
         data: [],
@@ -42,44 +42,90 @@ const createCategoryPairs = (categories: blogCategoryItemType[]) => {
 
 }
 
+const dataToStore = (
+
+    state: { categoryData: { [key: string]: blogPageData } },
+
+    data: Array<blogEntryTypes>,
+
+    ref: blogEntryTypes,
+
+    params: { page?: number, category?: string }
+
+) => {
+
+    if (ref === "blogCategoryStories" && params?.category) {
+
+        return ({
+
+            ...((params?.page === 1 || !params?.page) ? { data } : {}),
+
+            categoryData: state?.categoryData?.[params?.category] ?
+
+                ({
+
+                    ...state?.categoryData,
+
+                    [params?.category]: {
+
+                        ...state?.categoryData?.[params?.category],
+
+                        [params?.page || 1]: data
+
+                    }
+
+
+                }) :
+
+                { [params?.category]: { [params?.page || 1]: data } }
+
+        });
+
+    }
+
+    return ({ data });
+
+}
+
 const blogReducer = (state = initialState, action: { [key: string]: any }) => {
 
     const ref = action?.payload?.ref as blogEntryTypes;
 
-    const affectedState = state?.[ref as "dashboardBlogs" |  "categories" |  "blogCategoryStories"];
+    const affectedState = state?.[ref as "dashboardBlogs" | "categories" | "blogCategoryStories"];
 
     switch (action.type) {
 
         case blogTypes.RETRIEVE_STORIES_START:
         case blogTypes.RETRIEVE_CATEGORIES_START:
+        case blogTypes.RETRIEVE_CATEGORY_STORIES_START:
 
             return {
                 ...state,
                 [ref]: {
+
                     ...state[ref],
+
                     loader: !affectedState?.data?.length || !shallowCompare(affectedState?.queryParam || {}, action?.payload?.queryParam),
+
+                    pageLoader: !shallowCompare(affectedState?.queryParam || {}, action?.payload?.queryParam),
+
                     queryParam: action?.payload?.queryParam
+
                 }
             };
 
         case blogTypes.RETRIEVE_STORIES_SUCCESS:
         case blogTypes.RETRIEVE_CATEGORIES_SUCCESS:
+        case blogTypes.RETRIEVE_CATEGORY_STORIES_SUCCESS:
 
             return {
                 ...state,
                 [ref]: {
                     ...state[ref],
                     loader: false,
-                    data: action.payload.items,
-                    ...(ref === "categories" ? {
-
-                        pairs: createCategoryPairs(action?.payload?.items)
-
-                    } :
-
-                        {}
-
-                    )
+                    pageLoader: false,
+                    ...(dataToStore(state?.[ref] as any, action.payload.items, ref, affectedState?.queryParam)),
+                    ...(ref === "categories" ? { pairs: createCategoryPairs(action?.payload?.items) } : {}),
                 }
             };
 
@@ -100,12 +146,12 @@ const blogReducer = (state = initialState, action: { [key: string]: any }) => {
             return {
 
                 ...state,
-                
-                [ref] : {
-                    
+
+                [ref]: {
+
                     ...(state?.[ref] || {}),
 
-                    [action?.payload?.items?.[0]?.slug] : action?.payload?.items?.[0]
+                    [action?.payload?.items?.[0]?.slug]: action?.payload?.items?.[0]
 
 
                 }

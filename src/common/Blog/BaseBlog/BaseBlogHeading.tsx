@@ -36,15 +36,19 @@ export const BaseBlogHeading = () => {
 
                 <div className="page-blog-holder-header-left-links">
 
-                    {filters.map((item) => <LinkWrapper link={item.link} key={`header-item-${item.title}`}>
+                    {filters.map((item) =>
 
-                        <span>
+                        <LinkWrapper link={`/blog?category=${item.link}`} key={`header-item-${item.title}`}>
 
-                            {item.title}
+                            <span>
 
-                        </span>
+                                {item.title}
 
-                    </LinkWrapper>)}
+                            </span>
+
+                        </LinkWrapper>
+
+                    )}
 
                 </div>
 
@@ -58,7 +62,7 @@ export const BaseBlogHeading = () => {
                     <span className="page-blog-holder-header-marquee-fade" />
 
                     {/* @ts-expect-error */}
-                    < marquee scrollAmount={3}  >
+                    < marquee scrollAmount={3} loop={-1}  >
 
                         <p> Feel the beat of Nigeria’s Biggest music community </p>
 

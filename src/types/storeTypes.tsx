@@ -73,9 +73,12 @@ export type blogItemType = {
 
 };
 
+export type blogPageData = { [key: string] :  Array<blogItemType> };
+
 type blogEntryType = {
 
     data: Array<blogItemType>,
+    categoryData?: { [key:string] : blogPageData }
     queryParam: { [key: string]: any },
     perPage: number,
     loader: boolean,

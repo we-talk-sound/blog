@@ -20,7 +20,7 @@ export const SectionTwo: React.FC = () => {
         >
 
             {/* @ts-expect-error */}
-            <marquee scrollAmount={20}  >
+            <marquee scrollAmount={20} loop={-1} >
 
                 <div className='marquee-div' >
 

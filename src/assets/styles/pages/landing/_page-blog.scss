@@ -732,9 +732,33 @@
 
         }
 
+        &-next {
+
+            margin: auto;
+            width: unset;
+            max-width: 100%;
+
+        }
+
         &-body {
 
             padding-top: 0;
+
+            .content-loader-stories-block {
+
+                border-bottom: 0;
+                padding-right: 16px;
+                padding-left: 16px;
+                width: 33.3%;
+
+                .content-loader-image {
+
+                    margin-right: 0;
+                    margin-left: 0;
+
+                }
+                
+            }
 
         }
 
@@ -754,9 +778,9 @@
                 margin-right: 0 !important;
                 margin-bottom: 20px !important;
                 margin-left: 0 !important;
-                width: 32%;
-                min-width: 32%;
-                max-width: 32%;
+                width: 33%;
+                min-width: 33%;
+                max-width: 33%;
                 transition: 0.2s ease;
 
                 img {

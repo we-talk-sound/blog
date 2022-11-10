@@ -19,7 +19,7 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
     const dispatch = useDispatch();
 
-    const { blog : { blogSingleStories , dashboardBlogs } } : storeInterface = useSelector((store : storeInterface) => store);
+    const { blog: { blogSingleStories, dashboardBlogs, blogCategoryStories } }: storeInterface = useSelector((store: storeInterface) => store);
 
     const { category, slug } = router.query;
 
@@ -34,40 +34,50 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
         any
     ];
 
-    const determineFetch = (e : { slug : string , category : string }): determineFetchTypes => {
+    const determineFetch = (e: { slug: string, category: string, page: string }): determineFetchTypes => {
 
-        if ( e?.slug ) return ([
+        if (e?.slug) return ([
 
             "retrieve-story",
 
             "blogSingleStories",
 
-            { slug : e.slug }
+            { slug: e.slug }
 
         ]);
 
-        if ( e?.category ) return ([
+        if (e?.category) return ([
 
             "retrieve-category-stories",
 
             "blogCategoryStories",
 
-            { category : e.category, per_page: 40 }
+            {
+
+                category: e.category,
+
+                per_page: 9,
+
+                // if page one exists , proceed to page requested from url , else, go to page 1
+
+                page: blogCategoryStories?.categoryData?.[e?.category]?.["1"] ? e?.page : 1
+
+            }
 
         ]);
 
-        return ["retrieve", "dashboardBlogs", { per_page: 40 }]
+        return ["retrieve", "dashboardBlogs", { per_page: 9 }]
 
     };
 
     useFetching({
 
-        dispatcher: ( arg : any ) =>  { 
+        dispatcher: (arg: any) => {
 
             const arguments_ = determineFetch(arg);
 
-            dispatch(blogProcess(arguments_[0], arguments_[1], arguments_[2]));
-            
+            dispatch(blogProcess(arguments_[0], arguments_[1], arguments_[2] ));
+
         },
 
         safeParams,
@@ -81,7 +91,7 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
     return (
 
         <LandingLayout
-            headTitle={ String(storyTitle || `WETALKSOUND`)}
+            headTitle={String(storyTitle || `WETALKSOUND`)}
             isMobile={isMobile}
             deviceWidth={deviceWidth}
             showFooter={true}
@@ -105,7 +115,7 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
             {!category && !slug && <BaseBlog />}
 
-            {category && !slug && <BlogBaseCategory />}
+            {category && !slug && <BlogBaseCategory category={String(category || "")} />}
 
             {slug && <BlogStory story={blogSingleStories?.[String(slug || "")]} />}
 

@@ -84,7 +84,7 @@ export const blogProcess = (
 
             dispatch({
                 type: dispatchActions(type).success,
-                payload: { ref, items }
+                payload: { ref, items , queryParam }
             });
 
             return { items, success: true };
@@ -95,7 +95,7 @@ export const blogProcess = (
 
             dispatch({
                 type: dispatchActions(type).failure,
-                payload: { type, data }
+                payload: { type, data , queryParam, ref }
             });
 
             return data?.error?.message || false;

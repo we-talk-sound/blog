@@ -33,7 +33,7 @@ export const SectionFour: React.FC = () => {
         <ComponentHolder bodyClass='no-border page-zero-section-four'>
 
             {/* @ts-expect-error */}
-            <marquee scrollAmount={20}  >
+            <marquee scrollAmount={20} loop={-1} >
 
                 <div className='marquee-div'>
 
