@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ComponentHolder, GradientCircle, MissionCircle, MissionInnerCircle } from 'components';
 import { Header } from 'layout/LandingLayout/header';
 import { classnames } from 'utils';
@@ -12,6 +12,19 @@ export const SectionOneRevamp: React.FC<Props> = ({
     className
 
 }) => {
+
+    const [hasFontLoaded, setHasFontLoaded] = useState(false);
+
+    useEffect(() => {
+
+        if (document) {
+
+            document.fonts.onloadingdone = () =>  setHasFontLoaded(true);
+
+        }
+
+        // eslint-disable-next-line
+    }, [window === undefined]);
 
     return (
 
@@ -31,15 +44,25 @@ export const SectionOneRevamp: React.FC<Props> = ({
 
                     <span>
 
-                        <h1 className='invincible-text'> 360 </h1>
+                        <h1 className={classnames(hasFontLoaded ? 'invincible-text' : "pre-visible-text")}> 360 </h1>
 
-                        <div className='visible-text-block'>
+                        {hasFontLoaded &&
 
-                            <h1 className='visible-text'> 360  </h1>
+                            <>
 
-                        </div>
+                                <div className='visible-text-block'>
 
-                        <span className='bubble' dangerouslySetInnerHTML={{ __html: GradientCircle }} /> </span>
+                                    <h1 className='visible-text'> 360  </h1>
+
+                                </div>
+
+                                <span className='bubble' dangerouslySetInnerHTML={{ __html: GradientCircle }} />
+
+                            </>
+
+                        }
+
+                    </span>
 
                     creative company leveraging technology, community & content to design delightful experiences.
 
