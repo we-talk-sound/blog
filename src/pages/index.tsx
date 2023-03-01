@@ -11,6 +11,7 @@ import { storeInterface } from 'types';
 import { useSelector } from 'react-redux';
 import { useFetching } from 'hooks/useFetching';
 import { blogProcess } from 'redux/actions/BlogActions';
+import { SectionOneRevamp } from 'common/PageZero/SectionOneRevamp';
 
 const Home: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
@@ -53,27 +54,11 @@ const Home: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
         >
 
-            <SectionOne
+            <SectionOneRevamp
 
                 isMobile={isMobile}
 
                 deviceWidth={deviceWidth}
-
-                controls={{
-
-                    navSwitcher: true,
-
-                    dotSwitcher: true,
-
-                    button: {
-
-                        display: false,
-
-                        title: ""
-
-                    },
-
-                }}
 
             />
 

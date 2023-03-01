@@ -1,0 +1,43 @@
+.rotate {
+
+    animation: rotating-sphere;
+    animation-duration: 3s !important;
+    animation-timing-function: linear;
+    animation-delay: 0;
+    animation-iteration-count: infinite;
+
+}
+
+.reverse-rotate {
+
+    animation: reverse-rotating-sphere;
+    animation-duration: 10s !important;
+    animation-timing-function: linear;
+    animation-delay: 0;
+    animation-iteration-count: infinite;
+
+}
+
+@keyframes rotating-sphere {
+
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+
+}
+
+@keyframes reverse-rotating-sphere {
+
+    0% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(-0deg);
+    }
+
+}
