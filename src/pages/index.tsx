@@ -1,6 +1,5 @@
 import React from 'react';
 import { LandingLayout } from 'layout';
-import { SectionOne } from 'common/PageZero/SectionOne';
 import { SectionTwo } from 'common/PageZero/SectionTwo';
 import { SectionThree } from 'common/PageZero/SectionThree';
 import { SectionFour } from 'common/PageZero/SectionFour';
