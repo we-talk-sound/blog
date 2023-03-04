@@ -218,6 +218,8 @@ export const SectionThree: React.FC = () => {
 
             containerElement?.classList.add("hide-me");
 
+            document.getElementsByTagName("body")[0].focus();
+
             immutableScrollEnabled.setImmutability(1);
 
             setTriggerScrollOut({ previousBlock: false, nextBlock: false });
@@ -240,7 +242,7 @@ export const SectionThree: React.FC = () => {
 
                 // containerElement?.;
 
-            }, 400);
+            }, 100);
 
         } else {
 
