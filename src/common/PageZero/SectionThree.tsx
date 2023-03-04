@@ -234,7 +234,7 @@ export const SectionThree: React.FC = () => {
 
                 containerElement?.scrollBy({
 
-                    behavior: "smooth",
+                    // behavior: "smooth",
     
                     top: -100
     
@@ -242,7 +242,7 @@ export const SectionThree: React.FC = () => {
 
                 // containerElement?.;
 
-            }, 100);
+            }, 1000);
 
         } else {
 
