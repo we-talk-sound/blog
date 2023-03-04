@@ -2,7 +2,6 @@ import React from 'react';
 import { PlainInput } from './PlainInput';
 import { ImageInput } from './ImageInput';
 import { TextAreaInput } from './TextAreaInput';
-import { PriceField } from './PriceField';
 import { ReactElement } from 'react';
 import { LabeledCheckbox } from './LabelledCheckBox';
 import { OptionsInput } from './OptionsInput';
@@ -26,10 +25,6 @@ export const FormField: React.FC<Props> = (props) => {
             break;
         case 'textarea':
             RenderElement = TextAreaInput;
-            break;
-        case 'price-field':
-        case 'pattern':
-            RenderElement = PriceField;
             break;
         case 'checkbox':
             RenderElement = LabeledCheckbox;

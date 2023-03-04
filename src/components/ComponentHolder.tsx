@@ -2,13 +2,19 @@ import React, { ReactElement } from 'react';
 import { ComponentHeader } from 'components';
 import { classnames } from 'utils';
 
-export const ComponentHolder: React.FC<Props> = ({ visibility, ...props }) => {
+export const ComponentHolder: React.FC<Props> = ({ visibility, id, childId, ...props }) => {
 
     return (
         <>
             {(visibility === false ? visibility : true) &&
 
-                <div className={classnames(`component-holder`, props.className )}>
+                <div
+
+                    {...(id ? { "id": id || "" } : {})}
+
+                    className={classnames(`component-holder`, props.className)}
+
+                    >
 
                     {(props.title || props.customHeader || props.control) &&
 
@@ -25,7 +31,13 @@ export const ComponentHolder: React.FC<Props> = ({ visibility, ...props }) => {
                         </>
                     }
 
-                    <div className={classnames("component-holder-body", props.bodyClass , props.align && "component-holder-align")}>
+                    <div 
+                        
+                            className={classnames("component-holder-body", props.bodyClass, props.align && "component-holder-align")}
+                            
+                            {...(childId ? { "id": childId || "" } : {})}
+                            
+                            >
                         {props.children && props.children}
                     </div>
                 </div>
@@ -43,5 +55,8 @@ interface Props {
     className?: string,
     bodyClass?: string,
     headerClass?: string,
-    align?: boolean
+    onScrollStart?: (e : any) => void
+    align?: boolean,
+    id?: string,
+    childId?: string
 }

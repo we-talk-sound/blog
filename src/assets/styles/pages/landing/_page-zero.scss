@@ -419,11 +419,18 @@
     &-section-three {
 
         padding: 40px 0;
-        height: 40vh;
-        min-height: 500px;
-        background-image: url(/assets/background/background.png) !important;
+        max-height: 100vh;
+        overflow-y: scroll;
+        background: color(extra-dark);
+        scroll-snap-type: y mandatory;
 
         &-body {
+
+            height: 100vh;
+            min-height: 500px;
+            background: color(extra-dark);
+            scroll-snap-align: center;
+            scroll-snap-stop: always;
 
             .table-component {
 
@@ -434,7 +441,7 @@
             table {
 
                 @include media-query(mobile) {
-                    
+
                     display: block;
 
                 }
@@ -459,10 +466,11 @@
             }
 
             td:nth-child(1) {
-                @include font-size-override(x-large);
+
+                @include font-size-override(l-large);
                 padding-right: 30px;
-                width: max-content;
                 font-family: $header-font;
+
             }
 
             td:nth-child(3) {
@@ -481,17 +489,20 @@
             }
 
             td:nth-child(2) {
-                @include font-size-override(mmm-large);
 
-                @include media-query(mobile) {
-
-                    @include font-size-override(x-large);
-
-                }
+                @include font-size-override(x-large);
 
                 margin-right: 20px;
                 width: max-content;
                 font-family: $header-font;
+
+                p {
+
+                    padding-left: 100px;
+                    max-width: calc(100vw / 2.5);
+
+                }
+
             }
 
         }

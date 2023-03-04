@@ -30,7 +30,13 @@ export const SectionFour: React.FC = () => {
 
     return (
 
-        <ComponentHolder bodyClass='no-border page-zero-section-four'>
+        <ComponentHolder 
+        
+            bodyClass='no-border page-zero-section-four'
+            
+            id={"projects-section"}
+            
+            >
 
             {/* @ts-expect-error */}
             <marquee scrollAmount={20} loop={-1} >

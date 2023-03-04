@@ -5,17 +5,17 @@ export const SectionTwo: React.FC = () => {
 
     const MarQueeTexts = () => (
         <>
-            ABOUT <span className='marquee-span' /> ABOUT <span className='marquee-span' /> 
-            ABOUT <span className='marquee-span' /> ABOUT <span className='marquee-span' /> 
-            ABOUT <span className='marquee-span' /> ABOUT <span className='marquee-span' /> 
+            ABOUT <span className='marquee-span' /> ABOUT <span className='marquee-span' />
+            ABOUT <span className='marquee-span' /> ABOUT <span className='marquee-span' />
+            ABOUT <span className='marquee-span' /> ABOUT <span className='marquee-span' />
             ABOUT <span className='marquee-span' />
         </>
     );
 
     return (
 
-        <ComponentHolder 
-            className="no-border" 
+        <ComponentHolder
+            className="no-border"
             bodyClass="page-zero-section-two"
         >
 
@@ -41,10 +41,13 @@ export const SectionTwo: React.FC = () => {
 
                     title={"Who are we"}
 
-                    value={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Amet urna at ridiculus libero, dictumst consequat ipsum, auctor vel. 
-                    In viverra volutpat vel ullamcorper ridiculus aenean quam arcu. Nunc, enim cras fermentum mauris 
-                    nunc libero libero lobortis suspendisse. Ultricies morbi tortor, amet id nibh.`}
+                    value={
+                        `WeTalkSound (WTS) is a 360 creative company based in Lagos. 
+                    We leverage community, content and technology to design digital and in-person experiences 
+                    for brands and consumers. We have one of the most powerful voices in the West African 
+                    creative and pop-culture space, and we use it to convey strong narratives & amplify 
+                    creative brands.`
+                    }
 
                 />
 
@@ -54,10 +57,11 @@ export const SectionTwo: React.FC = () => {
 
                     title={"What we do"}
 
-                    value={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Amet urna at ridiculus libero, dictumst consequat ipsum, auctor vel. 
-                            In viverra volutpat vel ullamcorper ridiculus aenean quam arcu. Nunc, enim cras fermentum mauris 
-                            nunc libero libero lobortis suspendisse. Ultricies morbi tortor, amet id nibh.`}
+                    value={`
+                    We create content, build products and design holistic experiences that help 
+                    brands in music, tech and other industries reach, grow and delight their fans and 
+                    customers.`
+                    }
 
                 />
 
