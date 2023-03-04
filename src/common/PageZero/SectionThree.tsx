@@ -47,8 +47,6 @@ export const SectionThree: React.FC = () => {
 
     const [immutableScrollHeight] = useState(() => new ImmutableNumber(undefined, true));
 
-    console.log(immutableScrollEnabled.immutable, "gap mannnnnn!");
-
     const data = [
 
         [

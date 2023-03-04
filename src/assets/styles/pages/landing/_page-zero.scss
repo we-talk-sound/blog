@@ -423,6 +423,12 @@
         overflow-y: scroll;
         background: color(extra-dark);
         scroll-snap-type: y mandatory;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
 
         &-body {
 
