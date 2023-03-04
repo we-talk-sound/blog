@@ -240,7 +240,7 @@ export const SectionThree: React.FC = () => {
 
                 // containerElement?.;
 
-            }, 50);
+            }, 400);
 
         } else {
 
