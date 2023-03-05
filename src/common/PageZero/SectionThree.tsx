@@ -219,6 +219,16 @@ export const SectionThree: React.FC = () => {
 
             const event = e as { target: { scrollTop?: number, clientHeight?: number } };
 
+            console.log(
+                
+                event.target.scrollTop, " they beat my ex " , 
+                
+                event.target.clientHeight , " - ",
+                
+                immutableScrollHeight.immutable, "the scroll height" 
+                
+            );
+
             if (previousScrollGap === undefined && scrollParent?.scrollHeight !== undefined) {
 
                 immutableScrollGap.setImmutability(event?.target?.scrollTop as number);
@@ -325,7 +335,7 @@ export const SectionThree: React.FC = () => {
 
         const containerElement = document.getElementById("scroll-child");
 
-        if (hiddenSection && (!immutableScrollEnabled.immutable) && triggerScrollOut.nextBlock) {
+        if (hiddenSection && (!immutableScrollEnabled.immutable) && triggerScrollOut.nextBlock ) {
 
             console.log("this guy is two")
 
@@ -402,11 +412,11 @@ export const SectionThree: React.FC = () => {
 
                 containerElement?.classList.remove("hide-me");
 
-                // containerElement?.scrollBy({
+                containerElement?.scrollBy({
 
-                //     top: immutableScrollEnabled.immutable
+                    top: immutableScrollEnabled.immutable
 
-                // });
+                });
 
             }, 1000);
 
