@@ -148,7 +148,6 @@ export const SectionThree: React.FC = () => {
 
         const scrollFunction = () => {
 
-
             if (scrollParent && hiddenSectionUp && scrollingElement && hiddenSectionDown) {
 
                 console.log(window.scrollY, scrollParent.offsetTop, (scrollParent.offsetTop + scrollParent.offsetHeight));
@@ -187,6 +186,8 @@ export const SectionThree: React.FC = () => {
                 }
 
                 if (window.scrollY > (scrollParent.offsetTop + scrollParent.offsetHeight)) {
+
+                    console.log("this guy is one")
 
                     scrollingElement.classList.add("hide-me");
 
@@ -326,6 +327,8 @@ export const SectionThree: React.FC = () => {
 
         if (hiddenSection && (!immutableScrollEnabled.immutable) && triggerScrollOut.nextBlock) {
 
+            console.log("this guy is two")
+
             containerElement?.classList.add("hide-me");
 
             hiddenSection.classList.remove("hide-display");
@@ -344,13 +347,13 @@ export const SectionThree: React.FC = () => {
 
                 containerElement?.classList.remove("hide-me");
 
-                // containerElement?.scrollBy({
+                containerElement?.scrollBy({
 
                 //     // behavior: "smooth",
 
-                //     top: -100
+                    top: -100
 
-                // });
+                });
 
                 // containerElement?.;
 
@@ -372,6 +375,8 @@ export const SectionThree: React.FC = () => {
         const containerElement = document.getElementById("scroll-child");
 
         if (hiddenSection && (!immutableScrollEnabled.immutable) && triggerScrollOut.previousBlock) {
+
+            console.log("this guy is three")
 
             containerElement?.classList.add("hide-me");
 
