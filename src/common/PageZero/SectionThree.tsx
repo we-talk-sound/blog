@@ -224,7 +224,7 @@ export const SectionThree: React.FC = () => {
 
             };
 
-            if (previousScrollGap !== undefined) {
+            if (previousScrollGap !== undefined && !triggerScrollOut.canSnap ) {
 
                 if (!immutableScrollHeight.immutable) {
 
