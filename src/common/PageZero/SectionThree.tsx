@@ -247,7 +247,7 @@ export const SectionThree: React.FC = () => {
 
                 }
 
-                const errorMargin = immutableScrollHeight.immutable as number;
+                const errorMargin = immutableScrollHeight.immutable as number + 20;
 
                 if (!event?.target?.scrollTop) return;
 
