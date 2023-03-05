@@ -26,12 +26,12 @@ const Home: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
             Promise.all([
 
-                dashboardBlogs?.data?.length < 1 && 
-                
-                dispatch(blogProcess( 
-                    
-                    "retrieve", "dashboardBlogs", {  per_page: 3 }
-                    
+                dashboardBlogs?.data?.length < 1 &&
+
+                dispatch(blogProcess(
+
+                    "retrieve", "dashboardBlogs", { per_page: 3 }
+
                 )),
 
                 categories?.data?.length < 1 && dispatch(blogProcess("retrieve-categories", "categories"))
@@ -50,32 +50,54 @@ const Home: React.FC<Props> = ({ isMobile, deviceWidth }) => {
             deviceWidth={deviceWidth}
             showFooter={true}
             showHeader={false}
-
+            footerClass={"page-zero-hidden-section-down"}
         >
 
-            <SectionOneRevamp
+            <div
 
-                isMobile={isMobile}
+                id={"page-zero-hidden-section-up"}
 
-                deviceWidth={deviceWidth}
+                // className='hide-display'
 
-            />
+            >
 
-            <SectionTwo />
+                <SectionOneRevamp
+
+                    isMobile={isMobile}
+
+                    deviceWidth={deviceWidth}
+
+                />
+
+                <SectionTwo />
+
+            </div>
 
             <SectionThree />
 
-            <SectionFour />
+            <div
 
-            <BlogBanner 
-            
-                dataSource={dashboardBlogs?.data.filter((item, index) => index < 3) || []} 
-                
-                dataSourceLoader={dashboardBlogs.loader}
-                
-            />
+                id={"page-zero-hidden-section-down"}
 
-            <NewsLetter />
+                className='hide-display'
+
+            >
+
+                <SectionFour />
+
+                <BlogBanner
+
+                    dataSource={dashboardBlogs?.data.filter((item, index) => index < 3) || []}
+
+                    dataSourceLoader={dashboardBlogs.loader}
+
+                />
+
+                <NewsLetter />
+
+            </div>
+
+
 
         </LandingLayout >
 

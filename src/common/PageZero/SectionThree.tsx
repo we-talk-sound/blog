@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ComponentHolder, Table } from 'components';
+import { classnames } from 'utils';
 
 class ImmutableNumber {
 
@@ -33,11 +34,17 @@ class ImmutableNumber {
 
 export const SectionThree: React.FC = () => {
 
-    const [triggerScrollOut, setTriggerScrollOut] = useState({
+    const [triggerScrollOut, setTriggerScrollOut] = useState<{
+        previousBlock: boolean,
+        nextBlock: boolean,
+        canSnap?: boolean
+    }>({
 
         previousBlock: false,
 
-        nextBlock: false
+        nextBlock: false,
+
+        canSnap: undefined
 
     });
 
@@ -123,7 +130,13 @@ export const SectionThree: React.FC = () => {
 
     useEffect(() => {
 
-        const containerElement = document.getElementById("scroll-parent");
+        const scrollParent = document.getElementById("scroll-parent");
+
+        const scrollingElement = document.getElementById("scroll-child");
+
+        const hiddenSectionUp = document.getElementById("page-zero-hidden-section-up");
+
+        const hiddenSectionDown = document.getElementById("page-zero-hidden-section-down");
 
         // const nextSectionElement = document.getElementById("projects-section");
 
@@ -133,27 +146,79 @@ export const SectionThree: React.FC = () => {
 
         // const scrollElementHeight = (containerElement?.scrollHeight || 0) / data.length;
 
-        // const scrollFunction = (e?: React.UIEvent<HTMLDivElement, UIEvent>) => {
+        const scrollFunction = () => {
 
-        //     console.log(window.scrollY, document.body.scrollHeight, containerElement?.offsetTop);
 
-        //     if (containerElement?.offsetTop && (window.scrollY >= (containerElement?.offsetTop))) {
+            if (scrollParent && hiddenSectionUp && scrollingElement && hiddenSectionDown) {
 
-        //         console.log("we in", containerElement?.offsetHeight,);
+                console.log(window.scrollY, scrollParent.offsetTop, (scrollParent.offsetTop + scrollParent.offsetHeight));
 
-        //     }
+                if (window.scrollY < scrollParent.offsetTop) {
 
-        // }
+                    setTriggerScrollOut((prevState) => ({
+
+                        ...prevState,
+
+                        canSnap: false
+
+                    }));
+
+                    if (!hiddenSectionDown.classList.contains("hide-display")) {
+
+                        hiddenSectionDown.classList.add("hide-display");
+
+                    }
+
+                }
+
+
+                if (window.scrollY >= (scrollParent.offsetTop - 100) && window.scrollY <= (scrollParent.offsetTop + 200)) {
+
+                    setTriggerScrollOut((prevState) => ({
+
+                        ...prevState,
+
+                        canSnap: true
+
+                    }));
+
+                    console.log(" we in the bitch ", window.scrollY, (scrollParent.offsetTop - 150));
+
+                }
+
+                if (window.scrollY > (scrollParent.offsetTop + scrollParent.offsetHeight)) {
+
+                    scrollingElement.classList.add("hide-me");
+
+                    setTriggerScrollOut((prevState) => ({
+
+                        ...prevState,
+
+                        canSnap: false
+
+                    }));
+
+                    if (!hiddenSectionUp.classList.contains("hide-display")) {
+
+                        hiddenSectionUp.classList.add("hide-display");
+
+                    }
+
+                }
+
+            }
+
+        }
 
         const containerScrollingFunction = (e: Event) => {
 
-            const containerElement = document.getElementById("scroll-parent");
+            const scrollParent = document.getElementById("scroll-parent");
 
             let previousScrollGap: number | undefined = immutableScrollGap.immutable;
 
             const event = e as { target: { scrollTop?: number, clientHeight?: number } };
 
-            if (previousScrollGap === undefined && containerElement?.scrollHeight !== undefined) {
+            if (previousScrollGap === undefined && scrollParent?.scrollHeight !== undefined) {
 
                 immutableScrollGap.setImmutability(event?.target?.scrollTop as number);
 
@@ -163,9 +228,9 @@ export const SectionThree: React.FC = () => {
 
                 if (!immutableScrollHeight.immutable) {
 
-                    const firstScrollFrameHeight = previousScrollGap + (containerElement?.clientHeight || 0);
+                    const firstScrollFrameHeight = previousScrollGap + (scrollParent?.clientHeight || 0);
 
-                    const scrollHeight = firstScrollFrameHeight + ((containerElement?.clientHeight || 0.0) * (data.length - 2));
+                    const scrollHeight = firstScrollFrameHeight + ((scrollParent?.clientHeight || 0.0) * (data.length - 2));
 
                     immutableScrollHeight.setImmutability(scrollHeight);
 
@@ -177,7 +242,15 @@ export const SectionThree: React.FC = () => {
 
                 if (event?.target?.scrollTop < previousScrollGap) {
 
-                    // console.log("leave that part");
+                    setTriggerScrollOut((prevState) => ({
+
+                        ...prevState,
+
+                        previousBlock: true,
+
+                    }));
+
+                    // hiddenSectionUp.classList.remove("hide-display");
 
                 }
 
@@ -201,7 +274,9 @@ export const SectionThree: React.FC = () => {
 
         if (document) {
 
-            containerElement?.addEventListener("scroll", containerScrollingFunction, true);
+            scrollParent?.addEventListener("scroll", containerScrollingFunction, true);
+
+            window.addEventListener("scroll", scrollFunction, true);
 
         }
 
@@ -210,23 +285,60 @@ export const SectionThree: React.FC = () => {
 
     useEffect(() => {
 
-        const nextSectionElement = document.getElementById("projects-section");
+        const containerElement = document.getElementById("scroll-parent");
+
+        const scrollParent = document.getElementById("scroll-child");
+
+        if (triggerScrollOut.canSnap && containerElement && scrollParent) {
+
+            // document.body.classList.add("hide-me");
+
+            setTimeout(() => {
+
+                // window.scrollTo({
+
+                //     top: containerElement.offsetTop,
+
+                //     left: 0,
+
+                //     behavior: "smooth"
+
+                // });
+
+                // document.body.classList.remove("hide-me");
+
+                scrollParent.classList.remove("hide-me");
+
+                // setTriggerScrollOut((prevState) => ({ ...prevState, canSnap: false }))
+
+            }, 100);
+
+        }
+
+
+    }, [triggerScrollOut.canSnap]);
+
+    useEffect(() => {
+
+        const hiddenSection = document.getElementById("page-zero-hidden-section-down");
 
         const containerElement = document.getElementById("scroll-child");
 
-        if (nextSectionElement && (!immutableScrollEnabled.immutable) && triggerScrollOut.nextBlock) {
+        if (hiddenSection && (!immutableScrollEnabled.immutable) && triggerScrollOut.nextBlock) {
 
             containerElement?.classList.add("hide-me");
+
+            hiddenSection.classList.remove("hide-display");
 
             document.getElementsByTagName("body")[0].focus();
 
             immutableScrollEnabled.setImmutability(1);
 
-            setTriggerScrollOut({ previousBlock: false, nextBlock: false });
+            setTriggerScrollOut((prevState) => ({ ...prevState, previousBlock: false, nextBlock: false }));
 
             setTimeout(() => {
 
-                setTriggerScrollOut({ previousBlock: false, nextBlock: false });
+                setTriggerScrollOut((prevState) => ({ ...prevState, previousBlock: false, nextBlock: false }));
 
                 immutableScrollEnabled.setImmutability(0);
 
@@ -235,9 +347,9 @@ export const SectionThree: React.FC = () => {
                 containerElement?.scrollBy({
 
                     // behavior: "smooth",
-    
+
                     top: -100
-    
+
                 });
 
                 // containerElement?.;
@@ -253,11 +365,58 @@ export const SectionThree: React.FC = () => {
         // eslint-disable-next-line
     }, [triggerScrollOut.nextBlock]);
 
+    useEffect(() => {
+
+        const hiddenSection = document.getElementById("page-zero-hidden-section-up");
+
+        const containerElement = document.getElementById("scroll-child");
+
+        if (hiddenSection && (!immutableScrollEnabled.immutable) && triggerScrollOut.previousBlock) {
+
+            containerElement?.classList.add("hide-me");
+
+            hiddenSection.classList.remove("hide-display");
+
+            containerElement?.scrollIntoView({
+
+                behavior: "auto",
+
+            });
+
+            document.getElementsByTagName("body")[0].focus();
+
+            immutableScrollEnabled.setImmutability(1);
+
+            setTriggerScrollOut((prevState) => ({ ...prevState, previousBlock: false, nextBlock: false }));
+
+            setTimeout(() => {
+
+                setTriggerScrollOut((prevState) => ({ ...prevState, previousBlock: false, nextBlock: false }));
+
+                immutableScrollEnabled.setImmutability(0);
+
+                containerElement?.classList.remove("hide-me");
+
+                containerElement?.scrollBy({
+
+                    top: immutableScrollEnabled.immutable
+
+                });
+
+            }, 1000);
+
+        } else {
+
+        }
+
+        // eslint-disable-next-line
+    }, [triggerScrollOut.previousBlock]);
+
     return (
 
         <ComponentHolder
 
-            bodyClass='no-border page-zero-section-three'
+            bodyClass={classnames('no-border page-zero-section-three hide-me')}
 
             id={"scroll-parent"}
 

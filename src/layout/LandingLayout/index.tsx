@@ -7,6 +7,7 @@ import LandingLayoutFooter from './Footer';
 export const LandingLayout: React.FC<Props> = ({
     headTitle,
     isMobile,
+    footerClass,
     deviceWidth,
     showFooter = true,
     showHeader = false,
@@ -41,7 +42,7 @@ export const LandingLayout: React.FC<Props> = ({
 
                     {showFooter &&
 
-                        <LandingLayoutFooter />
+                        <LandingLayoutFooter footerClass={footerClass} />
 
                     }
 
@@ -59,6 +60,7 @@ interface Props {
     shadyHeader?: boolean,
     className?: string,
     showFooter?: boolean,
+    footerClass?: string,
     showHeader?: boolean,
     bodyAlignment?: boolean,
     withFrame?: boolean,

@@ -1,13 +1,14 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { FooterLogoField, ViewFormatter } from 'components';
 import { FooterAddress, FooterLogo, LandingFooterServices } from 'constants/index';
 import LandingLayoutFooterCr from '../LandingLayoutFooterCr';
+import { classnames } from 'utils';
 
-const LandingLayoutFooter: FunctionComponent = () => {
+const LandingLayoutFooter: React.FC<{ footerClass?: string }> = ({ footerClass }) => {
 
     return (
 
-        <div className="landingLayout-footer footer">
+        <div className={classnames("landingLayout-footer footer", footerClass)}>
 
             <div className="landingLayout-footer-holder">
 

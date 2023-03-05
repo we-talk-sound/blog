@@ -416,6 +416,12 @@
 
     }
 
+    &-hidden-section-down {
+
+        display: none;
+
+    }
+
     &-section-three {
 
         padding: 40px 0;
@@ -435,7 +441,7 @@
             height: 100vh;
             min-height: 500px;
             background: color(extra-dark);
-            scroll-snap-align: center;
+            scroll-snap-align: start;
             scroll-snap-stop: always;
 
             .table-component {
@@ -678,5 +684,11 @@
         width: 100%;
 
     }
+
+}
+
+#page-zero-hidden-section-up {
+
+    transition: 0.2s ease;
 
 }
