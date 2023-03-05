@@ -344,13 +344,13 @@ export const SectionThree: React.FC = () => {
 
                 containerElement?.classList.remove("hide-me");
 
-                containerElement?.scrollBy({
+                // containerElement?.scrollBy({
 
-                    // behavior: "smooth",
+                //     // behavior: "smooth",
 
-                    top: -100
+                //     top: -100
 
-                });
+                // });
 
                 // containerElement?.;
 
@@ -397,11 +397,11 @@ export const SectionThree: React.FC = () => {
 
                 containerElement?.classList.remove("hide-me");
 
-                containerElement?.scrollBy({
+                // containerElement?.scrollBy({
 
-                    top: immutableScrollEnabled.immutable
+                //     top: immutableScrollEnabled.immutable
 
-                });
+                // });
 
             }, 1000);
 
