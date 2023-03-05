@@ -181,6 +181,8 @@ export const SectionThree: React.FC = () => {
 
                     }));
 
+                    event
+
                     console.log(" we in the bitch ", window.scrollY, (scrollParent.offsetTop - 150));
 
                 }
@@ -247,10 +249,7 @@ export const SectionThree: React.FC = () => {
 
                 }
 
-
                 const errorMargin = immutableScrollHeight.immutable as number + 10;
-
-                console.log("marginnn" , errorMargin , event?.target?.scrollTop );
 
                 if (!event?.target?.scrollTop) return;
 
@@ -291,6 +290,14 @@ export const SectionThree: React.FC = () => {
             scrollParent?.addEventListener("scroll", containerScrollingFunction, true);
 
             window.addEventListener("scroll", scrollFunction, true);
+
+            return (() => {
+
+                scrollParent?.removeEventListener("scroll", containerScrollingFunction, true);
+
+                window.removeEventListener("scroll", scrollFunction, true);
+
+            });
 
         }
 
@@ -346,7 +353,11 @@ export const SectionThree: React.FC = () => {
 
             hiddenSection.classList.remove("hide-display");
 
-            document.getElementsByTagName("body")[0].focus();
+            containerElement?.scrollIntoView({
+
+                behavior: "auto",
+
+            });
 
             immutableScrollEnabled.setImmutability(1);
 
@@ -358,7 +369,7 @@ export const SectionThree: React.FC = () => {
 
                 immutableScrollEnabled.setImmutability(0);
 
-                containerElement?.classList.remove("hide-me");
+                // containerElement?.classList.remove("hide-me");
 
                 containerElement?.scrollBy({
 
@@ -400,8 +411,6 @@ export const SectionThree: React.FC = () => {
                 behavior: "auto",
 
             });
-
-            document.getElementsByTagName("body")[0].focus();
 
             immutableScrollEnabled.setImmutability(1);
 
