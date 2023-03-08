@@ -71,22 +71,6 @@ export const BaseBlogHeading : React.FC<{ category?: string }> = ({ category }) 
 
             <div className="page-blog-holder-header-right">
 
-                <div className="page-blog-holder-header-marquee-block">
-
-                    <span className="page-blog-holder-header-marquee-fade" />
-
-                    {/* @ts-expect-error */}
-                    < marquee scrollAmount={3} loop={-1}  >
-
-                        <p> Feel the beat of Nigeria’s Biggest music community </p>
-
-                        {/* @ts-expect-error */}
-                    </marquee>
-
-                    <span className="page-blog-holder-header-marquee-fade" />
-
-                </div>
-
                 <Button label="Subscribe" />
 
             </div>

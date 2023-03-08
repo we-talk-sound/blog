@@ -138,6 +138,8 @@ export const SectionThree: React.FC = () => {
 
         const hiddenSectionDown = document.getElementById("page-zero-hidden-section-down");
 
+        const hiddenSectionFooter = document.getElementById("page-zero-hidden-section-footer");
+
         // const nextSectionElement = document.getElementById("projects-section");
 
         // const scrollParent = document;
@@ -148,7 +150,7 @@ export const SectionThree: React.FC = () => {
 
         const scrollFunction = () => {
 
-            if (scrollParent && hiddenSectionUp && scrollingElement && hiddenSectionDown) {
+            if (scrollParent && hiddenSectionUp && scrollingElement && hiddenSectionDown && hiddenSectionFooter) {
 
                 console.log(window.scrollY, scrollParent.offsetTop, (scrollParent.offsetTop + scrollParent.offsetHeight));
 
@@ -166,6 +168,8 @@ export const SectionThree: React.FC = () => {
 
                         hiddenSectionDown.classList.add("hide-display");
 
+                        hiddenSectionFooter.classList.add("hide-display");
+
                     }
 
                 }
@@ -180,8 +184,6 @@ export const SectionThree: React.FC = () => {
                         canSnap: true
 
                     }));
-
-                    event
 
                     console.log(" we in the bitch ", window.scrollY, (scrollParent.offsetTop - 150));
 
@@ -312,25 +314,9 @@ export const SectionThree: React.FC = () => {
 
         if (triggerScrollOut.canSnap && containerElement && scrollParent) {
 
-            // document.body.classList.add("hide-me");
-
             setTimeout(() => {
 
-                // window.scrollTo({
-
-                //     top: containerElement.offsetTop,
-
-                //     left: 0,
-
-                //     behavior: "smooth"
-
-                // });
-
-                // document.body.classList.remove("hide-me");
-
                 scrollParent.classList.remove("hide-me");
-
-                // setTriggerScrollOut((prevState) => ({ ...prevState, canSnap: false }))
 
             }, 100);
 
@@ -343,15 +329,17 @@ export const SectionThree: React.FC = () => {
 
         const hiddenSection = document.getElementById("page-zero-hidden-section-down");
 
+        const hiddenFooterSection = document.getElementById("page-zero-hidden-section-footer");
+
         const containerElement = document.getElementById("scroll-child");
 
-        if (hiddenSection && (!immutableScrollEnabled.immutable) && triggerScrollOut.nextBlock ) {
-
-            console.log("this guy is two")
+        if (hiddenSection && hiddenFooterSection && (!immutableScrollEnabled.immutable) && triggerScrollOut.nextBlock ) {
 
             containerElement?.classList.add("hide-me");
 
             hiddenSection.classList.remove("hide-display");
+
+            hiddenFooterSection.classList.remove("hide-display");
 
             containerElement?.scrollIntoView({
 
@@ -378,8 +366,6 @@ export const SectionThree: React.FC = () => {
                     top: -100
 
                 });
-
-                // containerElement?.;
 
             }, 1000);
 

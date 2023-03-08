@@ -3,35 +3,12 @@ import { ComponentHolder, ViewFormatter } from 'components';
 
 export const SectionTwo: React.FC = () => {
 
-    const MarQueeTexts = () => (
-        <>
-            ABOUT <span className='marquee-span' /> ABOUT <span className='marquee-span' />
-            ABOUT <span className='marquee-span' /> ABOUT <span className='marquee-span' />
-            ABOUT <span className='marquee-span' /> ABOUT <span className='marquee-span' />
-            ABOUT <span className='marquee-span' />
-        </>
-    );
-
     return (
 
         <ComponentHolder
             className="no-border"
             bodyClass="page-zero-section-two"
         >
-
-            {/* @ts-expect-error */}
-            <marquee scrollAmount={20} loop={-1} >
-
-                <div className='marquee-div' >
-
-                    <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts />
-                    <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts />
-                    <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts />
-
-                </div>
-
-                {/* @ts-expect-error */}
-            </marquee>
 
             <div className='page-zero-section-two-body'>
 

@@ -8,15 +8,6 @@ import { ExpandedButton } from 'components/ExpandButton';
 
 export const SectionFour: React.FC = () => {
 
-    const MarQueeTexts = () => (
-        <>
-            Projects <span className='marquee-span' /> Projects <span className='marquee-span' /> 
-            Projects <span className='marquee-span' /> Projects <span className='marquee-span' /> 
-            Projects <span className='marquee-span' /> Projects <span className='marquee-span' /> 
-            Projects <span className='marquee-span' />
-        </>
-    );
-
     const paragraph = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                         Eget sed diam purus sagittis mi. 
                         Ornare neque, est diam sed augue at nascetur et.`;
@@ -37,20 +28,6 @@ export const SectionFour: React.FC = () => {
             id={"projects-section"}
             
             >
-
-            {/* @ts-expect-error */}
-            <marquee scrollAmount={20} loop={-1} >
-
-                <div className='marquee-div'>
-
-                    <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts />
-                    <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts />
-                    <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts /> <MarQueeTexts />
-
-                </div>
-
-                {/* @ts-expect-error */}
-            </marquee>
 
             <div className='page-zero-section-four-body'>
 

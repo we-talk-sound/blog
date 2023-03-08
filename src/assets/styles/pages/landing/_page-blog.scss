@@ -228,26 +228,6 @@
             color: color(text-40);
         }
 
-        &-marquee-block {
-
-            @media only screen and ( max-width: 750px ) {
-
-                width: 100%;
-
-            }
-
-            position: relative;
-            padding-top: 10px;
-
-            marquee {
-
-                font-family: unset;
-                font-size: unset;
-
-            }
-
-        }
-
         &-right {
 
             display: flex;
@@ -259,24 +239,6 @@
                 padding: 6px 12px;
                 width: max-content;
                 height: max-content;
-
-            }
-
-        }
-
-        &-marquee-fade {
-
-            position: absolute;
-            left: 0;
-            border-radius: 100%;
-            width: 19px;
-            height: 19px;
-            transform: matrix(-1, 0, 0, 1, 0, 0);
-
-            &:last-child {
-
-                right: 0;
-                left: unset;
 
             }
 
@@ -328,12 +290,6 @@
             background: url(/assets/background/plain-background.png), #ffffff;
             background-repeat: no-repeat;
             background-size: cover;
-
-            marquee {
-
-                opacity: 1;
-
-            }
 
         }
 

@@ -50,14 +50,13 @@ const Home: React.FC<Props> = ({ isMobile, deviceWidth }) => {
             deviceWidth={deviceWidth}
             showFooter={true}
             showHeader={false}
-            footerClass={"page-zero-hidden-section-down"}
+            footerId={"page-zero-hidden-section-footer"}
+            footerClass={'hide-display'}
         >
 
             <div
 
                 id={"page-zero-hidden-section-up"}
-
-                // className='hide-display'
 
             >
 

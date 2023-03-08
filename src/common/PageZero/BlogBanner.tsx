@@ -2,7 +2,6 @@ import React from 'react';
 import { ComponentHolder, StoryItem } from 'components';
 import { ExpandedButton } from 'components/ExpandButton';
 import { classnames } from 'utils';
-import { BlogMarquee } from 'common/Blog/BlogPageBanner/BlogMarquee';
 import { BlogBannerArticles } from 'common/Blog/BlogPageBanner/BlogBannerArticles';
 import { blogItemType } from 'types';
 import { StoriesItemPlaceHolder } from 'common/Placeholders';
@@ -23,8 +22,6 @@ export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource, dat
 
             )}
         >
-
-            {!bannerMode && <BlogMarquee />}
 
             <div className={
 

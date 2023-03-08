@@ -4,11 +4,15 @@ import { FooterAddress, FooterLogo, LandingFooterServices } from 'constants/inde
 import LandingLayoutFooterCr from '../LandingLayoutFooterCr';
 import { classnames } from 'utils';
 
-const LandingLayoutFooter: React.FC<{ footerClass?: string }> = ({ footerClass }) => {
+const LandingLayoutFooter: React.FC<{ footerClass?: string, footerId?: string }> = ({ footerClass, footerId }) => {
 
     return (
 
-        <div className={classnames("landingLayout-footer footer", footerClass)}>
+        <div
+
+            {...(footerId ? { id: footerId } : {})}
+
+            className={classnames("landingLayout-footer footer", footerClass)}>
 
             <div className="landingLayout-footer-holder">
 
