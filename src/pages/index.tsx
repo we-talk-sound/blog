@@ -11,6 +11,7 @@ import { useSelector } from 'react-redux';
 import { useFetching } from 'hooks/useFetching';
 import { blogProcess } from 'redux/actions/BlogActions';
 import { SectionOneRevamp } from 'common/PageZero/SectionOneRevamp';
+import { SectionTestimonial } from 'common/PageZero/SectionTestimonial';
 
 const Home: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
@@ -91,6 +92,8 @@ const Home: React.FC<Props> = ({ isMobile, deviceWidth }) => {
                     dataSourceLoader={dashboardBlogs.loader}
 
                 />
+
+                <SectionTestimonial />
 
                 <NewsLetter />
 
