@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { ComponentHeader, ComponentHolder } from 'components';
-import { DotAndNavSwitcher } from './SectionOne';
+import { ComponentHeader, ComponentHolder, DotAndNavSwitcher } from 'components';
 
 export const SectionTestimonial: React.FC = () => {
 

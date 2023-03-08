@@ -3,6 +3,7 @@ export * from './Button';
 export * from './ComponentHeader';
 export * from './ComponentHolder';
 export * from './CopyToClipBoard';
+export * from './DotAndNavSwitcher';
 export * from './EventItem';
 export * from './Footer';
 export * from './FormField/index';

@@ -1,7 +1,22 @@
 import React from 'react';
+import { ComponentHolder, DotAndNavSwitcher } from 'components';
+import { Header } from 'layout/LandingLayout/header';
 import { ExpandedButton } from 'components/ExpandButton';
+import { classnames } from 'utils';
 
-export const DotAndNavSwitcher: React.FC<Props> = ({
+export const SectionOne: React.FC<Props> = ({
+
+    dangerousTitle,
+
+    isMobile,
+
+    deviceWidth,
+
+    title,
+
+    text,
+
+    className,
 
     controls
 
@@ -9,49 +24,88 @@ export const DotAndNavSwitcher: React.FC<Props> = ({
 
     return (
 
-        <div className='page-zero-switcher-holder'>
+        <ComponentHolder
 
-            {controls?.navSwitcher &&
+            className={classnames('page-zero no-border', className)}
 
-                <div className='page-zero-navigation'>
+            bodyClass='page-zero-content'>
 
-                    <ExpandedButton />
+            <Header withFrame={true} isMobile={isMobile} deviceWidth={deviceWidth} />
 
-                    <ExpandedButton />
+            <div className='page-zero-caption'>
 
-                </div>
+                {dangerousTitle &&
+
+                    <h1 className='color-white' dangerouslySetInnerHTML={{ __html: dangerousTitle }} />
+
+                }
+
+                {!dangerousTitle &&
+
+                    <h1 className='color-white'>
+
+                        {!title ?
+
+                            <>
+
+                                Elevate your
+
+                                <span className='color-primary'> career </span>
+
+                            </>
+
+                            :
+
+                            title
+
+                        }
+
+                    </h1>}
+
+                <p>
+                    {text || `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiaum lorem.
+                    Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.`}
+                </p>
+
+                {
+                    controls?.button &&
+                    controls?.button?.title &&
+
+                    <ExpandedButton
+
+                        label={controls?.button?.title}
+
+                    />
+
+                }
+
+            </div>
+
+            {(controls?.navSwitcher || controls?.navSwitcher) &&
+
+                <DotAndNavSwitcher controls={controls} />
 
             }
 
-            {controls?.dotSwitcher &&
-
-                <div className='page-zero-progression'>
-
-                    <span />
-
-                    <span className='page-zero-progression-active' />
-
-                    <span />
-
-                    <span />
-
-                </div>
-            }
-
-        </div>
-
+        </ComponentHolder >
 
     );
 }
 
 interface Props {
+    isMobile: boolean,
+    deviceWidth: number,
+    title?: string,
+    text?: string,
+    className?: string,
+    dangerousTitle?: any,
     controls?: {
 
-        navSwitcher?: boolean,
+        navSwitcher: boolean,
 
-        dotSwitcher?: boolean,
+        dotSwitcher: boolean,
 
-        button?: {
+        button: {
 
             display: boolean
 
