@@ -19,7 +19,11 @@ export const SectionOneRevamp: React.FC<Props> = ({
 
         if (document) {
 
-            document.fonts.onloadingdone = () =>  setHasFontLoaded(true);
+            document.fonts.ready.then(()=> {
+
+                setHasFontLoaded(true);
+
+            });
 
         }
 
