@@ -1,25 +1,25 @@
 import React from 'react';
 import { ComponentHolder } from 'components';
 import Abeg from "assets/svg/partners/abeg.svg";
-import AltSchool from "assets/svg/partners/alt-school.svg";
-import Ariga from "assets/svg/partners/ariga.svg";
 import Andela from "assets/svg/partners/andela.svg";
 
 export const CreativeSectionFour: React.FC = ({ }) => {
 
-    const data = [
+    const partners = [
 
-        { image: Abeg, alt: "abeg" },
+        { image: Abeg, alt: "Abeg" },
 
-        { image: AltSchool, alt: "AltSchool" },
+        { image: Andela, alt: "Andela" },
 
-        { image: Ariga, alt: "Ariga" },
+        { image: Abeg, alt: "Abeg" },
+
+        { image: Andela, alt: "Andela" },
+
+        { image: Abeg, alt: "Abeg" },
 
         { image: Andela, alt: "Andela" },
 
     ];
-
-    const partners = [data, data, data];
 
     return (
 
@@ -33,19 +33,34 @@ export const CreativeSectionFour: React.FC = ({ }) => {
 
                 <h1 className='page-agency-section-three-header'> Our Clients </h1>
 
-                {partners.map((item, index) =>
+                <div className='page-agency-section-four-partner-holder'>
 
-                    <div
+                    {partners.map((item, index) =>
 
-                        key={`partner-block-${index}`}
+                        <div
 
-                        className='page-agency-section-four-partner-box'>
+                            key={`partner-block-${index}`}
 
-                        {item.map((partner, index_) => <img src={partner.image} alt={partner.alt} key={`partner-${index}-${index_}`} />)}
+                            className='page-agency-section-four-partner-box'>
 
+                            <div className='page-agency-section-four-partner-box-image'>
 
-                    </div>
-                )}
+                                <img
+
+                                    src={item.image}
+
+                                    alt={item.alt}
+
+                                />
+
+                            </div>
+
+                            <p> {item.alt} </p>
+
+                        </div>
+                    )}
+
+                </div>
 
             </div>
 

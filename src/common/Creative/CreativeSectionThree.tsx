@@ -5,17 +5,26 @@ import ArtistTwo from "assets/png/landing/blog-section/artist-two.png";
 import ArtistThree from "assets/png/landing/blog-section/artist-three.png";
 import ArtistFour from "assets/png/landing/blog-section/artist-four.png";
 
-export const CreativeSectionThree: React.FC<{ withHeader ?: boolean }> = ({ withHeader }) => {
+export const CreativeSectionThree: React.FC<{ withHeader?: boolean }> = ({ withHeader }) => {
 
     const paragraph = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
     Eget sed diam purus sagittis mi. 
     Ornare neque, est diam sed augue at nascetur et.`;
 
     const data = [
-        { image: ArtistOne, text: "LOR IPSUM", paragraph },
-        { image: ArtistTwo, text: "LOR IPSUM", paragraph },
-        { image: ArtistThree, text: "LOR IPSUM", paragraph },
-        { image: ArtistFour, text: "LOR IPSUM", paragraph }
+        [
+            { image: ArtistOne, text: "LOR IPSUM", paragraph },
+            { image: ArtistTwo, text: "LOR IPSUM", paragraph },
+            { image: ArtistThree, text: "LOR IPSUM", paragraph },
+            { image: ArtistFour, text: "LOR IPSUM", paragraph }
+        ],
+
+        [
+            { image: ArtistOne, text: "LOR IPSUM", paragraph },
+            { image: ArtistTwo, text: "LOR IPSUM", paragraph },
+            { image: ArtistThree, text: "LOR IPSUM", paragraph },
+            { image: ArtistFour, text: "LOR IPSUM", paragraph }
+        ]
     ];
 
     return (
@@ -28,40 +37,47 @@ export const CreativeSectionThree: React.FC<{ withHeader ?: boolean }> = ({ with
 
             <div className='page-agency-section-three-content-body'>
 
-           { withHeader && <h1 className='page-agency-section-three-header'> Our Projects </h1>}
+                {withHeader && <h1 className='page-agency-section-three-header'> Our Projects </h1>}
 
-                <div className='page-zero-section-four-blog'>
+                {data.map((data_, index) =>
 
-                    {data.map((item, index) =>
+                    <div
 
-                        <div
-                            className='page-zero-section-four-blog-item'
-                            key={`section-landing-blog-data-${index}`}
-                        >
+                        key={`project-section-${index}`}
 
-                            <img src={item.image} alt={`blog-image`} />
+                        className='page-zero-section-four-blog'
+
+                    >
+
+                        {data_.map((item, index) =>
+
+                            <div
+                                className='page-zero-section-four-blog-item'
+                                key={`section-landing-blog-data-${index}`}
+                            >
+
+                                <img src={item.image} alt={`blog-image`} />
 
 
-                            <div className='page-zero-section-four-blog-item-overlay'>
+                                <div className='page-zero-section-four-blog-item-overlay'>
 
-                                <h4> {item.text} </h4>
+                                    <h4> {item.text} </h4>
 
-                                <p> {item.paragraph} </p>
+                                    <p> {item.paragraph} </p>
 
-                                <Button label='Read More' className='no-bg' />
+                                    <Button label='Read More' className='no-bg' />
+
+                                </div>
 
                             </div>
 
-                        </div>
+                        )}
 
-                    )}
+                    </div>
 
-                </div>
+                )}
 
             </div>
-
-
-
 
         </ComponentHolder >
 
