@@ -1,0 +1,35 @@
+.partner-item-box {
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 32px;
+    width: 32%;
+    height: 300px;
+    min-height: 300px;
+
+    &-image {
+
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+
+    }
+
+    p {
+
+        @include font-size(medium);
+        position: absolute;
+        bottom: 0;
+        padding: 15px;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        text-align: center;
+        font-family: $header-font;
+        backdrop-filter: blur(6.5px);
+
+    }
+
+}

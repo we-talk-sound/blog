@@ -27,7 +27,7 @@ export const BlogPageBanner: React.FC<Props> = ({ isMobile, deviceWidth , story 
 
             <Header withFrame={true} isMobile={isMobile} deviceWidth={deviceWidth} />
 
-            {(!slug && !story_) && <BaseBlogHeading category={String(category)} />}
+            {(!slug && !story_) && <BaseBlogHeading category={String(category || "music")} />}
 
             <BlogBanner 
             

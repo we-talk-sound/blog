@@ -19,6 +19,9 @@ export const SectionOneRevamp: React.FC<Props> = ({
 
         if (document) {
 
+            // are you even looking for user-agent
+            // console.log(navigator.userAgent);
+
             document.fonts.ready.then(()=> {
 
                 setHasFontLoaded(true);

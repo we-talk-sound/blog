@@ -1,7 +1,8 @@
 import React from 'react';
 import { NewsLetter } from 'common/NewsLetter';
-import { SectionOne } from 'common/PageZero/SectionOne';
-import { EventsSectionTwo } from 'common/Events/EventsSectionTwo';
+import { PreviousEvents } from 'common/Events/PreviousEvents';
+import { EventsBanner } from '../EventsBanner';
+import { PartneredEvents } from '../PartneredEvents';
 
 export const EventsEntry: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
@@ -12,7 +13,7 @@ export const EventsEntry: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
         <>
 
-            <SectionOne
+            <EventsBanner
 
                 isMobile={isMobile}
 
@@ -42,7 +43,9 @@ export const EventsEntry: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
             />
 
-            <EventsSectionTwo />
+            <PreviousEvents />
+
+            <PartneredEvents />
 
             <NewsLetter />
 

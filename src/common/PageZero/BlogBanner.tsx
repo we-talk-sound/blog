@@ -11,7 +11,9 @@ export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource, dat
     return (
 
         <ComponentHolder
+
             className="no-border"
+
             bodyClass={classnames(
 
                 "blog-banner-background",
@@ -25,7 +27,15 @@ export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource, dat
 
             <div className={
 
-                classnames('blog-banner-body', bannerMode && "page-blog-banner-holder", (story || slug) && "page-blog-banner-holder-with-story")
+                classnames(
+
+                    'blog-banner-body',
+
+                    bannerMode && "page-blog-banner-holder",
+
+                    (story || slug) && "page-blog-banner-holder-with-story"
+
+                )
 
             }>
 

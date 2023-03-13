@@ -33,6 +33,8 @@
 @import 'components/form-field/switch';
 @import 'components/modal';
 @import 'components/pagination';
+@import 'components/partner-item';
+@import 'components/project-item';
 @import 'components/story-item';
 @import 'components/table';
 @import 'components/toast';
@@ -61,7 +63,8 @@
 // 9. Common
 @import 'common/newsletter';
 @import 'common/discography';
-@import 'common/artists';
+@import 'common/playlists';
 @import 'common/latest-releases';
+@import 'common/event-banner';
 
 // 10. Color Schemes

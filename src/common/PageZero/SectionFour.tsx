@@ -1,60 +1,36 @@
 import React from 'react';
-import { Button, ComponentHolder } from 'components';
-import ArtistOne from "assets/png/landing/blog-section/artist-one.png";
-import ArtistTwo from "assets/png/landing/blog-section/artist-two.png";
-import ArtistThree from "assets/png/landing/blog-section/artist-three.png";
-import ArtistFour from "assets/png/landing/blog-section/artist-four.png";
+import { ComponentHolder } from 'components';
 import { ExpandedButton } from 'components/ExpandButton';
+import { ProjectItem } from 'components/Project/ProjectItem';
 
 export const SectionFour: React.FC = () => {
 
-    const paragraph = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                        Eget sed diam purus sagittis mi. 
-                        Ornare neque, est diam sed augue at nascetur et.`;
-
     const data = [
-        { image: ArtistOne, text: "LOR IPSUM", paragraph },
-        { image: ArtistTwo, text: "LOR IPSUM", paragraph },
-        { image: ArtistThree, text: "LOR IPSUM", paragraph },
-        { image: ArtistFour, text: "LOR IPSUM", paragraph }
+        { image: "/assets/projects/joe-boy.png", text: "Joeboy" },
+        { image: "/assets/projects/reminisce.png", text: "Reminisce" },
+        { image: "/assets/projects/d-smoke.png", text: "D-SMOKE" },
+        { image: "/assets/projects/ria-sean.png", text: "RIA SEAN" }
     ];
 
     return (
 
-        <ComponentHolder 
-        
+        <ComponentHolder
+
             bodyClass='no-border page-zero-section-four'
-            
-            id={"projects-section"}
-            
-            >
+
+            id={"projects-section"}>
 
             <div className='page-zero-section-four-body'>
 
-                <div className='page-zero-section-four-blog'>
+                <div className='page-zero-section-four-projects'>
 
                     {data.map((item, index) =>
 
-                        <div
-                            className='page-zero-section-four-blog-item'
+                        <ProjectItem
                             key={`section-landing-blog-data-${index}`}
-                        >
-
-                            <img src={item.image} alt={`blog-image`} />
-
-
-                            <div className='page-zero-section-four-blog-item-overlay'>
-
-                                <h4> {item.text} </h4>
-
-                                <p> {item.paragraph} </p>
-
-                                <Button label='Read More' className='no-bg' />
-
-                            </div>
-
-                        </div>
-
+                            image={item.image}
+                            text={item.text}
+                        />
                     )}
 
                 </div>

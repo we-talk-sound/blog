@@ -1,6 +1,6 @@
 import React from 'react';
 import { SectionOne } from 'common/PageZero/SectionOne';
-import { Artists } from '../Artists';
+import { Playlists } from '../Playlists';
 import { NewsLetter } from 'common/NewsLetter';
 import { LatestReleases } from '../LatestReleases';
 
@@ -44,7 +44,7 @@ export const BaseLabels: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
             <LatestReleases />
 
-            <Artists title={"WTS Artists"} />
+            <Playlists title={"Our Playlists"} />
 
             <NewsLetter />
 
