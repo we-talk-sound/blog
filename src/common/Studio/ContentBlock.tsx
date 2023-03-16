@@ -40,9 +40,7 @@ export const ContentBlock: React.FC<Props> = ({ }) => {
 
         <ComponentHolder
 
-            className='no-border studio-content'
-
-            bodyClass='page-zero-content'>
+            className='no-border studio-content'>
 
             <div className='studio-content-block'>
 

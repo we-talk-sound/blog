@@ -49,7 +49,7 @@ export const SectionOneRevamp: React.FC<Props> = ({
 
                     We are a
 
-                    <span>
+                    <span className='page-zero-revamp-content-shinny'>
 
                         <h1 className={classnames(hasFontLoaded ? 'invincible-text' : "pre-visible-text")}> 360 </h1>
 
