@@ -12,7 +12,7 @@ export const rightLinks: typeOfHeaderItem[] = [
     },
     {
         "title": "VISUAL STUDIO",
-        "link": "/*"
+        "link": "/studio"
     },
     {
         "title": "EVENTS",
