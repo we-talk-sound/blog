@@ -1,5 +1,6 @@
 import React from 'react';
 import { ComponentHolder, ViewFormatter } from 'components';
+import { Marquee } from 'components/Marquee';
 
 export const SectionTwo: React.FC = () => {
 
@@ -9,6 +10,8 @@ export const SectionTwo: React.FC = () => {
             className="no-border"
             bodyClass="page-zero-section-two"
         >
+
+            <Marquee text='About' />
 
             <div className='page-zero-section-two-body'>
 

@@ -133,3 +133,8 @@ export const EventsTime = `<svg width="28" height="29" viewBox="0 0 28 29" fill=
 <path fill-rule="evenodd" clip-rule="evenodd" d="M17.9999 18.8091C17.8471 18.8091 17.6931 18.7695 17.5519 18.6866L13.1536 16.0628C12.8899 15.9041 12.7266 15.6183 12.7266 15.3103V9.6543C12.7266 9.1713 13.1186 8.7793 13.6016 8.7793C14.0857 8.7793 14.4766 9.1713 14.4766 9.6543V14.8133L18.4491 17.1816C18.8632 17.4301 18.9997 17.9668 18.7524 18.3821C18.5879 18.6563 18.2974 18.8091 17.9999 18.8091Z" fill="white"/>
 </svg>
 `;
+
+export const Ellipse = `<svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle opacity="0.7" cx="4" cy="4" r="4" fill="white"/>
+</svg>
+`;

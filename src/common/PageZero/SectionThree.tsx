@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ComponentHolder, Table } from 'components';
 import { classnames } from 'utils';
+import { Marquee } from 'components/Marquee';
 
 class ImmutableNumber {
 
@@ -224,13 +225,13 @@ export const SectionThree: React.FC = () => {
             const event = e as { target: { scrollTop?: number, clientHeight?: number } };
 
             console.log(
-                
-                event.target.scrollTop, " they beat my ex " , 
-                
-                event.target.clientHeight , " - ",
-                
-                immutableScrollHeight.immutable, "the scroll height" 
-                
+
+                event.target.scrollTop, " they beat my ex ",
+
+                event.target.clientHeight, " - ",
+
+                immutableScrollHeight.immutable, "the scroll height"
+
             );
 
             if (previousScrollGap === undefined && scrollParent?.scrollHeight !== undefined) {
@@ -239,7 +240,7 @@ export const SectionThree: React.FC = () => {
 
             };
 
-            if (previousScrollGap !== undefined && !triggerScrollOut.canSnap ) {
+            if (previousScrollGap !== undefined && !triggerScrollOut.canSnap) {
 
                 if (!immutableScrollHeight.immutable) {
 
@@ -333,7 +334,7 @@ export const SectionThree: React.FC = () => {
 
         const containerElement = document.getElementById("scroll-child");
 
-        if (hiddenSection && hiddenFooterSection && (!immutableScrollEnabled.immutable) && triggerScrollOut.nextBlock ) {
+        if (hiddenSection && hiddenFooterSection && (!immutableScrollEnabled.immutable) && triggerScrollOut.nextBlock) {
 
             containerElement?.classList.add("hide-me");
 
@@ -361,7 +362,7 @@ export const SectionThree: React.FC = () => {
 
                 containerElement?.scrollBy({
 
-                //     // behavior: "smooth",
+                    //     // behavior: "smooth",
 
                     top: -100
 
@@ -436,6 +437,12 @@ export const SectionThree: React.FC = () => {
             childId={"scroll-child"}
 
         >
+
+            <div className='marquee-snap page-zero-section-three-body'>
+
+                <Marquee text='Services' />
+
+            </div>
 
             {data.map((item) =>
 

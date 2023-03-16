@@ -1,10 +1,19 @@
 .page-agency {
 
+    min-height: unset;
     background: color(extra-dark);
 
     &-caption {
 
         @extend %body-width-and-padding;
+
+        @include media-query(tablet-and-mobile) {
+
+            padding-right: 0 !important;
+            padding-left: 0 !important;
+
+        }
+
         margin-top: 0 !important;
         padding-top: 0 !important;
         padding-right: 0 !important;
@@ -34,11 +43,32 @@
 
     &-flex {
 
+        @include media-query('tablet-and-mobile') {
+
+            flex-direction: column-reverse;
+            flex-wrap: wrap;
+
+        }
+
         display: flex;
         width: 100%;
         height: 100%;
 
         &-image {
+
+            @include media-query('tablet-and-mobile') {
+
+                height: 600px;
+                max-height: 600px;
+
+                img {
+
+                    width: 100%;
+                    height: 100%;
+
+                }
+
+            }
 
             img {
 
@@ -54,13 +84,33 @@
 
             &-wrapper-box {
 
+                @include media-query(tablet-and-mobile) {
+
+                    margin-right: 24px;
+                    margin-left: 24px;
+                    max-width: 100%;
+
+                }
+
                 margin-right: 88px;
                 margin-left: auto;
                 max-width: 670px;
 
             }
 
+            &-title-box {
+
+                margin-top: -120px;
+
+            }
+
             &-title-box p {
+
+                @include media-query(tablet-and-mobile) {
+
+                    @include font-size-override(xx-large);
+
+                }
 
                 @include font-size(large);
                 margin-bottom: 20px;

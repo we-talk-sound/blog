@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ComponentHeader, ComponentHolder, DotAndNavSwitcher } from 'components';
+import { Marquee } from 'components/Marquee';
 
 export const SectionTestimonial: React.FC = () => {
 
@@ -23,6 +24,8 @@ export const SectionTestimonial: React.FC = () => {
             className="no-border"
             bodyClass="page-zero-section-testimonial"
         >
+
+            <Marquee text='Testimonial' />
 
             <ComponentHeader subtitle='WHAT OUR CLIENTS SAY' title='Testimonials' />
 

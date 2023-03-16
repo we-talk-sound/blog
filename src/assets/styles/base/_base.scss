@@ -78,6 +78,12 @@ input {
 }
 
 .hide-display {
+  
+  @include media-query(mobile) {
+
+    display: block;
+
+  }
 
   display: none;
 

@@ -1,0 +1,30 @@
+.marquee {
+
+    @extend .marquee-left;
+    display: flex;
+
+    &-holder {
+
+        padding-top: 30px;
+        overflow: hidden;
+
+    }
+
+    span {
+
+        @include media-query(non-pc) {
+
+            @include font-size(xxx-large);
+
+        }
+
+        @include font-size(xta-large);
+        display: flex;
+        align-items: center;
+        margin-right: 24px;
+        width: max-content;
+        font-family: $header-font;
+
+    }
+
+}

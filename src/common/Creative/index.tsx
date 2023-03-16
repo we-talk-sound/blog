@@ -18,7 +18,7 @@ export const CreativeSectionOne: React.FC<Props> = ({ isMobile, deviceWidth }) =
 
                 <ViewFormatter
 
-                    title={'THE CREATIVE AGENCY'}
+                    title={'The Creative Agency'}
 
                     value={`
                 We help create new brands from scratch as well as re-position existing brands to reach new audiences. 

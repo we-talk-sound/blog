@@ -1,0 +1,18 @@
+.marquee-left {
+    animation: marquee-left-anim;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes marquee-left-anim {
+
+    0% {
+      transform: translateX(-100vw);
+    }
+
+    100% {
+      transform: translateX(-300vw);
+    }
+
+}

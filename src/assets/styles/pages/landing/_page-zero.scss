@@ -469,6 +469,12 @@
 
         }
 
+        .marquee span {
+
+            color: color(white);
+
+        }
+
     }
 
     &-hidden-section-down {
@@ -478,6 +484,13 @@
     }
 
     &-section-three {
+
+        @include media-query(mobile) {
+
+            max-height: unset;
+            overflow-y: visible;
+
+        }
 
         padding: 40px 0;
         max-height: 100vh;
@@ -491,7 +504,37 @@
             display: none;
         }
 
+        .marquee {
+
+            background: red;
+
+            &-snap {
+
+                height: max-content;
+                min-height: max-content;
+
+            }
+
+            span,
+            circle {
+
+                fill: transparentize(color(white), 0.4);
+                color: transparentize(color(white), 0.4);
+
+            }
+
+        }
+
         &-body {
+
+            @include media-query(mobile) {
+
+                padding-top: 40px;
+                padding-bottom: 60px;
+                height: unset;
+                min-height: unset;
+
+            }
 
             height: 100vh;
             min-height: 500px;
@@ -540,6 +583,26 @@
 
             }
 
+            td:nth-child(1) p {
+
+                @include media-query(mobile) {
+
+                    @include font-size-override(p-large);
+
+                }
+
+            }
+
+            td:nth-child(2) p {
+
+                @include media-query(mobile) {
+
+                    @include font-size-override(x-large);
+
+                }
+
+            }
+
             td:nth-child(3) {
                 position: relative;
                 max-width: 490px;
@@ -565,6 +628,13 @@
 
                 p {
 
+                    @include media-query(mobile) {
+
+                        padding-left: 0;
+                        max-width: 60vw;
+
+                    }
+
                     padding-left: 100px;
                     max-width: calc(100vw / 2.5);
 
@@ -582,6 +652,12 @@
         background-image: url(/assets/background/blog-background.png) !important;
         background-repeat: no-repeat;
         background-size: cover;
+
+        .marquee span {
+
+            color: color(white);
+
+        }
 
         &-body {
 
@@ -618,6 +694,14 @@
 
         padding: 40px 0 90px;
 
+        .marquee span,
+        circle {
+
+            fill: transparentize(color(white), 0.6);
+            color: transparentize(color(white), 0.6);
+
+        }
+
         .blog-banner-body {
 
             padding-top: 0;
@@ -637,6 +721,14 @@
 
         padding-bottom: 90px;
         background: color(extra-dark);
+
+        .marquee span,
+        circle {
+
+            fill: transparentize(color(white), 0.6);
+            color: transparentize(color(white), 0.6);
+
+        }
 
         .component-header {
 
@@ -678,9 +770,22 @@
 
         .testimonial-entry {
 
+            @include media-query(mobile) {
+
+                flex-direction: column;
+                flex-wrap: wrap;
+
+            }
+
             display: flex;
 
             &-img {
+
+                @include media-query(mobile) {
+
+                    width: 100%;
+
+                }
 
                 margin-right: 128px;
                 max-width: 600px;
@@ -694,6 +799,12 @@
             }
 
             &-texts {
+
+                @include media-query(mobile) {
+
+                    width: 100%;
+
+                }
 
                 margin-top: 50px;
                 max-width: 600px;
@@ -726,6 +837,17 @@
                 position: relative;
 
                 .page-zero-progression {
+
+                    @include media-query(mobile) {
+
+                        top: 0;
+                        right: 0;
+                        left: 0;
+                        margin-top: 0;
+                        margin-left: 0;
+                        width: 100% !important;
+
+                    }
 
                     position: absolute;
                     align-items: center;

@@ -5,6 +5,7 @@ import { classnames } from 'utils';
 import { BlogBannerArticles } from 'common/Blog/BlogPageBanner/BlogBannerArticles';
 import { blogItemType } from 'types';
 import { StoriesItemPlaceHolder } from 'common/Placeholders';
+import { Marquee } from 'components/Marquee';
 
 export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource, dataSourceLoader, slug }) => {
 
@@ -24,6 +25,8 @@ export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource, dat
 
             )}
         >
+
+            <Marquee text='Blog' />
 
             <div className={
 

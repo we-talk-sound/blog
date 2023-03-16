@@ -16,7 +16,17 @@
 @import 'layout/landingLayoutFooter';
 @import 'layout/mainLayout';
 
-//4. Components
+//4. Transitions
+@import 'transitions/content-loader';
+@import 'transitions/fadeIn';
+@import 'transitions/landing-trans';
+@import 'transitions/marquee';
+@import 'transitions/rebound';
+@import 'transitions/router-scope';
+@import 'transitions/rotate';
+@import 'transitions/scale-out';
+
+//5. Components
 @import 'components/auth';
 @import 'components/blog-banner';
 @import 'components/button';
@@ -31,6 +41,7 @@
 @import 'components/form-field/radio';
 @import 'components/form-field/select';
 @import 'components/form-field/switch';
+@import 'components/marquee';
 @import 'components/modal';
 @import 'components/pagination';
 @import 'components/partner-item';
@@ -40,19 +51,10 @@
 @import 'components/toast';
 @import 'components/view-formatter';
 
-//6. Transitions
-@import 'transitions/content-loader';
-@import 'transitions/fadeIn';
-@import 'transitions/landing-trans';
-@import 'transitions/rebound';
-@import 'transitions/router-scope';
-@import 'transitions/rotate';
-@import 'transitions/scale-out';
-
-// 7. Vendors
+// 6. Vendors
 @import 'vendors/lite-picker';
 
-// 8. Pages
+// 7. Pages
 
 @import 'pages/landing/page-zero';
 @import 'pages/landing/page-agency';
@@ -61,11 +63,11 @@
 @import 'pages/landing/page-blog';
 @import 'pages/landing/page-studio';
 
-// 9. Common
+// 8. Common
 @import 'common/newsletter';
 @import 'common/discography';
 @import 'common/playlists';
 @import 'common/latest-releases';
 @import 'common/event-banner';
 
-// 10. Color Schemes
+// 9. Color Schemes

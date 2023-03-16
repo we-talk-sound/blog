@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentHolder } from 'components';
 import { ExpandedButton } from 'components/ExpandButton';
 import { ProjectItem } from 'components/Project/ProjectItem';
+import { Marquee } from 'components/Marquee';
 
 export const SectionFour: React.FC = () => {
 
@@ -19,6 +20,8 @@ export const SectionFour: React.FC = () => {
             bodyClass='no-border page-zero-section-four'
 
             id={"projects-section"}>
+
+                <Marquee text='Projects' />
 
             <div className='page-zero-section-four-body'>
 
