@@ -210,6 +210,12 @@
 
         .partner-item-box {
 
+            @include media-query(mobile) {
+
+                width: 100% !important;
+
+            }
+
             &:first-child {
 
                 background: rgba(151, 71, 255, 0.33);

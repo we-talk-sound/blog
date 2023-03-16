@@ -24,7 +24,7 @@ export const CreativeSectionFour: React.FC = ({ }) => {
 
         <ComponentHolder
 
-            className='page-zero no-border page-agency page-agency-section-four'
+            className='no-border page-agency page-agency-section-four'
 
             bodyClass='page-zero-content'>
 
