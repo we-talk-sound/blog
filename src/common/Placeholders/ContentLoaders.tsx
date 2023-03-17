@@ -37,7 +37,7 @@ export const SettingsItemPlaceHolder: React.FC<{ length?: number }> = ({ length 
     )
 }
 
-export const StoryLoaderItem: React.FC<Props> = ({ imageBox, extraTitle }) => {
+export const StoryLoaderItem: React.FC<Props> = ({ imageBox, extraTitle , textBoxes }) => {
 
     return (
 
@@ -49,9 +49,7 @@ export const StoryLoaderItem: React.FC<Props> = ({ imageBox, extraTitle }) => {
 
             {imageBox && <div className="content-loader-image" />}
 
-            <div className='content-loader-texts'>
-
-
+           <div className='content-loader-texts'>
 
                 <div className="content-loader-v pt-0 mt-0" >
 
@@ -81,7 +79,7 @@ export const StoryLoaderItem: React.FC<Props> = ({ imageBox, extraTitle }) => {
 
 }
 
-export const StoriesItemPlaceHolder: React.FC<Props> = ({ length, imageBox, holderClass, extraTitle }) => {
+export const StoriesItemPlaceHolder: React.FC<Props> = ({ length, imageBox, holderClass, extraTitle , textBoxes }) => {
     
     return (
 
@@ -96,6 +94,8 @@ export const StoriesItemPlaceHolder: React.FC<Props> = ({ length, imageBox, hold
                     extraTitle={extraTitle}
 
                     imageBox={imageBox}
+
+                    textBoxes={textBoxes}
 
                 />
 
@@ -114,6 +114,8 @@ interface Props {
 
     holderClass?: string,
 
-    extraTitle?: boolean
+    extraTitle?: boolean,
+
+    textBoxes?: boolean
 
 }

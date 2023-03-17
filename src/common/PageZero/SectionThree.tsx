@@ -434,6 +434,8 @@ export const SectionThree: React.FC = () => {
 
             id={"scroll-parent"}
 
+            className={"scroll-parent"}
+
             childId={"scroll-child"}
 
         >

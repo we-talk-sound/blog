@@ -4,6 +4,24 @@
 
         background: color(extra-dark);
 
+        .marquee-holder {
+
+            overflow: hidden;
+
+        }
+
+        .marquee {
+
+            span,
+            circle {
+
+            fill: rgba(102, 102, 102, 1);
+            color: rgba(102, 102, 102, 1);
+
+            }
+
+        }
+
     }
 
     &-body {

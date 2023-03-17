@@ -87,6 +87,8 @@ const Home: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
                 <BlogBanner
 
+                    sliderMode={true}
+
                     dataSource={dashboardBlogs?.data.filter((item, index) => index < 3) || []}
 
                     dataSourceLoader={dashboardBlogs.loader}

@@ -7,7 +7,7 @@ import { blogItemType } from 'types';
 import { StoriesItemPlaceHolder } from 'common/Placeholders';
 import { Marquee } from 'components/Marquee';
 
-export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource, dataSourceLoader, slug }) => {
+export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource, dataSourceLoader, slug, sliderMode }) => {
 
     return (
 
@@ -26,7 +26,7 @@ export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource, dat
             )}
         >
 
-            <Marquee text='Blog' />
+            {sliderMode && <Marquee text='Blog' />}
 
             <div className={
 
@@ -52,7 +52,9 @@ export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource, dat
 
                         holderClass={"page-blog-story-loader"}
 
-                        extraTitle={true} />
+                        extraTitle={true} 
+                    
+                    />
 
                 }
 
@@ -62,7 +64,7 @@ export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource, dat
 
                     bannerMode={bannerMode}
 
-                    withoutArticles={story !== undefined}
+                    withoutArticles={ slug !== undefined ? true : story !== undefined}
 
                     dataSource={dataSource || []}
 
@@ -90,6 +92,8 @@ interface Props {
     dataSourceLoader?: boolean,
 
     bannerMode?: boolean,
+
+    sliderMode?: boolean,
 
     slug?: string,
 
