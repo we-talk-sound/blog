@@ -37,7 +37,7 @@ export const SettingsItemPlaceHolder: React.FC<{ length?: number }> = ({ length 
     )
 }
 
-export const StoryLoaderItem: React.FC<Props> = ({ imageBox, extraTitle , textBoxes }) => {
+export const StoryLoaderItem: React.FC<Props> = ({ imageBox, extraTitle }) => {
 
     return (
 
@@ -79,7 +79,7 @@ export const StoryLoaderItem: React.FC<Props> = ({ imageBox, extraTitle , textBo
 
 }
 
-export const StoriesItemPlaceHolder: React.FC<Props> = ({ length, imageBox, holderClass, extraTitle , textBoxes }) => {
+export const StoriesItemPlaceHolder: React.FC<Props> = ({ length, imageBox, holderClass, extraTitle }) => {
     
     return (
 
@@ -94,8 +94,6 @@ export const StoriesItemPlaceHolder: React.FC<Props> = ({ length, imageBox, hold
                     extraTitle={extraTitle}
 
                     imageBox={imageBox}
-
-                    textBoxes={textBoxes}
 
                 />
 
@@ -114,8 +112,6 @@ interface Props {
 
     holderClass?: string,
 
-    extraTitle?: boolean,
-
-    textBoxes?: boolean
+    extraTitle?: boolean
 
 }
