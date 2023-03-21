@@ -153,7 +153,7 @@ export const SectionThree: React.FC = () => {
 
             if (scrollParent && hiddenSectionUp && scrollingElement && hiddenSectionDown && hiddenSectionFooter) {
 
-                console.log(window.scrollY, scrollParent.offsetTop, (scrollParent.offsetTop + scrollParent.offsetHeight));
+                // console.log(window.scrollY, scrollParent.offsetTop, (scrollParent.offsetTop + scrollParent.offsetHeight));
 
                 if (window.scrollY < scrollParent.offsetTop) {
 
@@ -186,13 +186,13 @@ export const SectionThree: React.FC = () => {
 
                     }));
 
-                    console.log(" we in the bitch ", window.scrollY, (scrollParent.offsetTop - 150));
+                    // console.log(" we in the bitch ", window.scrollY, (scrollParent.offsetTop - 150));
 
                 }
 
                 if (window.scrollY > (scrollParent.offsetTop + scrollParent.offsetHeight)) {
 
-                    console.log("this guy is one")
+                    // console.log("this guy is one")
 
                     scrollingElement.classList.add("hide-me");
 
@@ -224,15 +224,15 @@ export const SectionThree: React.FC = () => {
 
             const event = e as { target: { scrollTop?: number, clientHeight?: number } };
 
-            console.log(
+            // console.log(
 
-                event.target.scrollTop, " they beat my ex ",
+            //     event.target.scrollTop, " they beat my ex ",
 
-                event.target.clientHeight, " - ",
+            //     event.target.clientHeight, " - ",
 
-                immutableScrollHeight.immutable, "the scroll height"
+            //     immutableScrollHeight.immutable, "the scroll height"
 
-            );
+            // );
 
             if (previousScrollGap === undefined && scrollParent?.scrollHeight !== undefined) {
 

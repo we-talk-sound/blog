@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { ComponentHolder, GradientCircle, MissionCircle, MissionInnerCircle } from 'components';
+import React from 'react';
+import { ComponentHolder, MissionCircle, MissionInnerCircle } from 'components';
 import { Header } from 'layout/LandingLayout/header';
 import { classnames } from 'utils';
 
@@ -12,26 +12,6 @@ export const SectionOneRevamp: React.FC<Props> = ({
     className
 
 }) => {
-
-    const [hasFontLoaded, setHasFontLoaded] = useState(false);
-
-    useEffect(() => {
-
-        if (document) {
-
-            // are you even looking for user-agent
-            // console.log(navigator.userAgent);
-
-            document.fonts.ready.then(() => {
-
-                setHasFontLoaded(true);
-
-            });
-
-        }
-
-        // eslint-disable-next-line
-    }, [window === undefined]);
 
     return (
 
