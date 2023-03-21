@@ -1,0 +1,67 @@
+.page-zero-section-two {
+
+    @media only screen and (max-height: 600px) {
+
+        height: unset !important;
+        min-height: 600px;
+
+    }
+
+    @include media-query(mobile) {
+
+        height: unset;
+        min-height: 90vh;
+        max-height: unset;
+
+    }
+
+    display: flex;
+    flex-direction: column;
+    padding: 40px 0;
+    height: 70vh;
+    min-height: 800px;
+    max-height: 1000px;
+    background: url(/assets/background/plain-background.png),#B8C9D3;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &-body {
+
+        @extend %body-width-and-padding;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+
+        .view-formatter-wrapper-box {
+            max-width: 500px;
+        }
+
+        .view-formatter-title-box:hover {
+
+            p {
+
+                color: color(white) !important;
+        
+            }
+
+            path {
+
+                fill: color(white);
+                stroke: color(white);
+
+            }
+
+        }
+
+    }
+
+    .marquee span {
+
+        color: color(white);
+
+    }
+
+}

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import { MobileHeaderToggler } from 'components';
+import { MobileHeaderToggler, FooterIconSet } from 'components';
 import { leftLinks, rightLinks } from 'constants/index';
+import Twitter from 'assets/svg/social/twitter.svg';
+import Instagram from 'assets/svg/social/instagram.svg';
+import LinkedIn from 'assets/svg/social/linkedin.svg';
 import router from 'next/router';
 
 export const MobileHeader = ({ }): JSX.Element => {
@@ -38,6 +41,10 @@ export const MobileHeader = ({ }): JSX.Element => {
                         )}
 
                     </div>
+
+                    <p className='landingLayout-header-mobile-address'> 16 ABUDU STREER, OSAPA LEKKI, LAGOS NIGERIA  </p>
+
+                    <FooterIconSet icons={[Twitter, Instagram, LinkedIn]} />
 
                 </div>
 

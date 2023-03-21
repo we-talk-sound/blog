@@ -25,9 +25,9 @@ export const SectionTestimonial: React.FC = () => {
             bodyClass="page-zero-section-testimonial"
         >
 
-            <Marquee text='Testimonial' />
+            <Marquee text='Testimonials' />
 
-            <ComponentHeader subtitle='WHAT OUR CLIENTS SAY' title='Testimonials' />
+            <ComponentHeader subtitle='WHAT OUR CLIENTS SAY' />
 
             <div className='page-zero-section-testimonial-body'>
 

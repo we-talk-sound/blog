@@ -22,7 +22,7 @@ export const SectionOneRevamp: React.FC<Props> = ({
             // are you even looking for user-agent
             // console.log(navigator.userAgent);
 
-            document.fonts.ready.then(()=> {
+            document.fonts.ready.then(() => {
 
                 setHasFontLoaded(true);
 
@@ -45,39 +45,18 @@ export const SectionOneRevamp: React.FC<Props> = ({
 
             <div className='page-zero-revamp-content'>
 
-                <h1>
+                <div className='page-zero-revamp-top'>
 
-                    We are a
+                    <h1> Elevate Your Brand </h1>
 
-                    <span className='page-zero-revamp-content-shinny'>
+                    <p> We are a  360  creative company leveraging
+                        <span> technology community </span> &
+                        <span> content </span> to design delightful experiences.
+                    </p>
 
-                        <h1 className={classnames(hasFontLoaded ? 'invincible-text' : "pre-visible-text")}> 360 </h1>
-
-                        {hasFontLoaded &&
-
-                            <>
-
-                                <div className='visible-text-block'>
-
-                                    <h1 className='visible-text'> 360  </h1>
-
-                                </div>
-
-                                <span className='bubble' dangerouslySetInnerHTML={{ __html: GradientCircle }} />
-
-                            </>
-
-                        }
-
-                    </span>
-
-                    creative company leveraging technology, community & content to design delightful experiences.
-
-                </h1>
+                </div>
 
                 <div className='page-zero-revamp-bottom'>
-
-                    <p> SCROLL FOR MORE </p>
 
                     <div className='page-zero-revamp-bottom-circle'>
 
