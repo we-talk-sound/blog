@@ -69,23 +69,3 @@ input {
 .no-select {
   user-select: none;
 }
-
-.hide-me {
-
-  overflow: hidden !important;
-  // scroll-snap-type: unset !important;
-
-}
-
-.hide-display {
-  
-  @include media-query(mobile) {
-
-    display: block;
-
-  }
-
-  display: none;
-
-}
-

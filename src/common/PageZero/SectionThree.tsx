@@ -1,59 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { ComponentHolder, Table } from 'components';
 import { classnames } from 'utils';
 import { Marquee } from 'components/Marquee';
 
-class ImmutableNumber {
-
-    immutable?: number;
-
-    setOnce?: boolean;
-
-    constructor(placeholder: undefined, setOnce?: boolean) {
-
-        this.immutable = placeholder;
-
-        this.setOnce = setOnce;
-
-    }
-
-    setImmutability(immutableNumber: number) {
-
-        if (this.immutable !== undefined && this.setOnce === true) return;
-
-        this.immutable = immutableNumber;
-
-    }
-
-    getImmutableVariable() {
-
-        return this.immutable;
-
-    }
-
-};
 
 export const SectionThree: React.FC = () => {
-
-    const [triggerScrollOut, setTriggerScrollOut] = useState<{
-        previousBlock: boolean,
-        nextBlock: boolean,
-        canSnap?: boolean
-    }>({
-
-        previousBlock: false,
-
-        nextBlock: false,
-
-        canSnap: undefined
-
-    });
-
-    const [immutableScrollGap] = useState(() => new ImmutableNumber(undefined, true));
-
-    const [immutableScrollEnabled] = useState(() => new ImmutableNumber(undefined));
-
-    const [immutableScrollHeight] = useState(() => new ImmutableNumber(undefined, true));
 
     const data = [
 
@@ -129,174 +80,161 @@ export const SectionThree: React.FC = () => {
 
     ];
 
+    const opacityCalculator = (startPoint: number, element: Element, spasm?: number) => {
+
+        if (window.pageYOffset > startPoint) {
+
+            const holder = element;
+
+            let offset = window.pageYOffset - startPoint;
+
+            offset = offset / 10;
+
+            if (offset > (spasm || 80)) {
+
+                const maxOffset = 100;
+
+                const calculation = ((offset - (spasm || 80)) / maxOffset) * 100;
+
+                const opacity = calculation / 100;
+
+                holder.setAttribute(
+
+                    "style",
+
+                    `opacity : ${1 - opacity};transform: translate(0, ${-offset}px);`
+
+                );
+
+            } else {
+
+                if (spasm) {
+
+                    const max = spasm;
+
+                    const reversedOpacity = (((offset - max) / max) * 100) / 100;
+
+                    holder.setAttribute(
+                        "style",
+                        `transform: translate(0, ${-offset}px);opacity: ${1 + reversedOpacity
+                        }`
+                    );
+
+                } else {
+
+                    holder.setAttribute("style", `transform: translate(0, ${-offset}px)`);
+
+                }
+
+            }
+
+        }
+
+    };
+
     useEffect(() => {
-
-        const scrollParent = document.getElementById("scroll-parent");
-
-        const scrollingElement = document.getElementById("scroll-child");
-
-        const hiddenSectionUp = document.getElementById("page-zero-hidden-section-up");
-
-        const hiddenSectionDown = document.getElementById("page-zero-hidden-section-down");
-
-        const hiddenSectionFooter = document.getElementById("page-zero-hidden-section-footer");
-
-        // const nextSectionElement = document.getElementById("projects-section");
-
-        // const scrollParent = document;
-
-        // console.log(scrollParent)
-
-        // const scrollElementHeight = (containerElement?.scrollHeight || 0) / data.length;
 
         const scrollFunction = () => {
 
-            if (scrollParent && hiddenSectionUp && scrollingElement && hiddenSectionDown && hiddenSectionFooter) {
+            const madScroll = document.getElementById("scroll-child");
+            const scrollBaby = document.getElementById("scroll-baby-0");
+            const scrollBabyOne = document.getElementById("scroll-baby-1");
+            const scrollBabyTwo = document.getElementById("scroll-baby-2");
+            const scrollBabyThree = document.getElementById("scroll-baby-3");
+            const scrollBabyFour = document.getElementById("scroll-baby-4");
+            const scrollBabyFive = document.getElementById("scroll-baby-5");
 
-                // console.log(window.scrollY, scrollParent.offsetTop, (scrollParent.offsetTop + scrollParent.offsetHeight));
+            if (!madScroll || !scrollBaby || !scrollBabyOne || !scrollBabyTwo || !scrollBabyThree || !scrollBabyFour || !scrollBabyFive) return;
 
-                if (window.scrollY < scrollParent.offsetTop) {
+            if ((document?.body?.clientWidth || 0) < 600) {
 
-                    setTriggerScrollOut((prevState) => ({
+                scrollBaby.setAttribute("style", "opacity: 1; position: relative;");
+                scrollBabyOne.setAttribute("style", "opacity: 1; position: relative;");
+                scrollBabyTwo.setAttribute("style", "opacity: 1; position: relative;");
+                scrollBabyThree.setAttribute("style", "opacity: 1; position: relative;");
+                scrollBabyFour.setAttribute("style", "opacity: 1; position: relative;");
+                scrollBabyFive.setAttribute("style", "opacity: 1; position: relative;");
 
-                        ...prevState,
+                return;
 
-                        canSnap: false
+            }
 
-                    }));
+            const startPoint = madScroll?.offsetTop || 2000;
 
-                    if (!hiddenSectionDown.classList.contains("hide-display")) {
+            const windowOffsetY = window.pageYOffset;
 
-                        hiddenSectionDown.classList.add("hide-display");
+            const brake = 178 * 10 + startPoint;
+            const brakePointTwo = 178 * 10 + brake;
+            const brakePointThree = 178 * 10 + brakePointTwo;
+            const brakePointFour = 178 * 10 + brakePointThree;
+            const brakePointFive = 178 * 10 + brakePointFour;
+            const brakePointSix = 178 * 10 + brakePointFive;
 
-                        hiddenSectionFooter.classList.add("hide-display");
+            if (windowOffsetY > startPoint) {
 
-                    }
-
+                if (windowOffsetY < brake) {
+                    opacityCalculator(startPoint, scrollBaby);
+                    scrollBabyOne.setAttribute("style", `opacity : 0`);
+                    scrollBabyTwo.setAttribute("style", `opacity : 0`);
+                    scrollBabyThree.setAttribute("style", `opacity : 0`);
+                    scrollBabyFour.setAttribute("style", `opacity : 0`);
+                    scrollBabyFive.setAttribute("style", `opacity : 0`);
                 }
 
-
-                if (window.scrollY >= (scrollParent.offsetTop - 100) && window.scrollY <= (scrollParent.offsetTop + 200)) {
-
-                    setTriggerScrollOut((prevState) => ({
-
-                        ...prevState,
-
-                        canSnap: true
-
-                    }));
-
-                    // console.log(" we in the bitch ", window.scrollY, (scrollParent.offsetTop - 150));
-
+                if (windowOffsetY > brake && windowOffsetY < brakePointTwo) {
+                    opacityCalculator(brake, scrollBabyOne, 160);
+                    scrollBaby.setAttribute("style", `opacity : 0`);
+                    scrollBabyTwo.setAttribute("style", `opacity : 0`);
+                    scrollBabyThree.setAttribute("style", `opacity : 0`);
+                    scrollBabyFour.setAttribute("style", `opacity : 0`);
+                    scrollBabyFive.setAttribute("style", `opacity : 0`);
                 }
 
-                if (window.scrollY > (scrollParent.offsetTop + scrollParent.offsetHeight)) {
+                if (windowOffsetY > brakePointTwo && windowOffsetY < brakePointThree) {
+                    opacityCalculator(brakePointTwo, scrollBabyTwo, 160);
+                    scrollBaby.setAttribute("style", `opacity : 0`);
+                    scrollBabyOne.setAttribute("style", `opacity : 0`);
+                    scrollBabyThree.setAttribute("style", `opacity : 0`);
+                    scrollBabyFour.setAttribute("style", `opacity : 0`);
+                    scrollBabyFive.setAttribute("style", `opacity : 0`);
+                }
 
-                    // console.log("this guy is one")
+                if (windowOffsetY > brakePointThree && windowOffsetY < brakePointFour) {
+                    opacityCalculator(brakePointThree, scrollBabyThree, 160);
+                    scrollBaby.setAttribute("style", `opacity : 0`);
+                    scrollBabyOne.setAttribute("style", `opacity : 0`);
+                    scrollBabyTwo.setAttribute("style", `opacity : 0`);
+                    scrollBabyFour.setAttribute("style", `opacity : 0`);
+                    scrollBabyFive.setAttribute("style", `opacity : 0`);
+                }
 
-                    scrollingElement.classList.add("hide-me");
+                if (windowOffsetY > brakePointFour && windowOffsetY < brakePointFive) {
+                    opacityCalculator(brakePointFour, scrollBabyFour, 160);
+                    scrollBaby.setAttribute("style", `opacity : 0`);
+                    scrollBabyOne.setAttribute("style", `opacity : 0`);
+                    scrollBabyTwo.setAttribute("style", `opacity : 0`);
+                    scrollBabyThree.setAttribute("style", `opacity : 0`);
+                    scrollBabyFive.setAttribute("style", `opacity : 0`);
+                }
 
-                    setTriggerScrollOut((prevState) => ({
-
-                        ...prevState,
-
-                        canSnap: false
-
-                    }));
-
-                    if (!hiddenSectionUp.classList.contains("hide-display")) {
-
-                        hiddenSectionUp.classList.add("hide-display");
-
-                    }
-
+                if (windowOffsetY > brakePointFive && windowOffsetY < brakePointSix) {
+                    opacityCalculator(brakePointFive, scrollBabyFive, 160);
+                    scrollBaby.setAttribute("style", `opacity : 0`);
+                    scrollBabyOne.setAttribute("style", `opacity : 0`);
+                    scrollBabyTwo.setAttribute("style", `opacity : 0`);
+                    scrollBabyThree.setAttribute("style", `opacity : 0`);
+                    scrollBabyFour.setAttribute("style", `opacity : 0`);
                 }
 
             }
 
-        }
-
-        const containerScrollingFunction = (e: Event) => {
-
-            const scrollParent = document.getElementById("scroll-parent");
-
-            let previousScrollGap: number | undefined = immutableScrollGap.immutable;
-
-            const event = e as { target: { scrollTop?: number, clientHeight?: number } };
-
-            // console.log(
-
-            //     event.target.scrollTop, " they beat my ex ",
-
-            //     event.target.clientHeight, " - ",
-
-            //     immutableScrollHeight.immutable, "the scroll height"
-
-            // );
-
-            if (previousScrollGap === undefined && scrollParent?.scrollHeight !== undefined) {
-
-                immutableScrollGap.setImmutability(event?.target?.scrollTop as number);
-
-            };
-
-            if (previousScrollGap !== undefined && !triggerScrollOut.canSnap) {
-
-                if (!immutableScrollHeight.immutable) {
-
-                    const firstScrollFrameHeight = previousScrollGap + (scrollParent?.clientHeight || 0);
-
-                    const scrollHeight = firstScrollFrameHeight + ((scrollParent?.clientHeight || 0.0) * (data.length - 2));
-
-                    immutableScrollHeight.setImmutability(scrollHeight);
-
-                }
-
-                const errorMargin = immutableScrollHeight.immutable as number + 10;
-
-                if (!event?.target?.scrollTop) return;
-
-                if (event?.target?.scrollTop < previousScrollGap) {
-
-                    setTriggerScrollOut((prevState) => ({
-
-                        ...prevState,
-
-                        previousBlock: true,
-
-                    }));
-
-                    // hiddenSectionUp.classList.remove("hide-display");
-
-                }
-
-                if ((event?.target?.scrollTop > errorMargin) && !immutableScrollEnabled.immutable) {
-
-                    setTriggerScrollOut((prevState) => ({
-
-                        ...prevState,
-
-                        nextBlock: true,
-
-                    }));
-
-                }
-
-            }
-
-            // console.log(e.target?.scrollTop , containerElement?.clientHeight, containerElement?.scrollHeight );
-
-        }
+        };
 
         if (document) {
-
-            scrollParent?.addEventListener("scroll", containerScrollingFunction, true);
 
             window.addEventListener("scroll", scrollFunction, true);
 
             return (() => {
-
-                scrollParent?.removeEventListener("scroll", containerScrollingFunction, true);
 
                 window.removeEventListener("scroll", scrollFunction, true);
 
@@ -307,132 +245,11 @@ export const SectionThree: React.FC = () => {
         // eslint-disable-next-line
     }, [window === undefined]);
 
-    useEffect(() => {
-
-        const containerElement = document.getElementById("scroll-parent");
-
-        const scrollParent = document.getElementById("scroll-child");
-
-        if (triggerScrollOut.canSnap && containerElement && scrollParent) {
-
-            setTimeout(() => {
-
-                scrollParent.classList.remove("hide-me");
-
-            }, 100);
-
-        }
-
-
-    }, [triggerScrollOut.canSnap]);
-
-    useEffect(() => {
-
-        const hiddenSection = document.getElementById("page-zero-hidden-section-down");
-
-        const hiddenFooterSection = document.getElementById("page-zero-hidden-section-footer");
-
-        const containerElement = document.getElementById("scroll-child");
-
-        if (hiddenSection && hiddenFooterSection && (!immutableScrollEnabled.immutable) && triggerScrollOut.nextBlock) {
-
-            containerElement?.classList.add("hide-me");
-
-            hiddenSection.classList.remove("hide-display");
-
-            hiddenFooterSection.classList.remove("hide-display");
-
-            containerElement?.scrollIntoView({
-
-                behavior: "auto",
-
-            });
-
-            immutableScrollEnabled.setImmutability(1);
-
-            setTriggerScrollOut((prevState) => ({ ...prevState, previousBlock: false, nextBlock: false }));
-
-            setTimeout(() => {
-
-                setTriggerScrollOut((prevState) => ({ ...prevState, previousBlock: false, nextBlock: false }));
-
-                immutableScrollEnabled.setImmutability(0);
-
-                // containerElement?.classList.remove("hide-me");
-
-                containerElement?.scrollBy({
-
-                    //     // behavior: "smooth",
-
-                    top: -100
-
-                });
-
-            }, 1000);
-
-        } else {
-
-            // console.log("deferred");
-
-        }
-
-        // eslint-disable-next-line
-    }, [triggerScrollOut.nextBlock]);
-
-    useEffect(() => {
-
-        const hiddenSection = document.getElementById("page-zero-hidden-section-up");
-
-        const containerElement = document.getElementById("scroll-child");
-
-        if (hiddenSection && (!immutableScrollEnabled.immutable) && triggerScrollOut.previousBlock) {
-
-            console.log("this guy is three")
-
-            containerElement?.classList.add("hide-me");
-
-            hiddenSection.classList.remove("hide-display");
-
-            containerElement?.scrollIntoView({
-
-                behavior: "auto",
-
-            });
-
-            immutableScrollEnabled.setImmutability(1);
-
-            setTriggerScrollOut((prevState) => ({ ...prevState, previousBlock: false, nextBlock: false }));
-
-            setTimeout(() => {
-
-                setTriggerScrollOut((prevState) => ({ ...prevState, previousBlock: false, nextBlock: false }));
-
-                immutableScrollEnabled.setImmutability(0);
-
-                containerElement?.classList.remove("hide-me");
-
-                containerElement?.scrollBy({
-
-                    top: immutableScrollEnabled.immutable
-
-                });
-
-            }, 1000);
-
-        } else {
-
-        }
-
-        // eslint-disable-next-line
-    }, [triggerScrollOut.previousBlock]);
-
     return (
 
         <ComponentHolder
 
-            bodyClass={classnames('no-border page-zero-section-three hide-me')}
-
-            id={"scroll-parent"}
+            bodyClass={classnames('no-border page-zero-section-three')}
 
             className={"scroll-parent"}
 
@@ -446,11 +263,12 @@ export const SectionThree: React.FC = () => {
 
             </div>
 
-            {data.map((item) =>
+            {data.map((item, index) =>
 
                 <div
-                    className='page-zero-section-two-body page-zero-section-three-body'
+                    className='page-zero-section-three-body'
                     key={`service-item-${item[1]}`}
+                    id={`scroll-baby-${index}`}
                 >
 
                     <Table

@@ -52,55 +52,36 @@ const Home: React.FC<Props> = ({ isMobile, deviceWidth }) => {
             showFooter={true}
             showHeader={false}
             footerId={"page-zero-hidden-section-footer"}
-            footerClass={'hide-display'}
         >
 
-            <div
+            <SectionOneRevamp
 
-                id={"page-zero-hidden-section-up"}
+                isMobile={isMobile}
 
-            >
+                deviceWidth={deviceWidth}
 
-                <SectionOneRevamp
+            />
 
-                    isMobile={isMobile}
-
-                    deviceWidth={deviceWidth}
-
-                />
-
-                <SectionTwo />
-
-            </div>
+            <SectionTwo />
 
             <SectionThree />
 
-            <div
 
-                id={"page-zero-hidden-section-down"}
+            <SectionFour />
 
-                className='hide-display'
+            <BlogBanner
 
-            >
+                sliderMode={true}
 
-                <SectionFour />
+                dataSource={dashboardBlogs?.data.filter((item, index) => index < 3) || []}
 
-                <BlogBanner
+                dataSourceLoader={dashboardBlogs.loader}
 
-                    sliderMode={true}
+            />
 
-                    dataSource={dashboardBlogs?.data.filter((item, index) => index < 3) || []}
+            <SectionTestimonial />
 
-                    dataSourceLoader={dashboardBlogs.loader}
-
-                />
-
-                <SectionTestimonial />
-
-                <NewsLetter />
-
-            </div>
-
+            <NewsLetter />
 
 
         </LandingLayout >

@@ -11,6 +11,7 @@ import { BlogStory } from 'common/Blog/BlogStory';
 import { storeInterface } from 'types';
 import { useSelector } from 'react-redux';
 import * as He from "he";
+import { BaseBlog } from 'common/Blog/BaseBlog';
 
 const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
@@ -31,11 +32,9 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
             categories
         }
 
-    } : storeInterface = useSelector((store: storeInterface) => store);
+    }: storeInterface = useSelector((store: storeInterface) => store);
 
     let { category, slug } = router.query;
-
-    category = category || "music";
 
     const safeParams = ["slug", "category", "page"];
 
@@ -60,7 +59,7 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
         ]);
 
-        return ([
+        if (e?.category) return ([
 
             "retrieve-category-stories",
 
@@ -68,21 +67,21 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
             {
 
-                category: e.category || "music",
+                category: e.category,
 
                 per_page: 9,
 
-                // default music - category id is 4
-
-                categories: categories?.slugPairs?.[e.category]?.id || 4,
+                categories: categories?.slugPairs?.[e.category]?.id,
 
                 // if page one exists , proceed to page requested from url , else, go to page 1
 
-                page: blogCategoryStories?.categoryData?.[e?.category || "music"]?.["1"] ? (e?.page || 1) : 1
+                page: blogCategoryStories?.categoryData?.[e?.category]?.["1"] ? (e?.page || 1) : 1
 
             }
 
         ]);
+
+        return ["retrieve", "dashboardBlogs", { per_page: 9 }]
 
     };
 
@@ -112,7 +111,7 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
         });
 
-    };
+    }
 
     useFetching({
 
@@ -152,6 +151,8 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
                 dataSourceLoader={blogBannerDataSource().loader}
 
             />
+
+            {!category && !slug && <BaseBlog />}
 
             {!slug && <BlogBaseCategory category={String(category)} />}
 

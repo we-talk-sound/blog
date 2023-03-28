@@ -1,39 +1,31 @@
-.scroll-parent {
-
-    position: relative;
-    overflow-x: hidden;
-
-}
-
 .page-zero-section-three {
 
     @include media-query(mobile) {
 
-        max-height: unset;
-        overflow-y: visible;
+        min-height: unset;
 
     }
 
-    padding: 40px 0;
-    max-height: 100vh;
-    overflow-y: scroll;
+    position: relative;
+    min-height: 1300vh;
     background: color(extra-dark);
-    scroll-snap-type: y mandatory;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-
-    &::-webkit-scrollbar {
-        display: none;
-    }
 
     .marquee {
 
         &-snap {
 
-            position: absolute;
+            @include media-query(mobile) {
+
+                position: relative;
+
+            }
+
+            z-index: 1;
+            position: sticky;
             top: 0;
             height: max-content;
             min-height: max-content;
+            background: color(extra-dark);
 
         }
 
@@ -51,6 +43,7 @@
 
         @include media-query(mobile) {
 
+            position: relative;
             padding-top: 40px;
             padding-bottom: 60px;
             height: unset;
@@ -58,11 +51,19 @@
 
         }
 
-        height: 100vh;
+        position: sticky;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        width: 100vw;
+        height: 110vh;
         min-height: 500px;
-        background: color(extra-dark);
-        scroll-snap-align: start;
-        scroll-snap-stop: always;
+        transform: translate(0, 0);
+        transition: 0.2 linear;
 
         .table-component {
 
