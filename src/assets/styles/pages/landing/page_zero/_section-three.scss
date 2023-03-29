@@ -6,6 +6,7 @@
 
     }
 
+    @extend %body-width-and-padding;
     position: relative;
     min-height: 1300vh;
     background: color(extra-dark);

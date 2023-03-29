@@ -38,18 +38,6 @@
 
         max-width: 1500px;
 
-        .story-item:first-child {
-
-            padding-top: 0;
-
-        }
-
-        .story-item {
-
-            padding-left: 0;
-
-        }
-
         &-header {
 
             @include media-query(mobile) {

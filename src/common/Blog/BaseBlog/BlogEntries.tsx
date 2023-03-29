@@ -6,7 +6,7 @@ import { transformStory } from 'utils';
 import { useRouter } from 'next/router';
 import { StoryLoaderItem } from 'common/Placeholders';
 
-export const BlogBaseCategory: React.FC<{ category: string }> = ({ category }) => {
+export const BlogEntries: React.FC<{ category: string }> = ({ category }) => {
 
     const router = useRouter();
 
@@ -87,7 +87,7 @@ export const BlogBaseCategory: React.FC<{ category: string }> = ({ category }) =
 
                 </div>
 
-                <Button
+               { <Button
 
                     label={"Show Older Articles"}
 
@@ -107,7 +107,7 @@ export const BlogBaseCategory: React.FC<{ category: string }> = ({ category }) =
 
                     }
 
-                />
+                />}
 
             </ComponentHolder>
 

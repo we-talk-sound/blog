@@ -1,5 +1,5 @@
-import React from 'react';
-import StoryImage from "assets/png/landing/blog-section/story-image.png";
+import React, { useEffect, useState } from 'react';
+// import StoryImage from "assets/png/landing/blog-section/story-image.png";
 import { ComponentHolder, StoryItem } from 'components';
 import { classnames } from 'utils';
 import { blogItemType } from 'types';
@@ -24,6 +24,22 @@ export const BlogBannerArticles: React.FC<Props> = ({
 
     const blogData = (dataSource || []).map((item) => transformStory(item));
 
+    const [focus, setFocus] = useState(0);
+
+    useEffect(() => {
+
+        if (blogData.length) {
+
+            const maxLength = blogData.length - 1;
+
+            const nextStopToFocus = focus === maxLength ? 0 : focus + 1;
+
+            setTimeout(() => setFocus(nextStopToFocus), 15000);
+
+        }
+
+    }, [focus, blogData.length]);
+
     return (
 
         <ComponentHolder
@@ -42,13 +58,15 @@ export const BlogBannerArticles: React.FC<Props> = ({
 
                 <div className='page-zero-blog-banner-blog-stories'>
 
-                    {(blogData || []).map((item) =>
+                    {(blogData || []).map((item, index) =>
 
                         <StoryItem
 
                             story={item}
 
                             key={item.title}
+
+                            isActive={ blogData.length > 0 && focus === index}
 
                         />
 
@@ -67,7 +85,7 @@ export const BlogBannerArticles: React.FC<Props> = ({
 
                 <img
 
-                    src={image || (StoryImage || blogData?.[0]?.image)}
+                    src={image || ( blogData?.[focus]?.image )}
 
                     alt={`blog-image-item`}
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { LandingLayout } from 'layout';
 import { useRouter } from 'next/router';
-import { BlogBaseCategory } from 'common/Blog/BaseBlog/BlogBaseCategory';
+import { BlogEntries } from 'common/Blog/BaseBlog/BlogEntries';
 import { NewsLetter } from 'common/NewsLetter';
 import { BlogPageBanner } from 'common/Blog/BlogPageBanner';
 import { useFetching } from 'hooks/useFetching';
@@ -154,7 +154,7 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
             {!category && !slug && <BaseBlog />}
 
-            {!slug && <BlogBaseCategory category={String(category)} />}
+            {!slug && category && <BlogEntries category={String(category)}  />}
 
             {slug && <BlogStory story={blogSingleStories?.[String(slug || "")]} />}
 
