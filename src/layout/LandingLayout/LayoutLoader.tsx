@@ -53,9 +53,15 @@ export const LayoutLoader: React.FC<Props> = ({ removeLoader }) => {
 
                 document.fonts.add(loadedFace);
 
-                setState((prevState) => ({ ...prevState, font: true }));
+                // setState((prevState) => ({ ...prevState, font: true }));
 
             });
+
+            f.loaded.then(()=> {
+
+                setState((prevState) => ({ ...prevState, font: true }));
+
+            })
 
         }
 
