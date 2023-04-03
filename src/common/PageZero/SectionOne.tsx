@@ -26,7 +26,7 @@ export const SectionOne: React.FC<Props> = ({
 
         <ComponentHolder
 
-            className={classnames('page-zero no-border', className)}
+            className={classnames('fadeIn page-zero no-border', className)}
 
             bodyClass='page-zero-content'>
 

@@ -51,6 +51,7 @@ const Home: React.FC<Props> = ({ isMobile, deviceWidth }) => {
             showFooter={true}
             showHeader={false}
             footerId={"page-zero-hidden-section-footer"}
+            bodyClass="strickFadeIn"
         >
 
             <SectionOneRevamp

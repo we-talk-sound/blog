@@ -47,7 +47,15 @@ export const LayoutLoader: React.FC<Props> = ({ removeLoader }) => {
 
         if (document) {
 
-            document.fonts.onloadingdone = () =>  setState((prevState)=> ({ ...prevState , font : true }));
+            var f = new FontFace("Druk-wide", "url(fonts/Druk-wide/Druk-Wide-Bold.ttf)", {});
+
+            f.load().then(function (loadedFace) {
+
+                document.fonts.add(loadedFace);
+
+                setState((prevState) => ({ ...prevState, font: true }));
+
+            });
 
         }
 
