@@ -53,11 +53,9 @@ export const LayoutLoader: React.FC<Props> = ({ removeLoader }) => {
 
                 document.fonts.add(loadedFace);
 
-                // setState((prevState) => ({ ...prevState, font: true }));
-
             });
 
-            f.loaded.then(()=> {
+            f.loaded.then(() => {
 
                 setState((prevState) => ({ ...prevState, font: true }));
 
@@ -95,7 +93,7 @@ export const LayoutLoader: React.FC<Props> = ({ removeLoader }) => {
 
         <>
 
-            {(!state.completion || !state.font || !state.proceed) &&
+            {([!state.completion, !state.font, !state.proceed].includes(false)) &&
 
                 <div className='landingLayout-loader'>
 
