@@ -225,6 +225,7 @@
     &-blog-banner-blog-stories {
 
         width: 100%;
+        max-width: 480px;
 
     }
 
@@ -276,105 +277,6 @@
 
             margin: auto;
             max-width: 1500px;
-
-        }
-
-        .testimonial-entry {
-
-            @include media-query(mobile) {
-
-                flex-direction: column;
-                flex-wrap: wrap;
-
-            }
-
-            display: flex;
-
-            &-img {
-
-                @include media-query(mobile) {
-
-                    width: 100%;
-
-                }
-
-                margin-right: 128px;
-                max-width: 600px;
-
-                img {
-
-                    width: 100%;
-
-                }
-
-            }
-
-            &-texts {
-
-                @include media-query(mobile) {
-                    width: 100%;
-
-                }
-
-                margin-top: 50px;
-                max-width: 600px;
-                font-family: $main-font;
-                color: color(white);
-
-                h2 {
-
-                    @include media-query(mobile) {
-
-                        @include font-size-override(large);
-
-                    }
-
-                    @include font-size(p-large);
-                    text-align: center;
-                    line-height: 1.7;
-                    font-family: $main-font;
-
-                }
-
-                small {
-
-                    display: block;
-                    margin: auto;
-                    margin-top: 40px;
-                    text-align: center;
-                    color: transparentize(color(white), 0.4);
-
-                }
-
-            }
-
-            .page-zero-switcher-holder {
-
-                position: relative;
-
-                .page-zero-progression {
-
-                    @include media-query(mobile) {
-
-                        top: 0;
-                        right: 0;
-                        left: 0;
-                        margin-top: 0;
-                        margin-left: 0;
-                        width: 100% !important;
-
-                    }
-
-                    position: absolute;
-                    align-items: center;
-                    justify-content: center;
-                    margin-top: 15px;
-                    width: 100%;
-                    height: 100%;
-
-                }
-
-            }
 
         }
 

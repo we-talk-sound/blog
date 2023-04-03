@@ -66,7 +66,7 @@ export const BlogBannerArticles: React.FC<Props> = ({
 
                             key={item.title}
 
-                            isActive={ blogData.length > 0 && focus === index}
+                            isActive={blogData.length > 0 && focus === index}
 
                         />
 
@@ -83,13 +83,7 @@ export const BlogBannerArticles: React.FC<Props> = ({
 
             {(slug ? image !== undefined : true) &&
 
-                <img
-
-                    src={image || ( blogData?.[focus]?.image )}
-
-                    alt={`blog-image-item`}
-
-                />
+                <div className='blog-banner-articles-image' style={{ backgroundImage: `url(${image || (blogData?.[focus]?.image)})` }}/>
 
             }
 

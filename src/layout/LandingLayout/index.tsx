@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Header } from './header';
 import { HtmlHead } from 'components';
 import { classnames } from 'utils';
 import LandingLayoutFooter from './Footer';
+import { useSelector } from 'react-redux';
+import { storeInterface } from 'types';
+import { LayoutLoader } from './LayoutLoader';
 
 export const LandingLayout: React.FC<Props> = ({
     headTitle,
@@ -18,21 +21,77 @@ export const LandingLayout: React.FC<Props> = ({
     withFrame,
     ...props
 }) => {
+
+    const [showLoader, setShowLoader] = useState({
+
+        display: false,
+
+        key: "landing-layout-body"
+
+    });
+
+    const { route }: storeInterface = useSelector((store: storeInterface) => store);
+
+    useEffect(() => {
+
+        const trackList = route?.visitationTrack?.length || 0;
+
+        if (trackList === 0) {
+
+            setShowLoader((prevState) => ({
+
+                ...prevState,
+
+                display: true,
+
+            }));
+
+        }
+
+        // eslint-disable-next-line
+    }, []);
+
     return (
         <>
             <HtmlHead
                 title={headTitle}
             />
+
             <div className='body-background' />
-            <div className={`landingLayout ${className}`}>
+
+            {showLoader.display &&
+
+                <LayoutLoader
+
+                    removeLoader={() => setShowLoader({
+
+                        display: false,
+
+                        key: "landing-layout-body-rerender"
+
+                    })}
+
+                />
+
+            }
+
+            <div
+
+                className={classnames('landingLayout', className)}
+
+                key={showLoader.key}
+
+            >
 
                 {
                     showHeader &&
+
                     <Header
                         isMobile={isMobile}
                         withFrame={withFrame}
                         deviceWidth={deviceWidth}
                     />
+                    
                 }
 
                 <div

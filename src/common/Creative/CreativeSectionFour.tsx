@@ -6,17 +6,15 @@ export const CreativeSectionFour: React.FC = ({ }) => {
 
     const partners = [
 
+        { image: "/assets/partners/bolt.jpg", alt: "Bolt" },
+
+        { image: "/assets/partners/def-jam.jpg", alt: "Def Jam" },
+
         { image: "/assets/partners/empire.jpg", alt: "Empire" },
 
         { image: "/assets/partners/boomplay.png", alt: "Boomplay" },
 
-        { image: "/assets/partners/def-jam.jpg", alt: "Def Jam" },
-
-        { image: "/assets/partners/plug.jpg", alt: "The Plug" },
-
         { image: "/assets/partners/onerpm.png", alt: "One RPM" },
-
-        { image: "/assets/partners/bolt.jpg", alt: "Bolt" },
 
     ];
 

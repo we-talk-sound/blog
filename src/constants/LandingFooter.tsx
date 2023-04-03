@@ -1,4 +1,4 @@
-import Wetalksound from 'assets/logo/wts_white.png';
+import Wetalksound from 'assets/logo/wts_white.svg';
 
 interface FooterTypes {
     logo?: string,

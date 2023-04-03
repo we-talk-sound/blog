@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import WeTalkSound from 'assets/logo/wts_white.png';
+import WeTalkSound from 'assets/logo/wts_white.svg';
 
 export const MobileHeaderToggler: React.FC<Props> = ({ setExpansion, isExpanded }): JSX.Element => {
 

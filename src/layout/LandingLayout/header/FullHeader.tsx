@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { rightLinks } from 'constants/index';
-import WeTalkSound from 'assets/logo/wts_white.png';
+import WeTalkSound from 'assets/logo/wts_white.svg';
 import { classnames } from 'utils';
 
 

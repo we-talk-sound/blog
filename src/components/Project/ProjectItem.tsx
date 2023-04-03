@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from 'components';
 
 export const ProjectItem: React.FC<Props> = ({ onClick, image, text, bigText }) => {
 
@@ -17,16 +16,6 @@ export const ProjectItem: React.FC<Props> = ({ onClick, image, text, bigText }) 
                 <h4> {text} </h4>
 
                 <p> {bigText || paragraph} </p>
-
-                <Button
-
-                    label='Read More'
-
-                    className='no-bg'
-
-                    onClick={() => onClick ? onClick() : null}
-
-                />
 
             </div>
 

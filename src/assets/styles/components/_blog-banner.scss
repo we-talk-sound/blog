@@ -36,7 +36,7 @@
 
         }
 
-        max-width: 1500px;
+        // max-width: 1500px;
 
         &-header {
 
@@ -86,7 +86,7 @@
         display: flex;
         justify-content: space-between;
 
-        img {
+        .blog-banner-articles-image {
 
             @include media-query(mobile) {
 
@@ -98,9 +98,8 @@
             }
 
             margin-left: 71px;
-            max-width: calc(100% - 400px);
-            max-height: 500px;
-            object-fit: cover;
+            width: 100%;
+            background-size: cover;
 
         }
 
