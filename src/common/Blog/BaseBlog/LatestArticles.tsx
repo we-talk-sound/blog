@@ -29,8 +29,8 @@ export const LatestArticles = () => {
                 />
 
 
-                {/* @ts-expect-error */}
-                < marquee scrollAmount={25}  >
+                {/* eslint-disable-next-line */}{/* @ts-expect-error */}
+                <marquee scrollAmount={25}>
 
                     <div className="page-blog-latest-articles-flex">
 

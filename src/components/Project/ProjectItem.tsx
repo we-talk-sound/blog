@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const ProjectItem: React.FC<Props> = ({ onClick, image, text, bigText }) => {
+export const ProjectItem: React.FC<Props> = ({ image, text, bigText }) => {
 
     const paragraph = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                         Eget sed diam purus sagittis mi. 
