@@ -93,7 +93,7 @@ export const LayoutLoader: React.FC<Props> = ({ removeLoader }) => {
 
         <>
 
-            {([!state.completion, !state.font, !state.proceed].includes(false)) &&
+            {([state.completion, state.font, state.proceed].includes(false)) &&
 
                 <div className='landingLayout-loader'>
 
