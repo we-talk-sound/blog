@@ -49,9 +49,9 @@ export const LayoutLoader: React.FC<Props> = ({ removeLoader }) => {
 
             var isSafari = /^((?!chrome|android|crios|fxios).)*safari/i.test(navigator.userAgent);
 
-            var f = new FontFace("Druk-wide", "url(fonts/Druk-wide/Druk-Wide-Bold.ttf)", {});
-
             if (!isSafari) {
+
+                var f = new FontFace("Druk-wide", "url(fonts/Druk-wide/Druk-Wide-Bold.ttf)", {});
 
                 f.load().then(function (loadedFace) {
 
@@ -62,12 +62,12 @@ export const LayoutLoader: React.FC<Props> = ({ removeLoader }) => {
                 f.loaded.then(() => {
 
                     setState((prevState) => ({ ...prevState, font: true }));
-    
+
                 })
 
             } else {
 
-               setTimeout(()=> setState((prevState) => ({ ...prevState, font: true })), 2000);
+                setTimeout(() => setState((prevState) => ({ ...prevState, font: true })), 2000);
 
             }
 
