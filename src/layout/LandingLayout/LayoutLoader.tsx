@@ -59,13 +59,17 @@ export const LayoutLoader: React.FC<Props> = ({ removeLoader }) => {
 
                 });
 
+                f.loaded.then(() => {
+
+                    setState((prevState) => ({ ...prevState, font: true }));
+    
+                })
+
+            } else {
+
+               setTimeout(()=> setState((prevState) => ({ ...prevState, font: true })), 2000);
+
             }
-
-            f.loaded.then(() => {
-
-                setState((prevState) => ({ ...prevState, font: true }));
-
-            })
 
         }
 
