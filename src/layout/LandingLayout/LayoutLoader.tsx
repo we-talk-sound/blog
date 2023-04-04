@@ -45,7 +45,7 @@ export const LayoutLoader: React.FC<Props> = ({ removeLoader }) => {
 
     useEffect(() => {
 
-        if (document) {
+        if (document && navigator.userAgent) {
 
             var isSafari = /^((?!chrome|android|crios|fxios).)*safari/i.test(navigator.userAgent);
 
@@ -76,7 +76,7 @@ export const LayoutLoader: React.FC<Props> = ({ removeLoader }) => {
         }
 
         // eslint-disable-next-line
-    }, [window === undefined]);
+    }, [window === undefined, navigator.userAgent]);
 
     useEffect(() => {
 
