@@ -21,8 +21,6 @@ export const LayoutLoader: React.FC<Props> = ({ removeLoader }) => {
 
     });
 
-    console.log(state);
-
     const updateValue = () => {
 
         setState((prevState) => {
@@ -49,13 +47,19 @@ export const LayoutLoader: React.FC<Props> = ({ removeLoader }) => {
 
         if (document) {
 
+            var isSafari = /^((?!chrome|android|crios|fxios).)*safari/i.test(navigator.userAgent);
+
             var f = new FontFace("Druk-wide", "url(fonts/Druk-wide/Druk-Wide-Bold.ttf)", {});
 
-            f.load().then(function (loadedFace) {
+            if (!isSafari) {
 
-                document.fonts.add(loadedFace);
+                f.load().then(function (loadedFace) {
 
-            });
+                    document.fonts.add(loadedFace);
+
+                });
+
+            }
 
             f.loaded.then(() => {
 

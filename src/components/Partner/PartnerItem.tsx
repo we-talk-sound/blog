@@ -44,6 +44,6 @@ interface Props {
 
     text: string,
 
-    hidden: boolean
+    hidden?: boolean
 
 }
