@@ -21,6 +21,8 @@ export const LayoutLoader: React.FC<Props> = ({ removeLoader }) => {
 
     });
 
+    console.log(state);
+
     const updateValue = () => {
 
         setState((prevState) => {

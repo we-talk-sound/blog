@@ -1,8 +1,10 @@
-import React from 'react';
-import { ComponentHolder } from 'components';
+import React, { useState } from 'react';
+import { Button, ComponentHolder } from 'components';
 import { PartnerItem } from 'components/Partner/PartnerItem';
 
 export const CreativeSectionFour: React.FC = ({ }) => {
+
+    const [showAll, setShowAll] = useState(false);
 
     const partners = [
 
@@ -15,6 +17,10 @@ export const CreativeSectionFour: React.FC = ({ }) => {
         { image: "/assets/partners/boomplay.png", alt: "Boomplay" },
 
         { image: "/assets/partners/onerpm.png", alt: "One RPM" },
+
+        { image: "/assets/partners/49th.jpeg", alt: "49th street" },
+
+        { image: "/assets/partners/the_aristokrat_group.png", alt: "Aristokrat Group" },
 
     ];
 
@@ -42,10 +48,22 @@ export const CreativeSectionFour: React.FC = ({ }) => {
 
                             text={item.alt}
 
+                            hidden={showAll ? false : index > 5}
+
                         />
                     )}
 
                 </div>
+
+                <Button
+
+                    className={"no-bg"}
+
+                    label={showAll ? "Show Less" : "Show More"}
+
+                    onClick={() => setShowAll((prevState) => !prevState)}
+
+                />
 
             </div>
 

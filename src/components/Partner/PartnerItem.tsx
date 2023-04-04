@@ -1,10 +1,13 @@
 import React from 'react';
+import { classnames } from 'utils';
 
 export const PartnerItem: React.FC<Props> = ({
 
     image,
 
-    text
+    text,
+
+    hidden
 
 }) => {
 
@@ -13,7 +16,7 @@ export const PartnerItem: React.FC<Props> = ({
 
         <div
 
-            className='partner-item-box'>
+            className={classnames('partner-item-box', hidden && "partner-item-box-hidden")}>
 
             <div className='partner-item-box-image'>
 
@@ -39,6 +42,8 @@ interface Props {
 
     image: string,
 
-    text: string
+    text: string,
+
+    hidden: boolean
 
 }

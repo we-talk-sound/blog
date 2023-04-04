@@ -50,7 +50,7 @@ export const BlogBannerArticles: React.FC<Props> = ({
 
             headerClass={classnames('color-white blog-banner-body-header')}
 
-            bodyClass={classnames('blog-banner-blog', bannerMode && "page-blog-banner-flex")}
+            bodyClass={classnames('blog-banner-blog', bannerMode && "page-blog-banner-flex", slug && "page-blog-banner-active-story")}
 
         >
 
@@ -70,10 +70,7 @@ export const BlogBannerArticles: React.FC<Props> = ({
 
                         />
 
-                    )
-
-
-                    }
+                    )}
 
                     {(dataSourceLoader && blogData?.length < 1) && <StoriesItemPlaceHolder />}
 
@@ -83,7 +80,13 @@ export const BlogBannerArticles: React.FC<Props> = ({
 
             {(slug ? image !== undefined : true) &&
 
-                <div className='blog-banner-articles-image' style={{ backgroundImage: `url(${image || (blogData?.[focus]?.image)})` }}/>
+                <div
+
+                    className='blog-banner-articles-image'
+
+                    style={{ backgroundImage: `url(${image || (blogData?.[focus]?.image)})` }}
+
+                />
 
             }
 

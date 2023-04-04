@@ -10,7 +10,7 @@ export const transformStory = (item : blogItemType , withLink? : boolean ) => ({
     
     link: withLink === false ? undefined : `/blog?slug=${item.slug}`,
     
-    author: "___",
+    author: "WETALKSOUND",
     
     date: DD_MM_YY_HH_mm_a(item.date),
 
