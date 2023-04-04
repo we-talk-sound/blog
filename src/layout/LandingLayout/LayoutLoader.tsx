@@ -47,31 +47,31 @@ export const LayoutLoader: React.FC<Props> = ({ removeLoader }) => {
 
         if (document && navigator.userAgent) {
 
-            // var isSafari = /^((?!chrome|android|crios|fxios).)*safari/i.test(navigator.userAgent);
+            var isSafari = /^((?!chrome|android|crios|fxios).)*safari/i.test(navigator.userAgent);
 
-            // if (!isSafari) {
+            if (!isSafari) {
 
-            //     console.log("meow --- meow --- meow");
+                console.log("meow --- meow --- meow");
 
-            //     var f = new FontFace("Druk-wide", "url(fonts/Druk-wide/Druk-Wide-Bold.ttf)", {});
+                var f = new FontFace("Druk-wide", "url(fonts/Druk-wide/Druk-Wide-Bold.ttf)", {});
 
-            //     f.load().then(function (loadedFace) {
+                f.load().then(function (loadedFace) {
 
-            //         document.fonts.add(loadedFace);
+                    document.fonts.add(loadedFace);
 
-            //     });
+                });
 
-            //     f.loaded.then(() => {
+                f.loaded.then(() => {
 
-            //         setState((prevState) => ({ ...prevState, font: true }));
+                    setState((prevState) => ({ ...prevState, font: true }));
 
-            //     })
+                })
 
-            // } else {
+            } else {
 
-                setTimeout(() => setState((prevState) => ({ ...prevState, font: true })), 2000);
+                // setTimeout(() => setState((prevState) => ({ ...prevState, font: true })), 2000);
 
-            // }
+            }
 
         }
 
