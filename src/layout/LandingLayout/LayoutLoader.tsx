@@ -51,6 +51,8 @@ export const LayoutLoader: React.FC<Props> = ({ removeLoader }) => {
 
             if (!isSafari) {
 
+                console.log("meow --- meow --- meow");
+
                 var f = new FontFace("Druk-wide", "url(fonts/Druk-wide/Druk-Wide-Bold.ttf)", {});
 
                 f.load().then(function (loadedFace) {
