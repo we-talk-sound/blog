@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import WtsSoundGlow from 'assets/logo/wts_glow.svg';
 
 export const LayoutLoader: React.FC<Props> = ({ removeLoader }) => {
 
@@ -115,7 +114,7 @@ export const LayoutLoader: React.FC<Props> = ({ removeLoader }) => {
 
                             <img
 
-                                src={WtsSoundGlow}
+                                src={"svg/wts_glow.svg"}
 
                                 alt={"WETALKSOUND"}
 
