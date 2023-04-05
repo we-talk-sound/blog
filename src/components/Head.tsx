@@ -45,7 +45,7 @@ export const HtmlHead:React.FC<{ title: any }> = ({ title }) => {
 
       <script>
         {process.env.NEXT_PUBLIC_NODE_ENV !== 'development'
-          ? 'window.__REACT_DEVTOOLS_GLOBAL_HOOK__.inject = function(){}'
+          ? 'window?.__REACT_DEVTOOLS_GLOBAL_HOOK__?.inject = function(){}'
           : ''}
       </script>
 
