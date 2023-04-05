@@ -4,7 +4,7 @@
   font-weight: 700;
   font-style: normal;
   src: url('./Epilogue-700.ttf') format('truetype');
-  font-display: fallback;
+  font-display: swap;
 }
 
 @font-face {
@@ -13,7 +13,7 @@
   font-weight: 500;
   font-style: normal;
   src: url('./Epilogue-500.ttf') format('truetype');
-  font-display: fallback;
+  font-display: swap;
 }
 
 @font-face {
@@ -22,7 +22,7 @@
   font-weight: 400;
   font-style: normal;
   src: url('./Epilogue-400.ttf') format('truetype');
-  font-display: fallback;
+  font-display: swap;
 }
 
 @font-face {
@@ -31,5 +31,5 @@
   font-weight: 300;
   font-style: normal;
   src: url('./Epilogue-300.ttf') format('truetype');
-  font-display: fallback;
+  font-display: swap;
 }
