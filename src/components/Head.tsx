@@ -44,7 +44,7 @@ export const HtmlHead:React.FC<{ title: any }> = ({ title }) => {
       <meta property="twitter:image" content={logo} />
 
       <script>
-        {process.env.NEXT_PUBLIC_NODE_ENV !== 'development'
+        {process.env.NEXT_PUBLIC_NODE_ENV !== 'development' && (window as any)?.__REACT_DEVTOOLS_GLOBAL_HOOK__
           ? 'window?.__REACT_DEVTOOLS_GLOBAL_HOOK__?.inject = function(){}'
           : ''}
       </script>
