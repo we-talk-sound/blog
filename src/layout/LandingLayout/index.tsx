@@ -4,8 +4,9 @@ import { HtmlHead } from 'components';
 import { classnames } from 'utils';
 import LandingLayoutFooter from './Footer';
 import { useSelector } from 'react-redux';
-import { storeInterface } from 'types';
+import { routeType, storeInterface } from 'types';
 import { LayoutLoader } from './LayoutLoader';
+import { store } from 'redux/store';
 
 export const LandingLayout: React.FC<Props> = ({
     headTitle,
@@ -24,32 +25,32 @@ export const LandingLayout: React.FC<Props> = ({
 
     const [showLoader, setShowLoader] = useState({
 
-        display: false,
+        display: (store.getState()?.route as routeType)?.visitationTrack?.length === 0,
 
         key: "landing-layout-body"
 
     });
 
-    const { route }: storeInterface = useSelector((store: storeInterface) => store);
+    // const { route }: storeInterface = useSelector((store: storeInterface) => store);
 
-    useEffect(() => {
+    // // useEffect(() => {
 
-        const trackList = route?.visitationTrack?.length || 0;
+    // //     const trackList = route?.visitationTrack?.length || 0;
 
-        if (trackList === 0) {
+    // //     if (trackList === 0) {
 
-            setShowLoader((prevState) => ({
+    // //         setShowLoader((prevState) => ({
 
-                ...prevState,
+    // //             ...prevState,
 
-                display: true,
+    // //             display: true,
 
-            }));
+    // //         }));
 
-        }
+    // //     }
 
-        // eslint-disable-next-line
-    }, []);
+    // //     // eslint-disable-next-line
+    // // }, []);
 
     return (
         <>
