@@ -4,5 +4,5 @@
   font-weight: 500;
   font-style: normal;
   src: url('./Druk-Wide-Bold.ttf') format('truetype');
-  font-display: swap;
+  font-display: fallback;
 }
