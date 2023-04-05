@@ -272,12 +272,7 @@
       animation-timing-function: linear;
       animation-delay: 0ms;
       animation-iteration-count: infinite;
-
-    }
-
-    &-image {
-
-      position: absolute;
+      transform: translate(0);
 
     }
 
