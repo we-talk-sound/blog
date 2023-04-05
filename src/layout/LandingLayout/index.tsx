@@ -4,7 +4,7 @@ import { HtmlHead } from 'components';
 import { classnames } from 'utils';
 import LandingLayoutFooter from './Footer';
 import { routeType } from 'types';
-import { LayoutLoader } from './LayoutLoader';
+// import { LayoutLoader } from './LayoutLoader';
 import { store } from 'redux/store';
 
 export const LandingLayout: React.FC<Props> = ({
@@ -22,34 +22,13 @@ export const LandingLayout: React.FC<Props> = ({
     ...props
 }) => {
 
-    const [showLoader, setShowLoader] = useState({
+    const [showLoader, ] = useState({
 
         display: (store.getState()?.route as routeType)?.visitationTrack?.length === 0,
 
         key: "landing-layout-body"
 
     });
-
-    // const { route }: storeInterface = useSelector((store: storeInterface) => store);
-
-    // // useEffect(() => {
-
-    // //     const trackList = route?.visitationTrack?.length || 0;
-
-    // //     if (trackList === 0) {
-
-    // //         setShowLoader((prevState) => ({
-
-    // //             ...prevState,
-
-    // //             display: true,
-
-    // //         }));
-
-    // //     }
-
-    // //     // eslint-disable-next-line
-    // // }, []);
 
     return (
         <>
@@ -59,7 +38,7 @@ export const LandingLayout: React.FC<Props> = ({
 
             <div className='body-background' />
 
-            {showLoader.display &&
+            {/* {showLoader.display &&
 
                 <LayoutLoader
 
@@ -73,7 +52,7 @@ export const LandingLayout: React.FC<Props> = ({
 
                 />
 
-            }
+            } */}
 
             <div
 
