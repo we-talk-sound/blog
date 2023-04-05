@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Header } from './header';
 import { HtmlHead } from 'components';
 import { classnames } from 'utils';
 import LandingLayoutFooter from './Footer';
-import { useSelector } from 'react-redux';
-import { routeType, storeInterface } from 'types';
+import { routeType } from 'types';
 import { LayoutLoader } from './LayoutLoader';
 import { store } from 'redux/store';
 
