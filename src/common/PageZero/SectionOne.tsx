@@ -18,7 +18,9 @@ export const SectionOne: React.FC<Props> = ({
 
     className,
 
-    controls
+    controls,
+
+    activePath
 
 }) => {
 
@@ -30,7 +32,7 @@ export const SectionOne: React.FC<Props> = ({
 
             bodyClass='page-zero-content'>
 
-            <Header withFrame={true} isMobile={isMobile} deviceWidth={deviceWidth} />
+            <Header withFrame={true} isMobile={isMobile} deviceWidth={deviceWidth} active={activePath} />
 
             <div className='page-zero-caption'>
 
@@ -99,6 +101,7 @@ interface Props {
     text?: string,
     className?: string,
     dangerousTitle?: any,
+    activePath?: string,
     controls?: {
 
         navSwitcher: boolean,

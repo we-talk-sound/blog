@@ -1,13 +1,17 @@
 import React from 'react';
 import { classnames } from 'utils';
 
-export const StudioContentItem: React.FC<Props> = ({ image, title, className }) => {
+export const StudioContentItem: React.FC<Props> = ({ image, title, className, onClick }) => {
 
     return (
 
         <div
 
-            className={classnames('studio-content-item', className)}>
+            className={classnames('studio-content-item', className)}
+
+            onClick={() => onClick && onClick()}
+
+        >
 
             <div className='studio-content-item-image'>
 
@@ -32,4 +36,5 @@ interface Props {
     title: string,
     image: string,
     className?: string,
+    onClick?: () => void
 }

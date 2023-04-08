@@ -42,7 +42,15 @@ export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource, dat
 
             }>
 
-                {(story && slug) && <StoryItem story={{ ...story, image: undefined }} mode={"story"} />}
+                {(story && slug) &&
+
+                    <StoryItem
+
+                        story={{ ...story, image: undefined }}
+
+                        mode={"story"} />
+
+                }
 
                 {(!story && slug) &&
 
@@ -52,8 +60,8 @@ export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource, dat
 
                         holderClass={"page-blog-story-loader"}
 
-                        extraTitle={true} 
-                    
+                        extraTitle={true}
+
                     />
 
                 }
@@ -64,7 +72,7 @@ export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource, dat
 
                     bannerMode={bannerMode}
 
-                    withoutArticles={ slug !== undefined ? true : story !== undefined}
+                    withoutArticles={slug !== undefined ? true : story !== undefined}
 
                     dataSource={dataSource || []}
 

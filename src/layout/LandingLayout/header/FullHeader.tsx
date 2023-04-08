@@ -5,7 +5,7 @@ import WeTalkSound from 'assets/logo/wts_white.svg';
 import { classnames } from 'utils';
 
 
-export const FullHeader: React.FC<Props> = ({ withFrame }): JSX.Element => {
+export const FullHeader: React.FC<Props> = ({ withFrame , active }): JSX.Element => {
 
     return (
 
@@ -30,7 +30,7 @@ export const FullHeader: React.FC<Props> = ({ withFrame }): JSX.Element => {
 
                         {rightLinks.map((item, index) =>
                             <Link
-                                className={item.class}
+                                className={classnames(item.class , active === item.link && "active")}
                                 key={`landingLayout-header-right-item-${index}`}
                                 href={item.link || ""}>
 
@@ -52,5 +52,6 @@ export const FullHeader: React.FC<Props> = ({ withFrame }): JSX.Element => {
 }
 
 interface Props {
-    withFrame?: boolean
+    withFrame?: boolean,
+    active?: string
 }

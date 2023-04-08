@@ -114,6 +114,12 @@
         margin-right: 0;
       }
 
+      &.active {
+
+        color: color(primary);
+
+      }
+
     }
 
   }
@@ -163,19 +169,14 @@
       padding: 25px 25px 17px;
 
       i {
-        font-size: 17px;
+        font-size: 21px;
         color: color(white);
       }
 
       img {
 
-        @include media-query(mobile) {
-
-          max-width: 109px;
-
-        }
-
         width: 150px;
+
       }
 
     }

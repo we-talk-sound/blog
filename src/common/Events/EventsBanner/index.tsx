@@ -23,7 +23,7 @@ export const EventsBanner: React.FC<Props> = ({
 
             bodyClass='page-zero-content'>
 
-            <Header withFrame={true} isMobile={isMobile} deviceWidth={deviceWidth} />
+            <Header withFrame={true} isMobile={isMobile} deviceWidth={deviceWidth} active="/events" />
 
             <div className='events-banner-body'>
 

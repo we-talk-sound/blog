@@ -154,7 +154,7 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
             {!category && !slug && <BaseBlog />}
 
-            {!slug && category && <BlogEntries category={String(category)}  />}
+            {!slug && category && <BlogEntries category={String(category)} />}
 
             {slug && <BlogStory story={blogSingleStories?.[String(slug || "")]} />}
 

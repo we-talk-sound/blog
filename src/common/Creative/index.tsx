@@ -12,7 +12,17 @@ export const CreativeSectionOne: React.FC<Props> = ({ isMobile, deviceWidth }) =
 
             bodyClass='page-agency-caption'>
 
-            <Header withFrame={true} isMobile={isMobile} deviceWidth={deviceWidth} />
+            <Header 
+            
+                withFrame={true} 
+                
+                isMobile={isMobile} 
+                
+                deviceWidth={deviceWidth} 
+
+                active={"/creative"}
+                
+            />
 
             <div className='page-agency-flex'>
 

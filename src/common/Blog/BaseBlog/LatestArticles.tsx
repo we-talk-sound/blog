@@ -5,7 +5,7 @@ import { storeInterface } from "types";
 import { useSelector } from "react-redux";
 import { StoriesItemPlaceHolder } from "common/Placeholders";
 
-export const LatestArticles = () => {
+export const LatestArticles: React.FC<{}> = ({}) => {
 
     const { blog: { dashboardBlogs } }: storeInterface = useSelector((store: storeInterface) => store);
 
@@ -53,7 +53,7 @@ export const LatestArticles = () => {
                             <div className="page-blog-latest-articles-content-loader">
 
                                 <StoriesItemPlaceHolder imageBox={true} length={120} />
-                               
+
                             </div>
 
                         }

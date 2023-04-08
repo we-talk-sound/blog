@@ -4,7 +4,7 @@ import { Playlists } from '../Playlists';
 import { NewsLetter } from 'common/NewsLetter';
 import { LatestReleases } from '../LatestReleases';
 
-export const BaseLabels: React.FC<Props> = ({ isMobile, deviceWidth }) => {
+export const BaseLabels: React.FC<Props> = ({ isMobile, deviceWidth , activePath }) => {
 
     return (
 
@@ -15,6 +15,8 @@ export const BaseLabels: React.FC<Props> = ({ isMobile, deviceWidth }) => {
                 isMobile={isMobile}
 
                 deviceWidth={deviceWidth}
+
+                activePath={activePath}
 
                 className={"page-labels-base-hero"}
 
@@ -55,5 +57,6 @@ export const BaseLabels: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
 interface Props {
     isMobile: boolean,
-    deviceWidth: number
+    deviceWidth: number,
+    activePath?: string
 }

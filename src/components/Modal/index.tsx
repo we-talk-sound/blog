@@ -3,12 +3,9 @@ import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 import { createPortal } from "react-dom";
 import { useEffect } from 'react';
 import { classnames, getModalHierarchy } from 'utils';
-import { queries } from 'utils/router';
 import router from 'next/router';
-import { useSelector } from 'react-redux';
-import { routeType, storeInterface } from 'types';
 
-const ModalDom: React.FC<Props> = ({ title, children, subtitle, noObviousExit, ...props }) => {
+const ModalDom: React.FC<Props> = ({ title, subtitle, noObviousExit, ...props }) => {
 
     const [animClass, setAnimClass] = useState({ modal: "", overlay: "fadeInside", holder: "slideUpInside" });
 
@@ -17,16 +14,10 @@ const ModalDom: React.FC<Props> = ({ title, children, subtitle, noObviousExit, .
 
     const ref: any = useRef();
 
-    const [urlDismissibleStatus, setUrlDismissibleStatus] = useState(false);
-
-    const { route }: { route: routeType } = useSelector((store: storeInterface) => store);
-
-    const urlPointers = route?.currentPath?.queries?.pointers;
-
     const showReboundEffect = () => {
         setAnimClass({ modal: "", overlay: "", holder: "" });
         setTimeout(() => setAnimClass({ modal: "rebound", overlay: "", holder: "" }), 100);
-    }
+    };
 
     const urlOperation = (actionMode?: boolean, popMode?: boolean) => {
 
@@ -85,10 +76,7 @@ const ModalDom: React.FC<Props> = ({ title, children, subtitle, noObviousExit, .
 
         const noRipple = force === "exitClick" && props.normalEscape;
 
-        const reboundCondition = (
-            (!noRipple && props.outsideEscape === false && props.normalEscape !== true) ||
-            (noRipple && (props.outsideEscape === false || urlDismissibleStatus === false))
-        );
+        const reboundCondition = !noRipple && props.outsideEscape === false && props.normalEscape !== true;
 
         if (reboundCondition) {
             showReboundEffect();
@@ -96,18 +84,6 @@ const ModalDom: React.FC<Props> = ({ title, children, subtitle, noObviousExit, .
         }
 
         if (modalHierarchy === 0 || getModalHierarchy(uniqueId).hierarchy === 0) {
-
-            const urlActionMode = ["login", "expiredToken"].includes(String(router.query?.action));
-
-            if (force) {
-
-                urlOperation(urlActionMode, false);
-
-            } else {
-
-                urlOperation(urlActionMode, true);
-
-            }
 
             toggleModal(true);
 
@@ -136,33 +112,7 @@ const ModalDom: React.FC<Props> = ({ title, children, subtitle, noObviousExit, .
         // eslint-disable-next-line
     }, [process.browser]);
 
-    useEffect(() => {
-
-        queries(router, uniqueId);
-
-        setTimeout(() => setUrlDismissibleStatus(true), 1000);
-
-        // eslint-disable-next-line
-    }, []);
-
-    useEffect(() => {
-
-        const currentPointers = (route.currentPath.queries?.pointers || "").split("-");
-
-        const previousPointers = (route.previousPath.queries?.pointers || "").split("-");
-
-        const exclusionList = currentPointers.filter((item: string) => previousPointers.includes(item));
-
-        if (!exclusionList.includes(uniqueId) && urlDismissibleStatus) {
-
-            applyToggle(true);
-
-        }
-
-        //eslint-disable-next-line 
-    }, [urlPointers]);
-
-    useOnClickOutside(ref, () => applyToggle(), uniqueId);
+    useOnClickOutside(ref, () => applyToggle());
 
     if (props.visibility) {
 
@@ -281,10 +231,10 @@ const ModalDom: React.FC<Props> = ({ title, children, subtitle, noObviousExit, .
                             {props.legendComponent && <div className={props.legendClass || ""}> {props.legendComponent} </div>}
 
                             {
-                                children &&
+                                props.children &&
 
                                 <div className="modal_body">
-                                    {children}
+                                    {props.children}
                                 </div>
                             }
 
@@ -319,6 +269,7 @@ interface Props {
     toggleOut?: () => void,
     visibility?: boolean,
     class?: string,
+    children?: React.ReactElement,
     overlayClass?: string,
     holderClass?: string,
     subtitle?: string,

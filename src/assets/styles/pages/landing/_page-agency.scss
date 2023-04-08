@@ -92,6 +92,13 @@
 
                 }
 
+                @include media-query(pc) {
+
+                    margin-top: 20%;
+
+                }
+
+                margin-top: 30%;
                 margin-right: 88px;
                 margin-left: auto;
                 max-width: 670px;
@@ -145,28 +152,18 @@
 
         }
 
+        .project-item-mobile-holder {
+
+            margin-bottom: 32px;
+
+        }
+
         .page-zero-section-four-projects {
 
-            justify-content: space-between;
-            margin-bottom: 80px;
+            margin-bottom: 20px;
             max-width: unset;
 
-
             .project-item {
-
-                @include media-query(pc-low-resolution) {
-
-                    max-width: 273px !important;
-
-                }
-
-                max-width: 300px !important;
-
-                &:hover {
-
-                    max-width: 600px !important;
-
-                }
 
                 &-overlay {
 

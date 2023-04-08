@@ -3,8 +3,11 @@
     @include media-query(mobile) {
 
         margin: 0;
-        width: 100% !important;
-        min-width: 100% !important;
+        margin-right: 20px;
+        width: 93vw !important;
+        min-width: 93vw !important;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
 
         img {
 
@@ -16,18 +19,57 @@
 
         }
 
-        &:not(:first-child) {
+    }
 
-            display: none;
+    position: relative;
+    display: flex;
+    margin: 10px;
+    width: 25%;
+    transition: 0.5s ease;
+
+    &-mobile {
+
+        display: flex;
+        margin-right: -27px;
+        margin-left: -27px;
+        padding-right: 26px;
+        padding-left: 26px;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+
+        &-holder {
+
+            position: relative;
+
+        }
+
+        &-indicator {
+            z-index: 1;
+            position: absolute;
+            top: 32px;
+            display: flex;
+
+        }
+
+        &-indicator-dot {
+
+            display: block;
+            margin-right: 12px;
+            border-radius: 100%;
+            width: 8px;
+            height: 8px;
+            background: transparentize(color(white), 0.5);
+            transition: 0.2s ease;
+
+        }
+
+        &-indicator-dot.active {
+
+            background: color(white);
 
         }
 
     }
-
-    position: relative;
-    margin: 10px;
-    width: 25%;
-    transition: 0.2s ease;
 
     &-overlay {
 
@@ -47,7 +89,6 @@
     &-overlay h4 {
 
         @include font-size(large);
-        max-width: 140px;
         text-align: center;
         font-family: $header-font;
         color: color(white);
@@ -68,7 +109,6 @@
 
         border-radius: 10px;
         width: 100%;
-        max-width: 300px;
         min-height: 501px;
         max-height: 501px;
         object-fit: cover;

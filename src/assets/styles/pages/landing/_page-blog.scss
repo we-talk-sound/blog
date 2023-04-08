@@ -291,9 +291,7 @@
 
         &-holder {
 
-            background: url(/assets/background/plain-background.png), #ffffff;
-            background-repeat: no-repeat;
-            background-size: cover;
+            background-color: white;
 
         }
 
@@ -394,7 +392,32 @@
 
     }
 
+    &-top-reads {
+
+        padding-top: 0;
+
+        &-header {
+
+            align-items: flex-start;
+    
+        }
+
+    }
+
     &-top-reads-flex {
+
+        @media only screen and (min-width: 2000px) {
+
+            align-items: center;
+
+            .story-item {
+
+                width: 80%;
+                max-width: 1500px;
+
+            }
+
+        }
 
         flex-direction: column;
 
@@ -409,9 +432,11 @@
             }
 
             display: flex;
+            flex-direction: row;
             align-items: center;
             margin-right: 0 !important;
             margin-bottom: 54px;
+            padding: 0;
             max-width: unset;
 
             button {
@@ -438,8 +463,8 @@
 
                 }
 
-                width: 40%;
-                max-width: 600px;
+                width: 100%;
+                max-width: unset;
 
             }
 
@@ -462,7 +487,7 @@
                 }
 
                 margin-right: 40px;
-                width: 60%;
+                width: 90%;
                 max-width: 700px;
                 height: 100%;
                 max-height: 424px;

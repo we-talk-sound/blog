@@ -62,6 +62,8 @@ export const BlogBannerArticles: React.FC<Props> = ({
 
                         <StoryItem
 
+                            mode="banner-feed"
+
                             story={item}
 
                             key={item.title}

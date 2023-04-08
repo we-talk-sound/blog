@@ -9,7 +9,11 @@ export const StoryItem: React.FC<Props> = ({ story, mode, viewButton, isActive }
 
     const dispatch = useDispatch();
 
-    const subCondition = mode !== "story" && mode;
+    const subCondition = mode !== "story" && mode !== "banner-feed" && mode;
+
+    const storyImageCondition = story?.image;
+
+    const bannerImageCondition = mode === "banner-feed";
 
     return (
 
@@ -41,7 +45,16 @@ export const StoryItem: React.FC<Props> = ({ story, mode, viewButton, isActive }
 
             <>
 
-                {mode && story?.image && <img src={story.image} alt={`story-image`} />}
+                {storyImageCondition && !bannerImageCondition &&
+
+                    <img
+
+                        src={story.image}
+
+                        alt={`story-image`}
+
+                    />
+                }
 
                 <span className="story-item-focuser" />
 
@@ -67,7 +80,20 @@ export const StoryItem: React.FC<Props> = ({ story, mode, viewButton, isActive }
 
                     {viewButton && <Button label="Read More" className="no-bg" />}
 
+
                 </div>
+
+                {storyImageCondition && bannerImageCondition &&
+
+                    <img
+
+                        src={story.image}
+
+                        alt={`story-image`}
+
+                    />
+
+                }
 
             </>
 
@@ -80,7 +106,7 @@ interface Props {
 
     isActive?: boolean,
 
-    mode?: "article" | "category" | "story",
+    mode?: "article" | "category" | "story" | "banner-feed",
 
     viewButton?: boolean,
 

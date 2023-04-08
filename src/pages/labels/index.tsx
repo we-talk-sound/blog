@@ -27,6 +27,8 @@ const Labels: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
                 deviceWidth={deviceWidth}
 
+                activePath={"/labels"}
+
             />}
 
             {slug &&

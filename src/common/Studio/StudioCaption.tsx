@@ -21,7 +21,15 @@ export const StudioCaption: React.FC<Props> = ({
 
             bodyClass='page-zero-content'>
 
-            <Header withFrame={true} isMobile={isMobile} deviceWidth={deviceWidth} />
+            <Header withFrame={true} isMobile={isMobile} deviceWidth={deviceWidth} active="/studio" />
+
+            <div className='studio-caption-video'>
+
+                <div className='studio-caption-video-top'/>
+
+                <iframe src="https://www.youtube.com/embed/F9yn3S_HZ4w?autoplay=1&mute=1&controls=0&loop=1"> </iframe>
+
+            </div>
 
         </ComponentHolder >
 

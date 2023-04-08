@@ -18,6 +18,7 @@ export const LandingLayout: React.FC<Props> = ({
     className = "",
     bodyClass,
     bodyAlignment,
+    activePath,
     withFrame,
     ...props
 }) => {
@@ -69,6 +70,7 @@ export const LandingLayout: React.FC<Props> = ({
                         isMobile={isMobile}
                         withFrame={withFrame}
                         deviceWidth={deviceWidth}
+                        active={activePath}
                     />
                     
                 }
@@ -109,7 +111,8 @@ interface Props {
     showHeader?: boolean,
     bodyAlignment?: boolean,
     withFrame?: boolean,
-    bodyClass?: string
-    footerId?: string
+    bodyClass?: string,
+    footerId?: string,
+    activePath?: string
 }
 

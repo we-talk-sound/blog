@@ -1,6 +1,6 @@
 .modal {
   @media only screen and (max-width: 1400px) {
-    max-width: 500px;
+    max-width: 1100px;
   }
 
   @media only screen and (min-width: 350px) {
@@ -13,16 +13,16 @@
 
   @include media-query(mobile) {
     margin: auto;
-    padding: 20px 0;
+    padding: 10px 0;
     max-width: 95%;
   }
 
   position: relative;
-  border-radius: 16px;
+  border-radius: 3px;
   padding: 0;
-
-  width: 490px;
-  background: white;
+  width: 1000px;
+  height: 600px;
+  background: color(dark);
 
   &.large {
     max-width: 1200px;
@@ -79,17 +79,19 @@
   &_body {
 
     @media only screen and (max-width: 1400px) {
-      padding: 20px 32px 32px;
+      padding: 8px;
     }
 
     @include media-query(mobile) {
-      padding: 20px 20px 30px;
+      padding: 8px;
     }
 
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    padding: 20px 40px 40px;
+    // border-radius: 100%;
+    padding: 8px;
+    height: 100%;
   }
 
   &-top-icon {
@@ -173,60 +175,11 @@
 
   }
 
-  &-holder.settings-modal-holder {
-    @include media-query(non-pc) {
-      padding: 0;
-    }
-    display: block;
-    justify-content: flex-end;
-
-    .modal_body {
-      width: 100%;
-      transition: 0.2s ease;
-    }
-
-    .modal {
-      @include media-query('tablet') {
-        width: 70%;
-      }
-      @include media-query('mobile') {
-        width: 100%;
-        max-width: 100%;
-      }
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      margin-left: auto;
-      border-radius: 0;
-      width: 40%;
-      max-width: 490px;
-      min-height: 100vh;
-
-      &-default-alignment {
-        justify-content: flex-start !important;
-
-        .modal-legend {
-          @include media-query(mobile) {
-            margin-top: 20px;
-          }
-          margin-top: 65px;
-        }
-      }
-    }
-
-    & .__parent {
-      @include media-query('mobile') {
-        justify-content: unset;
-        padding-top: 70px;
-      }
-      justify-content: center;
-    }
-  }
-
   &-centered > .modal_body {
     display: flex;
     justify-content: center;
     margin: auto;
     height: max-content;
   }
+
 }

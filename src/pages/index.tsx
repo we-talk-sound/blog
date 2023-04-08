@@ -67,7 +67,7 @@ const Home: React.FC<Props> = ({ isMobile, deviceWidth }) => {
             <SectionThree />
 
 
-            <SectionFour />
+            <SectionFour isMobile={isMobile} />
 
             <BlogBanner
 

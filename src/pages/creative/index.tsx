@@ -20,7 +20,7 @@ const Home: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
             <CreativeSectionOne isMobile={isMobile} deviceWidth={deviceWidth} />
 
-            <CreativeSectionThree withHeader={true} />
+            <CreativeSectionThree withHeader={true} isMobile={isMobile} />
 
             <CreativeSectionFour />
 
