@@ -17,7 +17,13 @@ export const MobileHeader = ({ }): JSX.Element => {
 
             <MobileHeaderToggler setExpansion={setIsExpanded} isExpanded={isExpanded} />
 
-            <div className={`landingLayout-header-mobile-exp ${isExpanded ? "expanded" : ""}`}>
+            <div 
+            
+                className={`landingLayout-header-mobile-exp ${isExpanded ? "expanded" : ""}`}
+                
+                style={{ backgroundImage: "url(assets/background/mobile-menu-bg.png)"}}
+                
+                >
 
                 <MobileHeaderToggler setExpansion={setIsExpanded} isExpanded={isExpanded} />
 
