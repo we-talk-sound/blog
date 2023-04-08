@@ -4,6 +4,7 @@
 
         position: relative;
         max-height: 1440px !important;
+        overflow: hidden;
         background-image: url(/assets/background/studio-hero.png);
 
         .landingLayout-header-frame {
@@ -22,6 +23,8 @@
 
             position: absolute;
             left: 0;
+            display: flex;
+            justify-content: center;
             width: 100%;
             height: 100%;
 
@@ -37,6 +40,12 @@
         }
 
         iframe {
+
+            @include media-query(mobile) {
+
+                min-width: 1200px;
+
+            }
 
             width: 100%;
             height: 100%;
