@@ -35,6 +35,7 @@ export const LandingLayout: React.FC<Props> = ({
         <>
             <HtmlHead
                 title={headTitle}
+                loadVideoScript={showLoader.key === "landing-layout-body-rerender"}
             />
 
             <div className='body-background' />

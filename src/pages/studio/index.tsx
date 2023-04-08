@@ -10,7 +10,7 @@ const Studio: React.FC<Props> = ({ isMobile, deviceWidth }) => {
     return (
 
         <LandingLayout
-            headTitle={"WETALKSOUND"}
+            headTitle={"WETALKSOUND | STUDIO"}
             isMobile={isMobile}
             deviceWidth={deviceWidth}
             showFooter={true}

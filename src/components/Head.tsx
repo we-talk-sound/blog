@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-export const HtmlHead: React.FC<{ title: any }> = ({ title }) => {
+export const HtmlHead: React.FC<{ title: any , loadVideoScript?: boolean }> = ({ title , loadVideoScript }) => {
   const description = '';
   const link = '';
   const logo = '';
@@ -52,7 +52,7 @@ export const HtmlHead: React.FC<{ title: any }> = ({ title }) => {
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: seoAttributes }} />
 
-      <script src="youtubeScript.js"> </script>
+        {title === "WETALKSOUND | STUDIO" && loadVideoScript && <script src="youtubeScript.js"> </script>}
 
 
         <link
