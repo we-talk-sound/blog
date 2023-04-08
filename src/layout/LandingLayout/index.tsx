@@ -23,11 +23,13 @@ export const LandingLayout: React.FC<Props> = ({
     ...props
 }) => {
 
+    const initialLoaderDisplay = (store.getState()?.route as routeType)?.visitationTrack?.length === 0;
+
     const [showLoader, setShowLoader] = useState({
 
-        display: (store.getState()?.route as routeType)?.visitationTrack?.length === 0,
+        display: initialLoaderDisplay,
 
-        key: "landing-layout-body"
+        key: initialLoaderDisplay ? "landing-layout-body" : "landing-layout-body-rerender"
 
     });
 
