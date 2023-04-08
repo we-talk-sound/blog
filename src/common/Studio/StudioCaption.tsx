@@ -27,7 +27,7 @@ export const StudioCaption: React.FC<Props> = ({
 
                 <div className='studio-caption-video-top'/>
 
-                <iframe src="https://www.youtube.com/embed/F9yn3S_HZ4w?autoplay=1&mute=1&controls=0&loop=1" id="player"> </iframe>
+                <div id="player" />
 
             </div>
 
