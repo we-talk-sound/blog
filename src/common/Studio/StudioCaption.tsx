@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { ComponentHolder } from 'components';
 import { Header } from 'layout/LandingLayout/header';
 import { classnames } from 'utils';
