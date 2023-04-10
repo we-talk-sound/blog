@@ -1,7 +1,8 @@
-import React from 'react';
-import { ComponentHolder } from 'components';
+import React, { useState } from 'react';
+import { Button, ComponentHolder } from 'components';
 import { Header } from 'layout/LandingLayout/header';
 import { classnames } from 'utils';
+import YouTube from 'react-youtube';
 
 export const StudioCaption: React.FC<Props> = ({
 
@@ -12,6 +13,8 @@ export const StudioCaption: React.FC<Props> = ({
     className
 
 }) => {
+
+    const [controls, setControls] = useState({ unMute: () => null, mute: () => null, isMuted: false, canInteract: false });
 
     return (
 
@@ -25,9 +28,49 @@ export const StudioCaption: React.FC<Props> = ({
 
             <div className='studio-caption-video'>
 
-                <div className='studio-caption-video-top'/>
+                {controls.canInteract === true &&
 
-                <div id="player" />
+                    <Button
+
+                        className="transparent"
+
+                        onClick={() => {
+
+                            setControls((prevState) => ({ ...prevState, isMuted: !controls?.isMuted }))
+
+                            controls?.isMuted ? controls.unMute() : controls.mute();
+
+                        }}
+
+                        label={controls?.isMuted ? "Unmute Video" : "Mute Video"}
+
+                    />
+
+                }
+
+                <div className='studio-caption-video-top' />
+
+                <YouTube
+
+                    className='studio-caption-video-div'
+
+                    videoId={"F9yn3S_HZ4w"}
+
+                    opts={{ playerVars : { autoplay: 1, controls: 0, loop: 1 }}}
+
+                    onReady={(e) => {
+
+                        e?.target?.mute();
+
+                        e?.target?.playVideo();
+
+                        e?.target?.hideVideoInfo();
+
+                        setControls({ unMute: () => e?.target?.unMute(), mute: () => e?.target?.mute(), isMuted: true, canInteract: true });
+
+                    }}
+
+                />
 
             </div>
 

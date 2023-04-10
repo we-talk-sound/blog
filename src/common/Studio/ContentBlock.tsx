@@ -18,7 +18,7 @@ export const ContentBlock: React.FC<Props> = ({ }) => {
 
             image: 'assets/content/content-1.png',
             title: 'WeTalkSound Dissects: Escapade EP with Novemba',
-            link: 'https://www.youtube.com/embed/ahnThzQwVBE?autoplay=1&mute=1&controls=0'
+            link: 'https://www.youtube.com/embed/ahnThzQwVBE?autoplay=1&mute=1'
 
         },
 
@@ -26,7 +26,7 @@ export const ContentBlock: React.FC<Props> = ({ }) => {
 
             image: 'assets/content/content-2.png',
             title: '14 Questions Joeboy',
-            link: 'https://www.youtube.com/embed/6sMgypOZ2nE?autoplay=1&mute=1&controls=0'
+            link: 'https://www.youtube.com/embed/6sMgypOZ2nE?autoplay=1&mute=1'
 
         },
 
@@ -34,7 +34,7 @@ export const ContentBlock: React.FC<Props> = ({ }) => {
 
             image: 'assets/content/content-3.png',
             title: 'Show Me Something. (Official Visualizer)',
-            link: 'https://www.youtube.com/embed/_eDvqWkEFbY?autoplay=1&mute=1&controls=0'
+            link: 'https://www.youtube.com/embed/_eDvqWkEFbY?autoplay=1&mute=1'
 
 
         },
@@ -43,7 +43,7 @@ export const ContentBlock: React.FC<Props> = ({ }) => {
 
             image: 'assets/content/content-4.png',
             title: 'Camp Nova 1.0 (Documentary)',
-            link: 'https://www.youtube.com/embed/V8Z1d9ddNIg?autoplay=1&mute=1&controls=0'
+            link: 'https://www.youtube.com/embed/V8Z1d9ddNIg?autoplay=1&mute=1'
 
         },
 

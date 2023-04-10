@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-export const HtmlHead: React.FC<{ title: any , loadVideoScript?: boolean }> = ({ title , loadVideoScript }) => {
+export const HtmlHead: React.FC<{ title: any }> = ({ title }) => {
   const description = '';
   const link = '';
   const logo = '';
@@ -28,7 +28,6 @@ export const HtmlHead: React.FC<{ title: any , loadVideoScript?: boolean }> = ({
         <title> {title ? title : ""} </title>
         <meta name="description" content={description} />
         <link rel="icon" href="/favicon.ico" />
-        <link href="/fonts/style.css" rel="stylesheet" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
 
@@ -44,26 +43,24 @@ export const HtmlHead: React.FC<{ title: any , loadVideoScript?: boolean }> = ({
         <meta property="twitter:description" content={description} />
         <meta property="twitter:image" content={logo} />
 
-        <script>
-          {process.env.NEXT_PUBLIC_NODE_ENV !== 'development' && (window as any)?.__REACT_DEVTOOLS_GLOBAL_HOOK__
-            ? 'window?.__REACT_DEVTOOLS_GLOBAL_HOOK__?.inject = function(){}'
-            : ''}
-        </script>
-
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: seoAttributes }} />
-
-        {title === "WETALKSOUND | STUDIO" && loadVideoScript && <script src="youtubeScript.js"> </script>}
-
-
-        <link
-          rel="stylesheet"
-          href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-          crossOrigin="anonymous"
-        />
       </Head>
 
+      <link href="/fonts/style.css" rel="stylesheet" />
 
+      <link
+        rel="stylesheet"
+        href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+        crossOrigin="anonymous"
+      />
+
+      <script>
+        {process.env.NEXT_PUBLIC_NODE_ENV !== 'development' && (window as any)?.__REACT_DEVTOOLS_GLOBAL_HOOK__
+          ? 'window?.__REACT_DEVTOOLS_GLOBAL_HOOK__?.inject = function(){}'
+          : ''}
+      </script>
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: seoAttributes }} />
 
     </>
   );
