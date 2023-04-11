@@ -2,6 +2,12 @@
 
     transition: 0.2s ease;
 
+    &:hover img {
+
+        transform: rotate(-1.5deg);
+
+    }
+
     img {
 
         width: 100%;
@@ -18,12 +24,6 @@
     }
 
     &.discography-item {
-
-        &:hover img {
-
-            transform: rotate(-1.5deg);
-
-        }
 
         h2 {
 

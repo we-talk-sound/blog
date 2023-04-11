@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, ComponentHolder } from 'components';
+import { ComponentHolder } from 'components';
 import { Header } from 'layout/LandingLayout/header';
 import { classnames } from 'utils';
 import YouTube from 'react-youtube';
