@@ -6,17 +6,17 @@ export const PartneredEvents: React.FC = ({ }) => {
 
     const partners = [
 
-        { image: "/assets/partners/abeg.svg", alt: "Palmwine Festival - 2019" },
+        { image: "/assets/partnered-events/pinewine.png", alt: "Palmwine Festival - 2019" },
 
-        { image: "/assets/partners/andela.svg", alt: "Z! Fest - 2022" },
+        { image: "/assets/partnered-events/z.png", alt: "Z! Fest - 2022" },
 
-        { image: "/assets/projects/teni.png", alt: "Island Block Party - DEC 2022" },
+        { image: "/assets/partnered-events/island.png", alt: "Island Block Party - DEC 2022" },
+        
+        { image: "/assets/partnered-events/joe-boy.png", alt: "Joeboy Live - 2021" },
 
-        { image: "/assets/projects/joe-boy.png", alt: "Joeboy Live - 2021" },
+        { image: "/assets/partnered-events/boyalone.png", alt: "Boy Alone (World tour) - 2023" },
 
-        { image: "/assets/projects/ria-sean.png", alt: "Boy Alone (World tour) - 2023" },
-
-        { image: "/assets/projects/vader.png", alt: "Hennesy VS Class viii - 2022" },
+        { image: "/assets/partnered-events/henny.png", alt: "Hennesy VS Class viii - 2022" },
 
     ];
 
