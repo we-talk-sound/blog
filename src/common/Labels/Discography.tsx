@@ -1,21 +1,15 @@
 import React from 'react';
 import { ComponentHolder, EventItem } from 'components';
-import DiscographyOne from "assets/png/landing/discography/discography-image-one.png";
-import DiscographyTwo from "assets/png/landing/discography/discography-image-two.png";
-import DiscographyThree from "assets/png/landing/discography/discography-image-three.png";
-import DiscographyFour from "assets/png/landing/discography/discography-image-four.png";
-import DiscographyFive from "assets/png/landing/discography/discography-image-five.png";
-import DiscographySix from "assets/png/landing/discography/discography-image-six.png";
 
 export const Discography: React.FC = ({}) => {
 
     const data = [
-        { image: DiscographyOne, title: "LOFN IV", subtitle: "WETALKSOUND" },
-        { image: DiscographyTwo, title: "IKOGOSI", subtitle: "WETALKSOUND" },
-        { image: DiscographyThree, title: "LAGOS IN DCMBR", subtitle: "WETALKSOUND" },
-        { image: DiscographyFour, title: "LOFN IV", subtitle: "WETALKSOUND" },
-        { image: DiscographyFive, title: "LAGOS IN JULY (EP)", subtitle: "Vader The Wildcard & TGM" },
-        { image: DiscographySix, title: "TO BE FRANK (EP)", subtitle: "WETALKSOUND" }
+        { image: "assets/releases/lofin4.png", title: "LOFN IV", subtitle: "WETALKSOUND" },
+        { image: "assets/releases/ikogosi.png", title: "IKOGOSI", subtitle: "WETALKSOUND" },
+        { image: "assets/releases/lagos-december.png", title: "LAGOS IN DCMBR", subtitle: "WETALKSOUND" },
+        { image: "assets/releases/lofin-again.png", title: "LOFN IV", subtitle: "WETALKSOUND" },
+        { image: "assets/releases/lagos.png", title: "LAGOS IN JULY (EP)", subtitle: "Vader The Wildcard & TGM" },
+        { image: "assets/releases/lagos-in.png", title: "TO BE FRANK (EP)", subtitle: "WETALKSOUND" }
     ];
 
     return (

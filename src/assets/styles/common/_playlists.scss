@@ -25,9 +25,16 @@
             display: flex;
             flex-wrap: nowrap;
             max-width: unset;
-            overflow: hidden;
+            overflow-x: scroll;
 
             .playlists-item {
+
+                @include media-query(mobile) {
+
+                    width: 95vw;
+                    min-width: 95vw;
+
+                }
 
                 margin-right: 30px;
 
@@ -39,16 +46,19 @@
 
     &-item {
 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        display: block;
+        width: 480px;
+        min-width: 480px;
 
         img {
 
+            display: block;
             margin-bottom: 16px;
-            width: 558px;
+            width: 100%;
+            max-width: unset;
             height: 362px;
             overflow: hidden;
+            object-fit: cover;
 
         }
 

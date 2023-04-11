@@ -38,11 +38,13 @@ export const CreativeSectionOne: React.FC<Props> = ({ isMobile, deviceWidth }) =
 
                 />
 
-                <div className='page-agency-flex-image'>
-
-                    <img src="assets/background/creative-agency-frame.png" alt={"creative-agency"} />
-
-                </div>
+                <div 
+                
+                    className='page-agency-flex-image' 
+                    
+                    style={{ backgroundImage: "url(assets/background/creative-agency-frame.png)" }} 
+                    
+                />
 
             </div>
 

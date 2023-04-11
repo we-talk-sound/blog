@@ -108,6 +108,12 @@
 
             &:first-child {
 
+                @include media-query(mobile) {
+
+                    // margin-top: 20px;
+
+                }
+
                 transform: rotate(180deg);
 
             }
@@ -248,6 +254,14 @@
         }
 
         .button-expand {
+
+            @include media-query(mobile) {
+
+                display: flex;
+                justify-content: center;
+                width: 100%;
+
+            }
 
             margin-top: 32px;
             margin-left: auto;

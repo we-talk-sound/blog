@@ -28,27 +28,25 @@ export const StudioCaption: React.FC<Props> = ({
 
             <div className='studio-caption-video'>
 
-                {controls.canInteract === true &&
+                <div
 
-                    <Button
+                    tabIndex={0}
 
-                        className="transparent"
+                    role="button"
 
-                        onClick={() => {
+                    className='studio-caption-video-top'
 
-                            setControls((prevState) => ({ ...prevState, isMuted: !controls?.isMuted }))
+                    onClick={() => {
 
-                            controls?.isMuted ? controls.unMute() : controls.mute();
+                        if (!controls.canInteract) return;
 
-                        }}
+                        setControls((prevState) => ({ ...prevState, isMuted: !controls?.isMuted }))
 
-                        label={controls?.isMuted ? "Unmute Video" : "Mute Video"}
+                        controls?.isMuted ? controls.unMute() : controls.mute();
 
-                    />
+                    }}
 
-                }
-
-                <div className='studio-caption-video-top' />
+                />
 
                 <YouTube
 
@@ -56,7 +54,7 @@ export const StudioCaption: React.FC<Props> = ({
 
                     videoId={"F9yn3S_HZ4w"}
 
-                    opts={{ playerVars : { autoplay: 1, controls: 0, loop: 1 }}}
+                    opts={{ playerVars: { autoplay: 1, controls: 0, loop: 1 } }}
 
                     onReady={(e) => {
 

@@ -90,4 +90,14 @@
 
     }
 
+    .button-expand {
+
+        @include media-query(mobile) {
+
+            height: unset;
+
+        }
+
+    }
+
 }

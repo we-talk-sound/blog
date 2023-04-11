@@ -2,6 +2,12 @@
 
     &-caption {
 
+        @include media-query(mobile) {
+
+            min-height: 500px !important;
+
+        }
+
         position: relative;
         max-height: 1440px !important;
         overflow: hidden;
@@ -46,25 +52,7 @@
 
         }
 
-        .button {
-
-            z-index: 1;
-            position: absolute;
-            right: 20px;
-            bottom: 40px;
-            border-radius: 2px;
-            width: max-content;
-            background: color(_black);
-
-        }
-
         iframe {
-
-            @include media-query(mobile) {
-
-                min-width: 1200px;
-
-            }
 
             width: 100%;
             height: 100%;

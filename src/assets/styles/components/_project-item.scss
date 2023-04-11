@@ -4,8 +4,8 @@
 
         margin: 0;
         margin-right: 20px;
-        width: 93vw !important;
-        min-width: 93vw !important;
+        width: calc(100vw - 54px) !important;
+        min-width: calc(100vw - 54px) !important;
         scroll-snap-align: center;
         scroll-snap-stop: always;
 
@@ -96,6 +96,12 @@
     }
 
     &-overlay p {
+
+        @include media-query(mobile) {
+
+            display: block;
+
+        }
 
         display: none;
         margin-top: 24px;
