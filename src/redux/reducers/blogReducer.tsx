@@ -36,7 +36,13 @@ const baseCategoryPairs = {
         description: 'Releases, Reviews and More. Experience the best music from our community and beyond.',
         name: 'Music',
         slug: 'music',
-    }
+    },
+    '5': {
+        id: 5,
+        description: 'Releases, Reviews and More. Experience the best music from our community and beyond.',
+        name: 'All',
+        slug: 'all',
+    },
 };
 
 const baseSlugPairs = {
@@ -60,6 +66,12 @@ const baseSlugPairs = {
     },
     'music': {
         id: 4,
+        description: 'Releases, Reviews and More. Experience the best music from our community and beyond.',
+        name: 'Music',
+        slug: 'music',
+    },
+    'all': {
+        id: 5,
         description: 'Releases, Reviews and More. Experience the best music from our community and beyond.',
         name: 'Music',
         slug: 'music',
@@ -160,7 +172,9 @@ const blogReducer = (state = initialState, action: { [key: string]: any }) => {
         case blogTypes.RETRIEVE_CATEGORY_STORIES_START:
 
             return {
+    
                 ...state,
+    
                 [ref]: {
 
                     ...state[ref],

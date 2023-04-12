@@ -660,6 +660,12 @@
 
             .content-loader-stories-block {
 
+                @include media-query(mobile) {
+
+                    width: 100%;
+
+                }
+
                 border-bottom: 0;
                 padding-right: 16px;
                 padding-left: 16px;

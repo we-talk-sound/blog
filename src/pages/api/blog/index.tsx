@@ -5,12 +5,18 @@ const link = (item: string, params?: string): { type: "post" | "get" | "patch", 
 
     // "retrieve" | "retrieve-categories" | "retrieve-story" | "retrieve-category-stories"
 
+    let objectParams = Object.fromEntries(new URLSearchParams(params)) as any;
+
+    const retrieveAllCategory = objectParams.category === "all";
+    
+    const allStoriesParam = objectParams?.page ? `page=${objectParams.page}` : '';
+
     switch (item) {
 
         case "retrieve":
         case "retrieve-story":
         case "retrieve-category-stories":
-            return { type: "get", Link: `posts?${params}&_embed` };
+            return { type: "get", Link: `posts?${ retrieveAllCategory ? allStoriesParam : params}&_embed` };
 
         case "retrieve-categories":
             return { type: "get", Link: `categories?${params}` };
