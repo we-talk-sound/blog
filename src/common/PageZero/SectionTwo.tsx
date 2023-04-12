@@ -1,19 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ComponentHolder, ViewFormatter } from 'components';
 import { Marquee } from 'components/Marquee';
+import { useInView } from "react-cool-inview";
+import { classnames } from 'utils';
 
 export const SectionTwo: React.FC = () => {
+
+    const [presence, setPresence] = useState<boolean | "complete">(false);
+
+    const { observe } = useInView({
+
+        threshold: 0.08, // Default is 0
+
+        onEnter: ({ unobserve }) => {
+
+            setPresence(true);
+
+            unobserve();
+
+        },
+
+        // More useful options...
+    });
 
     return (
 
         <ComponentHolder
+            Ref={observe}
             className="no-border"
-            bodyClass="page-zero-section-two"
+            bodyClass={classnames("page-zero-section-two" , presence && 'page-zero-section-two-show')}
         >
 
             <Marquee text='About' />
 
-            <div className='page-zero-section-two-body'>
+            <div
+
+                className={'page-zero-section-two-body'}
+
+            >
 
                 <ViewFormatter
 

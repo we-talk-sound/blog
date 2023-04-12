@@ -141,7 +141,11 @@ export const CreativeSectionThree: React.FC<{ withHeader?: boolean, isMobile: bo
 
             className='page-zero no-border page-agency-section-three'
 
-            bodyClass='page-zero-content'>
+            bodyClass='page-zero-content'
+            
+            id='creative-projects'
+            
+            >
 
             <div className='page-agency-section-three-content-body'>
 

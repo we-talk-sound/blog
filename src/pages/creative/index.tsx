@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { LandingLayout } from 'layout';
 import { NewsLetter } from 'common/NewsLetter';
 import { CreativeSectionOne } from 'common/Creative';
 import { CreativeSectionThree } from 'common/Creative/CreativeSectionThree';
 import { CreativeSectionFour } from 'common/Creative/CreativeSectionFour';
+import { useRouter } from 'next/router';
 
 const Home: React.FC<Props> = ({ isMobile, deviceWidth }) => {
+
+    const { entry } = useRouter().query;
+
+    useEffect(()=> {
+
+        if ( entry === "projects" && document) {
+
+            document.getElementById("creative-projects")?.scrollIntoView({
+
+                behavior: "smooth"
+
+            });
+
+        } 
+
+    // eslint-disable-next-line
+    },[entry , document]);
 
     return (
 

@@ -12,9 +12,11 @@ export const ComponentHolder: React.FC<Props> = ({ visibility, id, childId, ...p
 
                     {...(id ? { "id": id || "" } : {})}
 
+                    {...(props.Ref ? { ref: props.Ref } : {})}
+
                     className={classnames(`component-holder`, props.className)}
 
-                    >
+                >
 
                     {(props.title || props.customHeader || props.control) &&
 
@@ -31,13 +33,13 @@ export const ComponentHolder: React.FC<Props> = ({ visibility, id, childId, ...p
                         </>
                     }
 
-                    <div 
-                        
-                            className={classnames("component-holder-body", props.bodyClass, props.align && "component-holder-align")}
-                            
-                            {...(childId ? { "id": childId || "" } : {})}
-                            
-                            >
+                    <div
+
+                        className={classnames("component-holder-body", props.bodyClass, props.align && "component-holder-align")}
+
+                        {...(childId ? { "id": childId || "" } : {})}
+
+                    >
                         {props.children && props.children}
                     </div>
                 </div>
@@ -55,8 +57,9 @@ interface Props {
     className?: string,
     bodyClass?: string,
     headerClass?: string,
-    onScrollStart?: (e : any) => void
+    onScrollStart?: (e: any) => void
     align?: boolean,
     id?: string,
-    childId?: string
+    childId?: string,
+    Ref?: any
 }

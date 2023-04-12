@@ -87,12 +87,20 @@ export const SectionFour: React.FC<Props> = ({ isMobile }) => {
                         </div>
 
                     </div>
-                    
+
                 }
 
-                {isMobile && <ProjectItemMobile projectItems={data} /> }
+                {isMobile && <ProjectItemMobile projectItems={data} />}
 
-                <ExpandedButton label='See all our projects' textClass='color-white' />
+                <ExpandedButton
+
+                    label='See all our projects'
+
+                    textClass='color-white'
+
+                    link="/creative?entry=projects"
+
+                />
 
             </div>
 
