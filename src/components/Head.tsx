@@ -2,22 +2,22 @@ import React from 'react';
 import Head from 'next/head';
 
 export const HtmlHead: React.FC<{ title: any }> = ({ title }) => {
-  const description = '';
-  const link = '';
-  const logo = '';
+  const description = "Nigeria's Largest Music Community";
+  const link = 'http://wetalksound.co';
+  const logo = 'http://wetalksound.co/assets/logo/apple-icon.png';
 
   const seoAttributes = `{
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "",
+    "name": "Wetalksound",
     "alternateName": [""],
-    "url": "",
-    "sameAs": ["", ""],
+    "url": "http://wetalksound.co",
+    "sameAs": ["wetalksound"],
 
-    "logo": "",
+    "logo": "http://wetalksound.co/assets/logo/apple-icon.png",
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "",
+      "telephone": "+234 906 783 7892",
       "contactType": "customer service"
     }
   }`;
