@@ -149,7 +149,7 @@
 
     &-holder-header {
 
-        @media only screen and ( max-width: 750px ) {
+        @media only screen and ( max-width: 1000px ) {
 
             flex-direction: column;
             flex-wrap: wrap;
@@ -159,6 +159,7 @@
 
         display: flex;
         justify-content: space-between;
+        max-width: 2300px;
 
         &-left {
 
@@ -203,6 +204,12 @@
                 margin-bottom: 20px;
                 width: 20%;
 
+                &:not(:last-child) {
+
+                    margin-right: 10px !important;
+
+                }
+
             }
 
             @include media-query(mobile) {
@@ -230,8 +237,58 @@
 
         &-right {
 
+            @media only screen and (max-width: 1000px) {
+
+                margin-top: 22px;
+                width: 100%;
+                max-width: 100%;
+
+                .marquee {
+
+                    display: flex;
+                    align-items: center;
+
+                }
+
+
+            }
+
             display: flex;
             align-items: flex-end;
+            width: calc(50% - 64px);
+            max-width: 500px;
+
+            .marquee-holder {
+
+                padding-top: 0;
+
+            }
+
+            .marquee {
+
+                animation-duration: 60s !important;
+
+            }
+
+            .marquee span {
+
+                @include font-size(small);
+                font-family: $main-font;
+                color: color(white);
+
+                span:first-child {
+
+                    margin-right: 10px;
+
+                }
+
+                span:not(:first-child) {
+
+                    display: none;
+
+                }
+
+            }
 
             .button {
 
@@ -239,6 +296,7 @@
                 padding: 6px 12px;
                 width: max-content;
                 height: max-content;
+                background: color(active-story-item-border);
 
             }
 

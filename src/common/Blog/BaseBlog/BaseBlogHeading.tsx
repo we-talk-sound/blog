@@ -1,9 +1,10 @@
 import { Button } from "components";
 import { LinkWrapper } from "components/LinkWrapper";
+import { Marquee } from "components/Marquee";
 import React from "react";
 import { classnames } from "utils";
 
-export const BaseBlogHeading : React.FC<{ category?: string }> = ({ category }) => {
+export const BaseBlogHeading: React.FC<{ category?: string }> = ({ category }) => {
 
     const filters = [
         {
@@ -42,19 +43,19 @@ export const BaseBlogHeading : React.FC<{ category?: string }> = ({ category }) 
 
                     {filters.map((item) =>
 
-                        <LinkWrapper 
-                        
+                        <LinkWrapper
+
                             link={`/blog?category=${item.link}`} key={`header-item-${item.title}`}
 
                             scroll={false}
-                            
-                            preClick={()=> {
 
-                                blogBody?.[0]?.scrollIntoView?.({behavior: "smooth", block: "nearest", inline: "nearest"});
+                            preClick={() => {
+
+                                blogBody?.[0]?.scrollIntoView?.({ behavior: "smooth", block: "nearest", inline: "nearest" });
 
                             }}>
 
-                            <span className={classnames( item.link === category?.toLowerCase() ? "color-primary" : "" )}>
+                            <span className={classnames(item.link === category?.toLowerCase() ? "color-primary" : "")}>
 
                                 {item.title}
 
@@ -70,6 +71,8 @@ export const BaseBlogHeading : React.FC<{ category?: string }> = ({ category }) 
             </div>
 
             <div className="page-blog-holder-header-right">
+
+                <Marquee text="FEEL THE BEAT OF NIGERIA'S BIGGEST MUSIC COMMUNITY" />
 
                 <Button label="Subscribe" />
 
