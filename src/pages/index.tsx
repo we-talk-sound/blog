@@ -1,6 +1,5 @@
 import React from 'react';
 import { LandingLayout } from 'layout';
-import { SectionTwo } from 'common/PageZero/SectionTwo';
 import { SectionThree } from 'common/PageZero/SectionThree';
 import { SectionFour } from 'common/PageZero/SectionFour';
 import { BlogBanner } from 'common/PageZero/BlogBanner';
@@ -62,7 +61,7 @@ const Home: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
             />
 
-            <SectionTwo />
+            {/* <SectionTwo /> */}
 
             <SectionThree />
 

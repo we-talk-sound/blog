@@ -5,6 +5,7 @@ import Twitter from 'assets/svg/social/twitter.svg';
 import Instagram from 'assets/svg/social/instagram.svg';
 import LinkedIn from 'assets/svg/social/linkedin.svg';
 import router from 'next/router';
+import { classnames } from 'utils';
 
 export const MobileHeader = ({ }): JSX.Element => {
 
@@ -13,7 +14,7 @@ export const MobileHeader = ({ }): JSX.Element => {
     const links = [...leftLinks, ...rightLinks];
 
     return (
-        <div className="landingLayout-header-mobile">
+        <div className={classnames("landingLayout-header-mobile", isExpanded && "header-expanded")}>
 
             <MobileHeaderToggler setExpansion={setIsExpanded} isExpanded={isExpanded} />
 

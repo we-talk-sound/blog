@@ -1,5 +1,11 @@
 .studio {
 
+    &-caption .header-expanded {
+
+        position: fixed;
+
+    }
+
     &-caption {
 
         @include media-query(mobile) {

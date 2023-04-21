@@ -6,11 +6,11 @@ export const BlogCategories = () => {
     const filters = [
         {
             title: "Community",
-            value: "We are stronger together on our own"
+            value: "WE ARE STRONGER TOGETHER ON OUR OWN"
         },
         {
             title: "Conversations",
-            value: "we talk to different guests and unearth their wisdom"
+            value: "WE TALK TO DIFFERENT GUESTS AND UNEARTH THEIR WISDOM"
         },
         {
             title: "Insights",

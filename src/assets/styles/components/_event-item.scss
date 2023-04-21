@@ -4,6 +4,12 @@
 
     &:hover img {
 
+        @include media-query(mobile) {
+
+            transform: none;
+
+        }
+
         transform: rotate(-1.5deg);
 
     }

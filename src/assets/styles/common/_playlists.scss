@@ -22,8 +22,11 @@
 
         &-slider {
 
+            @extend %body-width-and-padding;
             display: flex;
             flex-wrap: nowrap;
+            padding-top: unset;
+            padding-bottom: unset;
             max-width: unset;
             overflow-x: scroll;
 
@@ -31,8 +34,9 @@
 
                 @include media-query(mobile) {
 
-                    width: 95vw;
-                    min-width: 95vw;
+                    width: 80vw !important;
+                    min-width: 80vw !important;
+                    max-width: 311px !important;
 
                 }
 
