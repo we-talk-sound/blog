@@ -14,12 +14,7 @@ export const HtmlHead: React.FC<{ title: any }> = ({ title }) => {
     "url": "http://wetalksound.co",
     "sameAs": ["wetalksound"],
 
-    "logo": "http://wetalksound.co/assets/logo/apple-icon.png",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+234 906 783 7892",
-      "contactType": "customer service"
-    }
+    "logo": "http://wetalksound.co/assets/logo/apple-icon.png"
   }`;
 
   return (
