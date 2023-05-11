@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 
 export const HtmlHead: React.FC<{ title: any }> = ({ title }) => {
-  const description = "Nigeria's Largest Music Community";
+  const description = "We are a  360  creative company leveraging technology, community & content to design delightful experiences.";
   const link = 'http://wetalksound.co';
   const logo = 'http://wetalksound.co/assets/logo/apple-icon.png';
 
