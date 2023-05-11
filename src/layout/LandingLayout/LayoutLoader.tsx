@@ -44,7 +44,7 @@ export const LayoutLoader: React.FC<Props> = ({ removeLoader }) => {
 
     useEffect(() => {
 
-        if ( window && document && navigator.userAgent) {
+        if ( window ) {
 
             var f = new FontFace("Druk-wide", "url(fonts/Druk-wide/Druk-Wide-Bold.ttf)", {});
 

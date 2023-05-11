@@ -12,7 +12,7 @@ const Home: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
     useEffect(()=> {
 
-        if ( entry === "projects" && document) {
+        if ( entry === "projects" && typeof window !== "undefined") {
 
             document.getElementById("creative-projects")?.scrollIntoView({
 

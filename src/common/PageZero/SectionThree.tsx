@@ -224,7 +224,7 @@ export const SectionThree: React.FC = () => {
 
         };
 
-        if (document) {
+        if ( typeof window !== "undefined") {
 
             window.addEventListener("scroll", scrollFunction, true);
 
