@@ -35,9 +35,6 @@ export const LandingLayout: React.FC<Props> = ({
 
     return (
         <>
-            <HtmlHead
-                title={headTitle}
-            />
 
             <div className='body-background' />
 
@@ -65,6 +62,10 @@ export const LandingLayout: React.FC<Props> = ({
 
             >
 
+                <HtmlHead
+                    title={headTitle}
+                />
+
                 {
                     showHeader &&
 
@@ -74,7 +75,7 @@ export const LandingLayout: React.FC<Props> = ({
                         deviceWidth={deviceWidth}
                         active={activePath}
                     />
-                    
+
                 }
 
                 <div
