@@ -63,7 +63,7 @@ export const LayoutLoader: React.FC<Props> = ({ removeLoader }) => {
         }
 
         // eslint-disable-next-line
-    }, [window === undefined, navigator.userAgent]);
+    }, [typeof window === "undefined"]);
 
     useEffect(() => {
 

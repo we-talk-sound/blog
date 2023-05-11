@@ -26,7 +26,7 @@ function App({ Component, pageProps }: AppProps) {
 
   const unProtectedRoutes: string[] = ["", "/", "/creative", "/events", "/labels", "/blog", "/studio", "/store"];
 
-  const redirectCondition = ![...unProtectedRoutes].includes(currentPath);
+  const redirectCondition = !([...unProtectedRoutes].includes(currentPath));
 
   const resizeListener = (mode: "add" | "remove") => {
 
@@ -74,7 +74,7 @@ function App({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
 
-    if (![...unProtectedRoutes].includes(currentPath)) {
+    if (!([...unProtectedRoutes].includes(currentPath))) {
       router.replace("/");
     }
 

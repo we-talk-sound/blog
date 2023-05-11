@@ -20,7 +20,7 @@ export const HtmlHead: React.FC<{ title: any }> = ({ title }) => {
   return (
     <>
       <Head>
-        <title> {title ? title : "Wetalksound"} </title>
+        <title>{title||"Wetalksound"}</title>
         <meta name="description" content={description} />
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

@@ -237,7 +237,7 @@ export const SectionThree: React.FC = () => {
         }
 
         // eslint-disable-next-line
-    }, [window === undefined]);
+    }, [ typeof window === "undefined"]);
 
     return (
 
