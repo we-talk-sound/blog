@@ -4,18 +4,6 @@ import Head from 'next/head';
 export const HtmlHead: React.FC<{ title: any }> = ({ title }) => {
   const description = "We are a  360  creative company leveraging technology, community & content to design delightful experiences.";
   const link = 'http://wetalksound.co';
-  const logo = 'http://wetalksound.co/assets/logo/apple-icon.png';
-
-  const seoAttributes = `{
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Wetalksound",
-    "alternateName": [""],
-    "url": "http://wetalksound.co",
-    "sameAs": ["wetalksound"],
-
-    "logo": "http://wetalksound.co/assets/logo/apple-icon.png"
-  }`;
 
   return (
     <>
@@ -30,13 +18,13 @@ export const HtmlHead: React.FC<{ title: any }> = ({ title }) => {
         <meta property="og:url" content={link}> </meta>
         <meta property="og:title" content={title}> </meta>
         <meta property="og:description" content={description}> </meta>
-        <meta property="og:image" content={logo} > </meta>
+
 
         <meta property="twitter:card" content="summary_large_image"> </meta>
         <meta property="twitter:url" content={link}> </meta>
         <meta property="twitter:title" content={title}> </meta>
         <meta property="twitter:description" content={description}> </meta>
-        <meta property="twitter:image" content={logo}> </meta>
+
 
         <link href="/fonts/style.css" rel="stylesheet" /> 
 
@@ -52,8 +40,6 @@ export const HtmlHead: React.FC<{ title: any }> = ({ title }) => {
             ? 'window.__REACT_DEVTOOLS_GLOBAL_HOOK__.inject = function(){}'
             : ''}
         </script>
-
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: seoAttributes }} />
 
       </Head>
 
