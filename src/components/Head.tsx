@@ -1,50 +1,54 @@
-import Head from 'next/head';
 import React from 'react';
+import Head from 'next/head';
 
-const HtmlHead: React.FC<{ title?: string }> = ({ }) => {
+export const HtmlHead: React.FC<{ title: any }> = ({ title }) => {
+  const description = "We are a  360  creative company leveraging technology, community & content to design delightful experiences.";
+  const link = 'http://wetalksound.co';
+  const logo = 'http://wetalksound.co/assets/logo/apple-icon.png';
+
+  const seoAttributes = `{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Wetalksound",
+    "alternateName": [""],
+    "url": "http://wetalksound.co",
+    "sameAs": ["wetalksound"],
+
+    "logo": "http://wetalksound.co/assets/logo/apple-icon.png"
+  }`;
 
   return (
+    <>
+      <Head>
+        <title> {title ? title : "Wetalksound"} </title>
+        <meta name="description" content={description} />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <Head>
-      <title> {"Wetalksound"} </title>
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={link} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={logo} />
 
-      <link rel="icon" href="/favicon.ico" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={link} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={logo} />
 
-      <title>We are powering Africa's creative ecosystem with technology and capital.</title>
-      <meta name="title" content="We are powering Africa's creative ecosystem with technology and capital."></meta>
-      <meta name="description" content="TheAfroGarage | Powering Africa's creative industry with technology & capital"></meta>
-
-      <meta property="og:type" content="website"></meta>
-      <meta property="og:url" content="https://www.theafrogarage.com/"></meta>
-      <meta property="og:title" content="We are powering Africa's creative ecosystem with technology and capital."></meta>
-      <meta property="og:description" content="TheAfroGarage | Powering Africa's creative industry with technology & capital"></meta>
-      <meta property="og:image" content="https://www.theafrogarage.com/apple-touch-icon.png"></meta>
-
-      <meta property="twitter:card" content="summary_large_image"></meta>
-      <meta property="twitter:url" content="https://www.theafrogarage.com/"></meta>
-      <meta property="twitter:title" content="We are powering Africa's creative ecosystem with technology and capital."></meta>
-      <meta property="twitter:description" content="TheAfroGarage | Powering Africa's creative industry with technology & capital"></meta>
-      <meta property="twitter:image" content="https://www.theafrogarage.com/apple-touch-icon.png"></meta>
+      </Head>
 
       <link href="/fonts/style.css" rel="stylesheet" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"></meta>
-      <meta httpEquiv="X-UA-Compatible" content="ie=edge"></meta>
 
       <script>
-        {process.env.NEXT_PUBLIC_NODE_ENV !== 'development'
-          ? 'window.__REACT_DEVTOOLS_GLOBAL_HOOK__.inject = function(){}'
+        {process.env.NEXT_PUBLIC_NODE_ENV !== 'development' && (window as any)?.__REACT_DEVTOOLS_GLOBAL_HOOK__
+          ? 'window?.__REACT_DEVTOOLS_GLOBAL_HOOK__?.inject = function(){}'
           : ''}
       </script>
 
-      <link
-        rel="stylesheet"
-        href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-        crossOrigin="anonymous"
-      />
-     
-    </Head>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: seoAttributes }} />
+
+    </>
   );
 };
-
-export default HtmlHead;
