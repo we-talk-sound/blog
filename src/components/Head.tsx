@@ -1,11 +1,10 @@
 import React from 'react';
-import Head from 'next/head';
 
 export const HtmlHead: React.FC<{ title?: any }> = ({ }) => {
 
   return (
 
-    <Head>
+    <head>
 
       <title> Wetalksound </title>
 
@@ -39,6 +38,6 @@ export const HtmlHead: React.FC<{ title?: any }> = ({ }) => {
         crossOrigin="anonymous"
       />
 
-    </Head>
+    </head>
   );
 };
