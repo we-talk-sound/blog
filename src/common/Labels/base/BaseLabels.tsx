@@ -3,6 +3,7 @@ import { SectionOne } from 'common/PageZero/SectionOne';
 import { Playlists } from '../Playlists';
 import { NewsLetter } from 'common/NewsLetter';
 import { LatestReleases } from '../LatestReleases';
+import { LabelsVideo } from '../LabelsVideo';
 
 export const BaseLabels: React.FC<Props> = ({ isMobile, deviceWidth , activePath }) => {
 
@@ -43,6 +44,8 @@ export const BaseLabels: React.FC<Props> = ({ isMobile, deviceWidth , activePath
             <LatestReleases />
 
             <Playlists title={"Listen to our Playlists"} />
+
+            <LabelsVideo />
 
             <NewsLetter />
 

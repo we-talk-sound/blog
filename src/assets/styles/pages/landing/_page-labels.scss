@@ -198,4 +198,61 @@
 
     }
 
+    &-video {
+
+        @extend %body-width-and-padding;
+        padding-top: 64px;
+        padding-bottom: 64px;
+        text-align: center;
+        color: color(white);
+
+        &-wrapper {
+
+            background: url(/assets/background/plain-background.png), #000000;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+
+        &-header,
+        &-subheader {
+
+            margin: auto;
+            margin-bottom: 32px;
+            max-width: 432px;
+
+        }
+
+        &-header {
+
+            @include font-size(l-large);
+            margin-bottom: 24px;
+
+        }
+
+        .studio-content-item {
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-height: unset;
+
+        }
+
+        .studio-content-item-image {
+
+            max-width: 636px;
+            height: 286px;
+
+            img {
+
+                object-fit: cover;
+
+            }
+
+        }
+
+    }
+
 }
