@@ -29,7 +29,6 @@ export const BaseBlogHeading: React.FC<{ category?: string }> = ({ category }) =
         }
     ];
 
-    const blogBody = document.getElementsByClassName("page-blog-active-category-holder");
 
     return (
 
@@ -51,7 +50,13 @@ export const BaseBlogHeading: React.FC<{ category?: string }> = ({ category }) =
 
                             preClick={() => {
 
-                                blogBody?.[0]?.scrollIntoView?.({ behavior: "smooth", block: "nearest", inline: "nearest" });
+                                if (typeof window !== "undefined") {
+
+                                    const blogBody = document.getElementsByClassName("page-blog-active-category-holder");
+
+                                    blogBody?.[0]?.scrollIntoView?.({ behavior: "smooth", block: "nearest", inline: "nearest" });
+
+                                }
 
                             }}>
 

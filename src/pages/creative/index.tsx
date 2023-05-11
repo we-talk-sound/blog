@@ -23,7 +23,7 @@ const Home: React.FC<Props> = ({ isMobile, deviceWidth }) => {
         } 
 
     // eslint-disable-next-line
-    },[entry , document]);
+    },[entry , typeof window === "undefined"]);
 
     return (
 
