@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Header } from './header';
-import { HtmlHead } from 'components';
+import HtmlHead from 'components/Head';
 import { classnames } from 'utils';
 import LandingLayoutFooter from './Footer';
 import { routeType } from 'types';

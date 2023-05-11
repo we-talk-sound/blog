@@ -8,7 +8,6 @@ export * from './EventItem';
 export * from './Footer';
 export * from './FormField/index';
 export * from './FormField/FormError';
-export * from './Head';
 export * from './Header/MobileHeaderToggler';
 export * from './Modal';
 export * from './Pagination';

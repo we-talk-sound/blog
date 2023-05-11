@@ -1,10 +1,11 @@
+import Head from 'next/head';
 import React from 'react';
 
-export const HtmlHead: React.FC<{ title?: any }> = ({ }) => {
+const HtmlHead: React.FC<{ title?: any }> = ({ }) => {
 
   return (
 
-    <head>
+    <Head>
 
       <title> Wetalksound </title>
 
@@ -38,6 +39,8 @@ export const HtmlHead: React.FC<{ title?: any }> = ({ }) => {
         crossOrigin="anonymous"
       />
 
-    </head>
+    </Head>
   );
 };
+
+export default HtmlHead;
