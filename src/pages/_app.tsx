@@ -103,15 +103,16 @@ function App({ Component, pageProps }: AppProps) {
 
   return (
     <Provider store={store}>
-      
+
       {
         (redirectCondition || !clientMode) ?
 
           <></>
 
+
           :
           <>
-          
+
             <ToastHolder />
 
             <RouteChange />
@@ -125,7 +126,7 @@ function App({ Component, pageProps }: AppProps) {
 
           </>
       }
-      
+
     </Provider>
   );
 
