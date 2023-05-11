@@ -11,7 +11,6 @@ import { SetClientAvailability } from 'hooks/useIsClient';
 
 function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const { auth } = store.getState();
 
   const [state, setState] = useState({
     isMobile: false,
@@ -23,16 +22,11 @@ function App({ Component, pageProps }: AppProps) {
 
   const { isMobile, deviceWidth, showMobileView, clientMode } = state;
 
-  const isInSession = auth && auth.expiresAt && (new Date(auth.expiresAt).getTime() > new Date().getTime());
-
   const currentPath = router.pathname.trim();
 
   const unProtectedRoutes: string[] = ["", "/", "/creative", "/events", "/labels", "/blog", "/studio", "/store"];
 
-  const redirectCondition =
-    (isInSession && [...unProtectedRoutes].includes(currentPath)) ||
-    (!auth.expiresAt && ![...unProtectedRoutes].includes(currentPath)) ||
-    (auth.expiresAt && !isInSession && unProtectedRoutes.includes(currentPath));
+  const redirectCondition = [...unProtectedRoutes].includes(currentPath);
 
   const resizeListener = (mode: "add" | "remove") => {
 
@@ -80,24 +74,13 @@ function App({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
 
-    if (auth.expiresAt && !isInSession) store.dispatch({ type: "RESET_APP" });
-
-    if (!auth.expiresAt && ![...unProtectedRoutes].includes(currentPath)) {
+    if (![...unProtectedRoutes].includes(currentPath)) {
       router.replace("/");
-    }
-
-    if (isInSession && [...unProtectedRoutes, "/404", "/500"].includes(currentPath)) {
-      router.replace("/dashboard");
     }
 
     //eslint-disable-next-line
   }, [redirectCondition]);
 
-  useEffect(() => {
-
-    if (!isInSession) change(0, "timeOutTrigger", setState);
-
-  }, [isInSession]);
 
   SetClientAvailability((e) => change(e, "clientMode", setState));
 
@@ -105,7 +88,7 @@ function App({ Component, pageProps }: AppProps) {
     <Provider store={store}>
 
       {
-        (redirectCondition || !clientMode) ?
+        (redirectCondition) ?
 
           <></>
 

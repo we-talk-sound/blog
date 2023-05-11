@@ -41,6 +41,13 @@ export const HtmlHead: React.FC<{ title: any }> = ({ title }) => {
 
       <link href="/fonts/style.css" rel="stylesheet" />
 
+      <link
+        rel="stylesheet"
+        href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+        crossOrigin="anonymous"
+      />
+
       <script>
         {process.env.NEXT_PUBLIC_NODE_ENV !== 'development' && (window as any)?.__REACT_DEVTOOLS_GLOBAL_HOOK__
           ? 'window?.__REACT_DEVTOOLS_GLOBAL_HOOK__?.inject = function(){}'
