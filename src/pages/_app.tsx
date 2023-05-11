@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { store } from 'redux/store';
 import { AppProps } from 'next/app'
 import { useRouter } from 'next/router';
-import { RouteChange } from 'components';
+import { HtmlHead, RouteChange } from 'components';
 import { change, resizer } from 'utils';
 import 'assets/styles/main.scss';
 import { ToastHolder } from 'components/toast/ToastHolder';
@@ -111,6 +111,9 @@ function App({ Component, pageProps }: AppProps) {
 
           :
           <>
+            
+            <HtmlHead title={"Wetalksound"} />
+
             <ToastHolder />
 
             <RouteChange />

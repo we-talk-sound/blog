@@ -23,8 +23,7 @@ export const HtmlHead: React.FC<{ title: any }> = ({ title }) => {
         <title> {title ? title : ""} </title>
         <meta name="description" content={description} />
         <link rel="icon" href="/favicon.ico" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-        <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content={link} />
