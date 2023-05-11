@@ -17,7 +17,7 @@ export const quickValidation = (
     if (field === "email" || (field === "email_mobile" && !isNumber(value))) {
 
         if (!value) error.push("Please enter email.");
-        if (!validateEmail(value)) error.push("Invalid email provided.");
+        if (!validateEmail(value)) error.push("The email you entered is invalid");
 
     } else if (field === "fullName" || field === "alias") {
 

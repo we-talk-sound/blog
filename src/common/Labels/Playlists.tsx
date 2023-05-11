@@ -1,16 +1,10 @@
 import React from 'react';
 import { ComponentHolder, EventItem } from 'components';
+import { ExpandedButton } from 'components/ExpandButton';
 
-export const Playlists:React.FC<Props> = ({ title }) => {
+export const Playlists: React.FC<Props> = ({ title }) => {
 
-    const data = [
-        { image: "/assets/projects/playlist.png", title: "Naija Afrobeat Jukebox" },
-        { image: "/assets/projects/playlist.png", title: "Naija Afrobeat Jukebox" },
-        { image: "/assets/projects/playlist.png", title: "Naija Afrobeat Jukebox" },
-        { image: "/assets/projects/playlist.png", title: "Naija Afrobeat Jukebox" },
-        { image: "/assets/projects/playlist.png", title: "Naija Afrobeat Jukebox" },
-        { image: "/assets/projects/playlist.png", title: "Naija Afrobeat Jukebox" },
-    ];
+    const data = { image: "/assets/projects/playlist.png", title: "Naija Afrobeat Jukebox" };
 
     return (
 
@@ -20,23 +14,21 @@ export const Playlists:React.FC<Props> = ({ title }) => {
 
             <div className='page-agency-section-three-content-body'>
 
-                <h2 className='playlists-block-header'> { title || "Similar Artists"} </h2>
+                <h2 className='playlists-block-header'> {title || "Similar Artists"} </h2>
 
                 <div className='playlists-block-slider'>
 
-                    {data.map((item, index) =>
+                    <EventItem
 
-                        <EventItem
+                        className="playlists-item"
 
-                            className="playlists-item"
+                        {...data}
 
-                            key={`event-${index}`}
+                        button={{ label: "Listen Now" }}
 
-                            {...item}
+                    />
 
-                        />
-
-                    )}
+                    <ExpandedButton label='Listen Now' dark={true} />
 
                 </div>
 

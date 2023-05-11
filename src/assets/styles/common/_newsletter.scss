@@ -94,7 +94,14 @@
 
         @include media-query(mobile) {
 
+            display: flex !important;
             height: unset;
+
+            &-mobile {
+
+                display: none !important;
+
+            }
 
         }
 

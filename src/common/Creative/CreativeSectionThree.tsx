@@ -9,65 +9,33 @@ export const CreativeSectionThree: React.FC<{ withHeader?: boolean, isMobile: bo
 
         {
 
+            image: "/assets/projects/davido.png",
+
+            text: "DMW 2.0",
+
+            bigText: `We handle PR and amplification for the rebranded Davido Music Worldwide label - housing superstar 
+                      Davido and signees Logos Olori and Morravey.`
+
+        },
+
+        {
+
             image: "/assets/projects/joe-boy.png",
 
             text: "Joeboy",
 
-            bigText: `Developed a campaign to consolidate his efforts at establishing a fanbase in the Nigerian market by securing 
-            placements on key media platforms and harnessing PR opportunities.`
-
-        },
-
-        {
-            image: "/assets/projects/reminisce.png",
-
-            text: "Reminisce",
-
-            bigText: `Developed the social media & promotional campaign for his 'Vibes & Insha Allah' EP. 
-            Helped Reminisce achieve penetration into the millennial and gen-z demographic of music consumers.`
+            bigText: `Developed and executed a holistic marketing campaign for his 2023 run including 
+                      successful singles ‘Body & Soul’, ‘Duffel Bag’ and album ‘Body & Soul”`
 
         },
 
         {
 
-            image: "/assets/projects/d-smoke.png",
+            image: "/assets/projects/victoni.png",
 
-            text: "D-SMOKE",
+            text: "Victony",
 
-            bigText: `Developed a campaign to consolidate his efforts at establishing a fanbase in the Nigerian market 
-            by securing placements on key media platforms and harnessing PR opportunities.`
-
-        },
-
-        {
-
-            image: "/assets/projects/ria-sean.png",
-
-            text: "RIA SEAN",
-
-            bigText: `Developed a campaign to consolidate his efforts at establishing a fanbase in the 
-            Nigerian market by securing placements on key media platforms and harnessing PR opportunities.`
-
-        },
-
-        {
-
-            image: "/assets/projects/teni.png",
-
-            text: "Teni",
-
-            bigText: `Developed a game based on the concept of "Who Wants to Be a Billionaire" 
-            and launched a fan engagement campaign to promote Teni's "Billionaire" single.`
-
-        },
-
-        {
-
-            image: "/assets/projects/sdc.png",
-
-            text: "SDC",
-
-            bigText: `Developed and executed a social media and promotional campaign to amplify the release of the 'Clone Wars 4' music album `
+            bigText: "Developed and executed an amplification campaign to promote ‘Soweto’ remixes as well as drive conversations on Victony."
 
         },
 
@@ -84,6 +52,39 @@ export const CreativeSectionThree: React.FC<{ withHeader?: boolean, isMobile: bo
 
         {
 
+            image: "/assets/projects/teni.png",
+
+            text: "Teni",
+
+            bigText: `Developed a game based on the concept of "Who Wants to Be a Billionaire" 
+            and launched a fan engagement campaign to promote Teni's "Billionaire" single.`
+
+        },
+
+        {
+            image: "/assets/projects/reminisce.png",
+
+            text: "Reminisce",
+
+            bigText: `Developed the social media & promotional campaign for his 'Vibes & Insha Allah' EP. 
+            Helped Reminisce achieve penetration into the millennial and gen-z demographic of music consumers.`
+
+        },
+
+        {
+
+            image: "/assets/projects/ria-sean.png",
+
+            text: "RIA SEAN",
+
+            bigText: `Developed the campaign that launched her into the Nigerian market. Managed marketing & PR for 
+                      her debut EP 'Fluid' that has earned millions of streams. Ria was listed by Spotify as one of 
+                    the 'Top 10 emerging artists in 2021`
+
+        },
+
+        {
+
             image: "/assets/projects/basket.png",
 
             text: "Basketmouth",
@@ -94,44 +95,43 @@ export const CreativeSectionThree: React.FC<{ withHeader?: boolean, isMobile: bo
 
         {
 
-            image: "/assets/projects/juju-boy.png",
+            image: "/assets/projects/Badboytimz.png",
 
-            text: "Jujuboy",
+            text: "Bad Boy Timz",
 
-            bigText: `Developed a comprehensive campaign strategy and provided PR services. Helped with Jujuboy Announcement Rollout.`
-
-        },
-
-        {
-
-            image: "/assets/projects/aristokrat.png",
-
-            text: "Aristokrat Records",
-
-            bigText: `Created a voting site for Aritokrat's "In Harmony Challenge" Season 1.`
+            bigText: `Developed an executed an amplification campaign to drive conversations about him and promote his single ‘I Salute’ with Zlatan.`
 
         },
 
         {
 
-            image: "/assets/projects/dice.png",
+            image: "/assets/projects/cheque.png",
 
-            text: "Dice Ailes",
+            text: "Cheque",
 
-            bigText: `The Money Mob web development and "Money Dance" single roll out `
+            bigText: `Developed an executed an amplification campaign to drive conversations about him and his music.`
 
         },
-
 
         {
 
-            image: "/assets/projects/timaya.png",
+            image: "/assets/projects/Tempoe.png",
 
-            text: "Timaya",
+            text: "Tempoe",
 
-            bigText: `Developed and executed a social media and promotional campaign to amplify the release of the 'Gratitude' music album.`
+            bigText: "Created a logo and visual identity for one of Afrobeats’ biggest producers, who created ‘Love Nwantiti’ and ‘Soweto’"
 
         },
+
+        {
+
+            image: "/assets/projects/rotimi.png",
+
+            text: "Rotimi",
+
+            bigText: `Developed an executed an amplification campaign to drive conversations about him and his music.`
+
+        }
 
     ];
 

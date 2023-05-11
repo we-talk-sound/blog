@@ -8,7 +8,7 @@
 
         .playlists-item {
 
-            margin-right: 16px;
+            margin: auto;
 
         }
 
@@ -17,32 +17,7 @@
             @extend %body-width-and-padding;
             padding-top: 0;
             padding-bottom: 48px;
-
-        }
-
-        &-slider {
-
-            @extend %body-width-and-padding;
-            display: flex;
-            flex-wrap: nowrap;
-            padding-top: unset;
-            padding-bottom: unset;
-            max-width: unset;
-            overflow-x: scroll;
-
-            .playlists-item {
-
-                @include media-query(mobile) {
-
-                    width: 80vw !important;
-                    min-width: 80vw !important;
-                    max-width: 311px !important;
-
-                }
-
-                margin-right: 30px;
-
-            }
+            text-align: center;
 
         }
 
@@ -50,9 +25,30 @@
 
     &-item {
 
+        @include media-query(mobile) {
+
+            width: 90% !important;
+            min-width: unset;
+            max-width: 400px;
+
+        }
+
         display: block;
         width: 480px;
         min-width: 480px;
+
+        &:hover img {
+
+            transform: none;
+
+        }
+
+        .event-item-button-wrapper {
+
+            max-width: unset;
+            background: rgba(0, 0, 0, 0.4) !important;
+
+        }
 
         img {
 
@@ -68,11 +64,18 @@
 
         h2 {
 
+            @include font-size(m-medium);
             width: 100%;
-            text-align: left;
-            font-family: $main-font;
+            text-align: center;
+            font-family: $header-font;
 
         }
+
+    }
+
+    &-block-slider .button-expand {
+
+        margin: 48px auto 0;
 
     }
 

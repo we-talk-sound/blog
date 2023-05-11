@@ -14,7 +14,7 @@ export const SectionThree: React.FC = () => {
             {
                 type: "repeated-data",
                 value: `We create original content for our own platforms as well as for clients across different industries. 
-                We deeply understand our clients goals, design holistic content & storytelling strategies, and execute.`
+                        We deeply understand our clients goals, design holistic content & storytelling strategies, and execute.`
 
             }
         ],
@@ -24,8 +24,8 @@ export const SectionThree: React.FC = () => {
             "Marketing & PR",
             {
                 type: "repeated-data",
-                value: `We help our clients delight current audiences, and expand their reach to new 
-                audiences across the region, and the world through a holistic marketing campaigns covering:`
+                value: `We help our clients delight current audiences, and expand their reach to new audiences across
+                        the region, and the world through holistic marketing campaigns.`
 
             }
         ],
@@ -35,10 +35,8 @@ export const SectionThree: React.FC = () => {
             "Talent Accelerator & Label services",
             {
                 type: "repeated-data",
-                value: `We discover and partner with emerging talent to create, distribute and market 
-                their music through our recording camp (Camp Nova), our collaborative album series 
-                (LOFN) and other initiatives. We can collaborate with The Orchard to develop emerging 
-                talent, execute recording camps & distribute music projects by talented emerging acts.`
+                value: `We discover and partner with emerging talent to create, distribute and market their 
+                        music through our recording bootcamp (Camp Nova), our collaborative album series (LOFN) and other initiatives.`
 
             }
         ],
@@ -48,20 +46,18 @@ export const SectionThree: React.FC = () => {
             "Creative Direction & Design",
             {
                 type: "repeated-data",
-                value: `We help create new brands from scratch as well as re-position existing brands to
-                 reach new audiences. With a combination of design, illustrations, animations, photography, 
-                 videography and other visual elements, we develop concepts into aesthetically pleasing 
-                 assets and elements that can be used digitally and physically.`
+                value: `We develop original visual content from design, photography, animations, documentaries, 
+                        music videos, short films and more for clients across industries.`
 
             }
         ],
 
         [
             "05",
-            "Web & Product Development",
+            "Emerging Technology",
             {
                 type: "repeated-data",
-                value: `We design and develop artist & brand websites, online-based games, online merch stores, mobile apps and more.`
+                value: `We help our clients understand the best way to leverage new technologies to reach and excite their audiences.`
 
             }
         ],
@@ -71,9 +67,7 @@ export const SectionThree: React.FC = () => {
             "Events and live",
             {
                 type: "repeated-data",
-                value: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet urna at ridiculus
-                 liberoorper ridiculus aenean quam arcu. Nunc, enim cras fermentum mauris nunc libero libero 
-                 lobortis suspendisse. Ultricies morbi tortor, amet id nibh.`
+                value: `We design and execute live experiences such as mixers, concerts, conferences and offline activations for clients.`
 
             }
         ],

@@ -10,18 +10,20 @@ export const CreativeSectionOne: React.FC<Props> = ({ isMobile, deviceWidth }) =
 
             className='page-zero no-border page-agency'
 
+            style={{ backgroundImage: `url(assets/background/new-creative.png)` }}
+
             bodyClass='page-agency-caption'>
 
-            <Header 
-            
-                withFrame={true} 
-                
-                isMobile={isMobile} 
-                
-                deviceWidth={deviceWidth} 
+            <Header
+
+                withFrame={true}
+
+                isMobile={isMobile}
+
+                deviceWidth={deviceWidth}
 
                 active={"/creative"}
-                
+
             />
 
             <div className='page-agency-flex'>
@@ -31,23 +33,27 @@ export const CreativeSectionOne: React.FC<Props> = ({ isMobile, deviceWidth }) =
                     title={'The Creative Agency'}
 
                     value={`
-                We help create new brands from scratch as well as re-position existing brands to reach new audiences. 
-                With a combination of design, illustrations, animations, photography, videography and other visual elements, 
-                we develop concepts into aesthetically pleasing assets and elements that can be used digitally and physically.
-                `}
+                    Tapping into our pool of expertise across design, strategy, media and technology, 
+                    we work with clients in various industries to achieve their marketing and brand 
+                    goals.`}
 
                 />
 
-                <div 
-                
-                    className='page-agency-flex-image' 
-                    
-                    style={{ backgroundImage: "url(assets/background/creative-agency-frame.png)" }} 
-                    
-                />
+                <div
+
+                    className='page-agency-flex-image'
+
+                >
+
+                    <div
+
+                        style={{ backgroundImage: "url(assets/background/creative-agency-frame.png)" }}
+
+                    />
+
+                </div>
 
             </div>
-
 
 
         </ComponentHolder >

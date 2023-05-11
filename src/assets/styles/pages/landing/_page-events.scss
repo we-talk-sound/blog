@@ -154,6 +154,12 @@
 
         }
 
+        .event-item:hover img {
+
+            transform: none;
+
+        }
+
 
     }
 
@@ -161,6 +167,12 @@
 
         @include font-size-override(l-large);
         margin-bottom: 48px;
+
+    }
+
+    &-partnered-block .partner-item-box-image img {
+
+        object-fit: cover !important;
 
     }
 

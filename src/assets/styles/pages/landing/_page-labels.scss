@@ -4,17 +4,29 @@
 
         &-hero .page-zero-caption {
 
-            margin-top: 120px;
+            @include media-query(mobile) {
 
-            .button-expand-wrapper {
+                margin: auto;
 
-                @include media-query(mobile) {
+                .button-expand-wrapper {
 
                     margin: auto;
 
                 }
 
             }
+
+            @include media-query('extreme-mobile') {
+
+                h1 {
+
+                    @include font-size-override(x-large);
+
+                }
+
+            }
+
+            margin-top: 120px;
 
             .button-expand p {
 
@@ -28,13 +40,27 @@
 
             @include media-query(mobile) {
 
+                height: 100vh;
+                min-height: 500px;
+                max-height: 812px;
                 background: url(/assets/background/labels-hero-mobile.png) no-repeat !important;
-                background-position: top center !important;
+                background-position: center !important;
+                background-size: cover !important;
 
             }
 
-            background: url(/assets/background/labels-hero.png) no-repeat !important;
+            min-height: 900px;
+            background: url(/assets/background/behind-labels-hero.jpg), linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/assets/background/labels-hero.jpg), no-repeat !important;
+            background-position: center !important;
+
             background-size: cover !important;
+
+        }
+
+        &-hero .page-zero-content {
+
+            justify-content: space-between;
+            padding-bottom: 60px;
 
         }
 
@@ -124,9 +150,28 @@
 
             }
 
+            @include media-query(tablet) {
+
+                max-width: 700px;
+
+            }
+
+
+            @include media-query(pc-low-resolution) {
+
+                max-width: 520px;
+
+            }
+
+            @media only screen and (min-width: 800px) and (max-width: 1200px) {
+
+                max-width: 720px;
+
+            }
+
             margin-right: auto;
             margin-left: 0;
-            max-width: 800px;
+            max-width: 1001px;
             text-align: left;
 
         }

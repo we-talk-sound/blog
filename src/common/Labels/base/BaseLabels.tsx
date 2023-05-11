@@ -22,10 +22,6 @@ export const BaseLabels: React.FC<Props> = ({ isMobile, deviceWidth , activePath
 
                 controls={{
 
-                    navSwitcher: true,
-
-                    dotSwitcher: true,
-
                     button: {
 
                         display: true,
@@ -36,7 +32,7 @@ export const BaseLabels: React.FC<Props> = ({ isMobile, deviceWidth , activePath
 
                 }}
 
-                dangerousTitle={`<span>  <span class='color-primary'> ‘LOFN IV’  </span>  IS OUT NOW </span>`}
+                dangerousTitle={`<span>  <span class='color-primary'> ‘Show Me Something’  </span>  Is out now </span>`}
 
                 text={`WETALKSOUND COLLECTIVE`}
 
@@ -46,7 +42,7 @@ export const BaseLabels: React.FC<Props> = ({ isMobile, deviceWidth , activePath
 
             <LatestReleases />
 
-            <Playlists title={"Our Playlists"} />
+            <Playlists title={"Listen to our Playlists"} />
 
             <NewsLetter />
 

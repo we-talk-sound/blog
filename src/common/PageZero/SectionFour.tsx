@@ -11,44 +11,44 @@ export const SectionFour: React.FC<Props> = ({ isMobile }) => {
 
         {
 
+            image: "/assets/projects/davido.png",
+
+            text: "DMW 2.0",
+
+            bigText: `We handle PR and amplification for the rebranded Davido Music Worldwide label - housing superstar 
+                      Davido and signees Logos Olori and Morravey.`
+
+        },
+
+        {
+
             image: "/assets/projects/joe-boy.png",
 
             text: "Joeboy",
 
-            bigText: `Developed a campaign to consolidate his efforts at establishing a fanbase in the Nigerian market by securing 
-            placements on key media platforms and harnessing PR opportunities.`
-
-        },
-
-        {
-            image: "/assets/projects/reminisce.png",
-
-            text: "Reminisce",
-
-            bigText: `Developed the social media & promotional campaign for his 'Vibes & Insha Allah' EP. 
-            Helped Reminisce achieve penetration into the millennial and gen-z demographic of music consumers.`
+            bigText: `Developed and executed a holistic marketing campaign for his 2023 run including 
+            successful singles ‘Body & Soul’, ‘Duffel Bag’ and album ‘Body & Soul'`
 
         },
 
         {
 
-            image: "/assets/projects/d-smoke.png",
+            image: "/assets/projects/victoni.png",
 
-            text: "D-SMOKE",
+            text: "Victony",
 
-            bigText: `Developed a campaign to consolidate his efforts at establishing a fanbase in the Nigerian market 
-            by securing placements on key media platforms and harnessing PR opportunities.`
+            bigText: "Developed and executed an amplification campaign to promote ‘Soweto’ remixes as well as drive conversations on Victony."
 
         },
 
         {
 
-            image: "/assets/projects/ria-sean.png",
+            image: "/assets/projects/bolt.png",
 
-            text: "RIA SEAN",
+            text: "Bolt",
 
-            bigText: `Developed a campaign to consolidate his efforts at establishing a fanbase in the 
-            Nigerian market by securing placements on key media platforms and harnessing PR opportunities.`
+            bigText: `Designed and developed microsites for various "Bolt" campaigns, 
+                      including "Bolt Chews Wisely", "#GratefulForEveryMile", "#smarterwithbolt", and "#MYPVCJOURNEY"`
 
         }
 

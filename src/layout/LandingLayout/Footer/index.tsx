@@ -1,6 +1,6 @@
 import React from 'react';
-import { FooterLogoField, ViewFormatter } from 'components';
-import { FooterAddress, FooterLogo, LandingFooterServices } from 'constants/index';
+import { ViewFormatter } from 'components';
+import { LandingFooterServices } from 'constants/index';
 import LandingLayoutFooterCr from '../LandingLayoutFooterCr';
 import { classnames } from 'utils';
 
@@ -18,18 +18,6 @@ const LandingLayoutFooter: React.FC<{ footerClass?: string, footerId?: string }>
 
                 <div className='landingLayout-footer-holder-tabs'>
 
-                    <div className="landingLayout-footer-tab">
-
-                        <FooterLogoField logo={FooterLogo} alt={"stellas"} />
-
-                    </div>
-
-                    <div className="landingLayout-footer-tab">
-
-                        <ViewFormatter {...FooterAddress} wrapperClass={"landingLayout-footer-tab-address"} />
-
-                    </div>
-
                     {LandingFooterServices.map((item, index) =>
 
                         <div
@@ -40,7 +28,7 @@ const LandingLayoutFooter: React.FC<{ footerClass?: string, footerId?: string }>
 
                         >
 
-                            <ViewFormatter withButton={true} {...item} />
+                            <ViewFormatter {...item} />
 
                         </div>
 

@@ -62,7 +62,9 @@ export const SectionOne: React.FC<Props> = ({
 
                         }
 
-                    </h1>}
+                    </h1>
+                    
+                }
 
                 <p>
                     {text || `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiaum lorem.
@@ -104,9 +106,9 @@ interface Props {
     activePath?: string,
     controls?: {
 
-        navSwitcher: boolean,
+        navSwitcher?: boolean,
 
-        dotSwitcher: boolean,
+        dotSwitcher?: boolean,
 
         button: {
 

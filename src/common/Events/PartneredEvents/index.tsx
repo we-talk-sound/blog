@@ -8,15 +8,11 @@ export const PartneredEvents: React.FC = ({ }) => {
 
         { image: "/assets/partnered-events/pinewine.png", alt: "Palmwine Festival - 2019" },
 
-        { image: "/assets/partnered-events/z.png", alt: "Z! Fest - 2022" },
+        { image: "/assets/partnered-events/fest.jpeg", alt: "ISL Fest - 2022" },
 
-        { image: "/assets/partnered-events/island.png", alt: "Island Block Party - DEC 2022" },
-        
-        { image: "/assets/partnered-events/joe-boy.png", alt: "Joeboy Live - 2021" },
+        { image: "/assets/partnered-events/bella.jpeg", alt: "Bella Shmurda Live in Ibadan - 2022" },
 
-        { image: "/assets/partnered-events/boyalone.png", alt: "Boy Alone (World tour) - 2023" },
-
-        { image: "/assets/partnered-events/henny.png", alt: "Hennesy VS Class viii - 2022" },
+        { image: "/assets/partnered-events/activity.jpeg", alt: "Activity Fest - 2022" },
 
     ];
 
@@ -24,7 +20,7 @@ export const PartneredEvents: React.FC = ({ }) => {
 
         <ComponentHolder
 
-            className='no-border page-agency page-agency-section-four'
+            className='no-border page-agency page-agency-section-four page-events-partnered-block'
 
             bodyClass='page-zero-content'>
 

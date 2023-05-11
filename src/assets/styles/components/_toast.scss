@@ -11,12 +11,13 @@
   position: relative;
   margin: 5px;
   margin-left: auto;
-  box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  padding: 20px 50px;
-  width: max-content;
-  background: white;
+  border-radius: 16px;
+  padding: 18px;
+  width: 100%;
+  max-width: 371px;
+  background: color(toast-bg);
   line-height: 2rem;
+  font-family: $header-font;
   animation-duration: 1s !important;
   transition: 0.1s ease;
 
@@ -29,7 +30,37 @@
   &-container {
     @include font-size(regular);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     height: 100%;
+    line-height: 21px;
   }
+
+  &-container-icon {
+
+    margin-right: 10px;
+    width: 20px;
+    min-width: 20px;
+    height: 20px;
+    min-height: 20px;
+
+  }
+
+  &-error {
+
+    color: color(error);
+
+  }
+
+  &-success {
+
+    color: color(success-toast-text);
+
+  }
+
+  &-caution {
+
+    color: color(primary);
+
+  }
+
 }

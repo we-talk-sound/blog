@@ -16,6 +16,8 @@ export const ComponentHolder: React.FC<Props> = ({ visibility, id, childId, ...p
 
                     className={classnames(`component-holder`, props.className)}
 
+                    style={ props.style ? { ...props.style } : {} }
+
                 >
 
                     {(props.title || props.customHeader || props.control) &&
@@ -61,5 +63,6 @@ interface Props {
     align?: boolean,
     id?: string,
     childId?: string,
-    Ref?: any
+    Ref?: any,
+    style?: React.CSSProperties
 }

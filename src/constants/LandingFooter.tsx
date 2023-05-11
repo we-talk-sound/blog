@@ -1,5 +1,3 @@
-import Wetalksound from 'assets/logo/wts_white.svg';
-
 interface FooterTypes {
     logo?: string,
     text?: string,
@@ -11,22 +9,25 @@ interface FooterTypes {
 };
 
 export const SocialLinks = {
-    facebook: "https://www.facebook.com/haladigital/",
-    youtube: "https://www.youtube.com/channel/haladigital",
-    instagram: "https://www.instagram.com/haladigital",
-    twitter: "https://www.twitter.com/haladigital"
+    facebook: "https://www.facebook.com/wetalksound/",
+    youtube: "https://www.youtube.com/channel/wetalksound",
+    instagram: "https://www.instagram.com/wetalksound",
+    twitter: "https://www.twitter.com/wetalksound",
+    tiktok: "https://www.tiktok.com/wetalksound"
 }
 
-export const FooterLogo = Wetalksound;
+export const FooterLogo = 'assets/logo/wts_white.svg';
 
 export const LandingFooterServices = [
     {
-        value: "Hello@wetalksound.com",
-        title: "CONTACT US"
+        linkIcon: 'assets/logo/wts_white.svg',
+        title: "Lagos, Nigeria",
+        withButton: false
     },
     {
-        value: "+234 906 783 7892",
-        title: "CONTACT US"
+        value: "wetalksound@gmail.com",
+        title: "CONTACT US",
+        withButton: true
     }
 ];
 
@@ -50,7 +51,7 @@ export const LandingFooterLinks: Array<FooterTypes> = [
 ];
 
 export const FooterAddress = {
-    title : "16 ABUDU STREET, OSAPA LEKKI, LAGOS NIGERIA ",
+    title : "Lagos, Nigeria",
     value: ""
 };
 

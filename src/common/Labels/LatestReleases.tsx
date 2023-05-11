@@ -4,12 +4,12 @@ import { ComponentHolder, EventItem } from 'components';
 export const LatestReleases: React.FC = ({ }) => {
 
     const data = [
-        { image: "assets/releases/lofin4.png", title: "LOFN IV", subtitle: "WETALKSOUND" },
-        { image: "assets/releases/ikogosi.png", title: "IKOGOSI", subtitle: "WETALKSOUND" },
-        { image: "assets/releases/lagos-december.png", title: "LAGOS IN DCMBR", subtitle: "WETALKSOUND" },
+        { image: "assets/releases/show-me-something.png", title: "Show Me Something", subtitle: "KAEY, VADERTHEWILDCARD & PDSTRN" },
+        { image: "assets/releases/ikogosi.png", title: "IKOGOSI", subtitle: "Rindss & Vader the wildcard" },
         { image: "assets/releases/lofin-again.png", title: "LOFN IV", subtitle: "WETALKSOUND" },
+        { image: "assets/releases/lagos-in.png", title: "TO BE FRANK (EP)", subtitle: "Vader The Wildcard" },
+        { image: "assets/releases/lagos-december.png", title: "LAGOS IN DCMBR", subtitle: "Vader The Wildcard & TGM" },
         { image: "assets/releases/lagos.png", title: "LAGOS IN JULY (EP)", subtitle: "Vader The Wildcard & TGM" },
-        { image: "assets/releases/lagos-in.png", title: "TO BE FRANK (EP)", subtitle: "WETALKSOUND" }
     ];
 
     return (
@@ -43,9 +43,6 @@ export const LatestReleases: React.FC = ({ }) => {
                 </div>
 
             </div>
-
-
-
 
         </ComponentHolder >
 

@@ -147,12 +147,23 @@
 
     @include media-query(mobile) {
 
+      display: none;
       height: 36px;
 
     }
 
     display: flex;
     width: max-content;
+
+    &-shell {
+
+      @include media-query(mobile) {
+
+        display: none !important;
+
+      }
+
+    }
 
     &-text-block {
 
@@ -311,6 +322,38 @@
         }
 
       }
+
+    }
+
+  }
+
+  &-expand-mobile {
+
+    @include font-size(large);
+    @include media-query(mobile) {
+
+      display: flex;
+
+    }
+
+    display: none;
+    border-radius: 20px;
+    border: 1px solid color(white);
+    padding: 11px 16px;
+    width: 100%;
+    max-width: 100%;
+    background: unset;
+    text-align: center;
+
+    &:hover {
+
+      background: unset;
+
+    }
+
+    span {
+
+      width: 100%;
 
     }
 

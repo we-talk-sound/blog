@@ -10,11 +10,7 @@ export const CreativeSectionFour: React.FC = ({ }) => {
 
         { image: "/assets/partners/bolt.jpg", alt: "Bolt" },
 
-        { image: "/assets/partners/def-jam.jpg", alt: "Def Jam" },
-
-        { image: "/assets/partners/empire.jpg", alt: "Empire" },
-
-        { image: "/assets/partners/boomplay.png", alt: "Boomplay" },
+        { image: "/assets/partners/empire.png", alt: "Empire" },
 
         { image: "/assets/partners/onerpm.png", alt: "One RPM" },
 

@@ -2,7 +2,8 @@
 
     min-height: unset !important;
     max-height: unset !important;
-    background: color(_black);
+    background-repeat: no-repeat;
+    background-size: cover;
 
     &-caption {
 
@@ -15,11 +16,20 @@
 
         }
 
+        @include media-query('tablet-and-mobile') {
+
+            height: unset;
+            min-height: unset;
+
+        }
+
         margin-top: 0 !important;
         padding-top: 0 !important;
         padding-right: 0 !important;
         padding-bottom: 0;
         max-width: unset;
+        height: 710px;
+        min-height: 710px;
 
         .landingLayout-header {
 
@@ -53,7 +63,7 @@
 
         @include media-query('tablet-and-mobile') {
 
-            flex-direction: column-reverse;
+            flex-direction: column;
             flex-wrap: wrap;
 
         }
@@ -64,24 +74,63 @@
 
         &-image {
 
+            @extend %body-width-and-padding;
+
             @include media-query('tablet-and-mobile') {
 
-                position: absolute;
-                top: -35px;
-                width: 100%;
-                height: 600px;
-                max-height: 600px;
-                background-position: top;
-                background-size: cover;
+                margin-top: 40px !important;
+                margin-bottom: 73px !important;
+                padding-right: 20px;
+                padding-left: 20px;
+                max-width: 370px;
+                height: 330px;
+                max-height: 374px;
+
+                div {
+
+                    width: 100% !important;
+                    height: 100% !important;
+
+                }
 
             }
 
-            width: 50%;
-            min-width: 50%;
-            height: 710px;
-            max-height: 100vh;
-            background-repeat: no-repeat;
-            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto !important;
+            margin-top: 90px !important;
+            margin-bottom: 0 !important;
+            padding-top: 0;
+            padding-bottom: 0;
+            padding-left: 0;
+
+            div {
+
+                @media only screen and (min-width: 751px) and (max-width: 1100px) {
+
+                    width: 270px;
+                    height: 300px;
+
+                }
+
+                @media only screen and (min-width: 751px) and (max-width: 900px) {
+
+                    width: 250px;
+                    height: 270px;
+
+                }
+
+                width: 350px;
+                height: 396.86px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+                transition: 0.2s ease;
+
+            }
+
+
         }
 
         .view-formatter {
@@ -92,28 +141,25 @@
 
                     z-index: 1;
                     margin-right: 0;
-                    margin-left: 0;
                     max-width: 100%;
-                    min-height: 600px;
-
-                }
-
-                @include media-query(pc) {
-
-                    // margin-top: 20%;
+                    text-align: center;
 
                 }
 
                 margin-top: 90px;
                 margin-right: 88px;
-                margin-left: auto;
+                margin-left: 0;
                 max-width: 670px;
 
             }
 
             &-title-box {
 
-                // margin-top: -120px;
+                @include media-query(tablet-and-mobile) {
+
+                    justify-content: center;
+
+                }
 
             }
 
@@ -168,16 +214,6 @@
 
             margin-bottom: 20px;
             max-width: unset;
-
-            .project-item {
-
-                &-overlay {
-
-                    background: unset !important;
-
-                }
-
-            }
 
         }
 
@@ -254,7 +290,8 @@
             &:nth-child(3),
             &:nth-child(4),
             &:nth-child(5),
-            &:nth-child(6) {
+            &:nth-child(6),
+            &:nth-child(7)  {
 
 
                 img {
@@ -267,10 +304,16 @@
 
             }
 
-            &:nth-child(4) img,
-            &:nth-child(7) img {
+            &:nth-child(5) img,
+            &:nth-child(2) img {
 
                 object-fit: contain;
+
+            }
+
+            &:nth-child(2) {
+
+                background: color(white);
 
             }
 
@@ -286,6 +329,7 @@
 
         }
 
+        display: none;
         margin: auto;
         border-radius: 20px;
         border: 1px solid color(white);

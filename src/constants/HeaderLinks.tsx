@@ -7,7 +7,7 @@ export const rightLinks: typeOfHeaderItem[] = [
         "link": "/creative"
     },
     {
-        "title": "LABELS",
+        "title": "LABEL SERVICES",
         "link": "/labels"
     },
     {
@@ -21,6 +21,10 @@ export const rightLinks: typeOfHeaderItem[] = [
     {
         "title": "BLOG",
         "link": "/blog"
+    },
+    {
+        "title": "STORE",
+        "link": "/store"
     },
 ];
 

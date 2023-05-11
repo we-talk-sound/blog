@@ -1,28 +1,62 @@
 import React from "react";
 import { classnames } from "utils";
+import { Button } from "./Button";
+import { Mouse } from "./Assets";
 
-export const EventItem:React.FC<Props> = ({
+export const EventItem: React.FC<Props> = ({
 
     image,
+
     title,
+
     subtitle,
-    className
-        
+
+    className,
+
+    button,
+
+    isReel
+
 }) => {
 
- return (
+    return (
 
-    <div className={classnames("event-item", className)}>
+        <div className={classnames("event-item", className)}>
 
-        <img src={image} alt={"event"} />
+            <div className="event-item-body">
 
-        <h2> {title} </h2>
+                {button &&
 
-        <p> {subtitle} </p>
+                    <div className="event-item-button-wrapper">
 
-    </div>
+                        <Button label={button.label} />
 
- ); 
+                        {isReel && <div className="event-item-button-wrapper-for-reel">
+
+                            <img src="assets/reel.png" alt="reel" />
+
+                            <span dangerouslySetInnerHTML={{ __html: Mouse }} />
+
+                        </div>
+                        }
+
+                    </div>
+
+                }
+
+                <img src={image} alt={"event"} />
+
+            </div>
+
+
+            <h2> {title} </h2>
+
+            <p> {subtitle} </p>
+
+
+        </div>
+
+    );
 
 }
 
@@ -34,6 +68,12 @@ interface Props {
 
     subtitle?: string,
 
-    className?: string
+    className?: string,
+
+    button?: { label: string },
+
+    onClick?: () => void,
+
+    isReel?: boolean
 
 }

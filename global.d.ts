@@ -11,3 +11,4 @@ declare module "pdfmake/build/vfs_fonts";
 declare module "multer";
 declare module "crypto-js";
 declare module "use-lodash-debounce";
+declare module "@mailchimp/mailchimp_marketing";

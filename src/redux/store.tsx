@@ -28,4 +28,4 @@ export type typeOfDispatch = typeof store.dispatch;
 
 export const persistor = persistStore(store);
 
-export const quickToast = (feed: { text: string }) => store.dispatch(toggleToast(feed));
+export const quickToast = (feed: { text: string, actionType?: "success" | "error" | "caution"  }) => store.dispatch(toggleToast(feed));

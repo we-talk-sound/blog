@@ -1,0 +1,41 @@
+.page-store {
+
+    display: flex;
+    flex-grow: 1;
+    height: 100vh;
+    min-height: 900px !important;
+    max-height: 900px !important;
+
+    .page-agency-caption {
+
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        padding-left: 0;
+
+        .landingLayout-header {
+
+            @extend %body-width-and-padding;
+    
+        }
+
+    }
+
+    &-text {
+
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        justify-content: center;
+        margin-top: 90px;
+        color: color(white);
+
+        h1 {
+
+            @include font-size(xxxx-large);
+
+        }
+
+    }
+
+}

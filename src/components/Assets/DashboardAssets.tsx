@@ -9,6 +9,11 @@ export const Arrow = `<svg width="32" height="20" viewBox="0 0 32 20" fill="none
 </svg>
 `;
 
+export const DarkArrow = `<svg width="32" height="20" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M31 10.9997C31.5523 10.9997 32 10.552 32 9.99967C32 9.44739 31.5523 8.99967 31 8.99967V10.9997ZM1 9.99967L0.292896 9.29257C-0.0976276 9.68309 -0.0976276 10.3163 0.292896 10.7068L1 9.99967ZM8.62623 19.0401C9.01675 19.4306 9.64992 19.4306 10.0404 19.0401C10.431 18.6496 10.431 18.0164 10.0404 17.6259L8.62623 19.0401ZM10.0404 2.37345C10.431 1.98292 10.431 1.34976 10.0404 0.959234C9.64992 0.568708 9.01675 0.568708 8.62623 0.959234L10.0404 2.37345ZM31 8.99967L1 8.99967V10.9997L31 10.9997V8.99967ZM0.292896 10.7068L8.62623 19.0401L10.0404 17.6259L1.70711 9.29257L0.292896 10.7068ZM1.70711 10.7068L10.0404 2.37345L8.62623 0.959234L0.292896 9.29257L1.70711 10.7068Z" fill="black"/>
+</svg>
+`;
+
 export const PlusIcon = `<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.875 13.125V0.8125C16.875 0.363769 16.5112 0 16.0625 0H13.9375C13.4888 0 13.125 0.363769 13.125 0.8125V13.125H0.8125C0.363769 13.125 0 13.4888 0 13.9375V16.0625C0 16.5112 0.363769 16.875 0.8125 16.875H13.125V29.1875C13.125 29.6362 13.4888 30 13.9375 30H16.0625C16.5112 30 16.875 29.6362 16.875 29.1875V16.875H29.1875C29.6362 16.875 30 16.5112 30 16.0625V13.9375C30 13.4888 29.6362 13.125 29.1875 13.125H16.875Z" fill="#232322"/>
 </svg>
@@ -25,6 +30,17 @@ export const Circle = `<svg width="70" height="70" viewBox="0 0 70 70" fill="non
 <linearGradient id="paint0_linear_1197_358" x1="37" y1="21" x2="25" y2="20.5" gradientUnits="userSpaceOnUse">
 <stop stop-color="white"/>
 <stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>
+`;
+
+export const DarkCircle = `<svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="35" cy="35" r="34" transform="matrix(1 0 0 -1 0 70)" stroke="url(#paint0_linear_2356_1996)" stroke-width="2"/>
+<defs>
+<linearGradient id="paint0_linear_2356_1996" x1="37" y1="21" x2="25" y2="20.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#151515"/>
+<stop offset="1" stop-color="#8B8B8B" stop-opacity="0"/>
 </linearGradient>
 </defs>
 </svg>
@@ -136,5 +152,38 @@ export const EventsTime = `<svg width="28" height="29" viewBox="0 0 28 29" fill=
 
 export const Ellipse = `<svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle opacity="0.7" cx="4" cy="4" r="4" fill="white"/>
+</svg>
+`;
+
+export const Mouse = `<svg width="55" height="56" viewBox="0 0 55 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1602_8141)">
+<path d="M26.1715 11.4953L19.1424 13.5855C15.2603 14.7399 13.0491 18.8228 14.2035 22.7049L19.4292 40.2777C20.5836 44.1598 24.6665 46.371 28.5486 45.2166L35.5777 43.1263C39.4598 41.9719 41.671 37.889 40.5166 34.0069L35.2909 16.4341C34.1365 12.552 30.0536 10.3408 26.1715 11.4953Z" fill="white" stroke="black" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M24.7461 19.5664L26.8364 26.5955" stroke="#2C3E50" stroke-opacity="0.5" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_1602_8141">
+<rect width="44" height="44" fill="white" transform="translate(0 13.5391) rotate(-16.561)"/>
+</clipPath>
+</defs>
+</svg>
+`;
+
+export const ToastSuccessIcon = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" fill="#0BE121" stroke="#0BE121" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M7.75 12.0019L10.58 14.8319L16.25 9.17188" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+`;
+
+export const ToastErrorIcon = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" fill="#FF0B0B" stroke="#FF0B0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9 14.66L14.66 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M14.66 14.66L9 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+`;
+
+export const ToastCautionIcon = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" fill="#FBCA01" stroke="#FBCA01" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12.0078 8V13" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12 16H12.009" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 `;

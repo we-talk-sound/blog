@@ -25,7 +25,7 @@ export const ToastHolder = () => {
                     }
                 >
 
-                    <Toast toast={toast} onClick={() => manualDismissal(toast.id)} />
+                    <Toast toast={toast as any} onClick={() => manualDismissal(toast.id)} />
 
                 </div>
             ))}

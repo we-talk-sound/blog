@@ -1,6 +1,7 @@
 import React from 'react';
+import { ProjectItemIndicator } from './ProjectItemIndicator';
 
-export const ProjectItem: React.FC<Props> = ({ image, text, bigText }) => {
+export const ProjectItem: React.FC<Props> = ({ image, text, bigText, indicator }) => {
 
     const paragraph = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                         Eget sed diam purus sagittis mi. 
@@ -8,6 +9,18 @@ export const ProjectItem: React.FC<Props> = ({ image, text, bigText }) => {
     return (
 
         <div className='project-item'>
+
+            {indicator?.show &&
+
+                <ProjectItemIndicator
+
+                    active={indicator.index}
+
+                    numberOfItems={indicator.numberOfItems}
+
+                />
+
+            }
 
             <img src={image} alt={`project-item-image`} />
 
@@ -33,6 +46,18 @@ interface Props {
 
     bigText?: string,
 
-    onClick?: () => void
+    onClick?: () => void,
+
+    showIndicator?: boolean,
+
+    indicator?: {
+
+        show: boolean,
+
+        numberOfItems : number,
+
+        index: number
+
+    }
 
 }

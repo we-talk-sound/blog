@@ -30,7 +30,7 @@ export const SectionOneRevamp: React.FC<Props> = ({
                     <h1> Elevate Your Brand </h1>
 
                     <p> We are a  360  creative company leveraging
-                        <span> technology community </span> &
+                        <span> technology, community </span> &
                         <span> content </span> to design delightful experiences.
                     </p>
 

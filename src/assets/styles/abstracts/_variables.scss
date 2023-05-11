@@ -6,6 +6,7 @@ $colors: (
   primary: #FBCA01,
   secondary-text: #e0e3e5,
   red: #ea3223,
+  error: rgba(255, 11, 11, 1),
   white: #ffffff,
   footer: #18191f,
   footer-icon-bg: #303135,
@@ -32,7 +33,9 @@ $colors: (
   text-80:  #444340,
   subtitle: #878580,
   text-90: rgba(215, 214, 213, 1),
-  _black: #000000
+  _black: #000000,
+  toast-bg: #EBFFED,
+  success-toast-text: rgba(11, 225, 33, 1)
 );
 
 $shadows: (
@@ -57,6 +60,7 @@ $normal-font-sizes: (
   small: 14px,
   regular: 16px,
   medium: 18px,
+  m-medium: 20px,
   large: 22.5px,
   l-large: 24px,
   m-large: 26px,
@@ -77,6 +81,7 @@ $small-font-sizes: (
   small: 12.5px,
   regular: 16px,
   medium: 16px,
+  m-medium: 17px,
   large: 16px,
   l-large: 22.5px,
   m-large: 25.5px,
@@ -97,6 +102,7 @@ $small-tab-font-sizes: (
   small: 11px,
   regular: 16px,
   medium: 14px,
+  m-medium: 15px,
   large: 16px,
   l-large: 20.5px,
   m-large: 21px,
