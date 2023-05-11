@@ -48,11 +48,6 @@ export const HtmlHead: React.FC<{ title: any }> = ({ title }) => {
         crossOrigin="anonymous"
       />
 
-      <script>
-        {process.env.NEXT_PUBLIC_NODE_ENV !== 'development' && (window as any)?.__REACT_DEVTOOLS_GLOBAL_HOOK__
-          ? 'window?.__REACT_DEVTOOLS_GLOBAL_HOOK__?.inject = function(){}'
-          : ''}
-      </script>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: seoAttributes }} />
 
