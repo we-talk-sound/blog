@@ -21,8 +21,8 @@
     "baseUrl": "src",
     "paths": {
       "*": [
-        "*"
-      ]
+        "*",
+      ],
     },
     "incremental": true
   },

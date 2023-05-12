@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Head from 'next/head';
 
 export const HtmlHead: React.FC<{ title: any }> = ({ title }) => {
@@ -17,10 +17,33 @@ export const HtmlHead: React.FC<{ title: any }> = ({ title }) => {
     "logo": "http://wetalksound.co/assets/logo/apple-icon.png"
   }`;
 
+  useEffect(() => {
+
+    if (window) {
+
+      const script = document.createElement('script');
+
+      script.src = "devToolsInjection.js";
+
+      script.async = true
+
+      document.body.appendChild(script)
+
+      return () => {
+
+        document.body.removeChild(script)
+
+      }
+
+    }
+
+  // eslint-disable-next-line
+  }, [typeof window !== "undefined"])
+
   return (
     <>
       <Head>
-        <title>{title||"Wetalksound"}</title>
+        <title>{title || "Wetalksound"}</title>
         <meta name="description" content={description} />
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,12 +70,6 @@ export const HtmlHead: React.FC<{ title: any }> = ({ title }) => {
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
         crossOrigin="anonymous"
       />
-
-      <script>
-        {process.env.NEXT_PUBLIC_NODE_ENV !== 'development' && (window as any)?.__REACT_DEVTOOLS_GLOBAL_HOOK__
-          ? 'window?.__REACT_DEVTOOLS_GLOBAL_HOOK__?.inject = function(){}'
-          : ''}
-      </script>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: seoAttributes }} />
 
