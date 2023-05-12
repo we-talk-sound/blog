@@ -3,18 +3,18 @@ import Head from 'next/head';
 
 export const HtmlHead: React.FC<{ title: any }> = ({ title }) => {
   const description = "We are a  360  creative company leveraging technology, community & content to design delightful experiences.";
-  const link = 'http://wetalksound.co';
-  const logo = 'http://wetalksound.co/assets/logo/apple-touch-icon.png';
+  const link = 'https://wetalksound.co';
+  const logo = 'https://wetalksound.co/assets/logo/apple-touch-icon.png';
 
   const seoAttributes = `{
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Wetalksound",
     "alternateName": [""],
-    "url": "http://wetalksound.co",
+    "url": "https://wetalksound.co",
     "sameAs": ["wetalksound"],
 
-    "logo": "http://wetalksound.co/assets/logo/apple-touch-icon.png"
+    "logo": "https://wetalksound.co/assets/logo/apple-touch-icon.png"
   }`;
 
   useEffect(() => {
