@@ -15,7 +15,9 @@
       "./tsconfig.json"
     ]
   },
-  "ignorePatterns": ["devToolsInjection.js"],
+  "ignorePatterns": [
+    "devToolsInjection.js"
+  ],
   "env": {
     "browser": true,
     "node": true,
@@ -54,7 +56,11 @@
     "curly": 0,
     "eqeqeq": 1,
     "no-alert": 1,
-    "max-len": [1, 150, 2],
+    "max-len": [
+      1,
+      150,
+      2
+    ],
     "no-else-return": 1,
     "no-empty-function": 1,
     "no-use-before-define": "off",

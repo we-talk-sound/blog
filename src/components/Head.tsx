@@ -4,7 +4,7 @@ import Head from 'next/head';
 export const HtmlHead: React.FC<{ title: any }> = ({ title }) => {
   const description = "We are a  360  creative company leveraging technology, community & content to design delightful experiences.";
   const link = 'http://wetalksound.co';
-  const logo = 'http://wetalksound.co/assets/logo/apple-icon.png';
+  const logo = 'http://wetalksound.co/assets/logo/apple-touch-icon.png';
 
   const seoAttributes = `{
     "@context": "https://schema.org",
@@ -14,7 +14,7 @@ export const HtmlHead: React.FC<{ title: any }> = ({ title }) => {
     "url": "http://wetalksound.co",
     "sameAs": ["wetalksound"],
 
-    "logo": "http://wetalksound.co/assets/logo/apple-icon.png"
+    "logo": "http://wetalksound.co/assets/logo/apple-touch-icon.png"
   }`;
 
   useEffect(() => {

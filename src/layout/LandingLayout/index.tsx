@@ -36,6 +36,10 @@ export const LandingLayout: React.FC<Props> = ({
     return (
         <>
 
+            <HtmlHead
+                title={headTitle}
+            />
+
             <div className='body-background' />
 
             {showLoader.display &&
@@ -61,10 +65,6 @@ export const LandingLayout: React.FC<Props> = ({
                 key={showLoader.key}
 
             >
-
-                <HtmlHead
-                    title={headTitle}
-                />
 
                 {
                     showHeader &&
