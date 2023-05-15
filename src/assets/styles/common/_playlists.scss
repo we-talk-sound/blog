@@ -2,6 +2,12 @@
 
     &-block {
 
+        @include media-query(mobile) {
+
+            padding-bottom: 42px;
+
+        }
+
         padding: 64px 0;
         min-height: 464px;
         background: color(white);
@@ -76,6 +82,15 @@
     &-block-slider .button-expand {
 
         margin: 48px auto 0;
+
+    }
+
+    &-block-slider .button-expand-mobile {
+
+        margin: 24px auto;
+        border-color: color(_black);
+        width: 90%;
+        color: color(_black);
 
     }
 

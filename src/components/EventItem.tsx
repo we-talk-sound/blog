@@ -1,7 +1,7 @@
 import React from "react";
 import { classnames } from "utils";
 import { Button } from "./Button";
-import { Mouse } from "./Assets";
+import { LinkWrapper } from "./LinkWrapper";
 
 export const EventItem: React.FC<Props> = ({
 
@@ -15,7 +15,7 @@ export const EventItem: React.FC<Props> = ({
 
     button,
 
-    isReel
+    isReel,
 
 }) => {
 
@@ -27,20 +27,29 @@ export const EventItem: React.FC<Props> = ({
 
                 {button &&
 
-                    <div className="event-item-button-wrapper">
+                    <LinkWrapper
 
-                        <Button label={button.label} />
+                        link={button?.link}
 
-                        {isReel && <div className="event-item-button-wrapper-for-reel">
+                        externalLink={button?.externalLink}
 
-                            <img src="assets/reel.png" alt="reel" />
+                        className="event-item-button-wrapper"
 
-                            <span dangerouslySetInnerHTML={{ __html: Mouse }} />
+                    >
 
-                        </div>
-                        }
+                        <>
 
-                    </div>
+                            { button.label && <Button label={button.label} />}
+
+                            {isReel && <div className="event-item-button-wrapper-for-reel">
+
+                                <img src="assets/reel.png" alt="reel" />
+
+                            </div>}
+
+                        </>
+
+                    </LinkWrapper>
 
                 }
 
@@ -70,10 +79,18 @@ interface Props {
 
     className?: string,
 
-    button?: { label: string },
+    button?: {
+
+        label?: string,
+
+        link?: string,
+
+        externalLink?: string
+
+    },
 
     onClick?: () => void,
 
-    isReel?: boolean
+    isReel?: boolean,
 
 }

@@ -79,6 +79,10 @@ export const SectionOne: React.FC<Props> = ({
 
                         label={controls?.button?.title}
 
+                        link={controls?.button?.link}
+
+                        externalLink={controls?.button?.externalLink}
+
                     />
 
                 }
@@ -114,7 +118,11 @@ interface Props {
 
             display: boolean
 
-            title: string
+            title: string,
+
+            link?: string,
+
+            externalLink?: string
 
         },
 

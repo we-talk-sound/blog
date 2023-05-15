@@ -121,16 +121,6 @@
 
         }
 
-        td:nth-child(2) p {
-
-            @media only screen and (max-width: 850px) {
-
-                @include font-size-override(x-large);
-
-            }
-
-        }
-
         td:nth-child(3) {
 
             @media only screen and (min-width: 600px) and (max-width: 850px) {
@@ -158,6 +148,12 @@
 
             @include font-size-override(x-large);
 
+            @include media-query (mobile) {
+
+                width: 100%;
+
+            }
+
             margin-right: 20px;
             width: max-content;
             font-family: $header-font;
@@ -166,7 +162,9 @@
 
                 @media only screen and (max-width: 850px) {
 
+                    @include font-size-override(x-large);
                     padding-left: 0;
+                    width: 100%;
                     max-width: 60vw;
 
                 }

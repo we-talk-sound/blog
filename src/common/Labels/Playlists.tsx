@@ -24,11 +24,11 @@ export const Playlists: React.FC<Props> = ({ title }) => {
 
                         {...data}
 
-                        button={{ label: "Listen Now" }}
+                        button={{ label: "Listen Now" , externalLink: "https://fanlink.to/AfroJukeBox" }}
 
                     />
 
-                    <ExpandedButton label='Listen Now' dark={true} />
+                    <ExpandedButton label='Listen Now' dark={true} externalLink="https://fanlink.to/AfroJukeBox" />
 
                 </div>
 

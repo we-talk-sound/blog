@@ -40,8 +40,6 @@
 
             @include media-query(mobile) {
 
-                height: 100vh;
-                min-height: 500px;
                 max-height: 812px;
                 background: url(/assets/background/labels-hero-mobile.png) no-repeat !important;
                 background-position: center !important;
@@ -49,7 +47,9 @@
 
             }
 
-            min-height: 900px;
+            height: 100vh;
+            min-height: 500px;
+            max-height: 952px;
             background: url(/assets/background/behind-labels-hero.jpg), linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/assets/background/labels-hero.jpg), no-repeat !important;
             background-position: center !important;
 

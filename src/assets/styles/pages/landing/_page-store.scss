@@ -1,10 +1,16 @@
 .page-store {
 
+    @include media-query(mobile) {
+
+        min-height: 300px !important;
+
+    }
+
     display: flex;
     flex-grow: 1;
     height: 100vh;
     min-height: 900px !important;
-    max-height: 900px !important;
+    text-align: center;
 
     .page-agency-caption {
 

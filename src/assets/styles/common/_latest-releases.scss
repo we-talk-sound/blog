@@ -20,6 +20,12 @@
         display: flex;
         flex-wrap: wrap;
 
+        .event-item:hover .event-item-button-wrapper {
+
+            background: unset;
+
+        }
+
     }
 
 }

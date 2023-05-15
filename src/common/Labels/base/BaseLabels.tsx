@@ -27,7 +27,9 @@ export const BaseLabels: React.FC<Props> = ({ isMobile, deviceWidth , activePath
 
                         display: true,
                     
-                        title: "Listen Now"
+                        title: "Listen Now",
+
+                        externalLink: "https://onerpm.link/sms"
 
                     },
 
@@ -35,7 +37,7 @@ export const BaseLabels: React.FC<Props> = ({ isMobile, deviceWidth , activePath
 
                 dangerousTitle={`<span>  <span class='color-primary'> ‘Show Me Something’  </span>  Is out now </span>`}
 
-                text={`WETALKSOUND COLLECTIVE`}
+                text={`KAEY, VADERTHEWILDCARD & PDSTRN`}
 
 
 

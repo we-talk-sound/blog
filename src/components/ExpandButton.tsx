@@ -16,13 +16,15 @@ export const ExpandedButton: React.FC<Props> = ({
 
     disabled,
 
-    onClick
+    onClick,
+
+    externalLink
 
 }) => {
 
     return (
 
-        <LinkWrapper link={link} className="button-expand">
+        <LinkWrapper link={link} externalLink={externalLink} className="button-expand-link-wrapper">
 
             <>
 
@@ -92,5 +94,6 @@ interface Props {
     link?: string,
     dark?: boolean,
     disabled?: boolean,
-    onClick?: () => void
+    onClick?: () => void,
+    externalLink?: string
 }

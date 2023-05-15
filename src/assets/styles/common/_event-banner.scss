@@ -115,6 +115,7 @@
         @include media-query(mobile) {
 
             margin: 30px auto 0;
+            width: 100%;
 
         }
 
@@ -128,6 +129,12 @@
                 justify-content: center;
 
             }
+
+        }
+
+        .button-expand-mobile {
+
+            width: 100% !important;
 
         }
 

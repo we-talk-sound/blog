@@ -14,7 +14,23 @@ const LandingLayoutFooterCr: FunctionComponent = () => {
 
                 <p> © {new Date().getFullYear()} Wetalksound. </p>
 
-                <FooterIconSet icons={[ LinkedIn , Instagram, TikTok , Twitter]} />
+                <FooterIconSet 
+                
+                    icons={[ LinkedIn , Instagram, TikTok , Twitter]} 
+                    
+                    links={[
+
+                        "https://www.linkedin.com/company/we-talk-sound/",
+
+                        "https://www.instagram.com/wetalksound/",
+
+                        "https://www.tiktok.com/@wetalksound?_t=8cHkRfoY9sU&_r=1",
+
+                        "https://twitter.com/wetalksound"
+
+                    ]}
+                    
+                />
 
 
             </div>

@@ -19,7 +19,7 @@ export const EventsBannerLeftContent: React.FC<Props> = ({ }) => {
 
         <div className='events-banner-left'>
 
-            <p className='events-banner-left-header'> Upcoming Events </p>
+            <p className='events-banner-left-header'></p>
 
             <h2 className='events-banner-left-title'> Insert Nights </h2>
 

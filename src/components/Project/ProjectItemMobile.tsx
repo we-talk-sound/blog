@@ -1,11 +1,12 @@
 import React from 'react';
 import { ProjectItem } from './ProjectItem';
+import { classnames } from 'utils';
 
-export const ProjectItemMobile: React.FC<Props> = ({ projectItems }) => {
+export const ProjectItemMobile: React.FC<Props> = ({ projectItems , hidden }) => {
 
     return (
 
-        <div className='project-item-mobile-holder'>
+        <div className={classnames('project-item-mobile-holder', hidden && "project-item-mobile-hidden")}>
 
             <div className='project-item-mobile'>
 
@@ -31,6 +32,8 @@ export const ProjectItemMobile: React.FC<Props> = ({ projectItems }) => {
 }
 
 interface Props {
+
+    hidden?: boolean,
 
     projectItems: {
 

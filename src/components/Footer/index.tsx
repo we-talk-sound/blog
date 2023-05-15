@@ -32,6 +32,7 @@ export const FooterIconSet: FC<{ icons: string[], links?: string[] }> = ({ icons
                 {icons.map((icon, index) =>
                     <a
                         key={`social-image-${index}`}
+                        target='_blank'
                         href={links?.[index] || ""}>
                         {icon.includes("<svg") ?
                             <div dangerouslySetInnerHTML={{ __html: icon }} role={"button"} /> :

@@ -16,14 +16,14 @@
 
   @include font-size(regular);
   display: block;
-  border-radius: 8px;
+  border-radius: 20px;
   border: 2px solid transparent;
   padding: 14.5px 31px;
   width: 100%;
   background: color(primary);
   cursor: pointer;
   text-align: center;
-  font-weight: 600;
+  font-weight: 400;
   color: color(white);
   transition-duration: 0.2s;
   transition-property: color, background, transform;
@@ -344,6 +344,7 @@
     max-width: 100%;
     background: unset;
     text-align: center;
+    font-weight: 400;
 
     &:hover {
 

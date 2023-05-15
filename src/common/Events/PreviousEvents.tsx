@@ -4,12 +4,30 @@ import { ComponentHolder, EventItem } from 'components';
 export const PreviousEvents: React.FC = ({ }) => {
 
     const data = [
-        { image: "/assets/events/event-davido.png", title: "Insert Nights 6.0", subtitle: "06/05/2023" },
-        { image: "/assets/events/big-wiz-event.jpg", title: "Insert Nights 5.0", subtitle: "16/12/2022" },
-        { image: "/assets/events/street-pop.jpg", title: "Insert Nights 4.0", subtitle: "27/10/2022" },
-        { image: "/assets/projects/event-item.png", title: "Insert Nights 3.0", subtitle: "01/07/2022" },
-        { image: "/assets/events/theme-hiphop.webp", title: "Insert Nights 2.0", subtitle: "27/05/2022" },
-        { image: "/assets/events/insert-night.webp", title: "Insert Nights 1.0", subtitle: "31/03/2022" }
+        {
+            image: "/assets/events/event-davido.png",
+            title: "Insert Nights 6.0",
+            subtitle: "06/05/2023",
+            externalLink: "https://www.instagram.com/p/CrtPrGtss6M/"
+        },
+        {
+            image: "/assets/events/big-wiz-event.jpg",
+            title: "Insert Nights 5.0",
+            subtitle: "16/12/2022",
+            externalLink: "https://www.instagram.com/p/CmO1_fmu1CP/"
+        },
+        {
+            image: "/assets/events/theme-hiphop.webp",
+            title: "Insert Nights 2.0",
+            subtitle: "27/05/2022",
+            externalLink: "https://www.instagram.com/p/CfZQHd0FRtz/"
+        },
+        {
+            image: "/assets/events/insert-night.webp",
+            title: "Insert Nights 1.0",
+            subtitle: "31/03/2022",
+            externalLink: "https://www.instagram.com/p/CeB8XNOFydF/"
+        }
     ];
 
     return (
@@ -34,7 +52,7 @@ export const PreviousEvents: React.FC = ({ }) => {
 
                             isReel={true}
 
-                            button={{ label: "View Reels" }}
+                            button={{ label: "View Reels", externalLink: item.externalLink }}
 
                             key={`event-${index}`}
 

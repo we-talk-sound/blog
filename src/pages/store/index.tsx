@@ -11,7 +11,7 @@ const Store: React.FC<Props> = ({ isMobile, deviceWidth }) => {
             headTitle={"WETALKSOUND | EVENTS"}
             isMobile={isMobile}
             deviceWidth={deviceWidth}
-            showFooter={true}
+            showFooter={false}
             showHeader={false}
 
         >

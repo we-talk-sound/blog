@@ -2,12 +2,12 @@ import React from 'react';
 import { FullHeader } from './FullHeader';
 import { MobileHeader } from './MobileHeader';
 
-export const Header: React.FC<Props> = ({ isMobile , withFrame , active }): JSX.Element => {
+export const Header: React.FC<Props> = ({ isMobile, deviceWidth, withFrame, active }): JSX.Element => {
 
     return (
         <>
 
-            {(isMobile) ?
+            {(isMobile || deviceWidth < 801) ?
                 <MobileHeader /> :
                 <FullHeader withFrame={withFrame} active={active} />
             }

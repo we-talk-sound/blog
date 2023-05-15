@@ -27,7 +27,8 @@ export const LandingFooterServices = [
     {
         value: "wetalksound@gmail.com",
         title: "CONTACT US",
-        withButton: true
+        withButton: true,
+        link: "mailto:wetalksound@gmail.com"
     }
 ];
 

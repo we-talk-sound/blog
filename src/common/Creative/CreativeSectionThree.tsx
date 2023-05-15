@@ -1,9 +1,11 @@
-import React from 'react';
-import { ComponentHolder } from 'components';
+import React, { useState } from 'react';
+import { Button, ComponentHolder } from 'components';
 import { ProjectItem } from 'components/Project/ProjectItem';
 import { ProjectItemMobile } from 'components/Project/ProjectItemMobile';
 
 export const CreativeSectionThree: React.FC<{ withHeader?: boolean, isMobile: boolean }> = ({ withHeader, isMobile }) => {
+
+    const [showAll, setShowAll] = useState(false);
 
     const data = [
 
@@ -142,10 +144,10 @@ export const CreativeSectionThree: React.FC<{ withHeader?: boolean, isMobile: bo
             className='page-zero no-border page-agency-section-three'
 
             bodyClass='page-zero-content'
-            
+
             id='creative-projects'
-            
-            >
+
+        >
 
             <div className='page-agency-section-three-content-body'>
 
@@ -200,17 +202,17 @@ export const CreativeSectionThree: React.FC<{ withHeader?: boolean, isMobile: bo
 
                             <div className='page-zero-section-four-projects-block'>
 
-                                <ProjectItem {...data[8]} />
+                                <ProjectItem {...data[8]} hidden={showAll === false} />
 
-                                <ProjectItem {...data[9]} />
+                                <ProjectItem {...data[9]} hidden={showAll === false} />
 
                             </div>
 
                             <div className='page-zero-section-four-projects-block'>
 
-                                <ProjectItem {...data[10]} />
+                                <ProjectItem {...data[10]} hidden={showAll === false} />
 
-                                <ProjectItem {...data[11]} />
+                                <ProjectItem {...data[11]} hidden={showAll === false} />
 
                             </div>
 
@@ -220,11 +222,21 @@ export const CreativeSectionThree: React.FC<{ withHeader?: boolean, isMobile: bo
 
                 }
 
-                {isMobile && <ProjectItemMobile projectItems={[data[0], data[1] , data[2], data[3]]} />}
+                {isMobile && <ProjectItemMobile projectItems={[data[0], data[1], data[2], data[3]]} />}
 
-                {isMobile && <ProjectItemMobile projectItems={[data[4], data[5] , data[6], data[7]]} />}
+                {isMobile && <ProjectItemMobile projectItems={[data[4], data[5], data[6], data[7]]} />}
 
-                {isMobile && <ProjectItemMobile projectItems={[data[8], data[9] , data[10], data[11]]} />}
+                {isMobile && <ProjectItemMobile projectItems={[data[8], data[9], data[10], data[11]]} hidden={showAll === false} />}
+
+                <Button
+
+                    className={"no-bg"}
+
+                    label={showAll ? "Show Less" : "Show More"}
+
+                    onClick={() => setShowAll((prevState) => !prevState)}
+
+                />
 
             </div>
 
