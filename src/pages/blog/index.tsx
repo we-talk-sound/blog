@@ -175,7 +175,7 @@ export async function getServerSideProps({ query }: { query: { slug: string } })
 
     if (query?.slug) {
 
-        const url = `https://blog-admin.wetalksound.co/wp-json/wp/v2/posts?slug=${query.slug}`;
+        const url = `https://blog-admin.wetalksound.co/wp-json/wp/v2/posts?slug=${query.slug}&_embed`;
 
         const res = await fetch(url);
 
