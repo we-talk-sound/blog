@@ -12,6 +12,7 @@ import { blogItemType, storeInterface } from 'types';
 import { useSelector } from 'react-redux';
 import * as He from "he";
 import { BaseBlog } from 'common/Blog/BaseBlog';
+import { transformStory } from 'utils';
 
 const Blog: React.FC<Props> = ({ isMobile, deviceWidth, serverBlog }) => {
 
@@ -87,6 +88,8 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth, serverBlog }) => {
 
     const story = blogSingleStories?.[String(slug || "")];
 
+    const seoData = transformStory( serverBlog || story);
+
     const storyTitle = (serverBlog || story)?.title?.rendered ? He.unescape((serverBlog || story).title.rendered) : "";
 
     const blogBannerDataSource = () => {
@@ -131,6 +134,7 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth, serverBlog }) => {
 
         <LandingLayout
             headTitle={String(storyTitle || `WETALKSOUND`)}
+            headImage={seoData.image}
             isMobile={isMobile}
             deviceWidth={deviceWidth}
             showFooter={true}

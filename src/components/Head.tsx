@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Head from 'next/head';
 
-export const HtmlHead: React.FC<{ title: any }> = ({ title }) => {
+export const HtmlHead: React.FC<{ title: any, headImage?: string }> = ({ title , headImage }) => {
   const description = "We are a  360  creative company leveraging technology, community & content to design delightful experiences.";
   const link = 'https://wetalksound.co';
   const logo = 'https://wetalksound.co/assets/logo/apple-touch-icon.png';
@@ -52,13 +52,13 @@ export const HtmlHead: React.FC<{ title: any }> = ({ title }) => {
         <meta property="og:url" content={link} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={logo} />
+        <meta property="og:image" content={ headImage || logo} />
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content={link} />
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={description} />
-        <meta property="twitter:image" content={logo} />
+        <meta property="twitter:image" content={ headImage || logo} />
 
       </Head>
 

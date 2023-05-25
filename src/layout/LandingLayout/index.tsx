@@ -11,6 +11,7 @@ export const LandingLayout: React.FC<Props> = ({
     headTitle,
     isMobile,
     footerId,
+    headImage,
     footerClass,
     deviceWidth,
     showFooter = true,
@@ -38,6 +39,7 @@ export const LandingLayout: React.FC<Props> = ({
 
             <HtmlHead
                 title={headTitle}
+                headImage={headImage}
             />
 
             <div className='body-background' />
@@ -116,6 +118,6 @@ interface Props {
     withFrame?: boolean,
     bodyClass?: string,
     footerId?: string,
-    activePath?: string
+    activePath?: string,
+    headImage?: string
 }
-
