@@ -65,20 +65,20 @@ export type blogItemType = {
 
     categories: number[],
 
-    content: { rendered : string },
+    content: { rendered: string },
 
-    _embedded: { "wp:featuredmedia" : [ {"source_url" : string }] },
+    _embedded: { "wp:featuredmedia": [{ "source_url": string, media_details: { sizes: { medium: { source_url: string } } } }] },
 
-    excerpt: { rendered : string }
+    excerpt: { rendered: string }
 
 };
 
-export type blogPageData = { [key: string] :  Array<blogItemType> };
+export type blogPageData = { [key: string]: Array<blogItemType> };
 
 type blogEntryType = {
 
     data: Array<blogItemType>,
-    categoryData?: { [key:string] : blogPageData }
+    categoryData?: { [key: string]: blogPageData }
     queryParam: { [key: string]: any },
     perPage: number,
     loader: boolean,
@@ -101,7 +101,7 @@ export type storeBlogEntry = {
     categories: {
         data: Array<blogCategoryItemType>,
         pairs: { [key: number | string]: blogCategoryItemType },
-        slugPairs: { [key: string] : blogCategoryItemType },
+        slugPairs: { [key: string]: blogCategoryItemType },
         queryParam: { [key: string]: any },
         perPage: number,
         loader: boolean,
