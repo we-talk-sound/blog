@@ -8,12 +8,12 @@ import { useFetching } from 'hooks/useFetching';
 import { blogProcess } from 'redux/actions/BlogActions';
 import { useDispatch } from 'react-redux';
 import { BlogStory } from 'common/Blog/BlogStory';
-import { storeInterface } from 'types';
+import { blogItemType, storeInterface } from 'types';
 import { useSelector } from 'react-redux';
 import * as He from "he";
 import { BaseBlog } from 'common/Blog/BaseBlog';
 
-const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
+const Blog: React.FC<Props> = ({ isMobile, deviceWidth, serverBlog }) => {
 
     const router = useRouter();
 
@@ -87,7 +87,7 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
     const story = blogSingleStories?.[String(slug || "")];
 
-    const storyTitle = story?.title?.rendered ? He.unescape(story.title.rendered) : "";
+    const storyTitle = (serverBlog || story)?.title?.rendered ? He.unescape((serverBlog || story).title.rendered) : "";
 
     const blogBannerDataSource = () => {
 
@@ -165,9 +165,33 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth }) => {
     )
 }
 
+export async function getServerSideProps({ query }: { query: { slug: string } }) {
+
+    let data: any = {};
+
+    if (query?.slug) {
+
+        const url = `https://blog-admin.wetalksound.co/wp-json/wp/v2/posts?slug=${query.slug}`;
+
+        const res = await fetch(url);
+
+        data = await res.json();
+
+        data = Array.isArray(data) ? data[0] : data;
+
+    }
+
+    return {
+        props: {
+            serverBlog: data,
+        },
+    };
+}
+
 export default Blog;
 
 interface Props {
     isMobile: boolean,
-    deviceWidth: number
+    deviceWidth: number,
+    serverBlog: blogItemType
 }
