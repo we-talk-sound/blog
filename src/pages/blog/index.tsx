@@ -135,6 +135,7 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth, serverBlog }) => {
         <LandingLayout
             headTitle={String(storyTitle || `WETALKSOUND`)}
             headImage={seoData.seoImage}
+            headDescription={seoData.sub}
             isMobile={isMobile}
             deviceWidth={deviceWidth}
             showFooter={true}

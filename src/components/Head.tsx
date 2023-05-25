@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react';
 import Head from 'next/head';
 
-export const HtmlHead: React.FC<{ title: any, headImage?: string }> = ({ title , headImage }) => {
+export const HtmlHead: React.FC<{ title: any, headImage?: string, headDescription?: string }> = ({ title , headImage, headDescription }) => {
+
   const description = "We are a  360  creative company leveraging technology, community & content to design delightful experiences.";
+  
   const link = 'https://wetalksound.co';
+  
   const logo = 'https://wetalksound.co/assets/logo/apple-touch-icon.png';
 
   const seoAttributes = `{
@@ -44,20 +47,20 @@ export const HtmlHead: React.FC<{ title: any, headImage?: string }> = ({ title ,
     <>
       <Head>
         <title>{title || "Wetalksound"}</title>
-        <meta name="description" content={description} />
+        <meta name="description" content={ headDescription || description} />
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content={link} />
         <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
+        <meta property="og:description" content={ headDescription || description} />
         <meta property="og:image" content={ headImage || logo} />
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content={link} />
         <meta property="twitter:title" content={title} />
-        <meta property="twitter:description" content={description} />
+        <meta property="twitter:description" content={ headDescription || description} />
         <meta property="twitter:image" content={ headImage || logo} />
 
       </Head>

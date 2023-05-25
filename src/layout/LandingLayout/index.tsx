@@ -9,6 +9,7 @@ import { store } from 'redux/store';
 
 export const LandingLayout: React.FC<Props> = ({
     headTitle,
+    headDescription,
     isMobile,
     footerId,
     headImage,
@@ -40,6 +41,7 @@ export const LandingLayout: React.FC<Props> = ({
             <HtmlHead
                 title={headTitle}
                 headImage={headImage}
+                headDescription={headDescription}
             />
 
             <div className='body-background' />
@@ -119,5 +121,6 @@ interface Props {
     bodyClass?: string,
     footerId?: string,
     activePath?: string,
-    headImage?: string
+    headImage?: string,
+    headDescription?: string
 }
