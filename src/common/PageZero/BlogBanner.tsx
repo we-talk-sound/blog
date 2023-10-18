@@ -8,115 +8,67 @@ import { StoriesItemPlaceHolder } from 'common/Placeholders';
 import { Marquee } from 'components/Marquee';
 
 export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource, dataSourceLoader, slug, sliderMode }) => {
+  return (
+    <ComponentHolder
+      className="no-border"
+      bodyClass={classnames(
+        'blog-banner-background',
+        bannerMode && 'page-blog-banner-parent',
+        !bannerMode && 'page-zero-blog-banner'
+      )}
+    >
+      {sliderMode && <Marquee text="Blog" />}
 
-    return (
+      <div
+        className={classnames(
+          'blog-banner-body',
+          bannerMode && 'page-blog-banner-holder',
+          (story || slug) && 'page-blog-banner-holder-with-story'
+        )}
+      >
+        {story && slug && <StoryItem story={{ ...story, image: undefined }} mode={'story'} />}
 
-        <ComponentHolder
+        {!story && slug && (
+          <StoriesItemPlaceHolder length={1} holderClass={'page-blog-story-loader'} extraTitle={true} />
+        )}
 
-            className="no-border"
+        {/* The blog image is contained in the BlogBannerArticles Component */}
 
-            bodyClass={classnames(
+        <BlogBannerArticles
+          bannerMode={bannerMode}
+          withoutArticles={slug !== undefined ? true : story !== undefined}
+          dataSource={dataSource || []}
+          dataSourceLoader={dataSourceLoader}
+          image={story?.image}
+          slug={slug}
+        />
 
-                "blog-banner-background",
-
-                bannerMode && "page-blog-banner-parent",
-
-                !bannerMode && "page-zero-blog-banner"
-
-            )}
-        >
-
-            {sliderMode && <Marquee text='Blog' />}
-
-            <div className={
-
-                classnames(
-
-                    'blog-banner-body',
-
-                    bannerMode && "page-blog-banner-holder",
-
-                    (story || slug) && "page-blog-banner-holder-with-story"
-
-                )
-
-            }>
-
-                {(story && slug) &&
-
-                    <StoryItem
-
-                        story={{ ...story, image: undefined }}
-
-                        mode={"story"} />
-
-                }
-
-                {(!story && slug) &&
-
-                    <StoriesItemPlaceHolder
-
-                        length={1}
-
-                        holderClass={"page-blog-story-loader"}
-
-                        extraTitle={true}
-
-                    />
-
-                }
-
-                {/* The blog image is contained in the BlogBannerArticles Component */}
-
-                <BlogBannerArticles
-
-                    bannerMode={bannerMode}
-
-                    withoutArticles={slug !== undefined ? true : story !== undefined}
-
-                    dataSource={dataSource || []}
-
-                    dataSourceLoader={dataSourceLoader}
-
-                    image={story?.image}
-
-                    slug={slug}
-
-                />
-
-                {!bannerMode && <ExpandedButton label='Go to blog' textClass='color-white' link={"/blog"} />}
-
-            </div>
-
-        </ComponentHolder >
-
-    );
-}
+        {!bannerMode && <ExpandedButton label="Go to blog" textClass="color-white" link={'/blog'} />}
+      </div>
+    </ComponentHolder>
+  );
+};
 
 interface Props {
+  dataSource?: Array<blogItemType>;
 
-    dataSource?: Array<blogItemType>,
+  dataSourceLoader?: boolean;
 
-    dataSourceLoader?: boolean,
+  bannerMode?: boolean;
 
-    bannerMode?: boolean,
+  sliderMode?: boolean;
 
-    sliderMode?: boolean,
+  slug?: string;
 
-    slug?: string,
+  story?: {
+    title: string;
 
-    story?: {
+    category: string;
 
-        title: string,
+    author: string;
 
-        category: string,
+    date: string;
 
-        author: string,
-
-        date: string,
-
-        image: string
-
-    }
-
+    image: string;
+  };
 }

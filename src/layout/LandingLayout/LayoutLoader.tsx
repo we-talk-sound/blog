@@ -46,7 +46,7 @@ export const LayoutLoader: React.FC<Props> = ({ removeLoader }) => {
 
         if ( window ) {
 
-            var f = new FontFace("Druk-wide", "url(fonts/Druk-wide/Druk-Wide-Bold.ttf)", {});
+            var f = new FontFace("Druk-wide", "url(/fonts/Druk-wide/Druk-Wide-Bold.ttf)", {});
 
             f.load().then(function (loadedFace) {
 
@@ -102,7 +102,7 @@ export const LayoutLoader: React.FC<Props> = ({ removeLoader }) => {
 
                             <img
 
-                                src={"svg/wts_glow.svg"}
+                                src={"/svg/wts_glow.svg"}
 
                                 alt={"WETALKSOUND"}
 

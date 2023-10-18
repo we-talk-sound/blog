@@ -20,7 +20,10 @@ const enhancer = compose(applyMiddleware(thunk));
 
 const persistedReducer = persistReducer<{ [key: string]: any }>(persistConfig, appReducer);
 
-export const store = createStore(persistedReducer, process.env.NEXT_PUBLIC_NODE_ENV === "production" ? enhancer : composeWithDevTools(enhancer));
+export const store = createStore(
+  persistedReducer,
+  process.env.NEXT_PUBLIC_NODE_ENV === 'production' ? enhancer : composeWithDevTools(enhancer)
+);
 
 export const accessToken: () => string = () => store.getState()?.auth?.accesstoken;
 
@@ -28,4 +31,5 @@ export type typeOfDispatch = typeof store.dispatch;
 
 export const persistor = persistStore(store);
 
-export const quickToast = (feed: { text: string, actionType?: "success" | "error" | "caution"  }) => store.dispatch(toggleToast(feed));
+export const quickToast = (feed: { text: string; actionType?: 'success' | 'error' | 'caution' }) =>
+  store.dispatch(toggleToast(feed));

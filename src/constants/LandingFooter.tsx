@@ -20,7 +20,7 @@ export const FooterLogo = 'assets/logo/wts_white.svg';
 
 export const LandingFooterServices = [
     {
-        linkIcon: 'assets/logo/wts_white.svg',
+        linkIcon: '/assets/logo/wts_white.svg',
         title: "Lagos, Nigeria",
         withButton: false
     },

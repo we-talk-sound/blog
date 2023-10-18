@@ -1,157 +1,115 @@
 .story-item {
+  @include media-query(tablet-and-mobile) {
+    max-width: unset;
+  }
 
-    @include media-query(tablet-and-mobile) {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid color(story-border);
+  padding: 16px;
+  padding-top: 30px;
+  padding-bottom: 36px;
+  max-width: 450px;
+  font-family: $main-font;
+  color: color(white);
+  transition: 0.2s ease;
 
-        max-width: unset;
-
-    }
-
-    position: relative;
+  &-body {
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid color(story-border);
-    padding: 16px;
-    padding-top: 30px;
-    padding-bottom: 36px;
-    max-width: 450px;
-    font-family: $main-font;
-    color: color(white);
+    text-transform: capitalize;
+  }
+
+  &-banner-feed {
+    &.story-item {
+      @include media-query(non-mobile) {
+        opacity: 1;
+      }
+
+      padding: 0;
+      opacity: 0.5;
+    }
+
+    .story-item-body {
+      padding: 16px;
+    }
+
+    &.story-item-active {
+      opacity: 1;
+    }
+
+    &.story-item-active img {
+      @include media-query(mobile) {
+        margin-top: 20px;
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+      }
+    }
+  }
+
+  img {
+    width: 0;
+    height: 0;
     transition: 0.2s ease;
+  }
 
-    &-body {
+  &-active {
+    background: url(/assets/background/story-item-background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 
-        display: flex;
-        flex-direction: column;
+    .story-item-focuser {
+      @extend .story-loader;
 
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: color(active-story-item-border);
     }
+  }
 
-    &-banner-feed {
+  &-heading {
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+  }
 
+  &-category {
+    @include font-size(x-small);
+    margin-right: 8px;
+    padding: 4px;
+    background: color(primary);
+    text-transform: capitalize;
+  }
 
-        &.story-item  {
+  &-author {
+    margin-top: 8px;
+    text-transform: capitalize;
+  }
 
-            @include media-query(non-mobile) {
+  &-title {
+    @include font-size(large);
+    font-family: $main-font;
+  }
 
-                opacity: 1;
+  p,
+  h3 {
+    margin-bottom: 10px;
+    white-space: pre-line;
+  }
 
-            }
+  &-date {
+    margin-bottom: 0 !important;
+  }
 
-            padding: 0;
-            opacity: 0.5;
-
-        }
-
-        .story-item-body {
-
-            padding: 16px;
-
-        }
-
-        &.story-item-active {
-
-            opacity: 1;
-
-        }
-
-        &.story-item-active img {
-
-            @include media-query(mobile) {
-
-                margin-top: 20px;
-                width: 100%;
-                height: 300px;
-                object-fit: cover;
-
-            }
-
-        }
-
+  .button {
+    @include media-query(mobile) {
+      margin-top: 0 !important;
     }
-
-    img {
-
-        width: 0;
-        height: 0;
-        transition: 0.2s ease;
-
-    }
-
-    &-active {
-
-        background: url(/assets/background/story-item-background.png);
-        background-repeat: no-repeat;
-        background-size: cover;
-
-        .story-item-focuser {
-
-            @extend .story-loader;
-
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: block;
-            width: 100%;
-            height: 2px;
-            background: color(active-story-item-border);
-
-        }
-
-    }
-
-    &-heading {
-
-        display: flex;
-        align-items: center;
-        text-transform: uppercase;
-
-    }
-
-    &-category {
-
-        @include font-size(x-small);
-        margin-right: 8px;
-        padding: 4px;
-        background: color(primary);
-
-    }
-
-    &-author {
-
-        margin-top: 8px;
-        text-transform: uppercase;
-
-    }
-
-    &-title {
-
-        @include font-size(large);
-        font-family: $main-font;
-
-
-    }
-
-    p,
-    h3 {
-
-        margin-bottom: 10px;
-        white-space: pre-line;
-
-    }
-
-    &-date {
-
-        margin-bottom: 0 !important;
-
-    }
-
-    .button {
-
-        @include media-query(mobile) {
-
-            margin-top: 0 !important;
-
-        }
-
-    }
-
+  }
 }
