@@ -29,9 +29,10 @@ export const BaseBlogHeading: React.FC<{ category?: string }> = ({ category }) =
     }
   ];
 
-  const [search, setSearch] = useState('');
-
   const router = useRouter();
+  const { query } = router.query;
+
+  const [search, setSearch] = useState(query || '');
 
   const handleSearch = (e: FormEvent) => {
     e.preventDefault();
