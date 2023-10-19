@@ -776,7 +776,7 @@
   }
 
   &-blogcard {
-    margin: 16px 0 0;
+    margin: 16px 0;
 
     &-header {
       font-size: 24px;
@@ -790,6 +790,7 @@
       display: grid;
       grid-template-columns: minmax(0, 1fr);
       gap: 16px;
+      margin-bottom: 48px;
 
       @media (min-width: 768px) {
         grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -797,10 +798,57 @@
         &.videos {
           grid-template-columns: repeat(3, minmax(0, 1fr));
         }
+
+        &.topreads {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          grid-template-rows: repeat(3, minmax(0, 1fr));
+          gap: 32px;
+        }
+      }
+
+      &.topreads {
+        .page-blog-blogcard-item {
+          &:nth-child(1) {
+            gap: 16px;
+            grid-row: span 2;
+
+            img {
+              height: 400px;
+              min-width: 100%;
+            }
+
+            .title {
+              -webkit-line-clamp: 1;
+            }
+
+            .description {
+              -webkit-line-clamp: 2;
+            }
+          }
+
+          &:not(:nth-child(1)) {
+            flex-direction: row;
+            align-items: center;
+            gap: 24px;
+
+            img {
+              height: 260px;
+              width: 35%;
+              flex-shrink: 0;
+            }
+          }
+
+          &-content {
+            padding: 0 0 4px;
+          }
+        }
       }
     }
 
     &-item {
+      display: flex;
+      flex-direction: column;
+
       img {
         height: 300px;
         width: 100%;
@@ -840,12 +888,23 @@
           overflow: hidden;
           text-overflow: ellipsis;
         }
+
+        .description {
+          margin: 0;
+          font-size: 16px;
+          line-height: 1.5;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
       }
     }
 
     &-action {
       text-align: center;
-      margin: 40px 0 64px;
+      margin: 0 0 64px;
 
       button {
         border: 1px solid;

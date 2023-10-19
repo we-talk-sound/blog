@@ -1,18 +1,22 @@
 import React from 'react';
 import Link from 'next/link';
 
-const BlogCardGrid = ({ title, action, video, items = [], actionText = 'See More', showAction = true }: Props) => {
+const BlogCardGrid = ({ title, action, variant, items = [], actionText = 'See More', showAction = true }: Props) => {
   return (
     <section className="page-blog-blogcard">
       {title && <h3 className="page-blog-blogcard-header">{title}</h3>}
 
-      <div className={`page-blog-blogcard-grid ${video ? 'videos' : ''}`}>
+      <div className={`page-blog-blogcard-grid ${variant}`}>
         {items.map((_, idx) => (
-          <div key={idx} className="page-blog-blogcard-item">
-            <Link href="/blog/posts/american-sierra-leonean-artist-laik-returns-to-the-scene-with-new-single-ahje">
+          <Link
+            key={idx}
+            href="/blog/posts/american-sierra-leonean-artist-laik-returns-to-the-scene-with-new-single-ahje"
+            className="page-blog-blogcard-item"
+          >
+            {/* <div > */}
             <img />
             <div className="page-blog-blogcard-item-content">
-              {!video && (
+              {variant !== 'videos' && (
                 <>
                   <div>
                     <span className="category">Music</span>
@@ -22,9 +26,15 @@ const BlogCardGrid = ({ title, action, video, items = [], actionText = 'See More
                 </>
               )}
               <h4 className="title">Rave And Roses Twitter Analysis and a couple of others</h4>
+              {variant === 'topreads' && (
+                <p className="description">
+                  Showing no signs of slowing down, Lojay’s new single, “Leader!” adds yet another string to his bow.
+                  Showing no signs of slowing down, Lojay’s new single, “Leader!” adds yet another string to his bow.
+                </p>
+              )}
             </div>
-            </Link>
-          </div>
+            {/* </div> */}
+          </Link>
         ))}
       </div>
 
@@ -43,7 +53,7 @@ interface Props {
   action?: () => void;
   showAction?: boolean; // set props value as false if you don't want to show button
   actionText?: string;
-  video?: boolean;
+  variant?: 'default' | 'topreads' | 'videos';
 }
 
 export default BlogCardGrid;

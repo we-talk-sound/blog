@@ -22,11 +22,11 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth, serverBlog }) => {
 
   const dispatch = useDispatch();
 
-  const { blogSingleStories, dashboardBlogs, blogCategoryStories, categories }: storeBlogEntry = useSelector(
+  const { blogSingleStories, /* dashboardBlogs*/ blogCategoryStories, categories }: storeBlogEntry = useSelector(
     (store: storeInterface) => store.blog
   );
 
-  let { category, slug } = router.query;
+  let { /*category,*/ slug } = router.query;
 
   const safeParams = ['slug', 'category', 'page'];
 
@@ -69,21 +69,21 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth, serverBlog }) => {
 
   const storyTitle = (serverBlog || story)?.title?.rendered ? He.unescape((serverBlog || story).title.rendered) : '';
 
-  const blogBannerDataSource = () => {
-    if (category && categories?.slugPairs?.[String(category)]) {
-      return {
-        source: blogCategoryStories?.categoryData?.[String(category)]?.[1],
+  // const blogBannerDataSource = () => {
+  //   if (category && categories?.slugPairs?.[String(category)]) {
+  //     return {
+  //       source: blogCategoryStories?.categoryData?.[String(category)]?.[1],
 
-        loader: blogCategoryStories?.categoryData?.[String(category)]?.[1] === undefined
-      };
-    }
+  //       loader: blogCategoryStories?.categoryData?.[String(category)]?.[1] === undefined
+  //     };
+  //   }
 
-    return {
-      source: dashboardBlogs?.data || [],
+  //   return {
+  //     source: dashboardBlogs?.data || [],
 
-      loader: dashboardBlogs.loader
-    };
-  };
+  //     loader: dashboardBlogs.loader
+  //   };
+  // };
 
   useFetching({
     dispatcher: (arg: any) => {
@@ -113,14 +113,15 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth, serverBlog }) => {
 
         // slug={slug}
         // story={serverBlog}
-        dataSource={(blogBannerDataSource().source || []).filter((item, index) => index < 3)}
-        dataSourceLoader={blogBannerDataSource().loader}
+        // dataSource={(blogBannerDataSource().source || []).filter((item, index) => index < 3)}
+        // dataSourceLoader={blogBannerDataSource().loader}
       />
 
       <ComponentHolder className="no-border page-events-expanded-body" bodyClass="page-zero-content">
         <div className="page-events-expanded-body-content">
+          <BlogCardGrid items={[...Array(5)]} title="Top Reads" variant="topreads" showAction={false} />
           <BlogCardGrid items={[...Array(8)]} title="Music" actionText="Show More Music" />
-          <BlogCardGrid items={[...Array(6)]} title="Videos" video actionText="Show older videos" />
+          <BlogCardGrid items={[...Array(6)]} title="Videos" variant="videos" actionText="Show older videos" />
           <BlogCardGrid items={[...Array(8)]} title="Features" actionText="See More" />
         </div>
       </ComponentHolder>
