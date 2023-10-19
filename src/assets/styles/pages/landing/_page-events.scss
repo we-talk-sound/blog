@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz@8..60&display=swap');
 
 .page-events {
   background: url(/assets/background/events-background.png) !important;
@@ -40,8 +40,8 @@
         margin: auto;
         max-width: 1500px;
         color: color(_black);
-        font-family: 'Abhaya Libre', serif;
-        font-size: 18px;
+        font-family: 'Source Serif 4', serif;
+        font-size: 20px;
         line-height: 32px;
         font-weight: 400;
       }
@@ -51,7 +51,7 @@
         // @include font-size(medium);
         margin: 0 auto 40px;
         max-width: 839px;
-        font-size: 18px;
+        font-size: 20px;
         line-height: 32px;
         font-weight: 400;
         color: color(_black);
