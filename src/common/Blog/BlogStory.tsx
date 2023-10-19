@@ -14,6 +14,7 @@ export const BlogStory: React.FC<Props> = ({ story }) => {
   ];
 
   const handleShare = (key: string) => {
+    // eslint-disable-next-line no-alert
     alert('Sharing on ' + key);
   };
 

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap');
+
 .page-events {
   background: url(/assets/background/events-background.png) !important;
   background-repeat: no-repeat !important;
@@ -37,33 +39,36 @@
       &-content {
         margin: auto;
         max-width: 1500px;
-        line-height: 3.1;
-        font-weight: 300;
-        color: color(text-70);
+        color: color(_black);
+        font-family: 'Abhaya Libre', serif;
+        font-size: 18px;
+        line-height: 32px;
+        font-weight: 400;
       }
 
       &-content-text,
       p {
-        @include font-size(medium);
-        margin: auto;
+        // @include font-size(medium);
+        margin: 0 auto 40px;
         max-width: 839px;
-        line-height: 3.1;
-        font-weight: 300;
-        color: color(text-70);
+        font-size: 18px;
+        line-height: 32px;
+        font-weight: 400;
+        color: color(_black);
       }
 
       figure {
-        margin: 40px auto;
+        margin: 0 auto 40px;
         max-width: 639px;
       }
 
       img {
         display: block;
-        margin: 30px auto 0;
+        margin: 0 auto 40px;
         width: 100%;
-        max-width: 398px;
-        height: 100%;
-        max-height: 524px;
+        // max-width: 398px;
+        height: auto;
+        // max-height: 524px;
       }
 
       &-footer {

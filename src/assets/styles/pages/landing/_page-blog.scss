@@ -789,10 +789,12 @@
     &-grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr);
-      gap: 16px;
+      gap: 32px;
       margin-bottom: 48px;
 
       @media (min-width: 768px) {
+        gap: 16px;
+
         grid-template-columns: repeat(4, minmax(0, 1fr));
 
         &.videos {
@@ -806,40 +808,65 @@
         }
       }
 
+      &.videos {
+        .page-blog-blogcard-item {
+          img {
+            height: 180px;
+          }
+
+          @media (min-width: 768px) {
+            img {
+              height: 280px;
+            }
+          }
+        }
+      }
+
       &.topreads {
         .page-blog-blogcard-item {
+          gap: 16px;
+
+          img {
+            height: 260px;
+            width: 100%;
+            flex-shrink: 0;
+          }
+
           &:nth-child(1) {
-            gap: 16px;
-            grid-row: span 2;
+            @media (min-width: 768px) {
+              grid-row: span 2;
 
-            img {
-              height: 400px;
-              min-width: 100%;
-            }
+              img {
+                height: 400px;
+                min-width: 100%;
+              }
 
-            .title {
-              -webkit-line-clamp: 1;
-            }
+              .title {
+                -webkit-line-clamp: 1;
+              }
 
-            .description {
-              -webkit-line-clamp: 2;
+              .description {
+                -webkit-line-clamp: 2;
+              }
             }
           }
 
           &:not(:nth-child(1)) {
-            flex-direction: row;
-            align-items: center;
-            gap: 24px;
+            @media (min-width: 768px) {
+              flex-direction: row;
+              align-items: center;
+              gap: 24px;
 
-            img {
-              height: 260px;
-              width: 35%;
-              flex-shrink: 0;
+              img {
+                height: 260px;
+                width: 35%;
+                flex-shrink: 0;
+              }
             }
           }
 
           &-content {
-            padding: 0 0 4px;
+            padding: 0;
           }
         }
       }
