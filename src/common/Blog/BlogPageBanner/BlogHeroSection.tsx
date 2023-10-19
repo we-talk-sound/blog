@@ -1,5 +1,6 @@
 import React from 'react';
 import * as He from 'he';
+import Link from 'next/link';
 
 const BlogHeroSection = ({ story, text, items, categoryDescription }: Props) => {
   return (
@@ -11,15 +12,17 @@ const BlogHeroSection = ({ story, text, items, categoryDescription }: Props) => 
           <div className="grid">
             {items.map((_, idx) => (
               <div key={idx} className={`grid-item ${idx === 1 || idx === 4 ? 'span-2' : ''}`}>
-                <img />
-                <div className="grid-item-content">
-                  <div>
-                    <span className="category">Music</span>
-                    <span>Saturday, September 3, 2022</span>
+                <Link href="/blog/posts/american-sierra-leonean-artist-laik-returns-to-the-scene-with-new-single-ahje">
+                  <img />
+                  <div className="grid-item-content">
+                    <div>
+                      <span className="category">Music</span>
+                      <span>Saturday, September 3, 2022</span>
+                    </div>
+                    <div className="author">By Wetalksound</div>
+                    <h4 className="title">Omah Lay releases his debut album Boy Alone on KeyQaad Records</h4>
                   </div>
-                  <div className="author">By Wetalksound</div>
-                  <h4 className="title">Omah Lay releases his debut album Boy Alone on KeyQaad Records</h4>
-                </div>
+                </Link>
               </div>
             ))}
           </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const BlogCardGrid = ({ title, action, video, items = [], actionText = 'See More', showAction = true }: Props) => {
   return (
@@ -8,6 +9,7 @@ const BlogCardGrid = ({ title, action, video, items = [], actionText = 'See More
       <div className={`page-blog-blogcard-grid ${video ? 'videos' : ''}`}>
         {items.map((_, idx) => (
           <div key={idx} className="page-blog-blogcard-item">
+            <Link href="/blog/posts/american-sierra-leonean-artist-laik-returns-to-the-scene-with-new-single-ahje">
             <img />
             <div className="page-blog-blogcard-item-content">
               {!video && (
@@ -21,6 +23,7 @@ const BlogCardGrid = ({ title, action, video, items = [], actionText = 'See More
               )}
               <h4 className="title">Rave And Roses Twitter Analysis and a couple of others</h4>
             </div>
+            </Link>
           </div>
         ))}
       </div>
