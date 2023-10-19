@@ -113,8 +113,8 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth, serverBlog }) => {
 
         // slug={slug}
         // story={serverBlog}
-        // dataSource={(blogBannerDataSource().source || []).filter((item, index) => index < 3)}
-        // dataSourceLoader={blogBannerDataSource().loader}
+        dataSource={(blogBannerDataSource().source || []).filter((item, index) => index < 3)}
+        dataSourceLoader={blogBannerDataSource().loader}
       />
 
       <ComponentHolder className="no-border page-events-expanded-body" bodyClass="page-zero-content">
