@@ -34,7 +34,7 @@ const BlogHeroSection = ({ story, text, items, categoryDescription }: Props) => 
             <span className="category">{story.category}</span> <span className="date">{story.date}</span>
           </div>
           <h2>{He.unescape(story.title)}</h2>
-          <img src={story.image} width="100%" height="auto" />
+          <img src={story.image} />
         </div>
       ) : (
         // fallback - text

@@ -62,20 +62,20 @@ const SingleBlogPage: React.FC<Props> = ({ isMobile, deviceWidth, serverBlog, sl
   );
 };
 
-export async function getServerSideProps({ params }: { params: { slug: string } }) {
+export async function getServerSideProps({ params }: { params: { slug: string, category: string } }) {
   let data: any = null;
-  const { slug } = params;
+  const { slug, category } = params;
 
   const url = `https://blog-admin.wetalksound.co/wp-json/wp/v2/posts?slug=${slug}&_embed`;
   const res = await fetch(url);
   data = await res.json();
   data = Array.isArray(data) ? data[0] : data;
 
-  // redirect to blog page if no data
+  // redirect to blog post's category page if no data
   if (!data) {
     return {
       redirect: {
-        destination: '/blog2',
+        destination: `/blog/${category}`,
         permanent: false
       }
     };

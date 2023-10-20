@@ -10,7 +10,7 @@ const BlogCardGrid = ({ title, action, variant, items = [], actionText = 'See Mo
         {items.map((_, idx) => (
           <Link
             key={idx}
-            href="/blog/posts/american-sierra-leonean-artist-laik-returns-to-the-scene-with-new-single-ahje"
+            href="/blog/music/american-sierra-leonean-artist-laik-returns-to-the-scene-with-new-single-ahje"
             className="page-blog-blogcard-item"
           >
             {/* <div > */}

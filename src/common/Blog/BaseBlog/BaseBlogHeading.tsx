@@ -47,7 +47,7 @@ export const BaseBlogHeading: React.FC<{ category?: string }> = ({ category }) =
         <div className="page-blog-holder-header-left-links">
           {filters.map(item => (
             <LinkWrapper
-              link={`/blog/categories/${item.link}`}
+              link={`/blog/${item.link}`}
               key={`header-item-${item.title}`}
               scroll={false}
               preClick={() => {
