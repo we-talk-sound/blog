@@ -120,7 +120,8 @@
     @media only screen and (max-width: 1000px) {
       flex-direction: column;
       flex-wrap: wrap;
-      padding-top: 80px;
+      // padding-top: 80px;
+      margin-top: 120px;
     }
 
     display: flex;
@@ -233,6 +234,10 @@
         display: flex;
         align-items: center;
         gap: 0.5rem;
+        width: 100%;
+        @media (min-width: 768px) {
+          width: 320px;
+        }
 
         input {
           border: 0;
@@ -659,18 +664,34 @@
   // REVAMP
 
   &-hero {
-    margin: 48px 0;
+    margin: 48px 0 0;
 
     &-single {
       color: color(text-40);
       text-transform: capitalize;
+      max-width: 1000px;
+      margin: 0 auto;
 
       h2 {
-        font-size: 40px;
-        line-height: 60px;
+        font-size: 20px;
+        line-height: 32px;
         font-weight: 700;
         color: white;
         margin: 16px 0;
+
+        @media (min-width: 768px) {
+          font-size: 40px;
+          line-height: 60px;
+        }
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+
+        @media (min-width: 768px) {
+          max-height: 488px;
+        }
       }
 
       .category {
@@ -705,6 +726,8 @@
         }
 
         .grid-item {
+          // background-color: yellow;
+
           img {
             height: 120px;
             width: 100%;
@@ -741,24 +764,26 @@
             }
           }
 
-          &.span-2 {
-            grid-column: span 2 / span 2;
-            position: relative;
+          @media (min-width: 768px) {
+            &.span-2 {
+              grid-column: span 2 / span 2;
+              position: relative;
 
-            img {
-              height: 300px;
-            }
+              img {
+                height: 300px;
+              }
 
-            .grid-item-content {
-              position: absolute;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              padding: 16px;
-              background-color: rgba(0, 0, 0, 0.2);
+              .grid-item-content {
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                padding: 16px;
+                background-color: rgba(0, 0, 0, 0.2);
 
-              .title {
-                -webkit-line-clamp: 2;
+                .title {
+                  -webkit-line-clamp: 2;
+                }
               }
             }
           }
