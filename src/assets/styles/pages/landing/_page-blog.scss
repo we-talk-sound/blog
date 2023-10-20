@@ -756,6 +756,8 @@
               font-family: $main-font;
               font-size: 18px;
               line-height: 32px;
+              font-weight: 600;
+              color: white;
               display: -webkit-box;
               -webkit-line-clamp: 3;
               -webkit-box-orient: vertical;
@@ -839,6 +841,10 @@
             height: 180px;
           }
 
+          .description {
+            display: none;
+          }
+
           @media (min-width: 768px) {
             img {
               height: 280px;
@@ -855,6 +861,12 @@
             height: 260px;
             width: 100%;
             flex-shrink: 0;
+          }
+
+          .description {
+            @media (min-width: 768px) {
+              display: block;
+            }
           }
 
           &:nth-child(1) {
@@ -902,19 +914,27 @@
       flex-direction: column;
 
       img {
-        height: 300px;
+        height: 220px;
         width: 100%;
         margin: 0;
         border: 0;
         background: grey;
+
+        @media (min-width: 768px) {
+          height: 300px;
+        }
       }
 
       &-content {
-        padding: 20px;
+        padding: 16px 0;
         font-size: 12px;
         line-height: 1.5;
         text-transform: capitalize;
         color: color(text-80);
+
+        @media (min-width: 768px) {
+          padding: 20px;
+        }
 
         .category {
           background-color: color(primary);
@@ -931,7 +951,7 @@
 
         .title {
           font-family: $main-font;
-          font-size: 20px;
+          font-size: 18px;
           font-weight: 600;
           color: color(_black);
           display: -webkit-box;
@@ -939,17 +959,26 @@
           -webkit-box-orient: vertical;
           overflow: hidden;
           text-overflow: ellipsis;
+
+          @media (min-width: 768px) {
+            font-size: 20px;
+          }
         }
 
         .description {
           margin: 0;
-          font-size: 16px;
+          font-size: 14px;
           line-height: 1.5;
           display: -webkit-box;
           -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
           overflow: hidden;
           text-overflow: ellipsis;
+
+          @media (min-width: 768px) {
+            display: none;
+            font-size: 16px;
+          }
         }
       }
     }
@@ -966,6 +995,7 @@
         padding: 12px 32px;
         border-radius: 20px;
         cursor: pointer;
+        background-color: transparent;
       }
     }
   }
