@@ -12,7 +12,7 @@ const BlogHeroSection = ({ story, text, items, categoryDescription }: Props) => 
           <div className="grid">
             {items.map((_, idx) => (
               <div key={idx} className={`grid-item ${idx === 1 || idx === 4 ? 'span-2' : ''}`}>
-                <Link href="/blog/posts/american-sierra-leonean-artist-laik-returns-to-the-scene-with-new-single-ahje">
+                <Link href="/blog/music/american-sierra-leonean-artist-laik-returns-to-the-scene-with-new-single-ahje">
                   <img />
                   <div className="grid-item-content">
                     <div>
