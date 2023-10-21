@@ -8,53 +8,25 @@ import { BlogStory } from 'common/Blog/BlogStory';
 import { BlogPageBanner } from 'common/Blog/BlogPageBanner';
 import { BlogCategories } from 'common/Blog/BaseBlog/BlogCategories';
 
-const SingleBlogPage: React.FC<Props> = ({ isMobile, deviceWidth, serverBlog, slug }) => {
-  const {
-    blogSingleStories,
-    // dashboardBlogs,
-    categories /*blogCategoryStories, categories */
-  }: storeBlogEntry = useSelector((store: storeInterface) => store.blog);
+const SingleBlogPage: React.FC<Props> = ({ isMobile, deviceWidth, serverBlog }) => {
+  const { categories }: storeBlogEntry = useSelector((store: storeInterface) => store.blog);
 
-  const story = blogSingleStories?.[String(slug || '')];
-  const seoData = transformStory(serverBlog || story);
-  const storyTitle = (serverBlog || story)?.title?.rendered ? He.unescape((serverBlog || story).title.rendered) : '';
+  const seoData = transformStory(serverBlog);
+  const storyTitle = serverBlog?.title?.rendered ? He.unescape(serverBlog.title.rendered) : '';
 
   const category = categories.pairs[serverBlog.categories[0]].slug;
 
-  // const blogBannerDataSource = () => {
-  //   // if (category && categories?.slugPairs?.[String(category)]) {
-  //   //   return {
-  //   //     source: blogCategoryStories?.categoryData?.[String(category)]?.[1],
-
-  //   //     loader: blogCategoryStories?.categoryData?.[String(category)]?.[1] === undefined
-  //   //   };
-  //   // }
-
-  //   return {
-  //     source: dashboardBlogs?.data || [],
-  //     loader: dashboardBlogs.loader
-  //   };
-  // };
-
   return (
     <LandingLayout
-      headTitle={String(storyTitle || `WETALKSOUND`)}
+      headTitle={storyTitle || `WETALKSOUND`}
       headImage={seoData.seoImage}
-      headDescription={seoData.sub}
+      headDescription={seoData.item.yoast_head_json?.description || storyTitle}
       isMobile={isMobile}
       deviceWidth={deviceWidth}
       showFooter={true}
       showHeader={false}
     >
-      <BlogPageBanner
-        isMobile={isMobile}
-        deviceWidth={deviceWidth}
-        // slug={slug}
-        category={category}
-        story={serverBlog}
-        // dataSource={(blogBannerDataSource().source || []).filter((item, index) => index < 3)}
-        // dataSourceLoader={blogBannerDataSource().loader}
-      />
+      <BlogPageBanner isMobile={isMobile} deviceWidth={deviceWidth} category={category} story={serverBlog} />
 
       <BlogStory story={serverBlog} />
       <BlogCategories />
@@ -62,7 +34,7 @@ const SingleBlogPage: React.FC<Props> = ({ isMobile, deviceWidth, serverBlog, sl
   );
 };
 
-export async function getServerSideProps({ params }: { params: { slug: string, category: string } }) {
+export async function getServerSideProps({ params }: { params: { slug: string; category: string } }) {
   let data: any = null;
   const { slug, category } = params;
 

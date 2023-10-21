@@ -671,13 +671,15 @@
       text-transform: capitalize;
       max-width: 1000px;
       margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
 
       h2 {
         font-size: 20px;
         line-height: 32px;
         font-weight: 700;
         color: white;
-        margin: 16px 0;
 
         @media (min-width: 768px) {
           font-size: 40px;
@@ -686,12 +688,9 @@
       }
 
       img {
-        width: 100%;
-        height: auto;
-
-        @media (min-width: 768px) {
-          max-height: 488px;
-        }
+        width: auto;
+        max-height: 488px;
+        margin: 0 auto 16px;
       }
 
       .category {
@@ -726,12 +725,19 @@
         }
 
         .grid-item {
-          // background-color: yellow;
+          &:hover {
+            img {
+              -webkit-transform: scale(1.1);
+              -ms-transform: scale(1.1);
+              transform: scale(1.1);
+            }
+          }
 
           img {
             height: 120px;
             width: 100%;
             background-color: grey;
+            transition: all ease-in 0.3s;
           }
 
           &-content {
@@ -865,7 +871,7 @@
 
           .description {
             @media (min-width: 768px) {
-              display: block;
+              display: -webkit-box;
             }
           }
 
@@ -913,12 +919,21 @@
       display: flex;
       flex-direction: column;
 
+      &:hover {
+        img {
+          -webkit-transform: scale(1.1);
+          -ms-transform: scale(1.1);
+          transform: scale(1.1);
+        }
+      }
+
       img {
         height: 220px;
         width: 100%;
         margin: 0;
         border: 0;
         background: grey;
+        transition: all ease-in 0.25s;
 
         @media (min-width: 768px) {
           height: 300px;

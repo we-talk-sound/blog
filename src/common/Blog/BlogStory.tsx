@@ -21,7 +21,7 @@ export const BlogStory: React.FC<Props> = ({ story }) => {
   return (
     <ComponentHolder className="no-border page-events-expanded-body" bodyClass="page-zero-content">
       <div className="page-events-expanded-body-content">
-        {story?.content?.rendered && <div dangerouslySetInnerHTML={{ __html: story?.content?.rendered }} />}
+        {story?.content?.rendered && <div className='blog-story' dangerouslySetInnerHTML={{ __html: story?.content?.rendered }} />}
       </div>
 
       <div className="page-events-expanded-body-footer">

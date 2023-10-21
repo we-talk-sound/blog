@@ -82,6 +82,8 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth, serverBlog }) => {
     };
   };
 
+  console.log({ blogBannerDataSource: blogBannerDataSource() })
+
   useFetching({
     dispatcher: (arg: any) => {
       const arguments_ = determineFetch(arg);

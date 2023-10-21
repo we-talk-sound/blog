@@ -1,26 +1,31 @@
 import React from 'react';
 import * as He from 'he';
 import Link from 'next/link';
+import { transformStory } from 'utils';
+import { blogItemType } from 'types';
 
-const BlogHeroSection = ({ story, text, items, categoryDescription }: Props) => {
+const BlogHeroSection = ({ story, text, items = [], categoryDescription }: Props) => {
+  // transform each item
+  const transItems = items.map(item => transformStory(item || {}) || item);
+
   return (
     <section className="page-blog-hero">
       {/* multiple */}
-      {items?.length ? (
+      {transItems?.length ? (
         <div className="page-blog-hero-multiple">
           {categoryDescription && <p className="category-description">{categoryDescription}</p>}
           <div className="grid">
-            {items.map((_, idx) => (
+            {transItems.map((item, idx) => (
               <div key={idx} className={`grid-item ${idx === 1 || idx === 4 ? 'span-2' : ''}`}>
-                <Link href="/blog/music/american-sierra-leonean-artist-laik-returns-to-the-scene-with-new-single-ahje">
-                  <img />
+                <Link href={`/blog/${item?.category?.toLowerCase() || 'all'}/${item?.item?.slug}`}>
+                  <img src={item?.image} />
                   <div className="grid-item-content">
                     <div>
-                      <span className="category">Music</span>
-                      <span>Saturday, September 3, 2022</span>
+                      <span className="category">{item?.category || 'All'}</span>
+                      <span>{item?.date}</span>
                     </div>
-                    <div className="author">By Wetalksound</div>
-                    <h4 className="title">Omah Lay releases his debut album Boy Alone on KeyQaad Records</h4>
+                    <div className="author">By {item?.author}</div>
+                    <h4 className="title">{He.unescape(item?.title || '')}</h4>
                   </div>
                 </Link>
               </div>
@@ -30,11 +35,11 @@ const BlogHeroSection = ({ story, text, items, categoryDescription }: Props) => 
       ) : // single
       story ? (
         <div className="page-blog-hero-single">
+          <img src={story?.image} />
           <div>
-            <span className="category">{story.category}</span> <span className="date">{story.date}</span>
+            <span className="category">{story?.category}</span> <span className="date">{story?.date}</span>
           </div>
-          <h2>{He.unescape(story.title)}</h2>
-          <img src={story.image} />
+          <h2>{He.unescape(story?.title || '')}</h2>
         </div>
       ) : (
         // fallback - text
@@ -47,7 +52,7 @@ const BlogHeroSection = ({ story, text, items, categoryDescription }: Props) => 
 interface Props {
   text?: string;
   story?: any;
-  items?: any[];
+  items?: blogItemType[];
   categoryDescription?: string;
 }
 
