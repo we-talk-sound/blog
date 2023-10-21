@@ -30,13 +30,13 @@ export const BaseBlogHeading: React.FC<{ category?: string }> = ({ category }) =
   ];
 
   const router = useRouter();
-  const { query } = router.query;
+  const { q } = router.query;
 
-  const [search, setSearch] = useState(query || '');
+  const [search, setSearch] = useState(q || '');
 
   const handleSearch = (e: FormEvent) => {
     e.preventDefault();
-    router.push(`/blog/search?query=${search}`);
+    router.push(`/blog/search?q=${search}`);
   };
 
   return (

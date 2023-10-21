@@ -12,7 +12,7 @@ const base = {
     error: false
 };
 
-export const baseCategoryPairs = {
+const baseCategoryPairs = {
     '1': {
         id: 1,
         description: 'Community. Because we are stronger together than on our own. Articles about community-building.',
@@ -45,7 +45,7 @@ export const baseCategoryPairs = {
     },
 };
 
-export const baseSlugPairs = {
+const baseSlugPairs = {
     'community': {
         id: 1,
         description: 'Community. Because we are stronger together than on our own. Articles about community-building.',
