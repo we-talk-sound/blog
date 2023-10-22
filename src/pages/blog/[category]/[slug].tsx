@@ -1,20 +1,15 @@
 import React from 'react';
-import { blogItemType, storeBlogEntry, storeInterface } from 'types';
+import { blogItemType } from 'types';
 import * as He from 'he';
-import { useSelector } from 'react-redux';
 import { transformStory } from 'utils';
 import { LandingLayout } from 'layout';
 import { BlogStory } from 'common/Blog/BlogStory';
 import { BlogPageBanner } from 'common/Blog/BlogPageBanner';
 import { BlogCategories } from 'common/Blog/BaseBlog/BlogCategories';
 
-const SingleBlogPage: React.FC<Props> = ({ isMobile, deviceWidth, serverBlog }) => {
-  const { categories }: storeBlogEntry = useSelector((store: storeInterface) => store.blog);
-
+const SingleBlogPage: React.FC<Props> = ({ isMobile, deviceWidth, serverBlog, relatedPosts, category }) => {
   const seoData = transformStory(serverBlog);
   const storyTitle = serverBlog?.title?.rendered ? He.unescape(serverBlog.title.rendered) : '';
-
-  const category = categories.pairs[serverBlog.categories[0]].slug;
 
   return (
     <LandingLayout
@@ -28,7 +23,7 @@ const SingleBlogPage: React.FC<Props> = ({ isMobile, deviceWidth, serverBlog }) 
     >
       <BlogPageBanner isMobile={isMobile} deviceWidth={deviceWidth} category={category} story={serverBlog} />
 
-      <BlogStory story={serverBlog} />
+      <BlogStory story={serverBlog} relatedPosts={relatedPosts} />
       <BlogCategories />
     </LandingLayout>
   );
@@ -53,8 +48,17 @@ export async function getServerSideProps({ params }: { params: { slug: string; c
     };
   }
 
+  const POSTS_API_URL =
+    'https://blog-admin.wetalksound.co/wp-json/wp/v2/posts?per_page=4&_embed=1' +
+    '&_fields=title,slug,categories,date,_links.wp:featuredmedia,yoast_head_json.description';
+
+  let relatedPosts: any = await fetch(`${POSTS_API_URL}&categories=${data.categories[0]}`);
+  relatedPosts = await relatedPosts.json();
+
+  relatedPosts = Array.isArray(relatedPosts) ? relatedPosts : [];
+
   return {
-    props: { serverBlog: data, slug }
+    props: { serverBlog: data, slug, relatedPosts, category }
   };
 }
 
@@ -63,6 +67,8 @@ interface Props {
   deviceWidth: number;
   serverBlog: blogItemType;
   slug?: string;
+  relatedPosts: blogItemType[];
+  category: string;
 }
 
 export default SingleBlogPage;

@@ -23,7 +23,7 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth, posts, musics }) => {
 
   return (
     <LandingLayout
-      headTitle={`Blog - WETALKSOUND`}
+      headTitle={`Blog | WETALKSOUND`}
       isMobile={isMobile}
       deviceWidth={deviceWidth}
       showFooter={true}
@@ -53,12 +53,18 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth, posts, musics }) => {
 };
 
 export async function getServerSideProps() {
+  // get music category id
+  let musicCategoryID: any = await fetch(`https://blog-admin.wetalksound.co/wp-json/wp/v2/categories?slug=music`);
+  musicCategoryID = await musicCategoryID.json();
+  musicCategoryID = musicCategoryID[0].id
+
+  
   const baseUrl =
     'https://blog-admin.wetalksound.co/wp-json/wp/v2/posts?_embed=1&_fields=title,slug,categories,date,_links,yoast_head_json.description';
 
   let [posts, musics] = await Promise.all([
     fetch(`${baseUrl}&per_page=15`).then(res => res.json()),
-    fetch(`${baseUrl}&categories=4`).then(res => res.json())
+    fetch(`${baseUrl}&categories=${musicCategoryID}`).then(res => res.json())
   ]);
 
   return {

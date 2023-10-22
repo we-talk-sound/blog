@@ -4,7 +4,7 @@ import { blogItemType } from 'types';
 import { transformStory } from 'utils/blog';
 import BlogCardGrid from './BlogCardGrid';
 
-export const BlogStory: React.FC<Props> = ({ story }) => {
+export const BlogStory: React.FC<Props> = ({ story, relatedPosts }) => {
   const story_ = story ? { ...transformStory(story, false) } : undefined;
 
   const SOCIALS = [
@@ -21,7 +21,9 @@ export const BlogStory: React.FC<Props> = ({ story }) => {
   return (
     <ComponentHolder className="no-border page-events-expanded-body" bodyClass="page-zero-content">
       <div className="page-events-expanded-body-content">
-        {story?.content?.rendered && <div className='blog-story' dangerouslySetInnerHTML={{ __html: story?.content?.rendered }} />}
+        {story?.content?.rendered && (
+          <div className="blog-story" dangerouslySetInnerHTML={{ __html: story?.content?.rendered }} />
+        )}
       </div>
 
       <div className="page-events-expanded-body-footer">
@@ -38,11 +40,12 @@ export const BlogStory: React.FC<Props> = ({ story }) => {
         </div>
       </div>
 
-      <BlogCardGrid title={'Related Post'} showAction={false} items={[...Array(4)]} />
+      <BlogCardGrid title={'Related Post'} showAction={false} items={relatedPosts} />
     </ComponentHolder>
   );
 };
 
 interface Props {
   story: blogItemType;
+  relatedPosts: blogItemType[];
 }
