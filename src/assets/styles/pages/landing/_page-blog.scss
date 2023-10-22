@@ -736,10 +736,14 @@
           }
 
           img {
-            height: 120px;
+            height: 220px;
             width: 100%;
             background-color: grey;
             transition: all ease-in 0.3s;
+
+            @media (min-width: 768px) {
+              height: 120px;
+            }
           }
 
           &-content {
