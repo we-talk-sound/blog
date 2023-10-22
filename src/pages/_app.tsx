@@ -35,7 +35,6 @@ function App({ Component, pageProps }: AppProps) {
     '/blog/[category]/[slug]',
     '/blog/posts/[slug]',
     '/blog/search',
-    '/blog3',
     '/studio',
     '/store'
   ];
