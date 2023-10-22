@@ -4,7 +4,7 @@ import { blogItemType } from 'types';
 import { transformStory } from 'utils/blog';
 import BlogCardGrid from './BlogCardGrid';
 
-export const BlogStory: React.FC<Props> = ({ story, relatedPosts }) => {
+export const BlogStory: React.FC<Props> = ({ story, relatedPosts = [] }) => {
   const story_ = story ? { ...transformStory(story, false) } : undefined;
 
   const SOCIALS = [
