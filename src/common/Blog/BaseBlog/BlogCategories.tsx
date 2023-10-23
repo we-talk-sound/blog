@@ -45,7 +45,7 @@ export const BlogCategories = () => {
 
                     <ViewFormatter {...item} />
 
-                    <Button className="no-bg max" label="See all Articles" link={`/blog?category=${item.title.toLowerCase()}`} />
+                    <Button className="no-bg max" label="See all Articles" link={`/blog/${item.title.toLowerCase()}`} />
 
                 </div>
 

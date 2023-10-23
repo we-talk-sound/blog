@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
 import { store } from 'redux/store';
-import { AppProps } from 'next/app'
+import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { RouteChange } from 'components';
 import { change, resizer } from 'utils';
@@ -24,95 +24,86 @@ function App({ Component, pageProps }: AppProps) {
 
   const currentPath = router.pathname.trim();
 
-  const unProtectedRoutes: string[] = ["", "/", "/creative", "/events", "/labels", "/blog", "/studio", "/store"];
+  const unProtectedRoutes: string[] = [
+    '',
+    '/',
+    '/creative',
+    '/events',
+    '/labels',
+    '/blog',
+    '/blog/[category]',
+    '/blog/[category]/[slug]',
+    '/blog/posts/[slug]',
+    '/blog/search',
+    '/studio',
+    '/store'
+  ];
 
-  const redirectCondition = !([...unProtectedRoutes].includes(currentPath));
+  const redirectCondition = ![...unProtectedRoutes].includes(currentPath);
 
-  const resizeListener = (mode: "add" | "remove") => {
+  const resizeListener = (mode: 'add' | 'remove') => {
+    window?.[mode === 'add' ? 'addEventListener' : 'removeEventListener']?.(
+      'resize',
 
-    window?.[mode === "add" ? "addEventListener" : "removeEventListener"]?.("resize",
-
-      () => resizer(
-
-        (e) => change(e, "isMobile", setState),
-        (e) => change(e, "deviceWidth", setState)
-
-      ),
+      () =>
+        resizer(
+          e => change(e, 'isMobile', setState),
+          e => change(e, 'deviceWidth', setState)
+        ),
 
       false
-
     );
-
-  }
+  };
 
   useEffect(() => {
-
     // On first load, this function sets the values obtained for client width and height.
 
     if (clientMode && window && document) {
+      resizeListener('add');
 
-      resizeListener("add");
+      change(document?.body?.clientWidth < 601, 'isMobile', setState);
 
-      change(document?.body?.clientWidth < 601, "isMobile", setState);
-
-      change(document?.body?.clientWidth, "deviceWidth", setState);
-
+      change(document?.body?.clientWidth, 'deviceWidth', setState);
     }
 
-    return (() => {
-
-      if (clientMode && window) { resizeListener("remove"); }
-
-    })
+    return () => {
+      if (clientMode && window) {
+        resizeListener('remove');
+      }
+    };
 
     //eslint-disable-next-line
   }, [clientMode]);
 
   useEffect(() => {
-    change(isMobile, "showMobileView", setState);
+    change(isMobile, 'showMobileView', setState);
   }, [isMobile]);
 
   useEffect(() => {
-
-    if (!([...unProtectedRoutes].includes(currentPath))) {
-      router.replace("/");
+    if (![...unProtectedRoutes].includes(currentPath)) {
+      router.replace('/');
     }
 
     //eslint-disable-next-line
   }, [redirectCondition]);
 
-
-  SetClientAvailability((e) => change(e, "clientMode", setState));
+  SetClientAvailability(e => change(e, 'clientMode', setState));
 
   return (
     <Provider store={store}>
+      {redirectCondition ? (
+        <></>
+      ) : (
+        <>
+          <ToastHolder />
 
-      {
-        (redirectCondition) ?
+          <RouteChange />
 
-          <></>
-
-
-          :
-          <>
-
-            <ToastHolder />
-
-            <RouteChange />
-
-            <Component
-              {...pageProps}
-              isMobile={showMobileView}
-              deviceWidth={deviceWidth}
-              clientMode={clientMode}
-            />
-
-          </>
-      }
-
+          <Component {...pageProps} isMobile={showMobileView} deviceWidth={deviceWidth} clientMode={clientMode} />
+        </>
+      )}
     </Provider>
   );
-
 }
 
 export default App;

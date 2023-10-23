@@ -69,7 +69,11 @@ export type blogItemType = {
 
     _embedded: { "wp:featuredmedia": [{ "source_url": string, media_details: { sizes: { medium: { source_url: string } } } }] },
 
-    excerpt: { rendered: string }
+    excerpt: { rendered: string },
+
+    yoast_head_json?: { description: string },
+
+    featured_media?: number
 
 };
 

@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { PropsWithChildren, ReactElement } from 'react';
 import { ComponentHeader } from 'components';
 import { classnames } from 'utils';
 
@@ -50,7 +50,7 @@ export const ComponentHolder: React.FC<Props> = ({ visibility, id, childId, ...p
     );
 }
 
-interface Props {
+interface Props extends PropsWithChildren {
     control?: ReactElement<any, any>,
     visibility?: boolean,
     title?: string,

@@ -152,7 +152,7 @@ export const Table: React.FC<TableProps> = (
 
 interface TableProps {
     data?: Array<any>,
-    heading?: Array<{} | string>,
+    heading?: Array<any>,
     setMarkedTracker?(selected: any): void,
     OptionComponent?: React.FC,
     selectable?: boolean,

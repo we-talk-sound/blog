@@ -7,110 +7,74 @@ import { transformStory } from 'utils/blog';
 import { StoriesItemPlaceHolder } from 'common/Placeholders';
 
 export const BlogBannerArticles: React.FC<Props> = ({
-
-    bannerMode,
-
-    withoutArticles,
-
-    dataSource,
-
-    image,
-
-    dataSourceLoader,
-
-    slug
-
+  bannerMode,
+  withoutArticles,
+  dataSource,
+  image,
+  dataSourceLoader,
+  slug
 }) => {
+  const blogData = (dataSource || []).map(item => transformStory(item));
 
-    const blogData = (dataSource || []).map((item) => transformStory(item));
+  const [focus, setFocus] = useState(0);
 
-    const [focus, setFocus] = useState(0);
+  useEffect(() => {
+    if (blogData.length) {
+      const maxLength = blogData.length - 1;
+      const nextStopToFocus = focus === maxLength ? 0 : focus + 1;
+      setTimeout(() => setFocus(nextStopToFocus), 15000);
+    }
+  }, [focus, blogData.length]);
 
-    useEffect(() => {
+  return (
+    <ComponentHolder
+      title={bannerMode ? undefined : 'Latest stories'}
+      className={'blog-banner-articles-holder'}
+      headerClass={classnames('color-white blog-banner-body-header')}
+      bodyClass={classnames(
+        'blog-banner-blog',
+        bannerMode && 'page-blog-banner-flex',
+        slug && 'page-blog-banner-active-story'
+      )}
+    >
+      {withoutArticles !== true && (
+        <div className="page-zero-blog-banner-blog-stories">
+          {(blogData || []).map((item, index) => (
+            <StoryItem
+              mode="banner-feed"
+              story={item}
+              key={item.title}
+              isActive={blogData.length > 0 && focus === index}
+            />
+          ))}
 
-        if (blogData.length) {
+          {dataSourceLoader && blogData?.length < 1 && <StoriesItemPlaceHolder />}
+        </div>
+      )}
 
-            const maxLength = blogData.length - 1;
+      {(slug ? image !== undefined : true) && (
+        // <div
+        //   className="blog-banner-articles-image"
+        //   style={{ backgroundImage: `url(${image || blogData?.[focus]?.image})` }}
+        // />
+        <img src={image || blogData?.[focus]?.image} width="100%" height="auto" />
+      )}
 
-            const nextStopToFocus = focus === maxLength ? 0 : focus + 1;
-
-            setTimeout(() => setFocus(nextStopToFocus), 15000);
-
-        }
-
-    }, [focus, blogData.length]);
-
-    return (
-
-        <ComponentHolder
-
-            title={bannerMode ? undefined : 'Latest stories'}
-
-            className={"blog-banner-articles-holder"}
-
-            headerClass={classnames('color-white blog-banner-body-header')}
-
-            bodyClass={classnames('blog-banner-blog', bannerMode && "page-blog-banner-flex", slug && "page-blog-banner-active-story")}
-
-        >
-
-            {(withoutArticles !== true) &&
-
-                <div className='page-zero-blog-banner-blog-stories'>
-
-                    {(blogData || []).map((item, index) =>
-
-                        <StoryItem
-
-                            mode="banner-feed"
-
-                            story={item}
-
-                            key={item.title}
-
-                            isActive={blogData.length > 0 && focus === index}
-
-                        />
-
-                    )}
-
-                    {(dataSourceLoader && blogData?.length < 1) && <StoriesItemPlaceHolder />}
-
-                </div>
-
-            }
-
-            {(slug ? image !== undefined : true) &&
-
-                <div
-
-                    className='blog-banner-articles-image'
-
-                    style={{ backgroundImage: `url(${image || (blogData?.[focus]?.image)})` }}
-
-                />
-
-            }
-
-            {slug && !image && <div className='content-loader-image content-loader-blog-image' />}
-
-        </ComponentHolder>
-
-    );
-}
+      {slug && !image && <div className="content-loader-image content-loader-blog-image" />}
+    </ComponentHolder>
+  );
+};
 
 interface Props {
+  bannerMode?: boolean;
 
-    bannerMode?: boolean,
+  withoutArticles?: boolean;
 
-    withoutArticles?: boolean,
+  dataSource?: blogItemType[];
 
-    dataSource?: blogItemType[],
+  image?: string;
 
-    image?: string,
+  dataSourceLoader?: boolean;
 
-    dataSourceLoader?: boolean,
-
-    slug?: string
-
+  slug?: string;
 }
