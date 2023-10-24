@@ -52,7 +52,7 @@ export async function getServerSideProps({ params }: { params: { slug: string; c
     'https://blog-admin.wetalksound.co/wp-json/wp/v2/posts?per_page=4&_embed=1' +
     '&_fields=title,slug,categories,date,_links.wp:featuredmedia,yoast_head_json.description';
 
-  let relatedPosts: any = await fetch(`${POSTS_API_URL}&categories=${data.categories[0]}`);
+  let relatedPosts: any = await fetch(`${POSTS_API_URL}&categories=${data.categories[0]}&exclude[0]=${data.id}`);
   relatedPosts = await relatedPosts.json();
 
   relatedPosts = Array.isArray(relatedPosts) ? relatedPosts : [];

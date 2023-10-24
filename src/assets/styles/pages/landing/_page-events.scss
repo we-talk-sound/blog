@@ -49,6 +49,23 @@
         }
       }
 
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-bottom: 20px;
+      }
+
+      a {
+        color: color(active-story-item-border);
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
       p,
       img,
       figure {
@@ -73,11 +90,13 @@
         }
       }
 
-      figure {
-        max-width: 639px;
+      video {
+        width: 100%;
+        height: auto;
       }
 
-      img {
+      img,
+      figure {
         display: block;
         width: 100%;
         max-width: 398px;
