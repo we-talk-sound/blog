@@ -740,6 +740,7 @@
             width: 100%;
             background-color: grey;
             transition: all ease-in 0.3s;
+            object-fit: cover;
 
             @media (min-width: 768px) {
               height: 120px;
