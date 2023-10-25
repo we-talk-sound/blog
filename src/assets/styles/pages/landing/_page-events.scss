@@ -43,31 +43,9 @@
         font-size: 20px;
         line-height: 32px;
         font-weight: 400;
-
-        .blog-story {
-          font-family: 'Source Serif 4', serif;
-        }
-      }
-
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        margin-bottom: 20px;
-      }
-
-      a {
-        color: color(active-story-item-border);
-
-        &:hover {
-          text-decoration: underline;
-        }
       }
 
       p,
-      img,
       figure {
         margin: 0 auto 20px;
 
@@ -95,62 +73,11 @@
         height: auto;
       }
 
-      img,
       figure {
         display: block;
         width: 100%;
         max-width: 398px;
-        height: auto;
         max-height: 524px;
-      }
-
-      &-footer {
-        border-top: 1px solid color(grey);
-        padding: 22px 0px 0px;
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        font-size: 14px;
-        line-height: 20px;
-        font-weight: 400;
-        margin: 40px 0;
-
-        @media (min-width: 768px) {
-          flex-direction: row;
-          align-items: center;
-          justify-content: space-between;
-        }
-
-        &-author {
-          span {
-            color: color(active-story-item-border);
-            font-weight: 500;
-          }
-        }
-
-        &-share {
-          display: inline-flex;
-          align-items: center;
-          gap: 24px;
-
-          button {
-            width: 40px;
-            height: 40px;
-            border: 1px solid color(grey);
-            border-radius: 50%;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            background-color: transparent;
-
-            img {
-              margin: 0;
-              width: 20px;
-              height: 20px;
-            }
-          }
-        }
       }
     }
   }

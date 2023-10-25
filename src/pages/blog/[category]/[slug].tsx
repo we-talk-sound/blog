@@ -3,14 +3,24 @@ import { blogItemType } from 'types';
 import * as He from 'he';
 import { transformStory } from 'utils';
 import { LandingLayout } from 'layout';
-import { BlogStory } from 'common/Blog/BlogStory';
 import { BlogPageBanner } from 'common/Blog/BlogPageBanner';
 import { BlogCategories } from 'common/Blog/BaseBlog/BlogCategories';
+import BlogCardGrid from 'common/Blog/BlogCardGrid';
 
 const SingleBlogPage: React.FC<Props> = ({ isMobile, deviceWidth, serverBlog, relatedPosts, category }) => {
   const seoData = transformStory(serverBlog);
   const storyTitle = serverBlog?.title?.rendered ? He.unescape(serverBlog.title.rendered) : '';
 
+  const SOCIALS = [
+    { key: 'linkedin', svg: '/svg/linkedin.svg' },
+    { key: 'instagram', svg: '/svg/instagram.svg' },
+    { key: 'twitter', svg: '/svg/twitter.svg' }
+  ];
+
+  const handleShare = (key: string) => {
+    // eslint-disable-next-line no-alert
+    alert('Sharing on ' + key);
+  };
   return (
     <LandingLayout
       headTitle={storyTitle || `WETALKSOUND`}
@@ -22,8 +32,27 @@ const SingleBlogPage: React.FC<Props> = ({ isMobile, deviceWidth, serverBlog, re
       showHeader={false}
     >
       <BlogPageBanner isMobile={isMobile} deviceWidth={deviceWidth} category={category} story={serverBlog} />
+      <section className="page-blog-story">
+        <div className="page-blog-story-content" dangerouslySetInnerHTML={{ __html: serverBlog?.content?.rendered }} />
 
-      <BlogStory story={serverBlog} relatedPosts={relatedPosts} />
+        <div className="page-blog-story-footer">
+          <div className="author">
+            About Author: <span>{seoData?.author}</span>
+          </div>
+          <div className="share">
+            <span>Share this Article: </span>
+            {SOCIALS.map(social => (
+              <button type="button" key={social.key} onClick={() => handleShare(social.key)}>
+                <img src={social.svg} />
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <BlogCardGrid title={'Related Post'} showAction={false} items={relatedPosts} />
+      </section>
+
+      {/* <BlogStory story={serverBlog} relatedPosts={relatedPosts} /> */}
       <BlogCategories />
     </LandingLayout>
   );
