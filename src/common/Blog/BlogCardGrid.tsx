@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { transformStory } from 'utils';
 import * as He from 'he';
@@ -8,20 +8,34 @@ const BlogCardGrid = ({ title, action, variant, items = [], actionText = 'See Mo
   // transform each item
   const transItems = videos ? items : items.map(item => transformStory(item || {}) || item);
 
+  const [isOpen, setIsOpen] = useState(false);
+  const [videoId, setVideoId] = useState('c0GL89JCfG8');
+
+  const handlePlayVideo = (item: any) => {
+    if (!videos) return;
+    setIsOpen(true);
+    setVideoId(item.id.videoId);
+    // const videoUrl = `https://youtube.com/watch?v=${item.id.videoId}`;
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isOpen]);
+
   return (
-    <section className="page-blog-blogcard">
+    <section id={videos ? 'videos' : undefined} className="page-blog-blogcard">
       {title && <h3 className="page-blog-blogcard-header">{title}</h3>}
       <div className={`page-blog-blogcard-grid ${variant}`}>
         {transItems.map((item, idx) => (
           <Link
             key={idx}
-            href={
-              videos
-                ? `https://youtube.com/watch?v=${item.id.videoId}`
-                : `/blog/${item?.category?.toLowerCase() || 'all'}/${item?.item?.slug}`
-            }
+            href={videos ? `#videos` : `/blog/${item?.category?.toLowerCase() || 'all'}/${item?.item?.slug}`}
             className="page-blog-blogcard-item"
-            target={videos ? '_blank' : '_self'}
+            onClick={() => handlePlayVideo(item)}
           >
             <div className="page-blog-blogcard-item-image">
               <img src={videos ? item?.snippet?.thumbnails?.high?.url : item?.image} />
@@ -58,6 +72,21 @@ const BlogCardGrid = ({ title, action, variant, items = [], actionText = 'See Mo
           <button onClick={action}>{actionText}</button>
         </div>
       )}
+
+      {isOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <div style={{ display: 'flex' }}>
+              <button onClick={() => setIsOpen(false)}>Close</button>
+            </div>
+            <div className="video-container">
+              <iframe src={`https://youtube.com/embed/${videoId}`} width="100%" height="100%" allowFullScreen></iframe>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/*  */}
     </section>
   );
 };
