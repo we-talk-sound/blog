@@ -8,11 +8,32 @@ import { quickToast } from 'redux/store';
 const Store: React.FC<Props> = ({ isMobile, deviceWidth }) => {
   const [form, setForm] = useState({ name: '', email: '', city: '' });
 
-  const handleSubmit = () => {
-    if (Object.values(form).some(x => !x)) {
-      quickToast({ text: 'All fields are required', actionType: 'error' });
-    } else {
-      quickToast({ text: 'You have successfully subscribed', actionType: 'success' });
+  const handleSubmit = async () => {
+    try {
+      if (Object.values(form).some(x => !x)) {
+        quickToast({ text: 'All fields are required', actionType: 'error' });
+      } else {
+        quickToast({ text: 'Subscribing...' });
+        const data = {
+          audience: 'store',
+          email_address: form.email,
+          merge_fields: { FULLNAME: form.name, CITY: form.city }
+        };
+        let response: any = await fetch(`/api/subscribe`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        if (response.ok) {
+          quickToast({ text: 'You have successfully joined our waitlist', actionType: 'success' });
+          setForm({ name: '', email: '', city: '' });
+        } else {
+          response = await response.json();
+          quickToast({ text: response.error?.split('. ')[0] || 'Already subscribed', actionType: 'error' });
+        }
+      }
+    } catch (error) {
+      quickToast({ text: 'Oops, something went wrong, try again later', actionType: 'error' });
     }
   };
 
@@ -61,6 +82,7 @@ const Store: React.FC<Props> = ({ isMobile, deviceWidth }) => {
               <div>
                 <label htmlFor="city">City</label>
                 <select id="city" required value={form.city} onChange={e => setForm({ ...form, city: e.target.value })}>
+                  <option value="">Select a city</option>
                   {['Lagos', 'Abuja'].map(opt => (
                     <option key={opt} value={opt}>
                       {opt}
