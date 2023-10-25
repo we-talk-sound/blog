@@ -3,7 +3,7 @@ import axios from 'axios';
 
 mailchimp.setConfig({
     apiKey: process.env.NEXT_PUBLIC_MAILCHIMP_API_KEY,
-    server: process.env.NEXT_PUBLIC_MAILCHIMP_API_SERVER
+    server: process.env.NEXT_PUBLIC_MAILCHIMP_SERVER_PREFIX
 });
 
 export const subscribe = async (item: {
@@ -12,7 +12,7 @@ export const subscribe = async (item: {
 
     try {
 
-        await axios.post('api/subscribe', { ...item });
+        await axios.post('api/subscribe', { ...item, email_address: item.email });
 
         return true;
 
