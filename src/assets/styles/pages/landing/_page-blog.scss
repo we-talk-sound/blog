@@ -741,6 +741,7 @@
             background-color: grey;
             transition: all ease-in 0.3s;
             object-fit: cover;
+            object-position: top center;
 
             @media (min-width: 768px) {
               height: 120px;
@@ -940,6 +941,8 @@
         margin: 0;
         border: 0;
         background: grey;
+        object-fit: cover;
+        object-position: top center;
         transition: all ease-in 0.25s;
 
         @media (min-width: 768px) {
