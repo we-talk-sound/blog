@@ -8,7 +8,7 @@ mailchimp.setConfig({
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   let error, data;
-  // let data
+
   try {
     const { audience, email_address, status, merge_fields } = req.body;
     const audience_id =
@@ -21,7 +21,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       status: status || 'subscribed',
       merge_fields
     });
-    //
   } catch (err) {
     const { response, message }: any = err;
     error = response?.body?.detail || response?.body?.title || message;
