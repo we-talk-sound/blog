@@ -8,10 +8,7 @@ mailchimp.setConfig({
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    // const { email } = req.body;
-
     const response = await mailchimp.ping.get();
-
     return res.status(201).json(response);
   } catch (error) {
     return res.status(500).json(error);
