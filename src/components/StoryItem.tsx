@@ -17,7 +17,7 @@ export const StoryItem: React.FC<Props> = ({ story, mode, viewButton, isActive }
   return (
     <LinkWrapper
       className={classnames('story-item', isActive && 'story-item-active', mode && `story-item-${mode}`)}
-      link={story?.link}
+      link={`/blog/${story?.category}/${story?.item?.slug}`}
       preClick={() => {
         story?.item &&
           dispatch({
