@@ -11,7 +11,7 @@ export const HtmlHead: React.FC<{ title: any; headImage?: string; headDescriptio
 
   const link = 'https://wetalksound.co';
 
-  const logo = 'https://wetalksound.co/assets/logo/apple-touch-icon.png';
+  const logo = 'https://wetalksound.co/apple-touch-icon.png';
 
   const seoAttributes = `{
     "@context": "https://schema.org",
@@ -21,7 +21,7 @@ export const HtmlHead: React.FC<{ title: any; headImage?: string; headDescriptio
     "url": "https://wetalksound.co",
     "sameAs": ["wetalksound"],
 
-    "logo": "https://wetalksound.co/assets/logo/apple-touch-icon.png"
+    "logo": "https://wetalksound.co/apple-touch-icon.png"
   }`;
 
   // useEffect(() => {
