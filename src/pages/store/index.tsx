@@ -63,7 +63,6 @@ const Store: React.FC<Props> = ({ isMobile, deviceWidth }) => {
                 <input
                   id="name"
                   required
-                  placeholder="Jude Gavi"
                   value={form.name}
                   onChange={e => setForm({ ...form, name: e.target.value })}
                 />
@@ -74,21 +73,18 @@ const Store: React.FC<Props> = ({ isMobile, deviceWidth }) => {
                   id="email"
                   type="email"
                   required
-                  placeholder="Judegaviria@gmail.com"
                   value={form.email}
                   onChange={e => setForm({ ...form, email: e.target.value })}
                 />
               </div>
               <div>
                 <label htmlFor="city">City</label>
-                <select id="city" required value={form.city} onChange={e => setForm({ ...form, city: e.target.value })}>
-                  <option value="">Select a city</option>
-                  {['Lagos', 'Abuja'].map(opt => (
-                    <option key={opt} value={opt}>
-                      {opt}
-                    </option>
-                  ))}
-                </select>
+                <input
+                  id="city"
+                  required
+                  value={form.city}
+                  onChange={e => setForm({ ...form, city: e.target.value })}
+                />
               </div>
               <div className="btn">
                 <ExpandedButton label="Join our waitlist" onClick={handleSubmit} />
