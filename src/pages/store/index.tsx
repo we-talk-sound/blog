@@ -45,7 +45,7 @@ const Store: React.FC<Props> = ({ isMobile, deviceWidth }) => {
       const data = {
         audience: 'store',
         email_address: form.email,
-        merge_fields: { FULLNAME: form.name, CITY: form.city, DESIGN_INTEREST: form.designInterests.join(', ') }
+        merge_fields: { FULLNAME: form.name, CITY: form.city, DESIGN_INT: form.designInterests.join(', ') }
       };
       let response: any = await fetch(`/api/subscribe`, {
         method: 'POST',
