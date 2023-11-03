@@ -1137,6 +1137,16 @@
         }
       }
 
+      em,
+      i {
+        font-style: italic;
+      }
+
+      strong,
+      bold {
+        font-weight: bold;
+      }
+
       a {
         color: color(active-story-item-border);
 
