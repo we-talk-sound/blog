@@ -14,7 +14,7 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth, posts, musics, videos })
   useEffect(() => {
     // select random 5 posts that are not press releases
     // press releases has categories = [6], originals have categories [x, 6]
-    let random5 = posts.filter(post => post.categories.length > 1);
+    let random5 = posts.filter(post => post.categories.some(x => ![1, 4, 7].includes(x)));
     random5 = random5.sort(() => 0.5 - Math.random()).slice(0, 5);
     setTopReads(random5);
   }, [posts]);
@@ -48,7 +48,7 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth, posts, musics, videos })
             actionText="Show older videos"
             action={() => window.open('https://www.youtube.com/@WeTalkSound/videos', '_blank')}
           />
-          <BlogCardGrid items={posts.slice(6, 14)} title="Features" showAction={false} />
+          {/* <BlogCardGrid items={posts.slice(6, 14)} title="Features" showAction={false} /> */}
         </div>
       </ComponentHolder>
 
@@ -65,7 +65,8 @@ export async function getServerSideProps() {
   musicCategoryID = musicCategoryID[0].id;
 
   const baseUrl =
-    'https://blog-admin.wetalksound.co/wp-json/wp/v2/posts?_embed=1&_fields=title,slug,categories,date,_links,yoast_head_json.description';
+    'https://blog-admin.wetalksound.co/wp-json/wp/v2/posts?_embed=1' +
+    '&_fields=title,slug,categories,date,_links.wp:featuredmedia,_links.author,yoast_head_json.description';
 
   const youtubeUrl =
     'https://www.googleapis.com/youtube/v3/search?key=' +
@@ -75,7 +76,7 @@ export async function getServerSideProps() {
     '&part=snippet,id&order=date&maxResults=6';
 
   let [posts, musics, videos] = await Promise.all([
-    fetch(`${baseUrl}&per_page=15`).then(res => res.json()),
+    fetch(`${baseUrl}&per_page=10`).then(res => res.json()),
     fetch(`${baseUrl}&categories=${musicCategoryID}`).then(res => res.json()),
     fetch(youtubeUrl)
       .then(res => res.json())

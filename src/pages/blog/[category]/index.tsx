@@ -85,7 +85,7 @@ export async function getServerSideProps({ params, query }: { params: { category
   // fetch categories post
   const POSTS_API_URL =
     'https://blog-admin.wetalksound.co/wp-json/wp/v2/posts?per_page=18&_embed=1' +
-    '&_fields=title,slug,categories,date,_links.wp:featuredmedia,yoast_head_json.description';
+    '&_fields=title,slug,categories,date,_links.wp:featuredmedia,_links.author,yoast_head_json.description';
 
   let posts: any = [];
   posts = await fetch(`${POSTS_API_URL}&categories=${categoryObject.id}&page=${page}`);
