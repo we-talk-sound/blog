@@ -1,126 +1,118 @@
 export type authType = {
-    accesstoken?: string,
-    refreshtoken?: string,
-    expiresAt?: string
-}
+  accesstoken?: string;
+  refreshtoken?: string;
+  expiresAt?: string;
+};
 
 export type routeType = {
-    currentPath: {
-        fullPath?: string,
-        queries?: { [key: string]: string },
-        specificPath?: string
-    },
-    previousPath: {
-        fullPath?: string,
-        queries?: { [key: string]: string },
-        specificPath?: string
-    },
-    tempPath: {
-        fullPath?: string,
-        queries?: { [key: string]: string },
-        specificPath?: string
-    },
-    navigating: boolean,
-    visitationTrack: string[]
-}
+  currentPath: {
+    fullPath?: string;
+    queries?: { [key: string]: string };
+    specificPath?: string;
+  };
+  previousPath: {
+    fullPath?: string;
+    queries?: { [key: string]: string };
+    specificPath?: string;
+  };
+  tempPath: {
+    fullPath?: string;
+    queries?: { [key: string]: string };
+    specificPath?: string;
+  };
+  navigating: boolean;
+  visitationTrack: string[];
+};
 
 export type toastType = {
-    timer: number,
-    nature?: string,
-    manualDismiss?: boolean,
-    toDismiss?: string,
-    toast?: { id: string, text: string },
-    toasts: { id: string, text: string, new: boolean }[]
-}
+  timer: number;
+  nature?: string;
+  manualDismiss?: boolean;
+  toDismiss?: string;
+  toast?: { id: string; text: string };
+  toasts: { id: string; text: string; new: boolean }[];
+};
 
 export type workerType = {
-    activity: string[],
-    refreshing: boolean
-}
+  activity: string[];
+  refreshing: boolean;
+};
 
 export type utilType = {
-    cities: {
-        loader: boolean,
-        error: boolean,
-        data: {
-            [key: string]: { name: string, id: string }[]
-        }
-    },
-    states: {
-        loader: boolean,
-        error: boolean,
-        data: { name: string, id: string }[]
-    }
-}
+  cities: {
+    loader: boolean;
+    error: boolean;
+    data: {
+      [key: string]: { name: string; id: string }[];
+    };
+  };
+  states: {
+    loader: boolean;
+    error: boolean;
+    data: { name: string; id: string }[];
+  };
+};
 
-export type blogEntryTypes = "dashboardBlogs" | "categories" | "blogSingleStories" | "blogCategoryStories";
+export type blogEntryTypes = 'dashboardBlogs' | 'categories' | 'blogSingleStories' | 'blogCategoryStories';
 
 export type blogItemType = {
+  title: { rendered: string };
+  date: string;
+  slug: string;
+  categories: number[];
+  content: { rendered: string };
+  _embedded: {
+    'wp:featuredmedia': [{ source_url: string; media_details: { sizes: { medium: { source_url: string } } } }];
+    author: [{ name: string }];
+  };
 
-    title: { rendered: string },
+  excerpt: { rendered: string };
 
-    date: string,
+  yoast_head_json?: { description: string };
 
-    slug: string,
-
-    categories: number[],
-
-    content: { rendered: string },
-
-    _embedded: { "wp:featuredmedia": [{ "source_url": string, media_details: { sizes: { medium: { source_url: string } } } }] },
-
-    excerpt: { rendered: string },
-
-    yoast_head_json?: { description: string },
-
-    featured_media?: number
-
+  featured_media?: number;
 };
 
 export type blogPageData = { [key: string]: Array<blogItemType> };
 
 type blogEntryType = {
-
-    data: Array<blogItemType>,
-    categoryData?: { [key: string]: blogPageData }
-    queryParam: { [key: string]: any },
-    perPage: number,
-    loader: boolean,
-    page: number,
-    pageCount: number,
-    error: boolean
-
+  data: Array<blogItemType>;
+  categoryData?: { [key: string]: blogPageData };
+  queryParam: { [key: string]: any };
+  perPage: number;
+  loader: boolean;
+  page: number;
+  pageCount: number;
+  error: boolean;
 };
 
-export type blogCategoryItemType = { id: number, description: string, name: string, slug: string };
+export type blogCategoryItemType = { id: number; description: string; name: string; slug: string };
 
 export type storeBlogEntry = {
+  dashboardBlogs: blogEntryType;
 
-    dashboardBlogs: blogEntryType,
+  blogCategoryStories: blogEntryType;
 
-    blogCategoryStories: blogEntryType,
+  blogSingleStories: { [key: string | number]: blogItemType };
 
-    blogSingleStories: { [key: string | number]: blogItemType },
-
-    categories: {
-        data: Array<blogCategoryItemType>,
-        pairs: { [key: number | string]: blogCategoryItemType },
-        slugPairs: { [key: string]: blogCategoryItemType },
-        queryParam: { [key: string]: any },
-        perPage: number,
-        loader: boolean,
-        page: number,
-        pageCount: number,
-        error: boolean
-    },
-
+  categories: {
+    data: Array<blogCategoryItemType>;
+    pairs: { [key: number | string]: blogCategoryItemType };
+    slugPairs: { [key: string]: blogCategoryItemType };
+    queryParam: { [key: string]: any };
+    perPage: number;
+    loader: boolean;
+    page: number;
+    pageCount: number;
+    error: boolean;
+  };
 };
 
 export interface storeInterface {
-    auth: authType,
-    blog: storeBlogEntry,
-    route: routeType
-    toast: toastType,
-    util: utilType,
-    worker: workerType
+  auth: authType;
+  blog: storeBlogEntry;
+  route: routeType;
+  toast: toastType;
+  util: utilType;
+  worker: workerType;
 }

@@ -12,7 +12,7 @@ export const transformStory = (item: blogItemType, withLink?: boolean) => ({
       ? undefined
       : `/blog/${store.getState()?.blog?.categories?.pairs?.[item.categories?.[0]]?.name}/${item.slug}`,
 
-  author: 'WETALKSOUND',
+  author: item?._embedded?.author?.[0]?.name || 'WETALKSOUND',
 
   date: DD_MM_YY_HH_mm_a(item.date),
 

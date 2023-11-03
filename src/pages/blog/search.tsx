@@ -23,11 +23,7 @@ const BlogSearchPage: React.FC<Props> = ({ isMobile, deviceWidth, query, posts }
       showFooter={true}
       showHeader={false}
     >
-      <BlogPageBanner
-        isMobile={isMobile}
-        deviceWidth={deviceWidth}
-        text={`Results for “${query}”`}
-      />
+      <BlogPageBanner isMobile={isMobile} deviceWidth={deviceWidth} text={`Results for “${query}”`} />
 
       <ComponentHolder className="no-border page-events-expanded-body" bodyClass="page-zero-content">
         <div className="page-events-expanded-body-content">
@@ -42,13 +38,13 @@ const BlogSearchPage: React.FC<Props> = ({ isMobile, deviceWidth, query, posts }
 };
 
 export async function getServerSideProps({ query }: { query: { q: string } }) {
-  //   let data: any = null;
   const { q } = query;
 
   const url =
     'https://blog-admin.wetalksound.co/wp-json/wp/v2/posts?search=' +
     q +
-    '&_fields=title,slug,categories,date,_links,yoast_head_json.description&per_page=16&_embed';
+    '&_fields=title,slug,categories,date,_links.wp:featuredmedia,_links.author,yoast_head_json.description&per_page=16&_embed';
+
   let data = await fetch(url);
   data = await data.json();
 

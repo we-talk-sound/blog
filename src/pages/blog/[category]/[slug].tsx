@@ -51,8 +51,7 @@ const SingleBlogPage: React.FC<Props> = ({ isMobile, deviceWidth, serverBlog, re
 
         <BlogCardGrid title={'Related Post'} showAction={false} items={relatedPosts} />
       </section>
-
-      {/* <BlogStory story={serverBlog} relatedPosts={relatedPosts} /> */}
+      {/*  */}
       <BlogCategories />
     </LandingLayout>
   );
@@ -79,11 +78,10 @@ export async function getServerSideProps({ params }: { params: { slug: string; c
 
   const POSTS_API_URL =
     'https://blog-admin.wetalksound.co/wp-json/wp/v2/posts?per_page=4&_embed=1' +
-    '&_fields=title,slug,categories,date,_links.wp:featuredmedia,yoast_head_json.description';
+    '&_fields=title,slug,categories,date,_links.wp:featuredmedia,_links.author,yoast_head_json.description';
 
   let relatedPosts: any = await fetch(`${POSTS_API_URL}&categories=${data.categories[0]}&exclude[0]=${data.id}`);
   relatedPosts = await relatedPosts.json();
-
   relatedPosts = Array.isArray(relatedPosts) ? relatedPosts : [];
 
   return {
