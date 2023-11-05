@@ -10,13 +10,13 @@ const Store: React.FC<Props> = ({ isMobile, deviceWidth }) => {
   const [form, setForm] = useState<FormPayload>({ name: '', email: '', city: '', designInterests: [] });
 
   const SAMPLES = [
-    { name: 'JerseyGreen', image: '/assets/wears/wts_jersey_1.png' },
-    { name: 'JerseyYellow', image: '/assets/wears/wts_jersey_2.png' },
-    { name: 'WhiteTee', image: '/assets/wears/tee_3.png' },
-    { name: 'WhiteTeeAlt', image: '/assets/wears/wts_tee_2.png' },
-    { name: 'BlackTee', image: '/assets/wears/tee_4.png' },
-    { name: 'Hoodie', image: '/assets/wears/wts_hoodie.png' },
-    { name: 'Joggers', image: '/assets/wears/joggers.png' }
+    { name: 'Patriot Jersey', image: '/assets/wears/wts_jersey_1.png' },
+    { name: 'Hive Jersey', image: '/assets/wears/wts_jersey_2.png' },
+    { name: 'Stay Hippy', image: '/assets/wears/wts_tee_2.png' },
+    { name: 'WTS Community Tee (White)', image: '/assets/wears/tee_3.png' },
+    { name: 'WTS Community Tee (Black)', image: '/assets/wears/tee_4.png' },
+    { name: 'WTS Community Hoodie', image: '/assets/wears/wts_hoodie.png' },
+    { name: 'WTS Community Joggers', image: '/assets/wears/joggers.png' }
   ];
 
   const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
