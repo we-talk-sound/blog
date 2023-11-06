@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 // import StoryImage from "assets/png/landing/blog-section/story-image.png";
 import { ComponentHolder, StoryItem } from 'components';
 import { classnames } from 'utils';
-import { blogItemType } from 'types';
+import { blogCategoryItemType, blogItemType } from 'types';
 import { transformStory } from 'utils/blog';
 import { StoriesItemPlaceHolder } from 'common/Placeholders';
 
@@ -12,9 +12,10 @@ export const BlogBannerArticles: React.FC<Props> = ({
   dataSource,
   image,
   dataSourceLoader,
-  slug
+  slug,
+  allCategories = []
 }) => {
-  const blogData = (dataSource || []).map(item => transformStory(item));
+  const blogData = (dataSource || []).map(item => transformStory(item, allCategories));
 
   const [focus, setFocus] = useState(0);
 
@@ -77,4 +78,6 @@ interface Props {
   dataSourceLoader?: boolean;
 
   slug?: string;
+
+  allCategories: blogCategoryItemType[];
 }
