@@ -1,23 +1,16 @@
 import React from 'react';
-// import { blogItemType, storeBlogEntry, storeInterface } from 'types';
-// import * as He from 'he';
-// import { useSelector } from 'react-redux';
-// import { transformStory } from 'utils';
 import { LandingLayout } from 'layout';
-// import { BlogStory } from 'common/Blog/BlogStory';
 import { BlogPageBanner } from 'common/Blog/BlogPageBanner';
 import { BlogCategories } from 'common/Blog/BaseBlog/BlogCategories';
 import { NewsLetter } from 'common/NewsLetter';
 import { ComponentHolder } from 'components';
 import BlogCardGrid from 'common/Blog/BlogCardGrid';
-import { blogItemType } from 'types';
+import { blogCategoryItemType, blogItemType } from 'types';
 
-const BlogSearchPage: React.FC<Props> = ({ isMobile, deviceWidth, query, posts }) => {
+const BlogSearchPage: React.FC<Props> = ({ isMobile, deviceWidth, blogCategories, query, posts }) => {
   return (
     <LandingLayout
       headTitle={`Search - WETALKSOUND`}
-      // headImage={seoData.seoImage}
-      // headDescription={seoData.sub}
       isMobile={isMobile}
       deviceWidth={deviceWidth}
       showFooter={true}
@@ -31,7 +24,7 @@ const BlogSearchPage: React.FC<Props> = ({ isMobile, deviceWidth, query, posts }
         </div>
       </ComponentHolder>
 
-      <BlogCategories />
+      <BlogCategories categories={blogCategories} />
       <NewsLetter />
     </LandingLayout>
   );
@@ -56,6 +49,7 @@ export async function getServerSideProps({ query }: { query: { q: string } }) {
 interface Props {
   isMobile: boolean;
   deviceWidth: number;
+  blogCategories: blogCategoryItemType[];
   query: string;
   posts: blogItemType[];
 }

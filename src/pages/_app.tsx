@@ -8,6 +8,29 @@ import { change, resizer } from 'utils';
 import 'assets/styles/main.scss';
 import { ToastHolder } from 'components/toast/ToastHolder';
 import { SetClientAvailability } from 'hooks/useIsClient';
+import { blogCategoryItemType } from 'types';
+
+export const BLOGCATEGORIES: blogCategoryItemType[] = [
+  { id: 411, description: 'Feel the pulse of culture', name: 'Culture', slug: 'culture' },
+  {
+    id: 3,
+    description: 'We talk to all sorts of interesting guests and unearth their wisdom.',
+    name: 'Interviews',
+    slug: 'interviews'
+  },
+  {
+    id: 6,
+    description: 'Releases, Reviews and More. Experience the best music from our community and beyond.',
+    name: 'Music',
+    slug: 'music'
+  },
+  {
+    id: 410,
+    description: ' In-depth music, where we dissect the latest tracks and albums, and uncover hidden gems.',
+    name: 'Reviews',
+    slug: 'reviews'
+  }
+];
 
 function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -89,6 +112,21 @@ function App({ Component, pageProps }: AppProps) {
 
   SetClientAvailability(e => change(e, 'clientMode', setState));
 
+  // fetch categories
+  const [blogCategories, setBlogCategories] = useState(BLOGCATEGORIES);
+
+  useEffect(() => {
+    (async () => {
+      let categories: any = await fetch(
+        `https://blog-admin.wetalksound.co/wp-json/wp/v2/categories?_fields=id,slug,name,description`
+      );
+      categories = await categories.json();
+      categories = categories.filter((item: blogCategoryItemType) => item.slug !== 'uncategorized');
+      localStorage.setItem('BLOGCATEGORIES', JSON.stringify(categories));
+      setBlogCategories(categories);
+    })();
+  }, []);
+
   return (
     <Provider store={store}>
       {redirectCondition ? (
@@ -99,7 +137,13 @@ function App({ Component, pageProps }: AppProps) {
 
           <RouteChange />
 
-          <Component {...pageProps} isMobile={showMobileView} deviceWidth={deviceWidth} clientMode={clientMode} />
+          <Component
+            {...pageProps}
+            blogCategories={blogCategories}
+            isMobile={showMobileView}
+            deviceWidth={deviceWidth}
+            clientMode={clientMode}
+          />
         </>
       )}
     </Provider>
