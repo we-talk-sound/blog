@@ -20,7 +20,7 @@ const BlogSearchPage: React.FC<Props> = ({ isMobile, deviceWidth, blogCategories
 
       <ComponentHolder className="no-border page-events-expanded-body" bodyClass="page-zero-content">
         <div className="page-events-expanded-body-content">
-          <BlogCardGrid items={posts} showAction={posts.length > 15} />
+          <BlogCardGrid items={posts} allCategories={blogCategories} showAction={posts.length > 15} />
         </div>
       </ComponentHolder>
 

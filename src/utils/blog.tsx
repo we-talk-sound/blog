@@ -4,19 +4,16 @@ import { DD_MM_YY_HH_mm_a } from './date';
 
 export const transformStory = (item: blogItemType, blogCategories: blogCategoryItemType[] = [], withLink?: boolean) => {
   const getCategoryName = (categoryID: number) => {
-    const item = blogCategories.find(el => el.id === categoryID) as blogCategoryItemType;
-    return item.name;
+    const item = blogCategories?.find(el => el.id === categoryID) as blogCategoryItemType;
+    return item?.name || 'Uncategorized';
   };
 
   return {
     title: item?.title?.rendered,
 
-    category: getCategoryName(item?.categories?.[0]) || 'Uncategorized', //store.getState()?.blog?.categories?.pairs?.[item.categories?.[0]]?.name,
+    category: getCategoryName(item?.categories?.[0]), //store.getState()?.blog?.categories?.pairs?.[item.categories?.[0]]?.name,
 
-    link:
-      withLink === false
-        ? undefined
-        : `/blog/${(getCategoryName(item?.categories?.[0]) || 'Uncategorized').toLowerCase()}/${item.slug}`,
+    link: withLink === false ? undefined : `/blog/${getCategoryName(item?.categories?.[0]).toLowerCase()}/${item.slug}`,
 
     author: item?._embedded?.author?.[0]?.name || 'WETALKSOUND',
 

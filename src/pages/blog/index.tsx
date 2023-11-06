@@ -8,7 +8,17 @@ import BlogCardGrid from 'common/Blog/BlogCardGrid';
 import { BlogCategories } from 'common/Blog/BaseBlog/BlogCategories';
 import { useRouter } from 'next/router';
 
-const Blog: React.FC<Props> = ({ isMobile, deviceWidth, blogCategories, posts, musics, videos, reviews, interviews, culture }) => {
+const Blog: React.FC<Props> = ({
+  isMobile,
+  deviceWidth,
+  blogCategories,
+  posts,
+  musics,
+  videos,
+  reviews,
+  interviews,
+  culture
+}) => {
   const [topReads, setTopReads] = useState<blogItemType[]>([]);
 
   useEffect(() => {
@@ -29,15 +39,27 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth, blogCategories, posts, m
       showFooter={true}
       showHeader={false}
     >
-      <BlogPageBanner isMobile={isMobile} allCategories={blogCategories} deviceWidth={deviceWidth} items={posts.slice(0, 6)} />
+      <BlogPageBanner
+        isMobile={isMobile}
+        allCategories={blogCategories}
+        deviceWidth={deviceWidth}
+        items={posts.slice(0, 6)}
+      />
 
       <ComponentHolder className="no-border page-events-expanded-body" bodyClass="page-zero-content">
         <div className="page-events-expanded-body-content">
-          <BlogCardGrid items={topReads} title="Top Reads" variant="topreads" showAction={false} />
+          <BlogCardGrid
+            items={topReads}
+            title="Top Reads"
+            allCategories={blogCategories}
+            variant="topreads"
+            showAction={false}
+          />
           <BlogCardGrid
             items={musics}
             title="Music"
             showAction={musics.length > 7}
+            allCategories={blogCategories}
             actionText="Show more nusic"
             action={() => router.push('/blog/music')}
           />
@@ -52,18 +74,24 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth, blogCategories, posts, m
             items={culture}
             title="Culture"
             actionText="Show more culture"
+            showAction={culture.length > 7}
+            allCategories={blogCategories}
             action={() => router.push('/blog/culture')}
           />
           <BlogCardGrid
             items={interviews}
             title="Interviews"
+            showAction={interviews.length > 7}
+            allCategories={blogCategories}
             actionText="Show more interviews"
             action={() => router.push('/blog/interviews')}
           />
           <BlogCardGrid
             items={reviews}
             title="Reviews"
+            showAction={reviews.length > 7}
             actionText="Show more reviews"
+            allCategories={blogCategories}
             action={() => router.push('/blog/reviews')}
           />
         </div>
@@ -113,12 +141,12 @@ export async function getServerSideProps() {
     fetch(youtubeUrl)
       .then(res => res.json())
       .then(data => data.items),
-    //reviews 
+    //reviews
     fetch(`${baseUrl}&per_page=8&categories=${reviewsCategoryID}`).then(res => res.json()),
     // interviews
     fetch(`${baseUrl}&per_page=8&categories=${interviewsCategoryID}`).then(res => res.json()),
     // culture
-    fetch(`${baseUrl}&per_page=8&categories=${cultureCategoryID}`).then(res => res.json()),
+    fetch(`${baseUrl}&per_page=8&categories=${cultureCategoryID}`).then(res => res.json())
   ]);
 
   return {
@@ -131,7 +159,7 @@ export default Blog;
 interface Props {
   isMobile: boolean;
   deviceWidth: number;
-  blogCategories: blogCategoryItemType [];
+  blogCategories: blogCategoryItemType[];
   posts: blogItemType[];
   musics: blogItemType[];
   interviews: blogItemType[];

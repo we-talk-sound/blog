@@ -62,10 +62,10 @@ const SingleBlogPage: React.FC<Props> = ({
           </div>
         </div>
 
-        <BlogCardGrid title={'Related Post'} showAction={false} items={relatedPosts} />
+        <BlogCardGrid title={'Related Post'} allCategories={blogCategories} showAction={false} items={relatedPosts} />
       </section>
       {/*  */}
-      <BlogCategories />
+      <BlogCategories categories={blogCategories} />
     </LandingLayout>
   );
 };
