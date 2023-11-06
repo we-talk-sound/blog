@@ -47,6 +47,7 @@ const BlogCategoryPage: React.FC<Props> = ({ isMobile, deviceWidth, blogCategori
         <div className="page-events-expanded-body-content">
           <BlogCardGrid
             items={posts.slice(6) || []}
+            allCategories={blogCategories}
             action={handleNextPage}
             showAction={posts.length > 17}
             actionText={loading ? 'Loading...' : `Show more ${category}`}
