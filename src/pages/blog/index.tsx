@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { LandingLayout } from 'layout';
 import { NewsLetter } from 'common/NewsLetter';
 import { BlogPageBanner } from 'common/Blog/BlogPageBanner';
-import { blogItemType } from 'types';
+import { blogCategoryItemType, blogItemType } from 'types';
 import { ComponentHolder } from 'components';
 import BlogCardGrid from 'common/Blog/BlogCardGrid';
 import { BlogCategories } from 'common/Blog/BaseBlog/BlogCategories';
 import { useRouter } from 'next/router';
 
-const Blog: React.FC<Props> = ({ isMobile, deviceWidth, posts, musics, videos }) => {
+const Blog: React.FC<Props> = ({ isMobile, deviceWidth, blogCategories, posts, musics, videos, reviews, interviews, culture }) => {
   const [topReads, setTopReads] = useState<blogItemType[]>([]);
 
   useEffect(() => {
@@ -29,16 +29,16 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth, posts, musics, videos })
       showFooter={true}
       showHeader={false}
     >
-      <BlogPageBanner isMobile={isMobile} deviceWidth={deviceWidth} items={posts.slice(0, 6)} />
+      <BlogPageBanner isMobile={isMobile} allCategories={blogCategories} deviceWidth={deviceWidth} items={posts.slice(0, 6)} />
 
       <ComponentHolder className="no-border page-events-expanded-body" bodyClass="page-zero-content">
         <div className="page-events-expanded-body-content">
           <BlogCardGrid items={topReads} title="Top Reads" variant="topreads" showAction={false} />
           <BlogCardGrid
-            items={musics.slice(0, 8)}
+            items={musics}
             title="Music"
-            showAction={musics.length > 8}
-            actionText="Show More Music"
+            showAction={musics.length > 7}
+            actionText="Show more nusic"
             action={() => router.push('/blog/music')}
           />
           <BlogCardGrid
@@ -48,21 +48,50 @@ const Blog: React.FC<Props> = ({ isMobile, deviceWidth, posts, musics, videos })
             actionText="Show older videos"
             action={() => window.open('https://www.youtube.com/@WeTalkSound/videos', '_blank')}
           />
-          {/* <BlogCardGrid items={posts.slice(6, 14)} title="Features" showAction={false} /> */}
+          <BlogCardGrid
+            items={culture}
+            title="Culture"
+            actionText="Show more culture"
+            action={() => router.push('/blog/culture')}
+          />
+          <BlogCardGrid
+            items={interviews}
+            title="Interviews"
+            actionText="Show more interviews"
+            action={() => router.push('/blog/interviews')}
+          />
+          <BlogCardGrid
+            items={reviews}
+            title="Reviews"
+            actionText="Show more reviews"
+            action={() => router.push('/blog/reviews')}
+          />
         </div>
       </ComponentHolder>
 
-      <BlogCategories />
+      <BlogCategories categories={blogCategories} />
       <NewsLetter />
     </LandingLayout>
   );
 };
 
 export async function getServerSideProps() {
-  // get music category id
-  let musicCategoryID: any = await fetch(`https://blog-admin.wetalksound.co/wp-json/wp/v2/categories?slug=music`);
-  musicCategoryID = await musicCategoryID.json();
-  musicCategoryID = musicCategoryID[0].id;
+  let categories: any = await fetch(`https://blog-admin.wetalksound.co/wp-json/wp/v2/categories?_fields=id,slug`);
+  categories = await categories.json();
+
+  type Catg = { id: number; slug: string };
+  // music
+  let musicCategoryID = categories.find((category: Catg) => category.slug === 'music');
+  musicCategoryID = musicCategoryID.id;
+  // culture
+  let cultureCategoryID = categories.find((category: Catg) => category.slug === 'culture');
+  cultureCategoryID = cultureCategoryID.id;
+  // interviews
+  let interviewsCategoryID = categories.find((category: Catg) => category.slug === 'interviews');
+  interviewsCategoryID = interviewsCategoryID.id;
+  // reviews
+  let reviewsCategoryID = categories.find((category: Catg) => category.slug === 'reviews');
+  reviewsCategoryID = reviewsCategoryID.id;
 
   const baseUrl =
     'https://blog-admin.wetalksound.co/wp-json/wp/v2/posts?_embed=1' +
@@ -75,16 +104,25 @@ export async function getServerSideProps() {
     process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID +
     '&part=snippet,id&order=date&maxResults=6';
 
-  let [posts, musics, videos] = await Promise.all([
-    fetch(`${baseUrl}&per_page=10`).then(res => res.json()),
-    fetch(`${baseUrl}&categories=${musicCategoryID}`).then(res => res.json()),
+  let [posts, musics, videos, reviews, interviews, culture] = await Promise.all([
+    // posts
+    fetch(baseUrl).then(res => res.json()),
+    // musics
+    fetch(`${baseUrl}&per_page=8&categories=${musicCategoryID}`).then(res => res.json()),
+    // videos
     fetch(youtubeUrl)
       .then(res => res.json())
-      .then(data => data.items)
+      .then(data => data.items),
+    //reviews 
+    fetch(`${baseUrl}&per_page=8&categories=${reviewsCategoryID}`).then(res => res.json()),
+    // interviews
+    fetch(`${baseUrl}&per_page=8&categories=${interviewsCategoryID}`).then(res => res.json()),
+    // culture
+    fetch(`${baseUrl}&per_page=8&categories=${cultureCategoryID}`).then(res => res.json()),
   ]);
 
   return {
-    props: { posts, musics, videos }
+    props: { posts, musics, videos, reviews, interviews, culture }
   };
 }
 
@@ -93,7 +131,11 @@ export default Blog;
 interface Props {
   isMobile: boolean;
   deviceWidth: number;
+  blogCategories: blogCategoryItemType [];
   posts: blogItemType[];
   musics: blogItemType[];
+  interviews: blogItemType[];
+  culture: blogItemType[];
+  reviews: blogItemType[];
   videos: any[];
 }

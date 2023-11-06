@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { transformStory } from 'utils';
 import * as He from 'he';
+import { blogCategoryItemType } from 'types';
 
 const BlogCardGrid = ({ title, action, variant, items = [], actionText = 'See More', showAction = true }: Props) => {
+  const [blogCategories, setBlogCategories] = useState<blogCategoryItemType[]>([]);
+
   const videos = variant === 'videos';
   // transform each item
-  const transItems = videos ? items : items.map(item => transformStory(item || {}) || item);
+  const transItems = videos ? items : items.map(item => transformStory(item || {}, blogCategories) || item);
 
   const [isOpen, setIsOpen] = useState(false);
   const [videoId, setVideoId] = useState('c0GL89JCfG8');
@@ -25,6 +28,11 @@ const BlogCardGrid = ({ title, action, variant, items = [], actionText = 'See Mo
       document.body.style.overflow = 'auto';
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    const BLOGCATEGORIES = JSON.parse(localStorage.getItem('BLOGCATEGORIES') as string);
+    setBlogCategories(BLOGCATEGORIES);
+  }, []);
 
   return (
     <section id={videos ? 'videos' : undefined} className="page-blog-blogcard">

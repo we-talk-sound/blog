@@ -1,58 +1,44 @@
-import React from "react";
-import { Button, ComponentHolder, ViewFormatter } from "components";
+import React from 'react';
+import { Button, ComponentHolder, ViewFormatter } from 'components';
+import { blogCategoryItemType } from 'types';
 
-export const BlogCategories = () => {
+type Props = { categories?: blogCategoryItemType[] };
 
-    const filters = [
-        {
-            title: "Community",
-            value: "WE ARE STRONGER TOGETHER ON OUR OWN"
-        },
-        {
-            title: "Conversations",
-            value: "WE TALK TO DIFFERENT GUESTS AND UNEARTH THEIR WISDOM"
-        },
-        {
-            title: "Insights",
-            value: "DATA DEEP DIVES AND INTROSPECTIVE THOUGHT PIECES"
-        },
-        {
-            title: "Music",
-            value: "EXPERIENCE THE BEST MUSIC FROM OUR COMMUNITY AND MORE"
-        },
-    ];
+export const BlogCategories = ({ categories = [] }: Props) => {
+  const filters = categories.map(el => ({ title: el.name, value: el.description.toUpperCase() }));
 
-    return (
-        <ComponentHolder
+  //   const filters = [
+  //     {
+  //       title: 'Culture',
+  //       value: 'Feel the pulse of culture'
+  //     },
+  //     {
+  //       title: 'Interviews',
+  //       value: 'We talk to all sorts of interesting guests and unearth their wisdom'
+  //     },
+  //     {
+  //       title: 'Reviews',
+  //       value: 'In-depth music, where we dissect the latest tracks and albums, and uncover hidden gems.'
+  //     },
+  //     {
+  //       title: 'Music',
+  //       value: 'Releases, Reviews and More. Experience the best music from our community and beyond'
+  //     }
+  //   ];
 
-            className="no-border page-blog-category-holder"
+  return (
+    <ComponentHolder
+      className="no-border page-blog-category-holder"
+      headerClass="page-blog-category-header"
+      title={'THE CATEGORIES'}
+    >
+      {filters.map((item, index) => (
+        <div key={`category-item-${item.title}-${index}`} className="page-blog-category-item">
+          <ViewFormatter {...item} />
 
-            headerClass="page-blog-category-header"
-
-            title={'THE CATEGORIES'}
-
-        >
-
-            {filters.map((item, index) =>
-
-                <div
-
-                    key={`category-item-${item.title}-${index}`}
-
-                    className="page-blog-category-item"
-
-                >
-
-                    <ViewFormatter {...item} />
-
-                    <Button className="no-bg max" label="See all Articles" link={`/blog/${item.title.toLowerCase()}`} />
-
-                </div>
-
-            )}
-
-        </ComponentHolder>
-
-    )
-
-} 
+          <Button className="no-bg max" label="See all Articles" link={`/blog/${item.title.toLowerCase()}`} />
+        </div>
+      ))}
+    </ComponentHolder>
+  );
+};

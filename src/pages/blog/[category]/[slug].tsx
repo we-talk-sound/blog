@@ -1,5 +1,5 @@
 import React from 'react';
-import { blogItemType } from 'types';
+import { blogCategoryItemType, blogItemType } from 'types';
 import * as He from 'he';
 import { transformStory } from 'utils';
 import { LandingLayout } from 'layout';
@@ -7,8 +7,15 @@ import { BlogPageBanner } from 'common/Blog/BlogPageBanner';
 import { BlogCategories } from 'common/Blog/BaseBlog/BlogCategories';
 import BlogCardGrid from 'common/Blog/BlogCardGrid';
 
-const SingleBlogPage: React.FC<Props> = ({ isMobile, deviceWidth, serverBlog, relatedPosts, category }) => {
-  const seoData = transformStory(serverBlog);
+const SingleBlogPage: React.FC<Props> = ({
+  isMobile,
+  deviceWidth,
+  blogCategories,
+  serverBlog,
+  relatedPosts,
+  category
+}) => {
+  const seoData = transformStory(serverBlog, blogCategories);
   const storyTitle = serverBlog?.title?.rendered ? He.unescape(serverBlog.title.rendered) : '';
 
   const SOCIALS = [
@@ -31,7 +38,13 @@ const SingleBlogPage: React.FC<Props> = ({ isMobile, deviceWidth, serverBlog, re
       showFooter={true}
       showHeader={false}
     >
-      <BlogPageBanner isMobile={isMobile} deviceWidth={deviceWidth} category={category} story={serverBlog} />
+      <BlogPageBanner
+        isMobile={isMobile}
+        allCategories={blogCategories}
+        deviceWidth={deviceWidth}
+        category={category}
+        story={serverBlog}
+      />
       <section className="page-blog-story">
         <div className="page-blog-story-content" dangerouslySetInnerHTML={{ __html: serverBlog?.content?.rendered }} />
 
@@ -94,6 +107,7 @@ interface Props {
   deviceWidth: number;
   serverBlog: blogItemType;
   slug?: string;
+  blogCategories: blogCategoryItemType[];
   relatedPosts: blogItemType[];
   category: string;
 }

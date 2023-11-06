@@ -3,31 +3,13 @@ import { LinkWrapper } from 'components/LinkWrapper';
 import { useRouter } from 'next/router';
 // import { Marquee } from "components/Marquee";
 import React, { FormEvent, useState } from 'react';
+import { blogCategoryItemType } from 'types';
 import { classnames } from 'utils';
 
-export const BaseBlogHeading: React.FC<{ category?: string }> = ({ category }) => {
-  const filters = [
-    // {
-    //   title: 'ALL',
-    //   link: 'all'
-    // },
-    {
-      title: 'COMMUNITY',
-      link: 'community'
-    },
-    {
-      title: 'CONVERSATIONS',
-      link: 'conversations'
-    },
-    {
-      title: 'INSIGHTS',
-      link: 'insights'
-    },
-    {
-      title: 'MUSIC',
-      link: 'music'
-    }
-  ];
+type Props = { category: string; allCategories: blogCategoryItemType[] };
+
+export const BaseBlogHeading: React.FC<Props> = ({ category, allCategories = [] }) => {
+  const filters = allCategories.map(item => ({ title: item.name.toUpperCase(), link: item.slug }));
 
   const router = useRouter();
   const { q } = router.query;
@@ -42,8 +24,6 @@ export const BaseBlogHeading: React.FC<{ category?: string }> = ({ category }) =
   return (
     <div className="page-blog-holder-header">
       <div className="page-blog-holder-header-left">
-        {/* <h1> THE BLOG </h1> */}
-
         <div className="page-blog-holder-header-left-links">
           {filters.map(item => (
             <LinkWrapper
@@ -53,7 +33,6 @@ export const BaseBlogHeading: React.FC<{ category?: string }> = ({ category }) =
               preClick={() => {
                 if (typeof window !== 'undefined') {
                   const blogBody = document.getElementsByClassName('page-blog-active-category-holder');
-
                   blogBody?.[0]?.scrollIntoView?.({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
                 }
               }}
@@ -77,10 +56,6 @@ export const BaseBlogHeading: React.FC<{ category?: string }> = ({ category }) =
           />
           <button>Go</button>
         </form>
-
-        {/* <Marquee text="FEEL THE BEAT OF NIGERIA'S BIGGEST MUSIC COMMUNITY" />
-
-                <Button label="Subscribe" /> */}
       </div>
     </div>
   );

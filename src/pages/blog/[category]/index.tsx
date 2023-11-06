@@ -5,10 +5,10 @@ import { BlogCategories } from 'common/Blog/BaseBlog/BlogCategories';
 import { NewsLetter } from 'common/NewsLetter';
 import { ComponentHolder } from 'components';
 import BlogCardGrid from 'common/Blog/BlogCardGrid';
-import { blogItemType } from 'types';
+import { blogCategoryItemType, blogItemType } from 'types';
 import { useRouter } from 'next/router';
 
-const BlogCategoryPage: React.FC<Props> = ({ isMobile, deviceWidth, category, categoryObject, posts, page }) => {
+const BlogCategoryPage: React.FC<Props> = ({ isMobile, deviceWidth, blogCategories, category, categoryObject, posts, page }) => {
   const [loading, setLoading] = useState(false);
 
   const router = useRouter();
@@ -39,7 +39,8 @@ const BlogCategoryPage: React.FC<Props> = ({ isMobile, deviceWidth, category, ca
         deviceWidth={deviceWidth}
         items={posts.slice(0, 6) || []}
         category={category}
-        categoryDescription={categoryObject.description}
+        allCategories={blogCategories}
+        categoryDescription={categoryObject.description || 'how are you'}
       />
 
       <ComponentHolder className="no-border page-events-expanded-body" bodyClass="page-zero-content">
@@ -53,7 +54,7 @@ const BlogCategoryPage: React.FC<Props> = ({ isMobile, deviceWidth, category, ca
         </div>
       </ComponentHolder>
 
-      <BlogCategories />
+      <BlogCategories categories={blogCategories} />
       <NewsLetter />
     </LandingLayout>
   );
@@ -106,6 +107,7 @@ interface Props {
   deviceWidth: number;
   posts: blogItemType[];
   category: string;
+  blogCategories: blogCategoryItemType[];
   categoryObject: CategoryObj;
   page: string;
 }
