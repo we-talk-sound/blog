@@ -3,11 +3,19 @@ import { ComponentHolder, StoryItem } from 'components';
 import { ExpandedButton } from 'components/ExpandButton';
 import { classnames } from 'utils';
 import { BlogBannerArticles } from 'common/Blog/BlogPageBanner/BlogBannerArticles';
-import { blogItemType } from 'types';
+import { blogCategoryItemType, blogItemType } from 'types';
 import { StoriesItemPlaceHolder } from 'common/Placeholders';
 import { Marquee } from 'components/Marquee';
 
-export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource, dataSourceLoader, slug, sliderMode }) => {
+export const BlogBanner: React.FC<Props> = ({
+  bannerMode,
+  story,
+  dataSource,
+  dataSourceLoader,
+  slug,
+  sliderMode,
+  allCategories = []
+}) => {
   return (
     <ComponentHolder
       className="no-border"
@@ -41,6 +49,7 @@ export const BlogBanner: React.FC<Props> = ({ bannerMode, story, dataSource, dat
           dataSourceLoader={dataSourceLoader}
           image={story?.image}
           slug={slug}
+          allCategories={allCategories}
         />
 
         {!bannerMode && <ExpandedButton label="Go to blog" textClass="color-white" link={'/blog'} />}
@@ -71,4 +80,6 @@ interface Props {
 
     image: string;
   };
+
+  allCategories: blogCategoryItemType[];
 }
