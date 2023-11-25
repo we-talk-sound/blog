@@ -1156,11 +1156,12 @@
       }
 
       img,
-      video {
+      video,
+      iframe {
         width: auto;
         max-width: 100%;
         height: auto;
-        max-height: 488px;
+        max-height: 600px;
         margin: 0 auto;
       }
     }
