@@ -36,7 +36,6 @@ function App({ Component, pageProps }: AppProps) {
     '/blog/posts/[slug]',
     '/blog/search',
     '/studio',
-    '/store'
   ];
 
   const redirectCondition = ![...unProtectedRoutes].includes(currentPath);

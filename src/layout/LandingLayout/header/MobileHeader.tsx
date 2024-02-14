@@ -18,13 +18,13 @@ export const MobileHeader = ({ }): JSX.Element => {
 
             <MobileHeaderToggler setExpansion={setIsExpanded} isExpanded={isExpanded} />
 
-            <div 
-            
+            <div
+
                 className={`landingLayout-header-mobile-exp ${isExpanded ? "expanded" : ""}`}
-                
-                style={{ backgroundImage: "url(assets/background/mobile-menu-bg.png)"}}
-                
-                >
+
+                style={{ backgroundImage: "url(assets/background/mobile-menu-bg.png)" }}
+
+            >
 
                 <MobileHeaderToggler setExpansion={setIsExpanded} isExpanded={isExpanded} />
 
@@ -40,7 +40,19 @@ export const MobileHeader = ({ }): JSX.Element => {
                                 onClick={(e) => {
                                     e.preventDefault();
                                     setIsExpanded(false);
-                                    setTimeout(() => router.push(item.link || "/"), 300);
+                                    setTimeout(() => {
+
+                                        if (item.link?.includes("http")) {
+
+                                            window.open(item.link)
+
+                                            return
+
+                                        }
+
+                                        router.push(item.link || "/")
+
+                                    }, 300);
                                 }}>
                                 {item.title}
                             </a>
