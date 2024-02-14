@@ -50,7 +50,8 @@ export const ComponentHolder: React.FC<Props> = ({ visibility, id, childId, ...p
     );
 }
 
-interface Props extends PropsWithChildren {
+interface Props extends PropsWithChildren<any> {
+
     control?: ReactElement<any, any>,
     visibility?: boolean,
     title?: string,
@@ -64,5 +65,6 @@ interface Props extends PropsWithChildren {
     id?: string,
     childId?: string,
     Ref?: any,
-    style?: React.CSSProperties
+    style?: React.CSSProperties,
+
 }
