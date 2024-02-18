@@ -5,10 +5,10 @@ import { BlogCategories } from 'common/Blog/BaseBlog/BlogCategories';
 import { NewsLetter } from 'common/NewsLetter';
 import { ComponentHolder } from 'components';
 import BlogCardGrid from 'common/Blog/BlogCardGrid';
-import { blogItemType } from 'types';
+import { blogCategoryItemType, blogItemType } from 'types';
 import { useRouter } from 'next/router';
 
-const BlogCategoryPage: React.FC<Props> = ({ isMobile, deviceWidth, category, categoryObject, posts, page }) => {
+const BlogCategoryPage: React.FC<Props> = ({ isMobile, deviceWidth, blogCategories, category, categoryObject, posts, page }) => {
   const [loading, setLoading] = useState(false);
 
   const router = useRouter();
@@ -39,13 +39,15 @@ const BlogCategoryPage: React.FC<Props> = ({ isMobile, deviceWidth, category, ca
         deviceWidth={deviceWidth}
         items={posts.slice(0, 6) || []}
         category={category}
-        categoryDescription={categoryObject.description}
+        allCategories={blogCategories}
+        categoryDescription={categoryObject.description || 'how are you'}
       />
 
       <ComponentHolder className="no-border page-events-expanded-body" bodyClass="page-zero-content">
         <div className="page-events-expanded-body-content">
           <BlogCardGrid
             items={posts.slice(6) || []}
+            allCategories={blogCategories}
             action={handleNextPage}
             showAction={posts.length > 17}
             actionText={loading ? 'Loading...' : `Show more ${category}`}
@@ -53,7 +55,7 @@ const BlogCategoryPage: React.FC<Props> = ({ isMobile, deviceWidth, category, ca
         </div>
       </ComponentHolder>
 
-      <BlogCategories />
+      <BlogCategories categories={blogCategories} />
       <NewsLetter />
     </LandingLayout>
   );
@@ -85,7 +87,7 @@ export async function getServerSideProps({ params, query }: { params: { category
   // fetch categories post
   const POSTS_API_URL =
     'https://blog-admin.wetalksound.co/wp-json/wp/v2/posts?per_page=18&_embed=1' +
-    '&_fields=title,slug,categories,date,_links.wp:featuredmedia,yoast_head_json.description';
+    '&_fields=title,slug,categories,date,_links.wp:featuredmedia,_links.author,yoast_head_json.description';
 
   let posts: any = [];
   posts = await fetch(`${POSTS_API_URL}&categories=${categoryObject.id}&page=${page}`);
@@ -106,6 +108,7 @@ interface Props {
   deviceWidth: number;
   posts: blogItemType[];
   category: string;
+  blogCategories: blogCategoryItemType[];
   categoryObject: CategoryObj;
   page: string;
 }

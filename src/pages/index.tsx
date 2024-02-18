@@ -4,30 +4,30 @@ import { SectionThree } from 'common/PageZero/SectionThree';
 import { SectionFour } from 'common/PageZero/SectionFour';
 import { BlogBanner } from 'common/PageZero/BlogBanner';
 import { NewsLetter } from 'common/NewsLetter';
-import { useDispatch } from 'react-redux';
-import { storeBlogEntry, storeInterface } from 'types';
-import { useSelector } from 'react-redux';
-import { useFetching } from 'hooks/useFetching';
-import { blogProcess } from 'redux/actions/BlogActions';
+// import { useDispatch } from 'react-redux';
+import { blogCategoryItemType, blogItemType /*, storeBlogEntry, storeInterface */ } from 'types';
+// import { useSelector } from 'react-redux';
+// import { useFetching } from 'hooks/useFetching';
+// import { blogProcess } from 'redux/actions/BlogActions';
 import { SectionOneRevamp } from 'common/PageZero/SectionOneRevamp';
 
-const Home: React.FC<Props> = ({ isMobile, deviceWidth }) => {
-  const dispatch = useDispatch();
+const Home: React.FC<Props> = ({ isMobile, deviceWidth, blogPosts, blogCategories }) => {
+  // const dispatch = useDispatch();
 
-  const { dashboardBlogs, categories }: storeBlogEntry = useSelector((store: storeInterface) => store.blog);
+  // const { dashboardBlogs, categories }: storeBlogEntry = useSelector((store: storeInterface) => store.blog);
 
-  const safeParams = ['page', 'category', 'per_page'];
+  // const safeParams = ['page', 'category', 'per_page'];
 
-  useFetching({
-    dispatcher: () =>
-      Promise.all([
-        dashboardBlogs?.data?.length < 1 && dispatch(blogProcess('retrieve', 'dashboardBlogs', { per_page: 3 })),
+  // useFetching({
+  //   dispatcher: () =>
+  //     Promise.all([
+  //       dashboardBlogs?.data?.length < 1 && dispatch(blogProcess('retrieve', 'dashboardBlogs', { per_page: 3 })),
 
-        categories?.data?.length < 1 && dispatch(blogProcess('retrieve-categories', 'categories'))
-      ]),
+  //       categories?.data?.length < 1 && dispatch(blogProcess('retrieve-categories', 'categories'))
+  //     ]),
 
-    safeParams
-  });
+  //   safeParams
+  // });
 
   return (
     <LandingLayout
@@ -47,8 +47,9 @@ const Home: React.FC<Props> = ({ isMobile, deviceWidth }) => {
 
       <BlogBanner
         sliderMode={true}
-        dataSource={dashboardBlogs?.data.filter((item, index) => index < 3) || []}
-        dataSourceLoader={dashboardBlogs.loader}
+        dataSource={blogPosts || []}
+        dataSourceLoader={false}
+        allCategories={blogCategories}
       />
 
       <NewsLetter />
@@ -56,9 +57,23 @@ const Home: React.FC<Props> = ({ isMobile, deviceWidth }) => {
   );
 };
 
+export async function getServerSideProps() {
+  const baseUrl =
+    'https://blog-admin.wetalksound.co/wp-json/wp/v2/posts?_embed=1&per_page=3' +
+    '&_fields=title,slug,categories,date,_links.wp:featuredmedia,_links.author,yoast_head_json.description';
+
+  const [blogPosts] = await Promise.all([fetch(baseUrl).then(res => res.json())]);
+
+  return {
+    props: { blogPosts }
+  };
+}
+
 export default Home;
 
 interface Props {
   isMobile: boolean;
   deviceWidth: number;
+  blogPosts: blogItemType[];
+  blogCategories: blogCategoryItemType[];
 }

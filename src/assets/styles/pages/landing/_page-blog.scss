@@ -740,6 +740,8 @@
             width: 100%;
             background-color: grey;
             transition: all ease-in 0.3s;
+            object-fit: cover;
+            object-position: top center;
 
             @media (min-width: 768px) {
               height: 120px;
@@ -871,7 +873,7 @@
 
           img {
             height: 260px;
-            width: 100%;
+            min-width: 100%;
             flex-shrink: 0;
           }
 
@@ -939,6 +941,8 @@
         margin: 0;
         border: 0;
         background: grey;
+        object-fit: cover;
+        object-position: top center;
         transition: all ease-in 0.25s;
 
         @media (min-width: 768px) {
@@ -946,15 +950,49 @@
         }
       }
 
+      &-image {
+        position: relative;
+        width: 100%;
+
+        .image-overlay {
+          position: absolute;
+          background-color: rgba(0, 0, 0, 0.3);
+          width: 100%;
+          height: 90%;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          button {
+            background-color: transparent;
+            border: 0;
+            border-radius: 50%;
+            height: 70px;
+            width: 70px;
+            cursor: pointer;
+
+            svg {
+              fill: grey;
+              height: 70px;
+              width: 70px;
+            }
+          }
+        }
+      }
+
       &-content {
-        padding: 16px 0;
+        padding: 12px 0;
         font-size: 12px;
         line-height: 1.5;
         text-transform: capitalize;
         color: color(text-80);
 
         @media (min-width: 768px) {
-          padding: 20px;
+          padding: 8px 20px 20px;
         }
 
         .category {
@@ -1017,6 +1055,164 @@
         border-radius: 20px;
         cursor: pointer;
         background-color: transparent;
+      }
+    }
+
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0;
+      z-index: 10;
+    }
+
+    .modal-content {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      background-color: #fff;
+      padding: 8px;
+
+      button {
+        font-size: 14px;
+        padding: 4px 6px;
+        margin: 0 0 8px auto;
+      }
+    }
+
+    .video-container {
+      position: relative;
+      padding-top: 56.25%; /* 16:9 aspect ratio */
+    }
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &-story {
+    background-color: white;
+    padding: 32px 32px 16px;
+
+    @media (min-width: 768px) {
+      padding: 64px 64px 16px;
+    }
+
+    &-content {
+      font-size: 18px;
+      line-height: 28px;
+      font-weight: 400;
+      color: color(_black);
+      font-family: 'Source Serif 4', serif;
+      max-width: 1024px;
+      margin: 0 auto;
+
+      @media (min-width: 768px) {
+        font-size: 20px;
+        line-height: 32px;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      figure {
+        margin-bottom: 20px;
+
+        @media (min-width: 768px) {
+          margin-bottom: 40px;
+        }
+      }
+
+      em,
+      i {
+        font-style: italic;
+      }
+
+      strong,
+      bold {
+        font-weight: bold;
+      }
+
+      a {
+        color: color(active-story-item-border);
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      img,
+      video,
+      iframe {
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        max-height: 600px;
+        margin: 0 auto;
+      }
+    }
+
+    &-footer {
+      border-top: 1px solid color(grey);
+      padding: 22px 0px 0px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 400;
+      max-width: 1024px;
+      margin: 40px auto 64px;
+
+      @media (min-width: 768px) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .author {
+        span {
+          color: color(active-story-item-border);
+          font-weight: 500;
+        }
+      }
+
+      .share {
+        display: inline-flex;
+        align-items: center;
+        gap: 24px;
+
+        button {
+          width: 40px;
+          height: 40px;
+          border: 1px solid color(grey);
+          border-radius: 50%;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          background-color: transparent;
+
+          img {
+            margin: 0;
+            width: 20px;
+            height: 20px;
+          }
+        }
       }
     }
   }

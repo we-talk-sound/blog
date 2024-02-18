@@ -1,28 +1,32 @@
-import { store } from 'redux/store';
-import { blogItemType } from 'types';
+// import { store } from 'redux/store';
+import { blogCategoryItemType, blogItemType } from 'types';
 import { DD_MM_YY_HH_mm_a } from './date';
 
-export const transformStory = (item: blogItemType, withLink?: boolean) => ({
-  title: item?.title?.rendered,
+export const transformStory = (item: blogItemType, blogCategories: blogCategoryItemType[] = [], withLink?: boolean) => {
+  const getCategoryName = (categoryID: number) => {
+    const item = blogCategories?.find(el => el.id === categoryID) as blogCategoryItemType;
+    return item?.name || 'Uncategorized';
+  };
 
-  category: store.getState()?.blog?.categories?.pairs?.[item.categories?.[0]]?.name,
+  return {
+    title: item?.title?.rendered,
 
-  link:
-    withLink === false
-      ? undefined
-      : `/blog/${store.getState()?.blog?.categories?.pairs?.[item.categories?.[0]]?.name}/${item.slug}`,
+    category: getCategoryName(item?.categories?.[0]), //store.getState()?.blog?.categories?.pairs?.[item.categories?.[0]]?.name,
 
-  author: 'WETALKSOUND',
+    link: withLink === false ? undefined : `/blog/${getCategoryName(item?.categories?.[0]).toLowerCase()}/${item.slug}`,
 
-  date: DD_MM_YY_HH_mm_a(item.date),
+    author: item?._embedded?.author?.[0]?.name || 'WETALKSOUND',
 
-  item,
+    date: DD_MM_YY_HH_mm_a(item.date),
 
-  sub: item?.excerpt?.rendered,
+    item,
 
-  description: item?.yoast_head_json?.description,
+    sub: item?.excerpt?.rendered,
 
-  image: item?._embedded?.['wp:featuredmedia']?.[0]?.source_url,
+    description: item?.yoast_head_json?.description,
 
-  seoImage: item?._embedded?.['wp:featuredmedia']?.[0]?.media_details?.sizes?.medium?.source_url
-});
+    image: item?._embedded?.['wp:featuredmedia']?.[0]?.source_url,
+
+    seoImage: item?._embedded?.['wp:featuredmedia']?.[0]?.media_details?.sizes?.medium?.source_url
+  };
+};

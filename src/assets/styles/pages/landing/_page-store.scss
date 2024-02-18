@@ -1,12 +1,9 @@
 .page-store {
   @include media-query(mobile) {
-    min-height: 300px !important;
+    // min-height: 300px !important;
   }
 
   display: flex;
-  flex-grow: 1;
-  height: 100vh;
-  min-height: 900px !important;
   text-align: center;
 
   .page-agency-caption {
@@ -14,22 +11,147 @@
     flex-direction: column;
     flex-grow: 1;
     padding-left: 0;
+    height: 100% !important;
+    min-height: 100%;
 
     .landingLayout-header {
       @extend %body-width-and-padding;
     }
   }
 
-  &-text {
+  &-subscribe {
     display: flex;
     flex-grow: 1;
     align-items: center;
     justify-content: center;
-    margin-top: 90px;
     color: color(white);
+    padding: 20px;
+    margin: 128px 0;
 
-    h1 {
-      @include font-size(xxxx-large);
+    .content {
+      width: 100%;
+      max-width: 733px;
+      display: flex;
+      flex-direction: column;
+      margin: 64px 0;
+
+      h2 {
+        font-size: 24px;
+        line-height: 32px;
+        margin-bottom: 16px;
+
+        @media (min-width: 768px) {
+          font-size: 32px;
+          line-height: 42px;
+          margin-bottom: 24px;
+        }
+
+        span {
+          color: color(primary);
+        }
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        width: 100%;
+        margin: 0 auto;
+
+        & > div:nth-child(-n + 3) {
+          width: 100%;
+          max-width: 375px;
+          margin: 0 auto;
+          text-align: left;
+
+          label {
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 8px;
+          }
+
+          input,
+          select {
+            display: block;
+            background-color: transparent;
+            border: 1px solid white;
+            border-radius: 20px;
+            padding: 12px 16px;
+            color: white;
+            font-size: 14px;
+            line-height: 24px;
+            height: 48px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+
+            &:focus {
+              outline: 0;
+              border-color: color(primary);
+              color: color(primary);
+            }
+          }
+        }
+
+        .design_samples {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 8px;
+
+          @media (min-width: 768px) {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+          }
+
+          & > div {
+            display: flex;
+            gap: 8px;
+          }
+
+          input[type='checkbox'] {
+            height: 36px;
+            width: 36px;
+            border-radius: 4px;
+            border: 1px solid white;
+            margin-top: 20px;
+            flex-shrink: 0;
+
+            &:checked {
+              background-color: color(primary);
+              color: white;
+            }
+          }
+
+          label {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            text-align: center;
+
+            img {
+              max-height: 120px;
+            }
+          }
+        }
+
+        .btn {
+          display: flex;
+          justify-content: center;
+          margin-top: 16px;
+          height: 100%;
+
+          .button-expand-shell {
+            display: block !important;
+          }
+
+          .button-expand {
+            display: flex !important;
+            cursor: pointer;
+          }
+        }
+      }
     }
   }
 }

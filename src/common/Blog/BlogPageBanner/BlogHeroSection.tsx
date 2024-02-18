@@ -2,11 +2,11 @@ import React from 'react';
 import * as He from 'he';
 import Link from 'next/link';
 import { transformStory } from 'utils';
-import { blogItemType } from 'types';
+import { blogCategoryItemType, blogItemType } from 'types';
 
-const BlogHeroSection = ({ story, text, items = [], categoryDescription }: Props) => {
+const BlogHeroSection = ({ story, text, items = [], categoryDescription, allCategories = [] }: Props) => {
   // transform each item
-  const transItems = items.map(item => transformStory(item || {}) || item);
+  const transItems = items.map(item => transformStory(item || {}, allCategories) || item);
 
   return (
     <section className="page-blog-hero">
@@ -54,6 +54,7 @@ interface Props {
   story?: any;
   items?: blogItemType[];
   categoryDescription?: string;
+  allCategories: blogCategoryItemType[];
 }
 
 export default BlogHeroSection;

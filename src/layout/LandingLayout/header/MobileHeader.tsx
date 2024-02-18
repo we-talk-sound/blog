@@ -61,7 +61,7 @@ export const MobileHeader = ({ }): JSX.Element => {
 
                     </div>
 
-                    <p className='landingLayout-header-mobile-address'> 16 ABUDU STREER, OSAPA LEKKI, LAGOS NIGERIA  </p>
+                    {/* <p className='landingLayout-header-mobile-address'> 16 ABUDU STREER, OSAPA LEKKI, LAGOS NIGERIA  </p> */}
 
                     <FooterIconSet icons={[Twitter, Instagram, LinkedIn]} />
 
