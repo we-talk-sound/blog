@@ -59,7 +59,7 @@ export const LandingLayout: React.FC<Props> = ({
   );
 };
 
-interface Props extends PropsWithChildren {
+interface Props extends PropsWithChildren<any> {
   headTitle: string;
   isMobile: boolean;
   deviceWidth: number;

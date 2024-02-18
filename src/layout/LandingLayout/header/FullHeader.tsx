@@ -32,6 +32,7 @@ export const FullHeader: React.FC<Props> = ({ withFrame , active }): JSX.Element
                             <Link
                                 className={classnames(item.class , active === item.link && "active")}
                                 key={`landingLayout-header-right-item-${index}`}
+                                target={item.link?.includes("http") ? "_blank" : "_self"}
                                 href={item.link || ""}>
 
                                 {item.title}
