@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { LandingLayout } from 'layout';
 import { NewsLetter } from 'common/NewsLetter';
 import { BlogPageBanner } from 'common/Blog/BlogPageBanner';
@@ -19,15 +19,15 @@ const Blog: React.FC<Props> = ({
   interviews,
   culture
 }) => {
-  const [topReads, setTopReads] = useState<blogItemType[]>([]);
+  // const [topReads, setTopReads] = useState<blogItemType[]>([]);
 
-  useEffect(() => {
-    // select random 5 posts that are not press releases
-    // press releases has categories = [6], originals have categories [x, 6]
-    let random5 = posts.filter(post => post.categories.some(x => ![1, 4, 7].includes(x)));
-    random5 = random5.sort(() => 0.5 - Math.random()).slice(0, 5);
-    setTopReads(random5);
-  }, [posts]);
+  // useEffect(() => {
+  //   // select random 5 posts that are not press releases
+  //   // press releases has categories = [6], originals have categories [x, 6]
+  //   let random5 = posts.filter(post => post.categories.some(x => ![1, 4, 7].includes(x)));
+  //   random5 = random5.sort(() => 0.5 - Math.random()).slice(0, 5);
+  //   setTopReads(random5);
+  // }, [posts]);
 
   const router = useRouter();
 
@@ -126,12 +126,12 @@ export async function getServerSideProps() {
     'https://blog-admin.wetalksound.co/wp-json/wp/v2/posts?_embed=1' +
     '&_fields=title,slug,categories,date,_links.wp:featuredmedia,_links.author,yoast_head_json.description';
 
-  const youtubeUrl =
-    'https://www.googleapis.com/youtube/v3/search?key=' +
-    process.env.NEXT_PUBLIC_YOUTUBE_API_KEY +
-    '&channelId=' +
-    process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID +
-    '&part=snippet,id&order=date&maxResults=6';
+  // const youtubeUrl =
+  //   'https://www.googleapis.com/youtube/v3/search?key=' +
+  //   process.env.NEXT_PUBLIC_YOUTUBE_API_KEY +
+  //   '&channelId=' +
+  //   process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID +
+  //   '&part=snippet,id&order=date&maxResults=6';
 
   let [posts, musics, reviews, interviews, culture] = await Promise.all([
     // posts
