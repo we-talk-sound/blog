@@ -1,110 +1,77 @@
 .blog-banner {
+  &-background {
+    background: color(extra-dark);
 
-    &-background {
-
-        background: color(extra-dark);
-
-        .marquee-holder {
-
-            overflow: hidden;
-
-        }
-
-        .marquee {
-
-            span,
-            circle {
-
-            fill: rgba(102, 102, 102, 1);
-            color: rgba(102, 102, 102, 1);
-
-            }
-
-        }
-
+    .marquee-holder {
+      overflow: hidden;
     }
 
-    &-body {
+    .marquee {
+      span,
+      circle {
+        fill: rgba(102, 102, 102, 1);
+        color: rgba(102, 102, 102, 1);
+      }
+    }
+  }
 
-        @extend %body-width-and-padding;
+  &-body {
+    @extend %body-width-and-padding;
 
-        @include media-query(mobile) {
-
-            padding-bottom: 50px;
-            min-height: 500px;
-            max-height: unset !important;
-
-        }
-
-        // max-width: 1500px;
-
-        &-header {
-
-            @include media-query(mobile) {
-
-                margin-bottom: 20px;
-
-            }
-
-            @include font-size-override(x-large);
-            padding-bottom: 24px;
-            padding-left: 0;
-
-            h2 {
-
-                @include font-size-override(m-large);
-                margin-right: auto;
-
-            }
-
-        }
-
-        .button-expand {
-
-
-            @include media-query(mobile) {
-
-                display: flex;
-                justify-content: center;
-                width: 100%;
-
-            }
-
-            margin-top: 20px;
-            margin-left: auto;
-
-        }
-
+    @include media-query(mobile) {
+      padding-bottom: 50px;
+      min-height: 500px;
+      max-height: unset !important;
     }
 
-    &-blog {
+    // max-width: 1500px;
 
-        @include media-query(mobile) {
+    &-header {
+      @include media-query(mobile) {
+        margin-bottom: 20px;
+      }
 
-            flex-direction: column-reverse;
+      @include font-size-override(x-large);
+      padding-bottom: 24px;
+      padding-left: 0;
 
-        }
+      h2 {
+        @include font-size-override(m-large);
+        margin-right: auto;
+      }
+    }
 
+    .button-expand {
+      @include media-query(mobile) {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        width: 100%;
+      }
 
-        .blog-banner-articles-image {
+      margin-top: 20px;
+      margin-left: auto;
+    }
+  }
 
-            @include media-query(mobile) {
-
-                margin-bottom: 18px;
-                margin-left: 0;
-                width: 100%;
-                max-width: unset;
-
-            }
-
-            margin-left: 71px;
-            width: 100%;
-            background-size: cover;
-
-        }
-
+  &-blog {
+    @include media-query(mobile) {
+      flex-direction: column-reverse;
     }
 
+    display: flex;
+    justify-content: space-between;
+
+    .blog-banner-articles-image {
+      @include media-query(mobile) {
+        margin-bottom: 18px;
+        margin-left: 0;
+        width: 100%;
+        max-width: unset;
+      }
+
+      margin-left: 71px;
+      width: 100%;
+      background-size: cover;
+    }
+  }
 }

@@ -14,7 +14,7 @@ const Blog: React.FC<Props> = ({
   blogCategories,
   posts,
   musics,
-  videos,
+  // videos,
   reviews,
   interviews,
   culture
@@ -48,28 +48,21 @@ const Blog: React.FC<Props> = ({
 
       <ComponentHolder className="no-border page-events-expanded-body" bodyClass="page-zero-content">
         <div className="page-events-expanded-body-content">
-          <BlogCardGrid
+          {/* <BlogCardGrid
             items={topReads}
             title="Top Reads"
             allCategories={blogCategories}
             variant="topreads"
             showAction={false}
-          />
-          <BlogCardGrid
-            items={musics}
-            title="Music"
-            showAction={musics.length > 7}
-            allCategories={blogCategories}
-            actionText="Show more nusic"
-            action={() => router.push('/blog/music')}
-          />
-          <BlogCardGrid
+          /> */}
+          
+          {/* <BlogCardGrid
             items={videos}
             title="Videos"
             variant="videos"
             actionText="Show older videos"
             action={() => window.open('https://www.youtube.com/@WeTalkSound/videos', '_blank')}
-          />
+          /> */}
           <BlogCardGrid
             items={culture}
             title="Culture"
@@ -85,6 +78,14 @@ const Blog: React.FC<Props> = ({
             allCategories={blogCategories}
             actionText="Show more interviews"
             action={() => router.push('/blog/interviews')}
+          />
+          <BlogCardGrid
+            items={musics}
+            title="Music"
+            showAction={musics.length > 7}
+            allCategories={blogCategories}
+            actionText="Show more music"
+            action={() => router.push('/blog/music')}
           />
           <BlogCardGrid
             items={reviews}
@@ -132,15 +133,15 @@ export async function getServerSideProps() {
     process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID +
     '&part=snippet,id&order=date&maxResults=6';
 
-  let [posts, musics, videos, reviews, interviews, culture] = await Promise.all([
+  let [posts, musics, reviews, interviews, culture] = await Promise.all([
     // posts
     fetch(baseUrl).then(res => res.json()),
     // musics
     fetch(`${baseUrl}&per_page=8&categories=${musicCategoryID}`).then(res => res.json()),
-    // videos
-    fetch(youtubeUrl)
-      .then(res => res.json())
-      .then(data => data.items),
+    // // videos
+    // fetch(youtubeUrl)
+    //   .then(res => res.json())
+    //   .then(data => data.items),
     //reviews
     fetch(`${baseUrl}&per_page=8&categories=${reviewsCategoryID}`).then(res => res.json()),
     // interviews
@@ -150,7 +151,7 @@ export async function getServerSideProps() {
   ]);
 
   return {
-    props: { posts, musics, videos, reviews, interviews, culture }
+    props: { posts, musics, reviews, interviews, culture }
   };
 }
 

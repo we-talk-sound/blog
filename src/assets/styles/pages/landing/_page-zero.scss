@@ -1,346 +1,260 @@
 .page-zero {
+  @media only screen and (max-height: 600px) {
+    min-height: 600px;
+  }
 
-    @media only screen and (max-height: 600px) {
+  @media only screen and (min-height: 600px) and (max-height: 1300px) and (max-width: 1440px) and (min-width: 600px) {
+    max-height: 800px !important;
 
-        min-height: 600px;
+    // background: red !important;
+  }
 
-    }
+  @include media-query(mobile) {
+    max-height: 950px;
+    background-image: url(/assets/background/hero_mobile.png);
+  }
 
-    @media only screen and (min-height: 600px) and (max-height: 1300px) and (max-width: 1440px) and (min-width: 600px) {
+  @include media-query(pc-low-resolution) {
+    max-height: 950px;
+  }
 
-        max-height: 800px !important;
+  min-height: 100vh;
+  // max-height: 1200px;
+  background-image: url(/assets/background/hero.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: 0.2s ease;
 
-        // background: red !important;
-
-    }
+  &-content {
+    @extend %body-width-and-padding;
 
     @include media-query(mobile) {
-
-        max-height: 950px;
-        background-image: url(/assets/background/hero_mobile.png);
-
+      display: flex;
+      justify-content: center;
+      margin-top: 0;
     }
 
-    @include media-query(pc-low-resolution) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-top: 0;
 
-        max-height: 950px;
+    .landingLayout-header {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
 
+  &-caption {
+    @include media-query(mobile) {
+      margin: 0;
+      padding-bottom: 70px;
     }
 
-    min-height: 100vh;
-    // max-height: 1200px;
-    background-image: url(/assets/background/hero.png);
+    margin: 15% 0 0;
+
+    h1 {
+      @include font-size(xxxx-large);
+      text-align: center;
+      font-family: $header-font;
+    }
+
+    p {
+      @include font-size(large);
+      margin: 10px auto 30px;
+      max-width: 900px;
+      text-align: center;
+      font-family: $main-font;
+      font-weight: 400;
+      color: color(white);
+    }
+  }
+
+  &-navigation {
+    @include media-query(mobile) {
+      margin: 0;
+    }
+
+    display: flex;
+    justify-content: space-between;
+    margin: 32px auto auto;
+    padding: 5px 0;
+    width: 100%;
+    max-width: 900px;
+
+    .button-expand {
+      &:first-child {
+        @include media-query(mobile) {
+          // margin-top: 20px;
+        }
+
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &-progression {
+    @include media-query(mobile) {
+      position: absolute;
+      right: 0;
+      bottom: 75px;
+      justify-content: center;
+      margin-left: -19px;
+      width: 100vw !important;
+    }
+
+    display: flex;
+    margin-bottom: 30px;
+
+    span {
+      display: block;
+      margin-right: 16px;
+      border-radius: 100%;
+      width: 8px;
+      height: 8px;
+      background: color(progression);
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &-section-four {
+    padding: 40px 0;
+    background-image: url(/assets/background/blog-background.png) !important;
     background-repeat: no-repeat;
-    background-position: center;
     background-size: cover;
-    transition: 0.2s ease;
 
-    &-content {
-
-        @extend %body-width-and-padding;
-
-        @include media-query(mobile) {
-
-            display: flex;
-            justify-content: center;
-            margin-top: 0;
-
-        }
-
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-        padding-top: 0;
-
-        .landingLayout-header {
-            padding-right: 0;
-            padding-left: 0;
-        }
-
+    .marquee span {
+      color: color(white);
     }
 
-    &-caption {
+    &-body {
+      @extend %body-width-and-padding;
 
-        @include media-query(mobile) {
+      @include media-query(mobile) {
+        margin: 0;
+      }
 
-            margin: 0;
-            padding-bottom: 70px;
-
-        }
-
-        margin: 15% 0 0;
-
-        h1 {
-            @include font-size(xxxx-large);
-            text-align: center;
-            font-family: $header-font;
-        }
-
-        p {
-            @include font-size(large);
-            margin: 10px auto 30px;
-            max-width: 900px;
-            text-align: center;
-            font-family: $main-font;
-            font-weight: 400;
-            color: color(white);
-        }
-
+      margin: auto;
+      max-width: 1500px;
     }
 
-    &-navigation {
+    &-projects {
+      @include media-query(small-tablet) {
+        flex-wrap: wrap;
+      }
 
-        @include media-query(mobile) {
+      display: flex;
+      width: 100%;
+      max-width: 1700px;
 
-            margin: 0;
+      &:first-of-type .page-zero-section-four-projects-block:first-child .project-item:first-child img {
+        object-position: left;
+      }
 
+      &-block {
+        @include media-query(small-tablet) {
+          width: 100%;
         }
 
         display: flex;
-        justify-content: space-between;
-        margin: 32px auto auto;
-        padding: 5px 0;
+        width: 50%;
+        transition: 0.5s ease;
+
+        &:hover {
+          @include media-query(small-tablet) {
+            width: 100% !important;
+            max-width: 100% !important;
+          }
+
+          width: 80% !important;
+          max-width: 80% !important;
+        }
+
+        .project-item {
+          width: 50%;
+        }
+
+        .project-item:hover {
+          width: 150%;
+        }
+      }
+    }
+
+    .button-expand {
+      @include media-query(mobile) {
+        display: flex;
+        justify-content: center;
         width: 100%;
-        max-width: 900px;
+      }
 
-        .button-expand {
-
-            &:first-child {
-
-                @include media-query(mobile) {
-
-                    // margin-top: 20px;
-
-                }
-
-                transform: rotate(180deg);
-
-            }
-
-
-        }
-
+      margin-top: 32px;
+      margin-left: auto;
     }
 
-    &-progression {
+    .button-expand-mobile {
+      margin-top: 32px;
+    }
+  }
 
-        @include media-query(mobile) {
-
-            position: absolute;
-            right: 0;
-            bottom: 75px;
-            justify-content: center;
-            margin-left: -19px;
-            width: 100vw !important;
-
-        }
-
-        display: flex;
-        margin-bottom: 30px;
-
-        span {
-            display: block;
-            margin-right: 16px;
-            border-radius: 100%;
-            width: 8px;
-            height: 8px;
-            background: color(progression);
-
-            &:last-child {
-
-                margin-right: 0;
-
-            }
-
-        }
-
+  &-blog-banner {
+    padding: 40px 0 90px;
+    display: none;
+    @include media-query(mobile) {
+      display: block;
     }
 
-    &-section-four {
+    .blog-banner-body {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
 
-        padding: 40px 0;
-        background-image: url(/assets/background/blog-background.png) !important;
-        background-repeat: no-repeat;
-        background-size: cover;
+  &-blog-banner-blog-stories {
+    width: 100%;
+    max-width: 480px;
+  }
 
-        .marquee span {
+  &-section-testimonial {
+    padding-bottom: 90px;
+    background: color(extra-dark);
 
-            color: color(white);
-
-        }
-
-        &-body {
-
-            @extend %body-width-and-padding;
-
-            @include media-query(mobile) {
-
-                margin: 0;
-
-            }
-
-            margin: auto;
-            max-width: 1500px;
-
-        }
-
-        &-projects {
-
-            @include media-query(small-tablet) {
-
-                flex-wrap: wrap;
-
-            }
-
-            display: flex;
-            width: 100%;
-            max-width: 1700px;
-
-            &:first-of-type .page-zero-section-four-projects-block:first-child .project-item:first-child img {
-
-                    object-position: left;
-
-                }
-
-            &-block {
-
-                @include media-query(small-tablet) {
-
-                    width: 100%;
-
-                }
-
-                display: flex;
-                width: 50%;
-                transition: 0.5s ease;
-
-                &:hover {
-
-                    @include media-query(small-tablet) {
-
-                        width: 100% !important;
-                        max-width: 100% !important;
-
-                    }
-
-                    width: 80% !important;
-                    max-width: 80% !important;
-
-                }
-
-                .project-item {
-
-                    width: 50%;
-
-                }
-
-                .project-item:hover {
-
-                    width: 150%;
-
-
-                }
-
-
-            }
-
-        }
-
-        .button-expand {
-
-            @include media-query(mobile) {
-
-                display: flex;
-                justify-content: center;
-                width: 100%;
-
-            }
-
-            margin-top: 32px;
-            margin-left: auto;
-
-        }
-
-        .button-expand-mobile {
-
-            margin-top: 32px;
-
-        }
-
+    .marquee span,
+    circle {
+      fill: transparentize(color(white), 0.6);
+      color: transparentize(color(white), 0.6);
     }
 
-    &-blog-banner {
+    .component-header {
+      @extend %body-width-and-padding;
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      padding-bottom: 0;
+      max-width: 1500px;
 
-        padding: 40px 0 90px;
+      h2 {
+        @include font-size-override(xxxx-large);
+        color: color(white);
+      }
 
-        .blog-banner-body {
-
-            padding-top: 0;
-            padding-bottom: 0;
-
-        }
-
+      h4 {
+        @include font-size(large);
+        color: color(white);
+      }
     }
 
-    &-blog-banner-blog-stories {
+    &-body {
+      @extend %body-width-and-padding;
+      @include media-query(mobile) {
+        margin: 0;
+      }
 
-        width: 100%;
-        max-width: 480px;
-
+      margin: auto;
+      max-width: 1500px;
     }
-
-    &-section-testimonial {
-
-        padding-bottom: 90px;
-        background: color(extra-dark);
-
-        .marquee span,
-        circle {
-
-            fill: transparentize(color(white), 0.6);
-            color: transparentize(color(white), 0.6);
-
-        }
-
-        .component-header {
-
-            @extend %body-width-and-padding;
-            flex-direction: column-reverse;
-            align-items: flex-start;
-            padding-bottom: 0;
-            max-width: 1500px;
-
-            h2 {
-
-                @include font-size-override(xxxx-large);
-                color: color(white);
-
-            }
-
-            h4 {
-
-                @include font-size(large);
-                color: color(white);
-
-            }
-
-        }
-
-        &-body {
-
-            @extend %body-width-and-padding;
-            @include media-query(mobile) {
-
-                margin: 0;
-
-            }
-
-            margin: auto;
-            max-width: 1500px;
-
-        }
-
-    }
-
+  }
 }
