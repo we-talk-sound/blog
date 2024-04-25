@@ -9,14 +9,14 @@ import BlogHeroSection from './BlogHeroSection';
 export const BlogPageBanner: React.FC<Props> = ({
   isMobile,
   deviceWidth,
-  story,
+  // story,
   category,
-  allCategories = [],
-  categoryDescription,
-  text,
-  items
+  allCategories = []
+  // categoryDescription,
+  // text,
+  // items
 }) => {
-  const story_ = story ? { ...transformStory(story, allCategories, false) } : undefined;
+  // const story_ = story ? { ...transformStory(story, allCategories, false) } : undefined;
 
   return (
     <ComponentHolder className="no-border page-blog" bodyClass="page-zero-content">

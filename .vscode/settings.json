@@ -14,5 +14,6 @@
         "totp",
         "Ussd",
         "wetalksound"
-    ]
+    ],
+    "editor.formatOnSave": true
 }
