@@ -2,9 +2,9 @@ import React from 'react';
 import { ComponentHolder } from 'components';
 import { Header } from 'layout/LandingLayout/header';
 import { BaseBlogHeading } from 'common/Blog/BaseBlog/BaseBlogHeading';
-import { transformStory } from 'utils/blog';
+// import { transformStory } from 'utils/blog';
 import { blogCategoryItemType, blogItemType } from 'types';
-import BlogHeroSection from './BlogHeroSection';
+// import BlogHeroSection from './BlogHeroSection';
 
 export const BlogPageBanner: React.FC<Props> = ({
   isMobile,
