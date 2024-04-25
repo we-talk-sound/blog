@@ -7,6 +7,7 @@ import { ComponentHolder } from 'components';
 import BlogCardGrid from 'common/Blog/BlogCardGrid';
 import { BlogCategories } from 'common/Blog/BaseBlog/BlogCategories';
 import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
 
 const Blog: React.FC<Props> = ({
   isMobile,
@@ -19,15 +20,15 @@ const Blog: React.FC<Props> = ({
   interviews,
   culture
 }) => {
-  // const [topReads, setTopReads] = useState<blogItemType[]>([]);
+  const [topReads, setTopReads] = useState<blogItemType[]>([]);
 
-  // useEffect(() => {
-  //   // select random 5 posts that are not press releases
-  //   // press releases has categories = [6], originals have categories [x, 6]
-  //   let random5 = posts.filter(post => post.categories.some(x => ![1, 4, 7].includes(x)));
-  //   random5 = random5.sort(() => 0.5 - Math.random()).slice(0, 5);
-  //   setTopReads(random5);
-  // }, [posts]);
+  useEffect(() => {
+    // select random 5 posts that are not press releases
+    // press releases has categories = [6], originals have categories [x, 6]
+    let random5 = posts.filter(post => post.categories.some(x => ![1, 4, 7].includes(x)));
+    random5 = random5.sort(() => 0.5 - Math.random()).slice(0, 5);
+    setTopReads(random5);
+  }, [posts]);
 
   const router = useRouter();
 
@@ -48,14 +49,14 @@ const Blog: React.FC<Props> = ({
 
       <ComponentHolder className="no-border page-events-expanded-body" bodyClass="page-zero-content">
         <div className="page-events-expanded-body-content">
-          {/* <BlogCardGrid
+          <BlogCardGrid
             items={topReads}
             title="Top Reads"
             allCategories={blogCategories}
             variant="topreads"
             showAction={false}
-          /> */}
-          
+          />
+
           {/* <BlogCardGrid
             items={videos}
             title="Videos"
@@ -72,14 +73,6 @@ const Blog: React.FC<Props> = ({
             action={() => router.push('/blog/culture')}
           />
           <BlogCardGrid
-            items={interviews}
-            title="Interviews"
-            showAction={interviews.length > 7}
-            allCategories={blogCategories}
-            actionText="Show more interviews"
-            action={() => router.push('/blog/interviews')}
-          />
-          <BlogCardGrid
             items={musics}
             title="Music"
             showAction={musics.length > 7}
@@ -87,6 +80,15 @@ const Blog: React.FC<Props> = ({
             actionText="Show more music"
             action={() => router.push('/blog/music')}
           />
+          <BlogCardGrid
+            items={interviews}
+            title="Interviews"
+            showAction={interviews.length > 7}
+            allCategories={blogCategories}
+            actionText="Show more interviews"
+            action={() => router.push('/blog/interviews')}
+          />
+
           <BlogCardGrid
             items={reviews}
             title="Reviews"

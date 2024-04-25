@@ -23,13 +23,13 @@ export const BlogPageBanner: React.FC<Props> = ({
       <Header withFrame={true} isMobile={isMobile} deviceWidth={deviceWidth} active={'/blog'} />
 
       <BaseBlogHeading category={String(category)} allCategories={allCategories} />
-      <BlogHeroSection
+      {/* <BlogHeroSection
         story={story_}
         text={text}
         items={items}
         categoryDescription={categoryDescription}
         allCategories={allCategories}
-      />
+      /> */}
     </ComponentHolder>
   );
 };
